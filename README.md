@@ -49,19 +49,19 @@ python scripts/verify_s1_ready.py              # D    fail-closed readiness gate
 python scripts/run_s1_inference.py --model …   # E    raw scores only, one judge
 python scripts/verify_s1_integrity.py          # F    completeness + hashes
 python scripts/analyze_s1.py                   # G    metrics, bootstrap, figures
-python scripts/verify_s1_integrity.py --final  # H  integrity manifest + summary
+python scripts/verify_s1_integrity.py --final  # H    integrity manifest + summary
 ```
 
-On the GPU cluster, phases C and E run as SLURM jobs
+Running via SLURM on a GPU cluster, phases C and E:
 (`slurm/audit_models.sbatch`, `slurm/run_inference.sbatch`);
 
 ## Layout
 
 ```
-src/formalcrrc/     predicates, dataset, prompts, scoring, metrics, bootstrap, provenance
-scripts/            one script per pipeline phase
-slurm/              cluster jobs
-tests/              the pre-inference test suite
+src/formalcrrc/   predicates, dataset, prompts, scoring, metrics, bootstrap, provenance
+scripts/          one script per pipeline phase
+slurm/            cluster jobs
+tests/            the pre-inference test suite
 artifacts/s1/     frozen dataset, preregistration, raw scores, results
 figures/s1/       the five predeclared figures
 ```
