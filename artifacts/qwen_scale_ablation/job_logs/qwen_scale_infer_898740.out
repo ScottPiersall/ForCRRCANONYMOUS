@@ -1,0 +1,30 @@
+host=evc39 job=898740 node=evc39
+nvcc=/apps/cuda/cuda-13.1.0/bin/nvcc
+name, memory.total [MiB], driver_version, uuid
+NVIDIA H100 PCIe, 81559 MiB, 580.105.08, GPU-195e9e4a-9196-7400-09bd-c7b87df936c2
+started_at=2026-10-11T15:39:18Z
+tag=32b
+CUDA smoke test OK
+model=Qwen/Qwen2.5-32B-Instruct
+revision=5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd
+partition=DAY3_TEST
+prompts=2916 already_scored=0
+loading model ...
+loaded in 103.0s; scoring ...
+progress 250/2916 elapsed=19s rate=13.0/s gpu_alloc=61.1GiB
+progress 500/2916 elapsed=36s rate=13.7/s gpu_alloc=61.1GiB
+progress 750/2916 elapsed=54s rate=14.0/s gpu_alloc=61.1GiB
+progress 1000/2916 elapsed=71s rate=14.1/s gpu_alloc=61.1GiB
+progress 1250/2916 elapsed=88s rate=14.2/s gpu_alloc=61.1GiB
+progress 1500/2916 elapsed=106s rate=14.2/s gpu_alloc=61.1GiB
+progress 1750/2916 elapsed=123s rate=14.2/s gpu_alloc=61.1GiB
+progress 2000/2916 elapsed=141s rate=14.2/s gpu_alloc=61.1GiB
+progress 2250/2916 elapsed=158s rate=14.2/s gpu_alloc=61.1GiB
+progress 2500/2916 elapsed=175s rate=14.3/s gpu_alloc=61.1GiB
+progress 2750/2916 elapsed=193s rate=14.3/s gpu_alloc=61.1GiB
+scored 2916/2916 prompts
+failures: 0
+total time: 307s
+peak gpu: 61.2GiB
+finished_at=2026-10-11T15:44:35Z
+=== DONE rc=0 ===

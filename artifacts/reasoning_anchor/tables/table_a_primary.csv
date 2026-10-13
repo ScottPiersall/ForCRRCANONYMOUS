@@ -1,0 +1,2 @@
+model,complete_curves,mean_reasoning_tokens,median_reasoning_tokens,truncation_rate_pct,tce,tce_ci_low,tce_ci_high,accuracy_pct,brier,trr_nontrivial,trr_ci_low,trr_ci_high,unreachable_pct
+Qwen3-30B-A3B-Thinking,324,451.97222222222223,515.0,0.0,0.4012345679012346,0.31790123456790126,0.49074074074074076,91.56378600823047,0.04895356046812068,1.0,1.0,1.0,0.0

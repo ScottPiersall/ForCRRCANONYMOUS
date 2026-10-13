@@ -1,0 +1,567 @@
+{
+  "amendments": [],
+  "analysis_code_paths": [
+    "src/formalcrrc/config.py",
+    "src/formalcrrc/predicates.py",
+    "src/formalcrrc/dataset.py",
+    "src/formalcrrc/prompts.py",
+    "src/formalcrrc/scoring.py",
+    "src/formalcrrc/provenance.py",
+    "src/formalcrrc/day1_audit.py",
+    "src/formalcrrc/day2.py",
+    "src/formalcrrc/day2_bootstrap.py",
+    "src/formalcrrc/day2_config.py",
+    "scripts/generate_day2_datasets.py",
+    "scripts/run_day2_inference.py",
+    "scripts/fit_day2_bias.py",
+    "scripts/analyze_day2.py",
+    "scripts/figures_day2.py",
+    "scripts/verify_day2_integrity.py"
+  ],
+  "bootstrap": {
+    "calibration_stream": 0,
+    "cluster_rule": "all 9 thresholds of an artifact move together in both stages",
+    "coverage": 0.95,
+    "interval_method": "percentile",
+    "multiple_comparison_correction": "None. Model-specific reporting is descriptive, and no correction may be added after results are seen.",
+    "paired_comparisons": "judge-versus-judge comparisons reuse identical CAL and TEST resamples",
+    "prohibited": [
+      "treating threshold rows as independent observations",
+      "resampling TEST without refitting alpha",
+      "selecting any hyperparameter from bootstrap outcomes"
+    ],
+    "refit_inside_replicate": true,
+    "replicates": 5000,
+    "reported": [
+      "point estimate",
+      "95% percentile interval",
+      "fraction of replicates greater than zero"
+    ],
+    "seed": 42,
+    "stages": "two independent stages per replicate: resample calibration artifacts within family and refit the intercept on that sample; independently resample test artifacts within family and apply the refitted intercept",
+    "stratify_by": "family",
+    "test_stream": 1,
+    "unit": "artifact_id"
+  },
+  "calibration": {
+    "fitted_on": "CALIBRATION partition only",
+    "interpretation": "alpha > 0: the raw judge is globally too pessimistic about 'criterion met'; alpha < 0: globally too permissive; alpha near 0: little global offset. This is a decision-margin location parameter under this formal task, not a psychological or ideological property.",
+    "never_fitted_on": [
+      "TEST partition",
+      "Day-1 data",
+      "any outcome"
+    ],
+    "objective": "argmin_alpha of the calibration-set logistic log-loss; equivalently the root of sum_i [sigma(M_i + alpha) - Y_i] = 0",
+    "primary_equation": "M_G(s) = M(s) + alpha_J",
+    "primary_free_parameters_per_judge": 1,
+    "primary_model": "global_intercept",
+    "prohibited": [
+      "fitting alpha using TEST",
+      "fitting alpha using any Day-1 outcome",
+      "choosing among multiple alpha estimators based on TEST",
+      "fitting separate offsets after inspecting which family performs poorly",
+      "changing the decision threshold from 0.5",
+      "fitting a slope",
+      "temperature scaling",
+      "isotonic regression",
+      "Platt scaling with a free slope",
+      "monotone regression",
+      "per-artifact calibration",
+      "per-threshold calibration",
+      "per-latent-level calibration",
+      "learned embeddings",
+      "neural calibration",
+      "prompt optimization"
+    ],
+    "secondary_equation": "M_F(s) = M(s) + alpha_{J,F}",
+    "secondary_free_parameters_per_judge": 3,
+    "secondary_model": "family_intercept",
+    "slope": 1.0,
+    "solver": "newton_with_bisection_safeguard"
+  },
+  "data_generating_process": {
+    "families": [
+      "coverage",
+      "max_violation",
+      "numeric_tolerance"
+    ],
+    "family_c_uniqueness_rule": "Family C draws an integer target from a bounded range, so independent draws can coincide. Generation carries a forbidden set of (target, reported) pairs -- Day 1's, then Day 1's plus CAL's -- and redraws on collision. This guarantees that no rendered prompt is shared between Day 1, CAL and TEST. It is a documented, seed-deterministic, outcome-independent deviation from independent sampling with replacement, affecting family-C targets only.",
+    "identical_to_day1": "same three predicate families, same nine strictness levels, same latent-level distribution, same candidate formatting, same formal truth equations, same threshold interpretation, same prompt semantics",
+    "partition_tag_is_not_model_facing": "The partition tag appears only in artifact_id and prompt_id. Prompts contain the rubric and candidate response alone."
+  },
+  "dataset_totals": {
+    "n_artifacts_per_partition": 324,
+    "n_prompts_across_panel": 23328,
+    "n_prompts_per_judge": 5832,
+    "n_rows_per_partition": 2916
+  },
+  "datasets": {
+    "CAL": {
+      "content_sha256": "7a0ad398c53adee98fdca8674f4dc967e1c2bbaf949b33f6afeeb4007ee8f191",
+      "file_sha256": "2bc94e23349481b0bb48b20723778bc14dc11e60f549ec35d80597579b599842",
+      "n_artifacts": 324,
+      "n_rows": 2916,
+      "order_salt": "formalcrrc-day2-calibration-order-v1",
+      "path": "artifacts/day2/calibration_dataset.parquet",
+      "prompt_manifest_file_sha256": "a5a5f9f288c2cb03c06daee76c19d45976e0a1a9e3d532ac0274e9b9fb6f2072",
+      "role": "intercept fitting only",
+      "seed": 43
+    },
+    "TST": {
+      "content_sha256": "a1398571b367855069176336d94d6f386489a8699f5732afbfd7f2e9d01a5406",
+      "file_sha256": "d5e742ec2c90c761d985032d0eb0edd559f889d14da0a3eaebf5808edecf54c4",
+      "n_artifacts": 324,
+      "n_rows": 2916,
+      "order_salt": "formalcrrc-day2-test-order-v1",
+      "path": "artifacts/day2/test_dataset.parquet",
+      "prompt_manifest_file_sha256": "e56e07e09d6d46efebb9fde9539f43410ce36e54820b12a8e2dfc0b1784aa5e3",
+      "role": "held-out evaluation only",
+      "seed": 44
+    }
+  },
+  "design": {
+    "calibration_partition": "CAL, seed 43, intercept fitting only",
+    "core_object": "M(s) = S_A - S_B, the two-label decision margin",
+    "invariance": "M'(s+1) - M'(s) = M(s+1) - M(s) for any intercept, so location may change and shape may not",
+    "probability": "P_raw = sigmoid(M)",
+    "test_partition": "TST, seed 44, held-out evaluation only",
+    "type": "held-out shape-preserving intercept calibration",
+    "unit": "artifact"
+  },
+  "document": "FormalCRRC Day-2 preregistration",
+  "exclusion_rules": {
+    "artifact_exclusions": "None. All 324 CAL and all 324 TEST artifacts are used.",
+    "family_c_candidate_coincidence": "Family-C candidate responses are determined by the reported value, a bounded integer, so byte-identical candidate strings recur across independently seeded partitions. These are NOT filtered. The (target, reported) pairs and the rendered prompts are disjoint by construction, so no evaluated item is shared; the coincidence count is reported.",
+    "model_exclusions": "A model is excluded only if its exact Day-1 revision is inaccessible or its scoring conditions no longer match the Day-1 record, and is then recorded as BLOCKED_BY_MODEL_ACCESS. No substitution.",
+    "no_data_dependent_exclusion": true,
+    "no_filtering_of_hard_artifacts": true,
+    "no_selection_of_families": true,
+    "row_exclusions": "A row is excluded only if its scoring produced a non-finite label score, which would be an implementation defect rather than a result. Any exclusion is reported with an exact count and prompt_ids, and blocks the affected model.",
+    "threshold_exclusions": "None. All 9 strictness levels are used."
+  },
+  "experiment": "Separating global judge bias from threshold-response shape",
+  "failure_handling": {
+    "day1_immutability_failure": "If any Day-1 fingerprint changes, DAY1_IMMUTABILITY = FAIL and DAY2_ANALYSIS = BLOCKED. Files are not silently restored.",
+    "implementation_defect": "Stop the affected stage, preserve the defective output, document it, decide whether the protocol is affected, amend if necessary, and rerun only after an outcome-independent correction. Poor calibration performance is not a defect.",
+    "incomplete_model_run": "If a judge's raw scores do not contain all 2916 prompts exactly once on both partitions, that judge is BLOCKED and reported as such.",
+    "model_access_failure": "Recorded as BLOCKED_BY_MODEL_ACCESS. No substitution. A partial panel is never described as the four-model panel.",
+    "no_outcome_driven_tuning": [
+      "changing seeds",
+      "changing datasets",
+      "changing calibration or test sizes",
+      "changing models or revisions",
+      "changing the prompt or answer labels",
+      "changing the 0.5 decision boundary",
+      "changing predicate families",
+      "fitting slope parameters",
+      "introducing a third calibration method",
+      "filtering artifacts",
+      "removing difficult families",
+      "changing bootstrap units",
+      "choosing a model-specific procedure",
+      "rerunning only unfavourable examples"
+    ]
+  },
+  "figure_plan": [
+    {
+      "content": "A raw margin curve, the same curve shifted by a global intercept, and the resulting change of decision-boundary location with identical shape; shows that a vertical shift cannot remove a local reversal.",
+      "id": "figure1",
+      "path": "figures/day2/figure1_bias_vs_shape.png",
+      "title": "Bias-vs-shape concept"
+    },
+    {
+      "content": "One alpha per judge with bootstrap uncertainty, family offsets shown as secondary markers.",
+      "id": "figure2",
+      "path": "figures/day2/figure2_global_offsets.png",
+      "title": "Estimated global offsets"
+    },
+    {
+      "content": "Paired artifact-level TCE for each judge.",
+      "id": "figure3",
+      "path": "figures/day2/figure3_paired_tce.png",
+      "title": "Raw versus globally corrected TCE"
+    },
+    {
+      "content": "Per judge on TEST: raw probability curve, globally adjusted curve, and the formal boundary.",
+      "id": "figure4",
+      "path": "figures/day2/figure4_boundary_aligned.png",
+      "title": "Boundary-aligned held-out curves"
+    },
+    {
+      "content": "TCE distributions after global correction.",
+      "id": "figure5",
+      "path": "figures/day2/figure5_residual_tce.png",
+      "title": "Residual localization error"
+    },
+    {
+      "content": "Heatmap of raw TCE, global TCE, family TCE and MMVR.",
+      "id": "figure6",
+      "path": "figures/day2/figure6_model_family.png",
+      "title": "Model x family decomposition"
+    }
+  ],
+  "frozen_at": "2026-09-07T18:26:46+00:00",
+  "git_at_freeze": {
+    "available": true,
+    "clean": false,
+    "commit": "410dcc71d77e7652a79c50c85e38f0b4ee9b94c7",
+    "dirty_paths": [
+      ".gitignore",
+      "LICENSE",
+      "artifacts/day1/integrity_addendum.json",
+      "artifacts/day2/",
+      "docs/DAY1_ERRATA.md",
+      "docs/DAY1_INTEGRITY_ADDENDUM.md",
+      "docs/DAY1_PROVENANCE_AUDIT.md",
+      "docs/DAY2_RATIONALE.md",
+      "docs/NOVELTY_BOUNDARIES_DAY2.md",
+      "scripts/audit_day1_for_day2.py",
+      "scripts/audit_day2_models.py",
+      "scripts/fit_day2_bias.py",
+      "scripts/freeze_day2_preregistration.py",
+      "scripts/generate_day2_datasets.py",
+      "scripts/run_day2_inference.py",
+      "scripts/verify_day2_ready.py",
+      "slurm/audit_day2_models.sbatch",
+      "slurm/run_day2_inference.sbatch",
+      "src/formalcrrc/__init__.py",
+      "src/formalcrrc/dataset.py",
+      "src/formalcrrc/day1_audit.py",
+      "src/formalcrrc/day2.py",
+      "src/formalcrrc/day2_bootstrap.py",
+      "src/formalcrrc/day2_config.py",
+      "tests/conftest.py",
+      "tests/test_day1_immutability.py",
+      "tests/test_day2_bootstrap.py",
+      "tests/test_day2_calibration.py",
+      "tests/test_day2_dataset.py"
+    ]
+  },
+  "hypotheses": [
+    {
+      "id": "H1",
+      "label": "Global bias correction",
+      "note": "Not all judges are required to improve.",
+      "quantity": "delta_TCE_G = TCE_raw - TCE_global, positive means improvement",
+      "reporting": "per judge, with paired two-stage bootstrap intervals and the fraction of replicates above zero",
+      "statement": "An independently fitted global intercept will improve held-out threshold localization for at least some judges.",
+      "status": "primary"
+    },
+    {
+      "id": "H2",
+      "label": "Residual error",
+      "note": "No threshold for what counts as 'nontrivial' is defined, before or after seeing the data.",
+      "quantity": "TCE_global reported directly",
+      "reporting": "mean, median, distribution, exact and within-one-level rates",
+      "statement": "Even after global intercept correction, nontrivial threshold-localization error may remain.",
+      "status": "primary"
+    },
+    {
+      "id": "H3",
+      "label": "Shape invariance",
+      "note": "This is an identity, not a finding. A material deviation is an implementation defect.",
+      "quantity": "MMVR, MMVM, SPAN and margin Spearman before and after shifting",
+      "reporting": "maximum absolute deviation, verified to numerical tolerance",
+      "statement": "Because global calibration adds a constant in margin space, every margin-based shape metric is mathematically unchanged.",
+      "status": "primary"
+    },
+    {
+      "id": "H4",
+      "label": "Predicate-family bias",
+      "note": "Secondary.",
+      "quantity": "delta_TCE_F = TCE_global - TCE_family",
+      "reporting": "per judge and per family, with bootstrap intervals",
+      "statement": "Family-specific intercept correction may outperform the single global correction.",
+      "status": "secondary"
+    }
+  ],
+  "inference": {
+    "batch_size": 1,
+    "calibration_order_salt": "formalcrrc-day2-calibration-order-v1",
+    "console_output": "operational only: processed rows, failures, timing, GPU memory. No accuracy, TCE, fitted alpha, ranking, MVR, family result or boundary curve before all intended raw runs complete.",
+    "model_order_salt": "formalcrrc-day2-model-order-v1",
+    "order": "prompts are sorted by sha256(partition salt|prompt_id), frozen in the partition prompt manifests before any GPU inference",
+    "test_order_salt": "formalcrrc-day2-test-order-v1"
+  },
+  "judge_models": {
+    "dtype": "bfloat16",
+    "label_token_ids": {
+      "Qwen/Qwen2.5-14B-Instruct": {
+        "met": [
+          32
+        ],
+        "not_met": [
+          33
+        ]
+      },
+      "google/gemma-2-9b-it": {
+        "met": [
+          235280
+        ],
+        "not_met": [
+          235305
+        ]
+      },
+      "meta-llama/Llama-3.1-8B-Instruct": {
+        "met": [
+          32
+        ],
+        "not_met": [
+          33
+        ]
+      },
+      "mistralai/Mistral-7B-Instruct-v0.3": {
+        "met": [
+          29509
+        ],
+        "not_met": [
+          29528
+        ]
+      }
+    },
+    "model_ids": [
+      "Qwen/Qwen2.5-14B-Instruct",
+      "meta-llama/Llama-3.1-8B-Instruct",
+      "mistralai/Mistral-7B-Instruct-v0.3",
+      "google/gemma-2-9b-it"
+    ],
+    "policy": "Exactly the Day-1 panel at exactly the Day-1 revisions, read from the immutable Day-1 provenance. No upgrade, no branch re-resolution, no substitution, no quantisation, no fine-tuning, no adapters.",
+    "revisions": {
+      "Qwen/Qwen2.5-14B-Instruct": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+      "google/gemma-2-9b-it": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+      "meta-llama/Llama-3.1-8B-Instruct": "0e9e39f249a16976918f6564b8830bc894c89659",
+      "mistralai/Mistral-7B-Instruct-v0.3": "c170c708c41dac9275d15a8fff4eca08d52bab71"
+    },
+    "run_order": [
+      "meta-llama/Llama-3.1-8B-Instruct",
+      "mistralai/Mistral-7B-Instruct-v0.3",
+      "google/gemma-2-9b-it",
+      "Qwen/Qwen2.5-14B-Instruct"
+    ],
+    "scoring_methods": {
+      "Qwen/Qwen2.5-14B-Instruct": "single_token_next_logit",
+      "google/gemma-2-9b-it": "single_token_next_logit",
+      "meta-llama/Llama-3.1-8B-Instruct": "single_token_next_logit",
+      "mistralai/Mistral-7B-Instruct-v0.3": "single_token_next_logit"
+    },
+    "status_at_freeze": {
+      "Qwen/Qwen2.5-14B-Instruct": "AVAILABLE",
+      "google/gemma-2-9b-it": "AVAILABLE",
+      "meta-llama/Llama-3.1-8B-Instruct": "AVAILABLE",
+      "mistralai/Mistral-7B-Instruct-v0.3": "AVAILABLE"
+    }
+  },
+  "novelty_boundaries": {
+    "calibration_method_novelty": "None claimed. Intercept-only logistic calibration is standard and is used here precisely because it is the weakest correction that can move location without touching shape.",
+    "claimed_contribution": "FormalCRRC uses formally controlled threshold-response curves to decompose evaluator failure into curve-location bias and residual curve-shape/boundary error under a held-out, shape-preserving calibration protocol.",
+    "day2_does_not_establish": [
+      "human alignment",
+      "clinical reliability",
+      "natural-language rubric reliability",
+      "HealthBench reliability",
+      "calibration on arbitrary tasks",
+      "general superiority of any model",
+      "that intercept calibration should be deployed",
+      "that calibrated probabilities are true probabilities",
+      "that semantic rubric failures reduce to global bias"
+    ],
+    "explicitly_not_claimed": [
+      "first probability calibration of an LLM",
+      "first logit calibration",
+      "first intercept-only calibration",
+      "first calibration of LLM-as-a-Judge",
+      "first study of LLM response bias",
+      "first use of held-out calibration data",
+      "first use of counterfactual curves",
+      "first threshold robustness test"
+    ],
+    "object_of_interest": "the decomposition, not the invention of calibration"
+  },
+  "partition_disjointness": {
+    "artifact_id_overlap": {
+      "cal_vs_day1": 0,
+      "cal_vs_test": 0,
+      "test_vs_day1": 0
+    },
+    "candidate_response_overlap_by_family": {
+      "coverage": {
+        "cal_vs_day1": 0,
+        "cal_vs_test": 0,
+        "test_vs_day1": 0
+      },
+      "max_violation": {
+        "cal_vs_day1": 0,
+        "cal_vs_test": 0,
+        "test_vs_day1": 0
+      },
+      "numeric_tolerance": {
+        "cal_vs_day1": 37,
+        "cal_vs_test": 38,
+        "test_vs_day1": 34
+      }
+    },
+    "family_c_candidate_coincidence_note": "A family-C candidate response is determined by the reported value alone, an integer in a bounded range, so byte-identical candidate responses across partitions are an expected property of the shared data-generating process. They are not reused items: the (target, reported) pairs are disjoint by construction and no rendered prompt is shared.",
+    "family_c_target_pair_overlap": {
+      "cal_vs_day1": 0,
+      "cal_vs_test": 0,
+      "test_vs_day1": 0
+    },
+    "rendered_prompt_overlap": {
+      "cal_vs_day1": 0,
+      "cal_vs_test": 0,
+      "test_vs_day1": 0
+    }
+  },
+  "primary_metrics": {
+    "TCE_global": {
+      "definition": "residual localisation error after global correction"
+    },
+    "alpha": {
+      "definition": "the fitted global intercept per judge",
+      "reported": "point estimate and bootstrap interval"
+    },
+    "delta_TCE_global": {
+      "decision_threshold": 0.5,
+      "definition": "TCE_raw - TCE_global, per artifact, on TEST only",
+      "j_hat_global": "min{s : sigmoid(M(s) + alpha) < 0.5}, or 9",
+      "j_hat_raw": "min{s : P_raw(s) < 0.5}, or 9",
+      "no_crossing_index": 9,
+      "reported": [
+        "mean raw TCE",
+        "mean corrected TCE",
+        "mean paired improvement",
+        "medians",
+        "exact boundary rate",
+        "within-one-level rate",
+        "full TCE distribution"
+      ]
+    }
+  },
+  "prompt": {
+    "day1_template_sha256": "e5f3c5ba3dfd1ccaca0655307d8ad254598a17184c7ae40dfde63c1f660cae14",
+    "label_met": "A",
+    "label_not_met": "B",
+    "prohibited": [
+      "chain-of-thought prompting",
+      "few-shot examples",
+      "self-explanation requests",
+      "model-specific reasoning instructions",
+      "persona or role framing",
+      "temperature or verbosity variation between models"
+    ],
+    "reused_from_day1_byte_identical": true,
+    "template": "You are evaluating exactly one criterion for one candidate response.\n\nUse only the stated criterion. Do not reward or penalize the response for properties outside that criterion.\n\nCriterion:\n{rubric_text}\n\nCandidate response:\n{candidate_response}\n\nReturn A if the criterion is met.\nReturn B if the criterion is not met.",
+    "template_sha256": "e5f3c5ba3dfd1ccaca0655307d8ad254598a17184c7ae40dfde63c1f660cae14"
+  },
+  "relationship_to_day1": {
+    "day1_audit": {
+      "all_runs_pinned_to_freeze": true,
+      "documents": [
+        "docs/DAY1_ERRATA.md",
+        "docs/DAY1_PROVENANCE_AUDIT.md",
+        "docs/DAY1_INTEGRITY_ADDENDUM.md"
+      ],
+      "errata_required": true,
+      "figure_hash_defect_present": true,
+      "preregistered_files_changed": []
+    },
+    "day1_baseline_manifest_sha256": "c21b0ce94afdd3c817a38d4f021ca81189750eb3b00b5cc704b920139202d614",
+    "day1_baseline_n_files": 30,
+    "day1_dataset_content_sha256": "4462bedbf5f086daa8bdfa077ad82e1ea7b79b4db59d906fafe6c814cfc85a2e",
+    "day1_preregistration_sha256": "8b76c80d85f01e855f9c13100b84e06471919a21813875e1af58c7f0c8123f91",
+    "day1_results_status": "unchanged and final",
+    "day1_source_extensions": {
+      "src/formalcrrc/dataset.py": "added optional seed, partition, forbidden_pairs and enforce_unique_targets parameters, all defaulting to the Day-1 behaviour; no Day-1 code path altered"
+    },
+    "statement": "Day 1 motivates Day 2. Day 2 is a new, separately preregistered experiment on new data, not a modification, rerun or repair of Day 1."
+  },
+  "research_questions": {
+    "additional": "Is a single global bias parameter sufficient, or does bias depend systematically on predicate family?",
+    "primary": "Does correcting a judge's global decision-margin bias using an independent formal calibration set improve threshold localization on a fresh held-out FormalCRRC test set without modifying the underlying threshold-response shape?",
+    "secondary": "After global bias is removed, how much threshold-localization error remains?"
+  },
+  "scoring": {
+    "fallback_rule": "sequence_loglikelihood",
+    "label_token_resolution": {
+      "definition": "The scored token ids for a label are the continuation ids encode(rendered_prompt + label) minus encode(rendered_prompt), both with add_special_tokens=False. Encoding the bare label string is NOT used: a SentencePiece tokenizer returns a word-boundary-marked token for a string encoded in isolation, which is a different id from the one that actually continues a prompt.",
+      "observed_naive_encoding_mismatch": "mistralai/Mistral-7B-Instruct-v0.3 encodes 'A' as the word-boundary token '_A' (id 1098) but continues its prompt with 'A' (id 29509). Detected before this preregistration was frozen and before any study inference.",
+      "reference_prompt": "a message with the study prompt's chat-template structure and placeholder content (<RUBRIC>, <RESPONSE>), so the resolution depends on no rubric, threshold or candidate response",
+      "rule": "prompt_continuation_difference",
+      "stability_verification": "scripts/verify_label_tokens.py confirms, by tokenizer inspection alone and with no model call, that the resolved ids are identical for the first 25 prompts of the frozen inference order; recorded in artifacts/day1/label_token_check.json"
+    },
+    "margin_definition": "M = S_A - S_B",
+    "margins_from_raw_scores": "Margins are computed from the recorded raw label scores, never reconstructed from rounded probabilities.",
+    "primary_rule": "single_token_next_logit",
+    "probability": "P_raw = sigmoid(M), identical to the Day-1 normalisation",
+    "recorded_per_row": [
+      "raw_score_met",
+      "raw_score_not_met",
+      "margin",
+      "p_met_raw",
+      "scoring_method",
+      "n_prompt_tokens",
+      "rendered_prompt_sha256",
+      "revision"
+    ],
+    "reused_from_day1": true
+  },
+  "secondary_metrics": {
+    "accuracy": "mean 1[(P_met >= 0.5) == Y]",
+    "always_below_rate": "artifacts with P(0) < 0.5",
+    "brier": "mean (P_met - Y)^2",
+    "exact_boundary_rate": "mean 1[TCE = 0]",
+    "family_breakdown": "every metric reported per predicate family; family effects are never averaged away",
+    "never_cross_rate": "artifacts with P(s) >= 0.5 at every threshold",
+    "reported_for": [
+      "RAW",
+      "GLOBAL",
+      "FAMILY"
+    ],
+    "within_one_level_rate": "mean 1[TCE <= 1]"
+  },
+  "shape_metrics": {
+    "MMVM": "(1/8) sum_{s=0}^{7} max(0, M(s+1) - M(s))",
+    "MMVR": "(1/8) sum_{s=0}^{7} 1[M(s+1) > M(s)]",
+    "SPAN": "M(0) - M(8)",
+    "computed_on": "raw decision margins",
+    "day1_continuity": "The Day-1 probability-based MVR may be reproduced descriptively on Day-2 raw scores, but is not the primary Day-2 shape metric.",
+    "invariance_claim": "All four are exactly or numerically invariant under any global or family-specific intercept. Verified empirically; a material deviation is an implementation defect.",
+    "margin_spearman": "within-artifact Spearman of s against M(s)"
+  },
+  "source_manifest_at_freeze": {
+    "files": {
+      "scripts/analyze_day2.py": null,
+      "scripts/figures_day2.py": null,
+      "scripts/fit_day2_bias.py": "8f8666aecd18a978b9c24ea219dcae49d5018e55c8a79ac17d62c659d9fc2b23",
+      "scripts/generate_day2_datasets.py": "76f2ea2d4e5327c22a48a4e44dc134ad584f5b8e1bd9e9e0b7f34ac949c22db7",
+      "scripts/run_day2_inference.py": "6f30f5da5c11d5e8144fb475d01491f79bb777328a556e0192089ddc11c94835",
+      "scripts/verify_day2_integrity.py": null,
+      "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
+      "src/formalcrrc/dataset.py": "8a6cb27c91c8d05ab3c9ca29ec7808ed067b0c7d215044c892bb3e059c240d2d",
+      "src/formalcrrc/day1_audit.py": "8631d4ae82b78c387288f0cd67fc94c6b2fdf53c11cc3f696645de5d405261f6",
+      "src/formalcrrc/day2.py": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
+      "src/formalcrrc/day2_bootstrap.py": "fd3062c196add2e7af00a227294d95de92c0642ce893f75a26961fa7dfb58993",
+      "src/formalcrrc/day2_config.py": "c2a34bf4ff5f3c2d741dd3ed43a2bd23daee3780d717d5b680c72e89c79c7c71",
+      "src/formalcrrc/predicates.py": "5c119021ffa69d2dc875bb931a249e5f12811fda791227bc0716cb075fc56b68",
+      "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4",
+      "src/formalcrrc/provenance.py": "34e1c06f91514642b0bcc1beb946997ad275d2b69030f80d83b6e7df9920bd55",
+      "src/formalcrrc/scoring.py": "e9dea77babcb60820ad679226d2d826265fe0d844948163296c71be56510c8d4"
+    },
+    "tree_sha256": "7a39cd4230b43b9189d961d3159f868fcea3ff7a7e16a53795189b61ab86120f"
+  },
+  "stopping_rule": {
+    "no_data_dependent_extension": "The design is not extended, repeated or enlarged on the basis of observed results. No Day-3 experiment follows automatically.",
+    "no_interim_analysis": "No intercept, TCE, accuracy, MVR, family result, boundary curve or ranking is computed or displayed while inference is running.",
+    "rule": "Inference stops when every judge has produced exactly 2916 scored prompts on CALIBRATION and 2916 on TEST, or has been marked BLOCKED_BY_MODEL_ACCESS. Calibration is fitted only then, and the preregistered analysis is run exactly once.",
+    "success_criterion": "Day 2 succeeds when Day-1 immutability passes, partitions are disjoint and integral, the preregistration was frozen before outcomes, intended runs completed or were transparently blocked, calibration used CALIBRATION only, shape invariance holds, and all results are reported regardless of direction. No favourable-effect threshold is defined."
+  },
+  "taxonomy": {
+    "correctable_by_global_bias": "TCE_raw > 1 and TCE_global <= 1",
+    "correctly_localized": "TCE_raw = 0",
+    "locally_unstable": "MMVR > 0",
+    "mislocated_but_orderly": "MMVR = 0 and TCE_raw > 1",
+    "note": "Descriptive categories, predeclared before inference. They are counted and reported, never used to select favourable subsets.",
+    "residual_localization_failure": "TCE_global > 1"
+  },
+  "version": 1
+}

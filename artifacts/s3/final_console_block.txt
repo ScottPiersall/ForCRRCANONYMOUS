@@ -1,0 +1,52 @@
+FORMALCRRC DAY 3
+Translation Limits of Threshold-Response Curves
+
+PRIOR EXPERIMENT IMMUTABILITY:
+  Day 1:                    PASS
+  Day 2:                    PASS
+  files fingerprinted:      77
+
+DAY-3 DATA:
+  artifacts:                324
+  thresholds/artifact:      9
+  pairs/judge:              2916
+  prior prompt overlap:     0
+  integrity:                PASS
+
+MODEL PANEL:
+  Qwen2.5-14B              COMPLETE
+  Llama-3.1-8B             COMPLETE
+  Mistral-7B               COMPLETE
+  Gemma-2-9B               COMPLETE
+
+PRIMARY RESULTS:
+
+                             raw TCE   oracle-artifact TCE   nontrivial TRR
+  Qwen2.5-14B                  3.373                 0.886           47.9% 
+  Llama-3.1-8B                 4.904                 1.148           27.1% 
+  Mistral-7B                   2.938                 1.136           33.3% 
+  Gemma-2-9B                   3.361                 0.457           60.4% 
+
+ORACLE HIERARCHY:
+
+                                RAW   ORACLE-G   ORACLE-F   ORACLE-A
+  Qwen2.5-14B                 3.373      2.370      1.907      0.886
+  Llama-3.1-8B                4.904      2.963      2.664      1.148
+  Mistral-7B                  2.938      2.534      2.241      1.136
+  Gemma-2-9B                  3.361      2.515      1.880      0.457
+
+ORACLE NESTING CHECK:      PASS
+REACHABILITY CROSS-CHECK:  PASS
+OTCE <= RAW TCE:           PASS
+FIGURES HASHED:            6 (PASS)
+
+DAY-3 ANALYSIS:            COMPLETE
+
+No prior scientific outcome modified.
+No human labels used.
+No human annotation performed.
+No semantic rubric generation performed.
+No model calibration proposed for deployment.
+No curve shape modified.
+No outcome-driven tuning performed.
+No Day-4 experiment started.

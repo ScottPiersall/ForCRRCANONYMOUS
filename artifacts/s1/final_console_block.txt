@@ -1,0 +1,38 @@
+FORMALCRRC DAY 1
+
+Formal dataset:
+  artifacts:              324
+  predicate families:     3 (coverage, max_violation, numeric_tolerance)
+  thresholds/artifact:    9
+  rubric-response pairs:  2916
+  dataset integrity:      PASS
+  content sha256:         4462bedbf5f086daa8bdfa077ad82e1ea7b79b4db59d906fafe6c814cfc85a2e
+
+Preregistration:
+  frozen before inference: YES
+  frozen at:               2026-09-07T17:20:38+00:00
+  checksum verifies:       PASS
+  amendments:              0
+  sha256:                  8b76c80d85f01e855f9c13100b84e06471919a21813875e1af58c7f0c8123f91
+
+Judge panel:
+  Qwen2.5-14B    COMPLETE
+  Llama-3.1-8B   COMPLETE
+  Mistral-7B     COMPLETE
+  Gemma-2-9B     COMPLETE
+
+Primary results:
+                       MVR       MVM  mean TCE  accuracy
+  Qwen2.5-14B       0.0556    0.0464     3.543    0.7603
+  Llama-3.1-8B      0.0907    0.0302     4.944    0.5336
+  Mistral-7B        0.1069    0.0300     2.858    0.6698
+  Gemma-2-9B        0.0104    0.0061     3.380    0.6307
+
+Model panel:              COMPLETE (4/4)
+Analysis status:          COMPLETE
+
+No human labels used.
+No human annotation performed.
+No semantic rubric generation performed.
+No outcome-driven tuning performed.
+No Day-2 experiment started.

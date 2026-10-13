@@ -1,0 +1,4 @@
+host=evc22 job=898715 node=evc22
+nvcc=/apps/cuda/cuda-13.1.0/bin/nvcc
+No devices were found
+FATAL: node evc22 exposes no usable GPU

@@ -1,0 +1,360 @@
+{
+  "amendments": 0,
+  "analysis_code": {
+    "files": {
+      "scripts/analyze_reasoning_anchor.py": "c092f87003dfb93271c7546db6ae57d4e39a28b218c77ec1a200c88d3bcdcfe1",
+      "scripts/figures_reasoning_anchor.py": "63cfb397fe9ec96c07a179df10f3fa744bc6e57ed3aa09f4bd9de0d2aac6cda1",
+      "scripts/freeze_reasoning_anchor_preregistration.py": "d1223b0a055edf95f97aee5610182e875171a4ca848a68f6cf8073612f0a888d",
+      "scripts/preflight_reasoning_anchor.py": "d200f17fa2e69c3772fe901535a743d6ab016d310447c5bba25b7c501914b2c2",
+      "scripts/run_reasoning_anchor_inference.py": "277e05d9e252817a61709452d7689726623e377fb19ace00473cf261e5a6d72a",
+      "scripts/verify_reasoning_anchor_integrity.py": "5c784db4610f672408f8db760f18f39af1945f9c6ed43c46d83457fc7e0ad84b",
+      "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
+      "src/formalcrrc/day2.py": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
+      "src/formalcrrc/day3.py": "213fcd331a67d73b8ec5cdcd30dafa778da9b7d22107c8cd756b8a6ada713cc5",
+      "src/formalcrrc/predicates.py": "5c119021ffa69d2dc875bb931a249e5f12811fda791227bc0716cb075fc56b68",
+      "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4",
+      "src/formalcrrc/provenance.py": "34e1c06f91514642b0bcc1beb946997ad275d2b69030f80d83b6e7df9920bd55",
+      "src/formalcrrc/reasoning_anchor.py": "368c403797cd3b9a5773a39640266415c5145d7934cefee6a9dbacf9df5da9e8",
+      "src/formalcrrc/reasoning_anchor_bootstrap.py": "79ae152621be229553a21547bbeb8f05fdae622214e38d24603cf677ebfee9a8",
+      "src/formalcrrc/reasoning_anchor_config.py": "25000305fe2f843891a4a6a2f1641ce0fc4b2f6a929b63f32e2cc696a75c8d3e",
+      "src/formalcrrc/scoring.py": "e9dea77babcb60820ad679226d2d826265fe0d844948163296c71be56510c8d4"
+    },
+    "tree_sha256": "b4f8ce9abe8acb1c68e20dfd895668b5a05eec96d71477830758e53ab42cabcf"
+  },
+  "anchor_description": "reasoning-capable open-weight external anchor",
+  "baselines": {
+    "always_met_tce": 4.0,
+    "always_not_met_tce": 5.0,
+    "fixed_center_accuracy_pct": 75.30864197530865,
+    "fixed_center_tce": 2.2222222222222223,
+    "majority_accuracy_pct": 55.55555555555556,
+    "random_crossing_accuracy_pct": 67.07818930041152,
+    "random_crossing_tce": 2.962962962962963
+  },
+  "bootstrap": {
+    "bootstrap": {
+      "ci": "percentile, 95%",
+      "replicates": 5000,
+      "seed": 42,
+      "stratified_by": "family",
+      "unit": "artifact_curve"
+    },
+    "by_family": {
+      "coverage": {
+        "accuracy": {
+          "ci_high": 0.9938271604938272,
+          "ci_level": 95.0,
+          "ci_low": 0.9804526748971193,
+          "n_replicates": 5000,
+          "point": 0.9876543209876544
+        },
+        "brier": {
+          "ci_high": 0.011500505884521178,
+          "ci_level": 95.0,
+          "ci_low": 0.0056942299890009,
+          "n_replicates": 5000,
+          "point": 0.008420967192062466
+        },
+        "mean_tce": {
+          "ci_high": 0.10185185185185185,
+          "ci_level": 95.0,
+          "ci_low": 0.018518518518518517,
+          "n_replicates": 5000,
+          "point": 0.05555555555555555
+        },
+        "n_curves": 108,
+        "n_nontrivial": 96,
+        "trr_nontrivial": {
+          "ci_high": 1.0,
+          "ci_level": 95.0,
+          "ci_low": 1.0,
+          "n_replicates": 5000,
+          "point": 1.0
+        },
+        "unreachable_fraction": {
+          "ci_high": 0.0,
+          "ci_level": 95.0,
+          "ci_low": 0.0,
+          "n_replicates": 5000,
+          "point": 0.0
+        }
+      },
+      "max_violation": {
+        "accuracy": {
+          "ci_high": 0.9320987654320987,
+          "ci_level": 95.0,
+          "ci_low": 0.8940329218106996,
+          "n_replicates": 5000,
+          "point": 0.9135802469135803
+        },
+        "brier": {
+          "ci_high": 0.05377522601634146,
+          "ci_level": 95.0,
+          "ci_low": 0.03569539936018923,
+          "n_replicates": 5000,
+          "point": 0.04453574661723921
+        },
+        "mean_tce": {
+          "ci_high": 0.46296296296296297,
+          "ci_level": 95.0,
+          "ci_low": 0.24074074074074073,
+          "n_replicates": 5000,
+          "point": 0.35185185185185186
+        },
+        "n_curves": 108,
+        "n_nontrivial": 96,
+        "trr_nontrivial": {
+          "ci_high": 1.0,
+          "ci_level": 95.0,
+          "ci_low": 1.0,
+          "n_replicates": 5000,
+          "point": 1.0
+        },
+        "unreachable_fraction": {
+          "ci_high": 0.0,
+          "ci_level": 95.0,
+          "ci_low": 0.0,
+          "n_replicates": 5000,
+          "point": 0.0
+        }
+      },
+      "numeric_tolerance": {
+        "accuracy": {
+          "ci_high": 0.8755144032921811,
+          "ci_level": 95.0,
+          "ci_low": 0.8148148148148147,
+          "n_replicates": 5000,
+          "point": 0.8456790123456791
+        },
+        "brier": {
+          "ci_high": 0.11217469431824001,
+          "ci_level": 95.0,
+          "ci_low": 0.07578307016678405,
+          "n_replicates": 5000,
+          "point": 0.09390396759506035
+        },
+        "mean_tce": {
+          "ci_high": 1.0277777777777777,
+          "ci_level": 95.0,
+          "ci_low": 0.5833333333333334,
+          "n_replicates": 5000,
+          "point": 0.7962962962962963
+        },
+        "n_curves": 108,
+        "n_nontrivial": 96,
+        "trr_nontrivial": {
+          "ci_high": 1.0,
+          "ci_level": 95.0,
+          "ci_low": 1.0,
+          "n_replicates": 5000,
+          "point": 1.0
+        },
+        "unreachable_fraction": {
+          "ci_high": 0.0,
+          "ci_level": 95.0,
+          "ci_low": 0.0,
+          "n_replicates": 5000,
+          "point": 0.0
+        }
+      }
+    },
+    "overall": {
+      "accuracy": {
+        "ci_high": 0.9276406035665294,
+        "ci_level": 95.0,
+        "ci_low": 0.9036351165980795,
+        "n_replicates": 5000,
+        "point": 0.9156378600823046
+      },
+      "brier": {
+        "ci_high": 0.05598707018711002,
+        "ci_level": 95.0,
+        "ci_low": 0.04210383819800799,
+        "n_replicates": 5000,
+        "point": 0.04895356046812068
+      },
+      "mean_reachable_count": {
+        "ci_high": 5.021604938271605,
+        "ci_level": 95.0,
+        "ci_low": 4.7253086419753085,
+        "n_replicates": 5000,
+        "point": 4.8734567901234565
+      },
+      "mean_tce": {
+        "ci_high": 0.49074074074074076,
+        "ci_level": 95.0,
+        "ci_low": 0.31790123456790126,
+        "n_replicates": 5000,
+        "point": 0.4012345679012346
+      },
+      "trr_nontrivial": {
+        "ci_high": 1.0,
+        "ci_level": 95.0,
+        "ci_low": 1.0,
+        "n_replicates": 5000,
+        "point": 1.0
+      },
+      "unreachable_fraction": {
+        "ci_high": 0.0,
+        "ci_level": 95.0,
+        "ci_low": 0.0,
+        "n_replicates": 5000,
+        "point": 0.0
+      }
+    }
+  },
+  "completeness": {
+    "curve_exclusion_rule": "A curve is excluded from curve-level TCE/TRR if and only if one or more of its nine strictness levels lacks a valid primary margin (reasoning truncated, or scoring failed). No exclusion depends on the value of any margin or on model performance.",
+    "excluded_artifact_ids": [],
+    "missing_levels_by_artifact": {},
+    "n_complete_curves": 324,
+    "n_excluded_curves": 0,
+    "rows_attempted": 2916,
+    "rows_other_failure": 0,
+    "rows_scored": 2916,
+    "rows_truncated": 0,
+    "rows_with_successful_reasoning": 2916,
+    "truncation_rate": 0.0,
+    "truncation_warning": false,
+    "truncation_warning_flag": null
+  },
+  "day3_comparison": {
+    "status": "descriptive only; the anchor uses a reason-then-score protocol rather than the original immediate next-token procedure, so no pooled hypothesis test treating the five models as exchangeable is performed",
+    "tce": {
+      "Gemma-2-9B": 3.361,
+      "Llama-3.1-8B": 4.904,
+      "Mistral-7B": 2.938,
+      "Qwen2.5-14B": 3.373
+    },
+    "unreachable_pct": {
+      "Gemma-2-9B": 39.58,
+      "Llama-3.1-8B": 72.92,
+      "Mistral-7B": 66.67,
+      "Qwen2.5-14B": 52.08
+    }
+  },
+  "family": [
+    {
+      "accuracy": 0.9876543209876544,
+      "brier": 0.008420967192062466,
+      "family": "coverage",
+      "mean_reachable_count": 4.194444444444445,
+      "mean_reasoning_tokens": 606.6697530864197,
+      "n_curves": 108,
+      "n_nontrivial": 96,
+      "tce": 0.05555555555555555,
+      "trr": 1.0,
+      "unreachable_pct": 0.0
+    },
+    {
+      "accuracy": 0.9135802469135803,
+      "brier": 0.04453574661723921,
+      "family": "max_violation",
+      "mean_reachable_count": 4.981481481481482,
+      "mean_reasoning_tokens": 629.4197530864199,
+      "n_curves": 108,
+      "n_nontrivial": 96,
+      "tce": 0.35185185185185186,
+      "trr": 1.0,
+      "unreachable_pct": 0.0
+    },
+    {
+      "accuracy": 0.8456790123456791,
+      "brier": 0.09390396759506035,
+      "family": "numeric_tolerance",
+      "mean_reachable_count": 5.444444444444445,
+      "mean_reasoning_tokens": 119.82716049382715,
+      "n_curves": 108,
+      "n_nontrivial": 96,
+      "tce": 0.7962962962962963,
+      "trr": 1.0,
+      "unreachable_pct": 0.0
+    }
+  ],
+  "generated_at": "2026-09-09T19:21:01+00:00",
+  "interpretation": {
+    "note": "TCE is reported separately and is not collapsed with TRR into a single success or failure label.",
+    "original_panel_range_pct": [
+      39.58,
+      72.92
+    ],
+    "outcome_category": "C",
+    "statement": "The reasoning-capable anchor does not reproduce Day-3 boundary unreachability under this reason-then-score protocol.",
+    "unreachable_pct": 0.0
+  },
+  "model": {
+    "chat_template_sha256": "3802169b2a02b81e6adb7ab4f64f91ff02db753c8c3a64a01c35192d3a61d8d7",
+    "config_sha256": "a1ee086a68d0cbfc87316da00ba4b8507bd1292978108e2496201a30a450f438",
+    "config_torch_dtype": "bfloat16",
+    "dtype": "bfloat16",
+    "model_id": "Qwen/Qwen3-30B-A3B-Thinking-2507",
+    "quantization": "none",
+    "quantization_config_present": false,
+    "revision": "144afc2f379b542fdd4e85a1fcd5e1f79112d95d",
+    "short_name": "Qwen3-30B-A3B-Thinking",
+    "slug": "qwen3_30b_a3b_thinking_2507",
+    "tokenizer_revision": "144afc2f379b542fdd4e85a1fcd5e1f79112d95d"
+  },
+  "preregistration_frozen_at": "2026-09-09T18:54:49+00:00",
+  "preregistration_sha256": "b32c547bf8ba994937e144bed8fec0673af7553c0c7c3aca6838239f3ba6582b",
+  "primary": {
+    "mean_tce": 0.4012345679012346,
+    "mean_tce_ci": [
+      0.31790123456790126,
+      0.49074074074074076
+    ],
+    "n_complete_curves": 324,
+    "n_nontrivial_curves": 288,
+    "trr_ci": [
+      1.0,
+      1.0
+    ],
+    "trr_nontrivial": 1.0,
+    "unreachable_fraction": 0.0,
+    "unreachable_pct": 0.0
+  },
+  "protocol": "reason_then_score",
+  "reasoning_length_associations": [
+    {
+      "interpretation": "descriptive association only; not causal",
+      "length_column": "mean_reasoning_tokens",
+      "n": 324,
+      "outcome": "tce_raw",
+      "p_value": 0.000276086822966395,
+      "spearman_rho": -0.20075748751336941
+    },
+    {
+      "interpretation": "descriptive association only; not causal",
+      "length_column": "mean_reasoning_tokens",
+      "n": 324,
+      "outcome": "translation_reachable",
+      "p_value": NaN,
+      "spearman_rho": NaN
+    }
+  ],
+  "scalar_readout_diagnostic": {
+    "caveat": "RC = 10 does not prove the model actually uses that representation; necessity is not sufficiency",
+    "necessity": "RC = 10 is a necessary consequence of the strict scalar latent-estimation / readout model",
+    "provenance": "inherited from the post-study step-function proposition; not an original Day-3 endpoint",
+    "rc_equals_ten_count": 0,
+    "rc_equals_ten_fraction": 0.0
+  },
+  "secondary": {
+    "accuracy": 0.9156378600823046,
+    "brier": 0.04895356046812068,
+    "mean_reachable_count": 4.8734567901234565,
+    "mvm": 0.03289843316909282,
+    "mvr_practical": 0.09529320987654322,
+    "mvr_zero_tolerance": 0.41782407407407407,
+    "prefix_record_rate": 0.3591820987654321,
+    "reasoning_tokens": {
+      "max": 1678.0,
+      "mean": 451.97222222222223,
+      "median": 515.0,
+      "min": 68.0,
+      "p05": 98.0,
+      "p95": 843.25
+    }
+  },
+  "study": "FormalCRRC Reasoning-Capable External Anchor Study"
+}

@@ -1,0 +1,99 @@
+{
+  "created_at": "2026-09-07T19:01:57+00:00",
+  "dimensions": {
+    "families": [
+      "coverage",
+      "max_violation",
+      "numeric_tolerance"
+    ],
+    "n_artifacts": 324,
+    "n_instances_per_cell": 12,
+    "n_latent_levels": 9,
+    "n_rows": 2916,
+    "n_strictness_levels": 9
+  },
+  "disjointness": {
+    "artifact_id_overlap": {
+      "day1": 0,
+      "day2_calibration": 0,
+      "day2_test": 0
+    },
+    "candidate_response_overlap_by_family": {
+      "day1": {
+        "coverage": 0,
+        "max_violation": 0,
+        "numeric_tolerance": 32
+      },
+      "day2_calibration": {
+        "coverage": 0,
+        "max_violation": 0,
+        "numeric_tolerance": 35
+      },
+      "day2_test": {
+        "coverage": 0,
+        "max_violation": 0,
+        "numeric_tolerance": 38
+      }
+    },
+    "family_c_candidate_coincidence_note": "A family-C candidate response is determined by the reported value alone, an integer in a bounded range, so byte-identical candidate strings recur across independently seeded partitions. They are not reused items: the (target, reported) pairs and the rendered prompts are disjoint by construction.",
+    "family_c_target_pair_overlap": {
+      "day1": 0,
+      "day2_calibration": 0,
+      "day2_test": 0
+    },
+    "rendered_prompt_overlap": {
+      "day1": 0,
+      "day2_calibration": 0,
+      "day2_test": 0
+    }
+  },
+  "experiment": "FormalCRRC Day 3",
+  "family_c_uniqueness_rule": "Family-C (target, reported) pairs already used by Day 1, Day-2 CAL or Day-2 TEST are excluded and redrawn, so no evaluated item is shared with any prior experiment.",
+  "git": {
+    "available": true,
+    "clean": false,
+    "commit": "c52b061a1120f182ac6a850f9e98b5dd2bfbd33e",
+    "dirty_paths": [
+      ".gitignore",
+      "LICENSE",
+      "artifacts/day3/",
+      "scripts/generate_day3_dataset.py",
+      "src/formalcrrc/__init__.py",
+      "src/formalcrrc/day3.py",
+      "src/formalcrrc/day3_bootstrap.py",
+      "src/formalcrrc/day3_config.py",
+      "tests/test_day3_reachability.py"
+    ]
+  },
+  "hashes": {
+    "dataset_content_sha256": "9700960d6f3aa130fa259500aeadbdfa9f511bcc943dd5fdf3401330ee8009d6",
+    "dataset_file_sha256": "2160b662fa527498c6bd245e173f0ead9030a7d69633869233b76e5184647a34",
+    "prompt_manifest_file_sha256": "b348872573347fdd14ab2af7c080294052798a16977cf41c0ea8eb6243e35850",
+    "prompt_set_sha256": "8a2536bec15e6c7556d4cf929f0485d290c218c3095ac2a2d197be7056e04e2e",
+    "prompt_template_sha256": "e5f3c5ba3dfd1ccaca0655307d8ad254598a17184c7ae40dfde63c1f660cae14"
+  },
+  "inference_order": {
+    "rule": "sort by sha256(salt|prompt_id), frozen before inference",
+    "salt": "formalcrrc-day3-inference-order-v1"
+  },
+  "leakage_checks": {
+    "artifact_id_in_prompt": 0,
+    "note": "Prompts contain only the rubric and the candidate response. The partition tag lives in artifact_id and prompt_id, never rendered into a model-facing message.",
+    "partition_wording_in_prompt": 0
+  },
+  "partition": "DAY3_TEST",
+  "partition_tag": "D3T",
+  "role": "single held-out evaluation partition; no calibration partition",
+  "seed": 45,
+  "source": {
+    "files": {
+      "scripts/generate_day3_dataset.py": "8fc5b14b4ba0e8d4bede8d811a1520a56cc2b75ffaaab72767ff5bedb4f1faf4",
+      "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
+      "src/formalcrrc/dataset.py": "8a6cb27c91c8d05ab3c9ca29ec7808ed067b0c7d215044c892bb3e059c240d2d",
+      "src/formalcrrc/day3_config.py": "1c9c2cb1aa4462ee29fcc0215078f99acc2de518d74994efe3169620494cbb5c",
+      "src/formalcrrc/predicates.py": "5c119021ffa69d2dc875bb931a249e5f12811fda791227bc0716cb075fc56b68",
+      "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4"
+    },
+    "tree_sha256": "194f4f343e43c304764cda61be66db9545423943ee2a0b2df9ab1a62b162a8ce"
+  }
+}

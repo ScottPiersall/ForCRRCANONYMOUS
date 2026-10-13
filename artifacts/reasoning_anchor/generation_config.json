@@ -1,0 +1,52 @@
+{
+  "stage_d": {
+    "candidate_met": "A",
+    "candidate_not_met": "B",
+    "candidate_tokenization_rule": "prompt_continuation_difference",
+    "candidates": {
+      "A": {
+        "contextual_token_ids": [
+          32
+        ],
+        "differs_from_isolated": false,
+        "isolated_token_ids": [
+          32
+        ],
+        "n_tokens": 1
+      },
+      "B": {
+        "contextual_token_ids": [
+          33
+        ],
+        "differs_from_isolated": false,
+        "isolated_token_ids": [
+          33
+        ],
+        "n_tokens": 1
+      }
+    },
+    "canonical_margin": "M = L_A - L_B",
+    "post_think_separator": "\n\n",
+    "post_think_separator_bytes": "0x0a 0x0a",
+    "post_think_separator_hex": "0a0a",
+    "post_think_separator_source": "Qwen3 native chat template, assistant branch: the completed assistant turn is rendered as the thinking-open delimiter, a newline, the reasoning content stripped of leading and trailing newlines, a newline, the thinking-close delimiter, then exactly two newlines, then the answer.",
+    "post_think_separator_token_ids": [
+      271
+    ],
+    "scoring_method": "sequence_loglikelihood"
+  },
+  "stage_r": {
+    "experiment_seed": 42,
+    "generation_prompt_opens_thinking": true,
+    "min_p": 0.0,
+    "reasoning_token_budget": 8192,
+    "samples_per_row": 1,
+    "seed_modulus": 2147483647,
+    "seed_rule": "seed_r = int.from_bytes(sha256(f'{base_seed}|{artifact_id}|{strictness_index}'.encode('utf-8')).digest()[:8], 'big') % 2147483647. SHA-256 is used because Python's built-in hash() is process-randomised and would not reproduce across runs. The reduction modulus is 2**31 - 1, the largest signed 32-bit prime, which keeps the seed inside the range every sampler accepts.",
+    "temperature": 0.6,
+    "think_end_text": "</think>",
+    "think_end_token_id": 151668,
+    "top_k": 20,
+    "top_p": 0.95
+  }
+}

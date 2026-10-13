@@ -1,0 +1,350 @@
+{
+  "created_at": "2026-09-07T17:20:04+00:00",
+  "dtype_requested": "bfloat16",
+  "environment": {
+    "captured_at": "2026-09-07T17:20:04+00:00",
+    "gpu": {
+      "available": true,
+      "cudnn_version": 92000,
+      "device_count": 1,
+      "devices": [
+        {
+          "capability": "9.0",
+          "index": 0,
+          "name": "NVIDIA H100 PCIe",
+          "total_memory_bytes": 85017624576
+        }
+      ],
+      "torch_cuda_version": "13.0",
+      "torch_version": "2.13.0+cu130"
+    },
+    "hostname": "evc36",
+    "machine": "x86_64",
+    "packages": {
+      "accelerate": null,
+      "matplotlib": "3.11.1",
+      "numpy": "2.3.5",
+      "pandas": "3.0.5",
+      "pyarrow": "25.0.1",
+      "scipy": "1.17.1",
+      "tokenizers": "0.23.2",
+      "torch": "2.13.0",
+      "transformers": "5.16.1"
+    },
+    "platform": "Linux-4.18.0-553.123.1.el8_10.0.1.x86_64-x86_64-with-glibc2.28",
+    "python_implementation": "CPython",
+    "python_version": "3.11.16"
+  },
+  "models": {
+    "Qwen/Qwen2.5-14B-Instruct": {
+      "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+      "checked_at": "2026-09-07T17:17:46+00:00",
+      "dtype": "torch.bfloat16",
+      "label_reference_prompt_sha256": "f1fdd2356d7d1f5cf059fb27871e079df7790167016b5875c2ea6ce13f6beaf9",
+      "label_tokenization": {
+        "differs_from_naive_encoding": false,
+        "label_met": "A",
+        "label_not_met": "B",
+        "met_token_ids": [
+          32
+        ],
+        "naive_met_token_ids": [
+          32
+        ],
+        "naive_not_met_token_ids": [
+          33
+        ],
+        "not_met_token_ids": [
+          33
+        ],
+        "scoring_method": "single_token_next_logit",
+        "single_token_equivalence": true
+      },
+      "model_config": {
+        "architectures": [
+          "Qwen2ForCausalLM"
+        ],
+        "max_position_embeddings": 32768,
+        "n_parameters": 14770033664
+      },
+      "model_id": "Qwen/Qwen2.5-14B-Instruct",
+      "prompt_encoding": {
+        "add_special_tokens": false,
+        "bos_duplicated": false,
+        "bos_token": null,
+        "leading_token_ids": [
+          151644,
+          8948,
+          198,
+          2610
+        ],
+        "leading_tokens_decoded": [
+          "<|im_start|>",
+          "system",
+          "\n",
+          "You"
+        ],
+        "n_tokens": 34
+      },
+      "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+      "slug": "qwen2_5_14b_instruct",
+      "smoke_rendered_prompt_sha256": "154521cb493fa4dba4091561e9834e9bf25703afbfbcb97872901dbc2ba9b9e0",
+      "smoke_test": {
+        "finite": true,
+        "is_study_prompt": false,
+        "prompt": "Name one primary colour.",
+        "raw_score_met": 37.0,
+        "raw_score_not_met": 13.75,
+        "scoring_method": "single_token_next_logit"
+      },
+      "status": "AVAILABLE",
+      "tokenizer": {
+        "add_bos_token": false,
+        "bos_token": null,
+        "class": "Qwen2Tokenizer",
+        "eos_token": "<|im_end|>",
+        "pad_token": "<|endoftext|>",
+        "vocab_size": 151643
+      },
+      "tokenizer_revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+      "torch_version": "2.13.0+cu130",
+      "transformers_version": "5.16.1"
+    },
+    "google/gemma-2-9b-it": {
+      "chat_template_sha256": "ecd6ae513fe103f0eb62e8ab5bfa8d0fe45c1074fa398b089c93a7e70c15cfd6",
+      "checked_at": "2026-09-07T17:19:25+00:00",
+      "dtype": "torch.bfloat16",
+      "label_reference_prompt_sha256": "a1529dd1f3d2804058ec09df73a0548f3af034113d1c478c10fb0cef6e863191",
+      "label_tokenization": {
+        "differs_from_naive_encoding": false,
+        "label_met": "A",
+        "label_not_met": "B",
+        "met_token_ids": [
+          235280
+        ],
+        "naive_met_token_ids": [
+          235280
+        ],
+        "naive_not_met_token_ids": [
+          235305
+        ],
+        "not_met_token_ids": [
+          235305
+        ],
+        "scoring_method": "single_token_next_logit",
+        "single_token_equivalence": true
+      },
+      "model_config": {
+        "architectures": [
+          "Gemma2ForCausalLM"
+        ],
+        "max_position_embeddings": 8192,
+        "n_parameters": 9241705984
+      },
+      "model_id": "google/gemma-2-9b-it",
+      "prompt_encoding": {
+        "add_special_tokens": false,
+        "bos_duplicated": false,
+        "bos_token": "<bos>",
+        "leading_token_ids": [
+          2,
+          106,
+          1645,
+          108
+        ],
+        "leading_tokens_decoded": [
+          "<bos>",
+          "<start_of_turn>",
+          "user",
+          "\n"
+        ],
+        "n_tokens": 14
+      },
+      "revision": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+      "slug": "gemma_2_9b_it",
+      "smoke_rendered_prompt_sha256": "493321ababcd3ac4c62d60b76b4590378f71d21f608c2c74fd2d9736edc1c6f9",
+      "smoke_test": {
+        "finite": true,
+        "is_study_prompt": false,
+        "prompt": "Name one primary colour.",
+        "raw_score_met": 10.9375,
+        "raw_score_not_met": 6.15625,
+        "scoring_method": "single_token_next_logit"
+      },
+      "status": "AVAILABLE",
+      "tokenizer": {
+        "add_bos_token": false,
+        "bos_token": "<bos>",
+        "class": "GemmaTokenizer",
+        "eos_token": "<eos>",
+        "pad_token": "<pad>",
+        "vocab_size": 256000
+      },
+      "tokenizer_revision": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+      "torch_version": "2.13.0+cu130",
+      "transformers_version": "5.16.1"
+    },
+    "meta-llama/Llama-3.1-8B-Instruct": {
+      "chat_template_sha256": "e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65",
+      "checked_at": "2026-09-07T17:18:37+00:00",
+      "dtype": "torch.bfloat16",
+      "label_reference_prompt_sha256": "29addba1a10dfa95b8f4c9a6794b303cf299e000a2d016f181c1746fcb3fad74",
+      "label_tokenization": {
+        "differs_from_naive_encoding": false,
+        "label_met": "A",
+        "label_not_met": "B",
+        "met_token_ids": [
+          32
+        ],
+        "naive_met_token_ids": [
+          32
+        ],
+        "naive_not_met_token_ids": [
+          33
+        ],
+        "not_met_token_ids": [
+          33
+        ],
+        "scoring_method": "single_token_next_logit",
+        "single_token_equivalence": true
+      },
+      "model_config": {
+        "architectures": [
+          "LlamaForCausalLM"
+        ],
+        "max_position_embeddings": 131072,
+        "n_parameters": 8030261248
+      },
+      "model_id": "meta-llama/Llama-3.1-8B-Instruct",
+      "prompt_encoding": {
+        "add_special_tokens": false,
+        "bos_duplicated": false,
+        "bos_token": "<|begin_of_text|>",
+        "leading_token_ids": [
+          128000,
+          128006,
+          9125,
+          128007
+        ],
+        "leading_tokens_decoded": [
+          "<|begin_of_text|>",
+          "<|start_header_id|>",
+          "system",
+          "<|end_header_id|>"
+        ],
+        "n_tokens": 40
+      },
+      "revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+      "slug": "llama3_1_8b_instruct",
+      "smoke_rendered_prompt_sha256": "252b49c943d51bac4242d3d8d4f305194eb241ea945c290c8a99436ce57c9818",
+      "smoke_test": {
+        "finite": true,
+        "is_study_prompt": false,
+        "prompt": "Name one primary colour.",
+        "raw_score_met": 21.5,
+        "raw_score_not_met": 15.3125,
+        "scoring_method": "single_token_next_logit"
+      },
+      "status": "AVAILABLE",
+      "tokenizer": {
+        "add_bos_token": false,
+        "bos_token": "<|begin_of_text|>",
+        "class": "TokenizersBackend",
+        "eos_token": "<|eot_id|>",
+        "pad_token": null,
+        "vocab_size": 128000
+      },
+      "tokenizer_revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+      "torch_version": "2.13.0+cu130",
+      "transformers_version": "5.16.1"
+    },
+    "mistralai/Mistral-7B-Instruct-v0.3": {
+      "chat_template_sha256": "e16746b40344d6c5b5265988e0328a0bf7277be86f1c335156eae07e29c82826",
+      "checked_at": "2026-09-07T17:19:03+00:00",
+      "dtype": "torch.bfloat16",
+      "label_reference_prompt_sha256": "a925ed51b97f81e8751b24fa2653df3dbf8b2276a5b09b5d321973edf2a1ff15",
+      "label_tokenization": {
+        "differs_from_naive_encoding": true,
+        "label_met": "A",
+        "label_not_met": "B",
+        "met_token_ids": [
+          29509
+        ],
+        "naive_met_token_ids": [
+          1098
+        ],
+        "naive_not_met_token_ids": [
+          1133
+        ],
+        "not_met_token_ids": [
+          29528
+        ],
+        "scoring_method": "single_token_next_logit",
+        "single_token_equivalence": true
+      },
+      "model_config": {
+        "architectures": [
+          "MistralForCausalLM"
+        ],
+        "max_position_embeddings": 32768,
+        "n_parameters": 7248023552
+      },
+      "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
+      "prompt_encoding": {
+        "add_special_tokens": false,
+        "bos_duplicated": false,
+        "bos_token": "<s>",
+        "leading_token_ids": [
+          1,
+          3,
+          7388,
+          1392
+        ],
+        "leading_tokens_decoded": [
+          "<s>",
+          "[INST]",
+          "Name",
+          "one"
+        ],
+        "n_tokens": 8
+      },
+      "revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+      "slug": "mistral_7b_instruct_v0_3",
+      "smoke_rendered_prompt_sha256": "2daed965f54a43d3981299fd63515602f84c68a6bfe9d253a6cec956c3f11e04",
+      "smoke_test": {
+        "finite": true,
+        "is_study_prompt": false,
+        "prompt": "Name one primary colour.",
+        "raw_score_met": 6.84375,
+        "raw_score_not_met": -2.296875,
+        "scoring_method": "single_token_next_logit"
+      },
+      "status": "AVAILABLE",
+      "tokenizer": {
+        "add_bos_token": false,
+        "bos_token": "<s>",
+        "class": "TokenizersBackend",
+        "eos_token": "</s>",
+        "pad_token": null,
+        "vocab_size": 32768
+      },
+      "tokenizer_revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+      "torch_version": "2.13.0+cu130",
+      "transformers_version": "5.16.1"
+    }
+  },
+  "panel_status": {
+    "Qwen/Qwen2.5-14B-Instruct": "AVAILABLE",
+    "google/gemma-2-9b-it": "AVAILABLE",
+    "meta-llama/Llama-3.1-8B-Instruct": "AVAILABLE",
+    "mistralai/Mistral-7B-Instruct-v0.3": "AVAILABLE"
+  },
+  "preregistered_panel": [
+    "Qwen/Qwen2.5-14B-Instruct",
+    "meta-llama/Llama-3.1-8B-Instruct",
+    "mistralai/Mistral-7B-Instruct-v0.3",
+    "google/gemma-2-9b-it"
+  ],
+  "smoke_prompt": "Name one primary colour.",
+  "smoke_prompt_is_study_prompt": false
+}

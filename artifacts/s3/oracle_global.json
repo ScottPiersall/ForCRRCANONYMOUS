@@ -1,0 +1,49 @@
+{
+  "class": "global",
+  "created_at": "2026-09-07T19:29:31+00:00",
+  "deployable": false,
+  "enumeration": "collect breakpoints -M_x(s) over the group; sort unique; evaluate every breakpoint, the midpoint of every adjacent unique pair, one value below the smallest and one above the largest, plus nextafter(b, +/-inf) for every breakpoint so that no interval is skipped when adjacent breakpoints are closer than the midpoint is representable",
+  "experiment": "FormalCRRC Day 3",
+  "models": {
+    "Qwen/Qwen2.5-14B-Instruct": {
+      "alpha": 26.5,
+      "mean_tce": 2.3703703703703702,
+      "n_artifacts": 324,
+      "n_candidates": 1769,
+      "raw_mean_tce": 3.373456790123457,
+      "short_name": "Qwen2.5-14B"
+    },
+    "google/gemma-2-9b-it": {
+      "alpha": 8.9375,
+      "mean_tce": 2.515432098765432,
+      "n_artifacts": 324,
+      "n_candidates": 985,
+      "raw_mean_tce": 3.361111111111111,
+      "short_name": "Gemma-2-9B"
+    },
+    "meta-llama/Llama-3.1-8B-Instruct": {
+      "alpha": 2.5625,
+      "mean_tce": 2.962962962962963,
+      "n_artifacts": 324,
+      "n_candidates": 349,
+      "raw_mean_tce": 4.904320987654321,
+      "short_name": "Llama-3.1-8B"
+    },
+    "mistralai/Mistral-7B-Instruct-v0.3": {
+      "alpha": 1.75,
+      "mean_tce": 2.5339506172839505,
+      "n_artifacts": 324,
+      "n_candidates": 4169,
+      "raw_mean_tce": 2.9382716049382718,
+      "short_name": "Mistral-7B"
+    }
+  },
+  "note": "Diagnostic bounds on what increasingly flexible location-only explanations can accomplish. Not evaluator corrections.",
+  "oracle_uses_formal_truth": true,
+  "preregistration_sha256": "ab2f028e3dcd1ef462fcefab17365e18fbc680349f24b8e35f90c9fb6d33448e",
+  "tie_break": [
+    "lowest mean TCE",
+    "then smallest |alpha|",
+    "then numerically smallest alpha"
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "class": "family",
+  "created_at": "2026-09-07T19:29:31+00:00",
+  "deployable": false,
+  "enumeration": "collect breakpoints -M_x(s) over the group; sort unique; evaluate every breakpoint, the midpoint of every adjacent unique pair, one value below the smallest and one above the largest, plus nextafter(b, +/-inf) for every breakpoint so that no interval is skipped when adjacent breakpoints are closer than the midpoint is representable",
+  "experiment": "FormalCRRC Day 3",
+  "models": {
+    "Qwen/Qwen2.5-14B-Instruct": {
+      "by_family": {
+        "coverage": {
+          "alpha": 28.0,
+          "mean_tce": 2.0925925925925926,
+          "n_artifacts": 108,
+          "n_candidates": 1241
+        },
+        "max_violation": {
+          "alpha": 23.875,
+          "mean_tce": 2.111111111111111,
+          "n_artifacts": 108,
+          "n_candidates": 1245
+        },
+        "numeric_tolerance": {
+          "alpha": -0.0,
+          "mean_tce": 1.5185185185185186,
+          "n_artifacts": 108,
+          "n_candidates": 1421
+        }
+      },
+      "short_name": "Qwen2.5-14B",
+      "weighted_mean_tce": 1.9074074074074074
+    },
+    "google/gemma-2-9b-it": {
+      "by_family": {
+        "coverage": {
+          "alpha": -7.625000000000001,
+          "mean_tce": 1.7777777777777777,
+          "n_artifacts": 108,
+          "n_candidates": 753
+        },
+        "max_violation": {
+          "alpha": 9.0,
+          "mean_tce": 1.4351851851851851,
+          "n_artifacts": 108,
+          "n_candidates": 485
+        },
+        "numeric_tolerance": {
+          "alpha": 8.3125,
+          "mean_tce": 2.425925925925926,
+          "n_artifacts": 108,
+          "n_candidates": 765
+        }
+      },
+      "short_name": "Gemma-2-9B",
+      "weighted_mean_tce": 1.8796296296296295
+    },
+    "meta-llama/Llama-3.1-8B-Instruct": {
+      "by_family": {
+        "coverage": {
+          "alpha": 1.375,
+          "mean_tce": 2.25,
+          "n_artifacts": 108,
+          "n_candidates": 233
+        },
+        "max_violation": {
+          "alpha": 2.5,
+          "mean_tce": 3.009259259259259,
+          "n_artifacts": 108,
+          "n_candidates": 185
+        },
+        "numeric_tolerance": {
+          "alpha": 3.0,
+          "mean_tce": 2.7314814814814814,
+          "n_artifacts": 108,
+          "n_candidates": 265
+        }
+      },
+      "short_name": "Llama-3.1-8B",
+      "weighted_mean_tce": 2.6635802469135803
+    },
+    "mistralai/Mistral-7B-Instruct-v0.3": {
+      "by_family": {
+        "coverage": {
+          "alpha": -6.343750000000001,
+          "mean_tce": 2.5,
+          "n_artifacts": 108,
+          "n_candidates": 2597
+        },
+        "max_violation": {
+          "alpha": 1.8125,
+          "mean_tce": 1.5555555555555556,
+          "n_artifacts": 108,
+          "n_candidates": 1065
+        },
+        "numeric_tolerance": {
+          "alpha": 0.6875,
+          "mean_tce": 2.6666666666666665,
+          "n_artifacts": 108,
+          "n_candidates": 2133
+        }
+      },
+      "short_name": "Mistral-7B",
+      "weighted_mean_tce": 2.240740740740741
+    }
+  },
+  "note": "Diagnostic bounds on what increasingly flexible location-only explanations can accomplish. Not evaluator corrections.",
+  "oracle_uses_formal_truth": true,
+  "preregistration_sha256": "ab2f028e3dcd1ef462fcefab17365e18fbc680349f24b8e35f90c9fb6d33448e",
+  "tie_break": [
+    "lowest mean TCE",
+    "then smallest |alpha|",
+    "then numerically smallest alpha"
+  ]
+}

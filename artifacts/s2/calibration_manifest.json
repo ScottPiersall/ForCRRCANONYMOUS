@@ -1,0 +1,103 @@
+{
+  "created_at": "2026-09-07T18:15:22+00:00",
+  "cross_partition": {
+    "artifact_id_overlap": {
+      "cal_vs_day1": 0,
+      "cal_vs_test": 0,
+      "test_vs_day1": 0
+    },
+    "candidate_response_overlap_by_family": {
+      "coverage": {
+        "cal_vs_day1": 0,
+        "cal_vs_test": 0,
+        "test_vs_day1": 0
+      },
+      "max_violation": {
+        "cal_vs_day1": 0,
+        "cal_vs_test": 0,
+        "test_vs_day1": 0
+      },
+      "numeric_tolerance": {
+        "cal_vs_day1": 37,
+        "cal_vs_test": 38,
+        "test_vs_day1": 34
+      }
+    },
+    "family_c_candidate_coincidence_note": "A family-C candidate response is determined by the reported value alone, an integer in a bounded range, so byte-identical candidate responses across partitions are an expected property of the shared data-generating process. They are not reused items: the (target, reported) pairs are disjoint by construction and no rendered prompt is shared.",
+    "family_c_target_pair_overlap": {
+      "cal_vs_day1": 0,
+      "cal_vs_test": 0,
+      "test_vs_day1": 0
+    },
+    "rendered_prompt_overlap": {
+      "cal_vs_day1": 0,
+      "cal_vs_test": 0,
+      "test_vs_day1": 0
+    }
+  },
+  "dimensions": {
+    "families": [
+      "coverage",
+      "max_violation",
+      "numeric_tolerance"
+    ],
+    "n_artifacts": 324,
+    "n_instances_per_cell": 12,
+    "n_latent_levels": 9,
+    "n_rows": 2916,
+    "n_strictness_levels": 9
+  },
+  "experiment": "FormalCRRC Day 2",
+  "git": {
+    "available": true,
+    "clean": false,
+    "commit": "410dcc71d77e7652a79c50c85e38f0b4ee9b94c7",
+    "dirty_paths": [
+      ".gitignore",
+      "LICENSE",
+      "artifacts/day1/integrity_addendum.json",
+      "artifacts/day2/",
+      "docs/DAY1_ERRATA.md",
+      "docs/DAY1_INTEGRITY_ADDENDUM.md",
+      "docs/DAY1_PROVENANCE_AUDIT.md",
+      "scripts/audit_day1_for_day2.py",
+      "scripts/generate_day2_datasets.py",
+      "src/formalcrrc/__init__.py",
+      "src/formalcrrc/dataset.py",
+      "src/formalcrrc/day1_audit.py",
+      "src/formalcrrc/day2.py",
+      "src/formalcrrc/day2_bootstrap.py",
+      "src/formalcrrc/day2_config.py"
+    ]
+  },
+  "hashes": {
+    "dataset_content_sha256": "7a0ad398c53adee98fdca8674f4dc967e1c2bbaf949b33f6afeeb4007ee8f191",
+    "dataset_file_sha256": "2bc94e23349481b0bb48b20723778bc14dc11e60f549ec35d80597579b599842",
+    "prompt_manifest_file_sha256": "a5a5f9f288c2cb03c06daee76c19d45976e0a1a9e3d532ac0274e9b9fb6f2072",
+    "prompt_set_sha256": "9cc7687d3efdcfe0750327f6450f3f9a295b738a7babf4c93b52cb98a3ca8254",
+    "prompt_template_sha256": "e5f3c5ba3dfd1ccaca0655307d8ad254598a17184c7ae40dfde63c1f660cae14"
+  },
+  "inference_order": {
+    "rule": "sort by sha256(salt|prompt_id), frozen before inference",
+    "salt": "formalcrrc-day2-calibration-order-v1"
+  },
+  "leakage_checks": {
+    "artifact_id_in_prompt": 0,
+    "note": "Prompts contain only the rubric and the candidate response. The partition tag lives in artifact_id and prompt_id, which are never rendered into a model-facing message.",
+    "partition_wording_in_prompt": 0
+  },
+  "partition": "CAL",
+  "role": "intercept fitting only",
+  "seed": 43,
+  "source": {
+    "files": {
+      "scripts/generate_day2_datasets.py": "76f2ea2d4e5327c22a48a4e44dc134ad584f5b8e1bd9e9e0b7f34ac949c22db7",
+      "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
+      "src/formalcrrc/dataset.py": "8a6cb27c91c8d05ab3c9ca29ec7808ed067b0c7d215044c892bb3e059c240d2d",
+      "src/formalcrrc/day2_config.py": "c2a34bf4ff5f3c2d741dd3ed43a2bd23daee3780d717d5b680c72e89c79c7c71",
+      "src/formalcrrc/predicates.py": "5c119021ffa69d2dc875bb931a249e5f12811fda791227bc0716cb075fc56b68",
+      "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4"
+    },
+    "tree_sha256": "d1d80e8bc926c3eb87eeea09b4fd6e724e5b6c78984030fe258b3a270cf702c2"
+  }
+}

@@ -1,0 +1,4 @@
+host=evc44 job=898712 node=evc44
+nvcc=/apps/cuda/cuda-13.1.0/bin/nvcc
+No devices were found
+FATAL: node evc44 exposes no usable GPU

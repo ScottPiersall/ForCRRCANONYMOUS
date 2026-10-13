@@ -1,0 +1,13 @@
+{
+  "title": "FormalCRRC reproducibility archive: exact rubric-threshold sweeps for LLM-judge evaluation",
+  "upload_type": "dataset",
+  "version": "1.1.0-review",
+  "publication_date": "2026-10-13",
+  "description": "<p>Reproducibility archive for <em>FormalCRRC: Locating and Repairing Rubric Decision Boundaries in LLM Judges</em>. Contains source code, frozen datasets and prompts, preregistrations and amendments, raw judge scores, metrics, integrity records, and analysis code for the synthetic studies and the post-hoc analyses reported in the paper, including the level-0 and held-out per-level calibration analyses added in response to review. All reported analyses can be reproduced from the saved scores without model inference; see REPRODUCIBILITY.md.</p><p>Anonymous review release: creator names and the related publication are added at publication.</p>",
+  "creators": [{"name": "Anonymous Authors"}],
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "keywords": ["LLM-as-a-judge", "meta-evaluation", "rubric thresholds", "calibration", "recoverability", "reproducibility"],
+  "notes": "Code is MIT-licensed (LICENSE); data and artifacts are CC BY 4.0 (LICENSE-DATA.md). Model outputs remain subject to the model licenses listed in THIRD_PARTY_NOTICES.md.",
+  "related_identifiers": []
+}

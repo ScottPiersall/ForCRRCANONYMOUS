@@ -1,0 +1,22 @@
+FORMALCRRC POST-STUDY BASELINE AUDIT
+
+PRIOR EXPERIMENT IMMUTABILITY: PASS
+
+ANALYTIC BASELINES:
+  fixed-center TCE:              2.222222
+  fixed-center accuracy:         75.3086%
+  random-crossing expected TCE:  2.962963
+  random-crossing exp. accuracy: 67.0782%
+  always-met TCE:                4.000000
+  majority-class accuracy:       55.5556%
+  always-not-met TCE:            5.000000
+
+DATASET CROSS-CHECK:
+  Day 1:                        PASS
+  Day-2 CAL:                    PASS
+  Day-2 TEST:                   PASS
+  Day-3 TEST:                   PASS
+
+No model inference performed.
+No frozen scientific outcome modified.
+Baselines labeled post-study analytic references.

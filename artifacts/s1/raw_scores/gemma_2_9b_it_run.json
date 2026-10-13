@@ -1,0 +1,83 @@
+{
+  "chat_template_sha256": "ecd6ae513fe103f0eb62e8ab5bfa8d0fe45c1074fa398b089c93a7e70c15cfd6",
+  "dtype": "bfloat16",
+  "environment": {
+    "captured_at": "2026-09-07T17:34:08+00:00",
+    "gpu": {
+      "available": true,
+      "cudnn_version": 92000,
+      "device_count": 1,
+      "devices": [
+        {
+          "capability": "9.0",
+          "index": 0,
+          "name": "NVIDIA H100 PCIe",
+          "total_memory_bytes": 85017624576
+        }
+      ],
+      "torch_cuda_version": "13.0",
+      "torch_version": "2.13.0+cu130"
+    },
+    "hostname": "evc41",
+    "machine": "x86_64",
+    "packages": {
+      "accelerate": null,
+      "matplotlib": "3.11.1",
+      "numpy": "2.3.5",
+      "pandas": "3.0.5",
+      "pyarrow": "25.0.1",
+      "scipy": "1.17.1",
+      "tokenizers": "0.23.2",
+      "torch": "2.13.0",
+      "transformers": "5.16.1"
+    },
+    "platform": "Linux-4.18.0-553.123.1.el8_10.0.1.x86_64-x86_64-with-glibc2.28",
+    "python_implementation": "CPython",
+    "python_version": "3.11.16"
+  },
+  "failures": [],
+  "finished_at": "2026-09-07T17:34:08+00:00",
+  "label_tokenization": {
+    "differs_from_naive_encoding": false,
+    "label_met": "A",
+    "label_not_met": "B",
+    "met_token_ids": [
+      235280
+    ],
+    "naive_met_token_ids": [
+      235280
+    ],
+    "naive_not_met_token_ids": [
+      235305
+    ],
+    "not_met_token_ids": [
+      235305
+    ],
+    "scoring_method": "single_token_next_logit",
+    "single_token_equivalence": true
+  },
+  "load_seconds": 45.42,
+  "model_id": "google/gemma-2-9b-it",
+  "prompts_requested": 2916,
+  "prompts_scored": 2916,
+  "raw_scores_sha256": "ccc4d94739bbe2b03fbacb97119373ab689d49b2ee6bb5e180f7d5226865f5bc",
+  "revision": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+  "scoring_method": "single_token_next_logit",
+  "slug": "gemma_2_9b_it",
+  "slurm": {
+    "job_id": "797602",
+    "node": "evc41",
+    "partition": "normal"
+  },
+  "source_manifest": {
+    "files": {
+      "scripts/run_day1_inference.py": "036e0e61b8ce43f7ba49dbf36fac2c8466f54076a782d5898bb7d28d951c96ba",
+      "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
+      "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4",
+      "src/formalcrrc/scoring.py": "e9dea77babcb60820ad679226d2d826265fe0d844948163296c71be56510c8d4"
+    },
+    "tree_sha256": "71e55c9768f2b0fa4900a4cab7d4685e60df88335a2afc4e2f75cd8b05695096"
+  },
+  "started_at_unix": 1788802277.2979777,
+  "total_seconds": 171.63
+}

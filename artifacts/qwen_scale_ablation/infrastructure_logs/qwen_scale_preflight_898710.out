@@ -1,0 +1,3 @@
+host=evc38 job=898710 node=evc38
+nvcc=/apps/cuda/cuda-13.1.0/bin/nvcc
+No devices were found

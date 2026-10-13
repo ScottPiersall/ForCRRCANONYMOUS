@@ -1,0 +1,113 @@
+{
+  "columns": [
+    "prompt_id",
+    "artifact_id",
+    "family",
+    "family_code",
+    "latent_level",
+    "instance_index",
+    "strictness_index",
+    "raw_threshold",
+    "candidate_response",
+    "rubric_text",
+    "formal_truth",
+    "true_first_fail_index",
+    "seed",
+    "rng_provenance",
+    "candidate_sha256",
+    "rubric_sha256",
+    "rubric_normalized_sha256",
+    "list_items_json",
+    "response_markers_json",
+    "target_value",
+    "reported_value",
+    "error_sign"
+  ],
+  "created_at": "2026-09-07T16:28:33+00:00",
+  "dimensions": {
+    "families": [
+      "coverage",
+      "max_violation",
+      "numeric_tolerance"
+    ],
+    "list_size": 8,
+    "markers_per_response": 14,
+    "n_artifacts": 324,
+    "n_families": 3,
+    "n_instances_per_cell": 12,
+    "n_latent_levels": 9,
+    "n_rows": 2916,
+    "n_strictness_levels": 9
+  },
+  "git": {
+    "available": true,
+    "clean": false,
+    "commit": "654f14bdd19f884a3438345af4980e2e9890fe0e",
+    "dirty_paths": [
+      ".gitignore",
+      "LICENSE",
+      "README.md",
+      "artifacts/",
+      "docs/",
+      "pyproject.toml",
+      "scripts/",
+      "src/"
+    ]
+  },
+  "hashes": {
+    "dataset_content_sha256": "4462bedbf5f086daa8bdfa077ad82e1ea7b79b4db59d906fafe6c814cfc85a2e",
+    "dataset_file_sha256": "01465951da67a5e906ba057297ec4fcebf6a22fb2980ebe76d399d25b0015f44",
+    "prompt_manifest_file_sha256": "f577a947cbed7c4d96f618b5f476d6f8064fbbd7886e7e5dae576889164097fb",
+    "prompt_template_sha256": "e5f3c5ba3dfd1ccaca0655307d8ad254598a17184c7ae40dfde63c1f660cae14",
+    "rubric_template_sha256": {
+      "coverage": "5a9223d9829757e4b58993ff0b4c9d673e32113e9e13725784b5e25e41aeebef",
+      "max_violation": "c52025591b3778d90695f30813de9877b782161fbe45c5f0900a164deae705fe",
+      "numeric_tolerance": "42fe5998d8e8692b301cee92c740fec652218b7ba2f5dde70ca24c21cae29c80"
+    }
+  },
+  "seed": 42,
+  "source": {
+    "files": {
+      "src/formalcrrc/config.py": "53a3f73d11867b83fa5d6477eedb9ab90b0f0426fb05522a25873aa7ff9f4c31",
+      "src/formalcrrc/dataset.py": "c3bad767083c9e1e274a04d90f5fe64e6a56420c0e65d4df3762b178d8a53930",
+      "src/formalcrrc/predicates.py": "5c119021ffa69d2dc875bb931a249e5f12811fda791227bc0716cb075fc56b68",
+      "src/formalcrrc/prompts.py": "593d62d589def2e6755e8181e98861b4ffbe66d074cc881d1a9823439e1b309b"
+    },
+    "tree_sha256": "c82c85ccb6942ffdac225fe48af79503ac8538a841381b64029cde1d161c2463"
+  },
+  "true_first_fail_index_by_cell": {
+    "coverage": {
+      "0": 1,
+      "1": 2,
+      "2": 3,
+      "3": 4,
+      "4": 5,
+      "5": 6,
+      "6": 7,
+      "7": 8,
+      "8": 9
+    },
+    "max_violation": {
+      "0": 9,
+      "1": 8,
+      "2": 7,
+      "3": 6,
+      "4": 5,
+      "5": 4,
+      "6": 3,
+      "7": 2,
+      "8": 1
+    },
+    "numeric_tolerance": {
+      "0": 9,
+      "1": 8,
+      "2": 7,
+      "3": 6,
+      "4": 5,
+      "5": 4,
+      "6": 3,
+      "7": 2,
+      "8": 1
+    }
+  }
+}

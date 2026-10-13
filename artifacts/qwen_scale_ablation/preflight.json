@@ -1,0 +1,444 @@
+{
+  "environment": {
+    "captured_at": "2026-10-11T15:23:16+00:00",
+    "gpu": {
+      "available": true,
+      "cudnn_version": 92000,
+      "device_count": 1,
+      "devices": [
+        {
+          "capability": "9.0",
+          "index": 0,
+          "name": "NVIDIA H100 PCIe",
+          "total_memory_bytes": 85017624576
+        }
+      ],
+      "torch_cuda_version": "13.0",
+      "torch_version": "2.13.0+cu130"
+    },
+    "hostname": "evc39",
+    "machine": "x86_64",
+    "packages": {
+      "accelerate": null,
+      "matplotlib": "3.11.1",
+      "numpy": "2.3.5",
+      "pandas": "3.0.5",
+      "pyarrow": "25.0.1",
+      "scipy": "1.17.1",
+      "tokenizers": "0.23.2",
+      "torch": "2.13.0",
+      "transformers": "5.16.1"
+    },
+    "platform": "Linux-4.18.0-553.123.1.el8_10.0.1.x86_64-x86_64-with-glibc2.28",
+    "python_implementation": "CPython",
+    "python_version": "3.11.16"
+  },
+  "finished_at": "2026-10-11T15:37:00+00:00",
+  "models": {
+    "32b": {
+      "all_parameters_on_gpu": true,
+      "base_model": "Qwen/Qwen2.5-32B",
+      "chat_template_identical_to_14b": true,
+      "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+      "checked_at": "2026-10-11T15:26:56+00:00",
+      "checks": {
+        "all_s3_prompts_render_byte_identical_to_14b": true,
+        "development_label_tokenization_stable": true,
+        "development_prompts_scored": true,
+        "label_tokenization_stable_on_all_s3_prompts": true,
+        "label_tokens_decode_to_A_and_B": true,
+        "labels_are_single_token": true,
+        "loads_in_bf16_on_one_gpu": true,
+        "no_offloading": true,
+        "no_quantization_config": true,
+        "no_quantized_files": true,
+        "revision_is_full_commit_hash": true,
+        "scoring_method_is_single_token_next_logit": true,
+        "weights_are_bfloat16": true
+      },
+      "config": {
+        "architectures": [
+          "Qwen2ForCausalLM"
+        ],
+        "attention_dropout": 0.0,
+        "bos_token_id": 151643,
+        "eos_token_id": 151645,
+        "hidden_act": "silu",
+        "hidden_size": 5120,
+        "initializer_range": 0.02,
+        "intermediate_size": 27648,
+        "max_position_embeddings": 32768,
+        "max_window_layers": 70,
+        "model_type": "qwen2",
+        "num_attention_heads": 40,
+        "num_hidden_layers": 64,
+        "num_key_value_heads": 8,
+        "rms_norm_eps": 1e-06,
+        "rope_theta": 1000000.0,
+        "sliding_window": 131072,
+        "tie_word_embeddings": false,
+        "torch_dtype": "bfloat16",
+        "transformers_version": "4.43.1",
+        "use_cache": true,
+        "use_sliding_window": false,
+        "vocab_size": 152064
+      },
+      "config_sha256": "9c6772f138ef9e5b3d1c18f2c87e451bbc01f5f1a4eabb36f9bf4f53829b903e",
+      "development_prompts": [
+        {
+          "is_study_prompt": false,
+          "label_tokenization_matches_reference": true,
+          "margin": 17.6875,
+          "n_prompt_tokens": 34,
+          "p_met": 0.9999999791830863,
+          "prompt": "Name one primary colour.",
+          "raw_score_met": 31.125,
+          "raw_score_not_met": 13.4375,
+          "rendered_prompt_sha256": "154521cb493fa4dba4091561e9834e9bf25703afbfbcb97872901dbc2ba9b9e0",
+          "scoring_method": "single_token_next_logit"
+        },
+        {
+          "is_study_prompt": false,
+          "label_tokenization_matches_reference": true,
+          "margin": -13.25,
+          "n_prompt_tokens": 55,
+          "p_met": 1.7603432133424858e-06,
+          "prompt": "Decide whether 91 is a prime number.\nReturn A if it is prime.\nReturn B if it is not prime.",
+          "raw_score_met": 24.0,
+          "raw_score_not_met": 37.25,
+          "rendered_prompt_sha256": "e3717276f2cf60fe11ffc40b71a11eecde5a3eacad3833241a5c5e6d5c7c5590",
+          "scoring_method": "single_token_next_logit"
+        }
+      ],
+      "dtype": "torch.bfloat16",
+      "generation_config_json_sha256": "ea35dfb6fc5051b01114f9b995820d55dab01ed33ee490f6378b442af82c09f9",
+      "hub_last_modified": "2024-09-25 12:33:09+00:00",
+      "label_tokenization": {
+        "differs_from_naive_encoding": false,
+        "label_met": "A",
+        "label_not_met": "B",
+        "met_token_ids": [
+          32
+        ],
+        "naive_met_token_ids": [
+          32
+        ],
+        "naive_not_met_token_ids": [
+          33
+        ],
+        "not_met_token_ids": [
+          33
+        ],
+        "scoring_method": "single_token_next_logit",
+        "single_token_equivalence": true
+      },
+      "license": "apache-2.0",
+      "license_file_sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+      "license_link": "https://huggingface.co/Qwen/Qwen2.5-32B-Instruct/blob/main/LICENSE",
+      "load_seconds": 99.3,
+      "model_id": "Qwen/Qwen2.5-32B-Instruct",
+      "parameter_count": 32763876352,
+      "peak_gpu_memory_gib": 61.09,
+      "problems": [],
+      "render_continuity": {
+        "decoded_met_token": "A",
+        "decoded_not_met_token": "B",
+        "label_tokenization": {
+          "differs_from_naive_encoding": false,
+          "label_met": "A",
+          "label_not_met": "B",
+          "met_token_ids": [
+            32
+          ],
+          "naive_met_token_ids": [
+            32
+          ],
+          "naive_not_met_token_ids": [
+            33
+          ],
+          "not_met_token_ids": [
+            33
+          ],
+          "scoring_method": "single_token_next_logit",
+          "single_token_equivalence": true
+        },
+        "label_tokenization_mismatch_examples": [],
+        "n_label_tokenization_mismatches": 0,
+        "n_prompts_rendered": 2916,
+        "n_render_mismatches": 0,
+        "render_mismatch_examples": []
+      },
+      "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+      "revision_source": "Hugging Face `main` resolved at pre-flight",
+      "short_name": "Qwen2.5-32B",
+      "snapshot_seconds": 498.8,
+      "status": "PASS",
+      "tag": "32b",
+      "tokenizer_config": {
+        "add_bos_token": false,
+        "add_prefix_space": false,
+        "additional_special_tokens": [
+          "<|im_start|>",
+          "<|im_end|>",
+          "<|object_ref_start|>",
+          "<|object_ref_end|>",
+          "<|box_start|>",
+          "<|box_end|>",
+          "<|quad_start|>",
+          "<|quad_end|>",
+          "<|vision_start|>",
+          "<|vision_end|>",
+          "<|vision_pad|>",
+          "<|image_pad|>",
+          "<|video_pad|>"
+        ],
+        "bos_token": null,
+        "chat_template": "{%- if tools %}\n    {{- '<|im_start|>system\\n' }}\n    {%- if messages[0]['role'] == 'system' %}\n        {{- messages[0]['content'] }}\n    {%- else %}\n        {{- 'You are Qwen, created by Alibaba Cloud. You are a helpful assistant.' }}\n    {%- endif %}\n    {{- \"\\n\\n# Tools\\n\\nYou may call one or more functions to assist with the user query.\\n\\nYou are provided with function signatures within <tools></tools> XML tags:\\n<tools>\" }}\n    {%- for tool in tools %}\n        {{- \"\\n\" }}\n        {{- tool | tojson }}\n    {%- endfor %}\n    {{- \"\\n</tools>\\n\\nFor each function call, return a json object with function name and arguments within <tool_call></tool_call> XML tags:\\n<tool_call>\\n{\\\"name\\\": <function-name>, \\\"arguments\\\": <args-json-object>}\\n</tool_call><|im_end|>\\n\" }}\n{%- else %}\n    {%- if messages[0]['role'] == 'system' %}\n        {{- '<|im_start|>system\\n' + messages[0]['content'] + '<|im_end|>\\n' }}\n    {%- else %}\n        {{- '<|im_start|>system\\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\\n' }}\n    {%- endif %}\n{%- endif %}\n{%- for message in messages %}\n    {%- if (message.role == \"user\") or (message.role == \"system\" and not loop.first) or (message.role == \"assistant\" and not message.tool_calls) %}\n        {{- '<|im_start|>' + message.role + '\\n' + message.content + '<|im_end|>' + '\\n' }}\n    {%- elif message.role == \"assistant\" %}\n        {{- '<|im_start|>' + message.role }}\n        {%- if message.content %}\n            {{- '\\n' + message.content }}\n        {%- endif %}\n        {%- for tool_call in message.tool_calls %}\n            {%- if tool_call.function is defined %}\n                {%- set tool_call = tool_call.function %}\n            {%- endif %}\n            {{- '\\n<tool_call>\\n{\"name\": \"' }}\n            {{- tool_call.name }}\n            {{- '\", \"arguments\": ' }}\n            {{- tool_call.arguments | tojson }}\n            {{- '}\\n</tool_call>' }}\n        {%- endfor %}\n        {{- '<|im_end|>\\n' }}\n    {%- elif message.role == \"tool\" %}\n        {%- if (loop.index0 == 0) or (messages[loop.index0 - 1].role != \"tool\") %}\n            {{- '<|im_start|>user' }}\n        {%- endif %}\n        {{- '\\n<tool_response>\\n' }}\n        {{- message.content }}\n        {{- '\\n</tool_response>' }}\n        {%- if loop.last or (messages[loop.index0 + 1].role != \"tool\") %}\n            {{- '<|im_end|>\\n' }}\n        {%- endif %}\n    {%- endif %}\n{%- endfor %}\n{%- if add_generation_prompt %}\n    {{- '<|im_start|>assistant\\n' }}\n{%- endif %}\n",
+        "clean_up_tokenization_spaces": false,
+        "eos_token": "<|im_end|>",
+        "errors": "replace",
+        "model_max_length": 131072,
+        "pad_token": "<|endoftext|>",
+        "split_special_tokens": false,
+        "tokenizer_class": "Qwen2Tokenizer",
+        "unk_token": null
+      },
+      "tokenizer_config_json_sha256": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+      "tokenizer_json_sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+      "tokenizer_revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+      "torch_version": "2.13.0+cu130",
+      "transformers_version": "5.16.1",
+      "weight_files": [
+        "model-00001-of-00017.safetensors",
+        "model-00002-of-00017.safetensors",
+        "model-00003-of-00017.safetensors",
+        "model-00004-of-00017.safetensors",
+        "model-00005-of-00017.safetensors",
+        "model-00006-of-00017.safetensors",
+        "model-00007-of-00017.safetensors",
+        "model-00008-of-00017.safetensors",
+        "model-00009-of-00017.safetensors",
+        "model-00010-of-00017.safetensors",
+        "model-00011-of-00017.safetensors",
+        "model-00012-of-00017.safetensors",
+        "model-00013-of-00017.safetensors",
+        "model-00014-of-00017.safetensors",
+        "model-00015-of-00017.safetensors",
+        "model-00016-of-00017.safetensors",
+        "model-00017-of-00017.safetensors"
+      ]
+    },
+    "7b": {
+      "all_parameters_on_gpu": true,
+      "base_model": "Qwen/Qwen2.5-7B",
+      "chat_template_identical_to_14b": true,
+      "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+      "checked_at": "2026-10-11T15:26:15+00:00",
+      "checks": {
+        "all_s3_prompts_render_byte_identical_to_14b": true,
+        "development_label_tokenization_stable": true,
+        "development_prompts_scored": true,
+        "label_tokenization_stable_on_all_s3_prompts": true,
+        "label_tokens_decode_to_A_and_B": true,
+        "labels_are_single_token": true,
+        "loads_in_bf16_on_one_gpu": true,
+        "no_offloading": true,
+        "no_quantization_config": true,
+        "no_quantized_files": true,
+        "revision_is_full_commit_hash": true,
+        "scoring_method_is_single_token_next_logit": true,
+        "weights_are_bfloat16": true
+      },
+      "config": {
+        "architectures": [
+          "Qwen2ForCausalLM"
+        ],
+        "attention_dropout": 0.0,
+        "bos_token_id": 151643,
+        "eos_token_id": 151645,
+        "hidden_act": "silu",
+        "hidden_size": 3584,
+        "initializer_range": 0.02,
+        "intermediate_size": 18944,
+        "max_position_embeddings": 32768,
+        "max_window_layers": 28,
+        "model_type": "qwen2",
+        "num_attention_heads": 28,
+        "num_hidden_layers": 28,
+        "num_key_value_heads": 4,
+        "rms_norm_eps": 1e-06,
+        "rope_theta": 1000000.0,
+        "sliding_window": 131072,
+        "tie_word_embeddings": false,
+        "torch_dtype": "bfloat16",
+        "transformers_version": "4.43.1",
+        "use_cache": true,
+        "use_sliding_window": false,
+        "vocab_size": 152064
+      },
+      "config_sha256": "7463bb0ea78315365e6c6b74de4e73bbcc8359dfb0c5a737584e077d42c0b03c",
+      "development_prompts": [
+        {
+          "is_study_prompt": false,
+          "label_tokenization_matches_reference": true,
+          "margin": 15.25,
+          "n_prompt_tokens": 34,
+          "p_met": 0.9999997617630899,
+          "prompt": "Name one primary colour.",
+          "raw_score_met": 24.25,
+          "raw_score_not_met": 9.0,
+          "rendered_prompt_sha256": "154521cb493fa4dba4091561e9834e9bf25703afbfbcb97872901dbc2ba9b9e0",
+          "scoring_method": "single_token_next_logit"
+        },
+        {
+          "is_study_prompt": false,
+          "label_tokenization_matches_reference": true,
+          "margin": -13.125,
+          "n_prompt_tokens": 55,
+          "p_met": 1.9947297215270572e-06,
+          "prompt": "Decide whether 91 is a prime number.\nReturn A if it is prime.\nReturn B if it is not prime.",
+          "raw_score_met": 22.125,
+          "raw_score_not_met": 35.25,
+          "rendered_prompt_sha256": "e3717276f2cf60fe11ffc40b71a11eecde5a3eacad3833241a5c5e6d5c7c5590",
+          "scoring_method": "single_token_next_logit"
+        }
+      ],
+      "dtype": "torch.bfloat16",
+      "generation_config_json_sha256": "3a8f9087e486054c8a4a08dae2e5a3ba62e23da212b5b8c08bc42cb983c3459f",
+      "hub_last_modified": "2025-01-12 02:10:10+00:00",
+      "label_tokenization": {
+        "differs_from_naive_encoding": false,
+        "label_met": "A",
+        "label_not_met": "B",
+        "met_token_ids": [
+          32
+        ],
+        "naive_met_token_ids": [
+          32
+        ],
+        "naive_not_met_token_ids": [
+          33
+        ],
+        "not_met_token_ids": [
+          33
+        ],
+        "scoring_method": "single_token_next_logit",
+        "single_token_equivalence": true
+      },
+      "license": "apache-2.0",
+      "license_file_sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+      "license_link": "https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/blob/main/LICENSE",
+      "load_seconds": 31.8,
+      "model_id": "Qwen/Qwen2.5-7B-Instruct",
+      "parameter_count": 7615616512,
+      "peak_gpu_memory_gib": 14.263,
+      "problems": [],
+      "render_continuity": {
+        "decoded_met_token": "A",
+        "decoded_not_met_token": "B",
+        "label_tokenization": {
+          "differs_from_naive_encoding": false,
+          "label_met": "A",
+          "label_not_met": "B",
+          "met_token_ids": [
+            32
+          ],
+          "naive_met_token_ids": [
+            32
+          ],
+          "naive_not_met_token_ids": [
+            33
+          ],
+          "not_met_token_ids": [
+            33
+          ],
+          "scoring_method": "single_token_next_logit",
+          "single_token_equivalence": true
+        },
+        "label_tokenization_mismatch_examples": [],
+        "n_label_tokenization_mismatches": 0,
+        "n_prompts_rendered": 2916,
+        "n_render_mismatches": 0,
+        "render_mismatch_examples": []
+      },
+      "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+      "revision_source": "Hugging Face `main` resolved at pre-flight",
+      "short_name": "Qwen2.5-7B",
+      "snapshot_seconds": 0.0,
+      "status": "PASS",
+      "tag": "7b",
+      "tokenizer_config": {
+        "add_bos_token": false,
+        "add_prefix_space": false,
+        "additional_special_tokens": [
+          "<|im_start|>",
+          "<|im_end|>",
+          "<|object_ref_start|>",
+          "<|object_ref_end|>",
+          "<|box_start|>",
+          "<|box_end|>",
+          "<|quad_start|>",
+          "<|quad_end|>",
+          "<|vision_start|>",
+          "<|vision_end|>",
+          "<|vision_pad|>",
+          "<|image_pad|>",
+          "<|video_pad|>"
+        ],
+        "bos_token": null,
+        "chat_template": "{%- if tools %}\n    {{- '<|im_start|>system\\n' }}\n    {%- if messages[0]['role'] == 'system' %}\n        {{- messages[0]['content'] }}\n    {%- else %}\n        {{- 'You are Qwen, created by Alibaba Cloud. You are a helpful assistant.' }}\n    {%- endif %}\n    {{- \"\\n\\n# Tools\\n\\nYou may call one or more functions to assist with the user query.\\n\\nYou are provided with function signatures within <tools></tools> XML tags:\\n<tools>\" }}\n    {%- for tool in tools %}\n        {{- \"\\n\" }}\n        {{- tool | tojson }}\n    {%- endfor %}\n    {{- \"\\n</tools>\\n\\nFor each function call, return a json object with function name and arguments within <tool_call></tool_call> XML tags:\\n<tool_call>\\n{\\\"name\\\": <function-name>, \\\"arguments\\\": <args-json-object>}\\n</tool_call><|im_end|>\\n\" }}\n{%- else %}\n    {%- if messages[0]['role'] == 'system' %}\n        {{- '<|im_start|>system\\n' + messages[0]['content'] + '<|im_end|>\\n' }}\n    {%- else %}\n        {{- '<|im_start|>system\\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\\n' }}\n    {%- endif %}\n{%- endif %}\n{%- for message in messages %}\n    {%- if (message.role == \"user\") or (message.role == \"system\" and not loop.first) or (message.role == \"assistant\" and not message.tool_calls) %}\n        {{- '<|im_start|>' + message.role + '\\n' + message.content + '<|im_end|>' + '\\n' }}\n    {%- elif message.role == \"assistant\" %}\n        {{- '<|im_start|>' + message.role }}\n        {%- if message.content %}\n            {{- '\\n' + message.content }}\n        {%- endif %}\n        {%- for tool_call in message.tool_calls %}\n            {%- if tool_call.function is defined %}\n                {%- set tool_call = tool_call.function %}\n            {%- endif %}\n            {{- '\\n<tool_call>\\n{\"name\": \"' }}\n            {{- tool_call.name }}\n            {{- '\", \"arguments\": ' }}\n            {{- tool_call.arguments | tojson }}\n            {{- '}\\n</tool_call>' }}\n        {%- endfor %}\n        {{- '<|im_end|>\\n' }}\n    {%- elif message.role == \"tool\" %}\n        {%- if (loop.index0 == 0) or (messages[loop.index0 - 1].role != \"tool\") %}\n            {{- '<|im_start|>user' }}\n        {%- endif %}\n        {{- '\\n<tool_response>\\n' }}\n        {{- message.content }}\n        {{- '\\n</tool_response>' }}\n        {%- if loop.last or (messages[loop.index0 + 1].role != \"tool\") %}\n            {{- '<|im_end|>\\n' }}\n        {%- endif %}\n    {%- endif %}\n{%- endfor %}\n{%- if add_generation_prompt %}\n    {{- '<|im_start|>assistant\\n' }}\n{%- endif %}\n",
+        "clean_up_tokenization_spaces": false,
+        "eos_token": "<|im_end|>",
+        "errors": "replace",
+        "model_max_length": 131072,
+        "pad_token": "<|endoftext|>",
+        "split_special_tokens": false,
+        "tokenizer_class": "Qwen2Tokenizer",
+        "unk_token": null
+      },
+      "tokenizer_config_json_sha256": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+      "tokenizer_json_sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+      "tokenizer_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+      "torch_version": "2.13.0+cu130",
+      "transformers_version": "5.16.1",
+      "weight_files": [
+        "model-00001-of-00004.safetensors",
+        "model-00002-of-00004.safetensors",
+        "model-00003-of-00004.safetensors",
+        "model-00004-of-00004.safetensors"
+      ]
+    }
+  },
+  "preregistration_sha256": "e943462cf99b992cc742ce0a1572a9011593ebcbe8f9440020de7350f5130209",
+  "purpose": "The pre-flight loads each checkpoint, validates its tokenizer, renders (but does not score) the 2,916 S3 prompts to check byte-identity and label tokenization, and scores only the permanently designated non-study development prompts. It runs no forward pass on any S3 prompt and inspects no S3 outcome.",
+  "reference_14b": {
+    "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+    "checks": {
+      "chat_template_matches_frozen": true,
+      "smoke_scores_reproduce": true
+    },
+    "expected_raw_score_met": 37.0,
+    "expected_raw_score_not_met": 13.75,
+    "is_study_prompt": false,
+    "model_id": "Qwen/Qwen2.5-14B-Instruct",
+    "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+    "smoke_raw_score_met": 37.0,
+    "smoke_raw_score_not_met": 13.75,
+    "status": "PASS"
+  },
+  "scores_any_s3_prompt": false,
+  "slurm": {
+    "job_id": "898731",
+    "node": "evc39",
+    "partition": "normal"
+  },
+  "stack_checks": {
+    "single_h100_80gb": true,
+    "tokenizers_matches_frozen_14b_run": true,
+    "torch_matches_frozen_14b_run": true,
+    "transformers_matches_frozen_14b_run": true
+  },
+  "started_at": "2026-10-11T15:23:22+00:00",
+  "status": "PASS",
+  "study": "FormalCRRC Qwen2.5 Same-Family Model-Scale Ablation"
+}

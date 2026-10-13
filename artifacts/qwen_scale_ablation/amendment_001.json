@@ -1,0 +1,175 @@
+{
+  "analysis_code": {
+    "files": {
+      "scripts/analyze_qwen_scale.py": "9357726db94429ceb2b98457b6ad8cd288ef3f93653bbcb5730f7710a467e8ff",
+      "scripts/freeze_qwen_scale_preregistration.py": "56e5a1d638aec15fb87fb7e1e7a32beaf7a8d9868737c3604eb1dc02eda9779a",
+      "scripts/run_day3_inference.py": "f5576be477db475fae7328b8bccbb0243f0588d57f78f95912072d2c7475bf79",
+      "scripts/run_qwen_scale_inference.py": "f39b77781a20aaf661ae469c4acd925a4f7bd7e1d6a010505cd14efcb9cf715f",
+      "scripts/verify_qwen_scale_integrity.py": "fddd432090b6441fdbf24f3da8373467e083f69573415ec1c608920faf9af791",
+      "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
+      "src/formalcrrc/dataset.py": "8a6cb27c91c8d05ab3c9ca29ec7808ed067b0c7d215044c892bb3e059c240d2d",
+      "src/formalcrrc/day2.py": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
+      "src/formalcrrc/day2_bootstrap.py": "fd3062c196add2e7af00a227294d95de92c0642ce893f75a26961fa7dfb58993",
+      "src/formalcrrc/day3.py": "213fcd331a67d73b8ec5cdcd30dafa778da9b7d22107c8cd756b8a6ada713cc5",
+      "src/formalcrrc/day3_config.py": "1c9c2cb1aa4462ee29fcc0215078f99acc2de518d74994efe3169620494cbb5c",
+      "src/formalcrrc/metrics.py": "7f9e7909272c7bcbe6f0971d140027088ac8cc7a98a582563c08b8fce570ed39",
+      "src/formalcrrc/predicates.py": "5c119021ffa69d2dc875bb931a249e5f12811fda791227bc0716cb075fc56b68",
+      "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4",
+      "src/formalcrrc/provenance.py": "34e1c06f91514642b0bcc1beb946997ad275d2b69030f80d83b6e7df9920bd55",
+      "src/formalcrrc/qwen_scale.py": "0294434fdafad873f72b3e97b240ea575eeefb90964dfa52efc796cdf1496e06",
+      "src/formalcrrc/qwen_scale_config.py": "d267b298b84584947fe587675999f2e54948dce8cf7e880ec01b3deb7d195750",
+      "src/formalcrrc/rts_ablation.py": "aab7694a8564fd5fb8645f3e65552bb07f8f35fe731b0baa4821788b482df2d6",
+      "src/formalcrrc/rts_ablation_bootstrap.py": "ec4fcb12e3414c6c2eeee189bb634b5b0e2f18e3aab61d45c256c0e2f5902a53",
+      "src/formalcrrc/rts_ablation_config.py": "df020c365e4e73d1b3d48868d19967f70b60a9f9c987d903aad6537add2e21f8",
+      "src/formalcrrc/scoring.py": "e9dea77babcb60820ad679226d2d826265fe0d844948163296c71be56510c8d4"
+    },
+    "tree_sha256": "3c14b233f8d7439b621d890b3503f9d087e5fd863d0b2e8e8b385d48c50e4f53"
+  },
+  "clarifications": {
+    "case_status": "Cases A-D are non-exclusive descriptive interpretation flags. Any number of them, including none, may hold at once. They are not hypothesis-test categories, and the numeric conditions attached to them (0.10 unreachable, 0.95 TRR) are labelling conventions for this report, not universal reliability thresholds. In Case B, 'both adjacent paired 95% intervals' means the paired bootstrap intervals for Delta_7_to_14 and Delta_14_to_32.",
+    "primary_endpoint": "The primary scaling endpoint is nontrivial TRR: translation reachability of the true boundary over the 288 artifacts with j* <= 8. TCE, FSRR, E*, accuracy and MVR are supporting endpoints. All seven remain rows of the comparison table; 'primary metrics' in the original freeze names the rows of that table, not seven co-primary endpoints.",
+    "primary_endpoint_metric": "trr",
+    "revision_pinning": "After the pre-flight resolves each checkpoint's model and tokenizer revision, the full immutable commit SHAs are recorded in model_revisions.json and that file is checksummed in model_revisions.sha256. The inference runner refuses to start unless the checksum verifies, and loads exactly the recorded commits.",
+    "scale_steps": {
+      "Delta_14_to_32": "TRR_32B - TRR_14B",
+      "Delta_7_to_14": "TRR_14B - TRR_7B"
+    },
+    "supporting_endpoints": [
+      "tce",
+      "fsrr",
+      "oracle_errors",
+      "accuracy",
+      "mvr_05",
+      "mvr_0"
+    ]
+  },
+  "code_changes": {
+    "scripts/analyze_qwen_scale.py": {
+      "previous_sha256": "302fa75c4732c44ee8d4482a95915ca74b07e1a16e26394dabb845ff36f9094f",
+      "sha256": "9357726db94429ceb2b98457b6ad8cd288ef3f93653bbcb5730f7710a467e8ff",
+      "status": "changed"
+    },
+    "scripts/freeze_qwen_scale_preregistration.py": {
+      "previous_sha256": "56e5a1d638aec15fb87fb7e1e7a32beaf7a8d9868737c3604eb1dc02eda9779a",
+      "sha256": "56e5a1d638aec15fb87fb7e1e7a32beaf7a8d9868737c3604eb1dc02eda9779a",
+      "status": "unchanged"
+    },
+    "scripts/run_day3_inference.py": {
+      "previous_sha256": "f5576be477db475fae7328b8bccbb0243f0588d57f78f95912072d2c7475bf79",
+      "sha256": "f5576be477db475fae7328b8bccbb0243f0588d57f78f95912072d2c7475bf79",
+      "status": "unchanged"
+    },
+    "scripts/run_qwen_scale_inference.py": {
+      "previous_sha256": "c0750d9a8189b61dc2cc6829ed26be12d7f9636a8d56b8f96e30ef5421fcf646",
+      "sha256": "f39b77781a20aaf661ae469c4acd925a4f7bd7e1d6a010505cd14efcb9cf715f",
+      "status": "changed"
+    },
+    "scripts/verify_qwen_scale_integrity.py": {
+      "previous_sha256": "233396b3cf84fa26ad94e8605376028fa800eb0a7f768348556ebf6f2c7f3227",
+      "sha256": "fddd432090b6441fdbf24f3da8373467e083f69573415ec1c608920faf9af791",
+      "status": "changed"
+    },
+    "src/formalcrrc/config.py": {
+      "previous_sha256": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
+      "sha256": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
+      "status": "unchanged"
+    },
+    "src/formalcrrc/dataset.py": {
+      "previous_sha256": "8a6cb27c91c8d05ab3c9ca29ec7808ed067b0c7d215044c892bb3e059c240d2d",
+      "sha256": "8a6cb27c91c8d05ab3c9ca29ec7808ed067b0c7d215044c892bb3e059c240d2d",
+      "status": "unchanged"
+    },
+    "src/formalcrrc/day2.py": {
+      "previous_sha256": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
+      "sha256": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
+      "status": "unchanged"
+    },
+    "src/formalcrrc/day2_bootstrap.py": {
+      "previous_sha256": "fd3062c196add2e7af00a227294d95de92c0642ce893f75a26961fa7dfb58993",
+      "sha256": "fd3062c196add2e7af00a227294d95de92c0642ce893f75a26961fa7dfb58993",
+      "status": "unchanged"
+    },
+    "src/formalcrrc/day3.py": {
+      "previous_sha256": "213fcd331a67d73b8ec5cdcd30dafa778da9b7d22107c8cd756b8a6ada713cc5",
+      "sha256": "213fcd331a67d73b8ec5cdcd30dafa778da9b7d22107c8cd756b8a6ada713cc5",
+      "status": "unchanged"
+    },
+    "src/formalcrrc/day3_config.py": {
+      "previous_sha256": "1c9c2cb1aa4462ee29fcc0215078f99acc2de518d74994efe3169620494cbb5c",
+      "sha256": "1c9c2cb1aa4462ee29fcc0215078f99acc2de518d74994efe3169620494cbb5c",
+      "status": "unchanged"
+    },
+    "src/formalcrrc/metrics.py": {
+      "previous_sha256": "7f9e7909272c7bcbe6f0971d140027088ac8cc7a98a582563c08b8fce570ed39",
+      "sha256": "7f9e7909272c7bcbe6f0971d140027088ac8cc7a98a582563c08b8fce570ed39",
+      "status": "unchanged"
+    },
+    "src/formalcrrc/predicates.py": {
+      "previous_sha256": "5c119021ffa69d2dc875bb931a249e5f12811fda791227bc0716cb075fc56b68",
+      "sha256": "5c119021ffa69d2dc875bb931a249e5f12811fda791227bc0716cb075fc56b68",
+      "status": "unchanged"
+    },
+    "src/formalcrrc/prompts.py": {
+      "previous_sha256": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4",
+      "sha256": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4",
+      "status": "unchanged"
+    },
+    "src/formalcrrc/provenance.py": {
+      "previous_sha256": "34e1c06f91514642b0bcc1beb946997ad275d2b69030f80d83b6e7df9920bd55",
+      "sha256": "34e1c06f91514642b0bcc1beb946997ad275d2b69030f80d83b6e7df9920bd55",
+      "status": "unchanged"
+    },
+    "src/formalcrrc/qwen_scale.py": {
+      "previous_sha256": "c85f71f61b7c3e30d432fe06da1656ea4cee32af560068ccd523f1f9dc89d00c",
+      "sha256": "0294434fdafad873f72b3e97b240ea575eeefb90964dfa52efc796cdf1496e06",
+      "status": "changed"
+    },
+    "src/formalcrrc/qwen_scale_config.py": {
+      "previous_sha256": "a2b76107f3e6e543b1560fb789b25025187d7266b7a1f3ac8c8223593cf2a070",
+      "sha256": "d267b298b84584947fe587675999f2e54948dce8cf7e880ec01b3deb7d195750",
+      "status": "changed"
+    },
+    "src/formalcrrc/rts_ablation.py": {
+      "previous_sha256": "aab7694a8564fd5fb8645f3e65552bb07f8f35fe731b0baa4821788b482df2d6",
+      "sha256": "aab7694a8564fd5fb8645f3e65552bb07f8f35fe731b0baa4821788b482df2d6",
+      "status": "unchanged"
+    },
+    "src/formalcrrc/rts_ablation_bootstrap.py": {
+      "previous_sha256": "ec4fcb12e3414c6c2eeee189bb634b5b0e2f18e3aab61d45c256c0e2f5902a53",
+      "sha256": "ec4fcb12e3414c6c2eeee189bb634b5b0e2f18e3aab61d45c256c0e2f5902a53",
+      "status": "unchanged"
+    },
+    "src/formalcrrc/rts_ablation_config.py": {
+      "previous_sha256": "df020c365e4e73d1b3d48868d19967f70b60a9f9c987d903aad6537add2e21f8",
+      "sha256": "df020c365e4e73d1b3d48868d19967f70b60a9f9c987d903aad6537add2e21f8",
+      "status": "unchanged"
+    },
+    "src/formalcrrc/scoring.py": {
+      "previous_sha256": "e9dea77babcb60820ad679226d2d826265fe0d844948163296c71be56510c8d4",
+      "sha256": "e9dea77babcb60820ad679226d2d826265fe0d844948163296c71be56510c8d4",
+      "status": "unchanged"
+    }
+  },
+  "created_at": "2026-10-11T15:21:03+00:00",
+  "defect": "Four gaps in the original freeze, none affecting any definition or computation of a metric. (1) Nontrivial TRR was used as the headline for the interpretation cases but was never named as the single primary scaling endpoint; seven table rows were all called 'primary'. (2) Cases A-D were stated to be non-exclusive, but not that they are descriptive flags rather than hypothesis-test categories or universal thresholds, and the two adjacent scale steps were not defined with an explicit sign. (3) model_revisions.json was not checksummed and the runner did not verify it. (4) The pre-flight and results-writer scripts were not hashed into any provenance record, and the code gates had no way to honour an amendment.",
+  "document": {
+    "path": "docs/QWEN_SCALE_ABLATION_AMENDMENT_001.md"
+  },
+  "inference_existed": false,
+  "model_revisions_existed": false,
+  "number": 1,
+  "outcome_independence": "Created before any FormalCRRC inference with Qwen2.5-7B or Qwen2.5-32B: the amendment script refuses to run if any result, partial result, receipt or run record exists. No 7B or 32B outcome existed to depend on. Four pre-flight submissions had failed on nodes with unusable GPUs before loading any model; they produced no model or scientific output.",
+  "preregistration_frozen_at": "2026-10-11T14:55:19+00:00",
+  "preregistration_sha256": "e943462cf99b992cc742ce0a1572a9011593ebcbe8f9440020de7350f5130209",
+  "provenance_only_code": {
+    "files": {
+      "scripts/amend_qwen_scale_preregistration.py": "463e51fd70272cc5f81b300d4c86caa8fb88dad3fb292b864c9098b23029f7f0",
+      "scripts/preflight_qwen_scale.py": "ac2bf70afa9789dcbf8da665a57fbed04907d9f2b435ae62deeaf1e10e406bea",
+      "scripts/write_results_qwen_scale.py": "54b9acd3d9e2bcbce909d95b363f770f61835f84536277a2faea3b427c77752f"
+    },
+    "tree_sha256": "fca17dc47b5fcb8b07724da185e9525971e8e36ee77c0fb08f2338bbee92fc8b"
+  },
+  "study": "FormalCRRC Qwen2.5 Same-Family Model-Scale Ablation",
+  "title": "Primary endpoint, case status, revision checksum, provenance",
+  "what_changed": "Declared nontrivial TRR the primary scaling endpoint and TCE, FSRR, E*, accuracy and MVR supporting endpoints. Declared Cases A-D non-exclusive descriptive flags and defined Delta_7_to_14 = TRR_14B - TRR_7B and Delta_14_to_32 = TRR_32B - TRR_14B, which the analysis now reports with those signs. The pre-flight writes model_revisions.sha256 and the runner verifies it before loading. The analysis hashes the pre-flight, results-writer and amendment scripts into run_manifest.json. The runner, analysis and verifier read the pinned code manifest from the latest checksummed amendment. checksums.sha256 now also covers preserved infrastructure logs. No metric definition, population, contrast, test, bootstrap setting, case condition, threshold or protocol element changed."
+}

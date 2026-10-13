@@ -1,0 +1,78 @@
+{
+  "dtype": "bfloat16",
+  "environment": {
+    "captured_at": "2026-09-09T19:19:46+00:00",
+    "gpu": {
+      "available": true,
+      "cudnn_version": 92000,
+      "device_count": 1,
+      "devices": [
+        {
+          "capability": "9.0",
+          "index": 0,
+          "name": "NVIDIA H100 PCIe",
+          "total_memory_bytes": 85017624576
+        }
+      ],
+      "torch_cuda_version": "13.0",
+      "torch_version": "2.13.0+cu130"
+    },
+    "hostname": "evc42",
+    "machine": "x86_64",
+    "packages": {
+      "accelerate": null,
+      "matplotlib": "3.11.1",
+      "numpy": "2.3.5",
+      "pandas": "3.0.5",
+      "pyarrow": "25.0.1",
+      "scipy": "1.17.1",
+      "tokenizers": "0.23.2",
+      "torch": "2.13.0",
+      "transformers": "5.16.1"
+    },
+    "platform": "Linux-4.18.0-553.123.1.el8_10.0.1.x86_64-x86_64-with-glibc2.28",
+    "python_implementation": "CPython",
+    "python_version": "3.11.16"
+  },
+  "experiment": "FormalCRRC Reasoning-Capable External Anchor Study",
+  "finished_at": "2026-09-09T19:19:46+00:00",
+  "model_id": "Qwen/Qwen3-30B-A3B-Thinking-2507",
+  "preregistration_sha256": "b32c547bf8ba994937e144bed8fec0673af7553c0c7c3aca6838239f3ba6582b",
+  "protocol": "reason_then_score",
+  "quantization": "none",
+  "raw_rows_sha256": "27c29f219731b10fb71fc8d7af4d97e1bf621f0747f3eca8da1aacbb2ede945d",
+  "retries": [],
+  "revision": "144afc2f379b542fdd4e85a1fcd5e1f79112d95d",
+  "rows_attempted": 2916,
+  "rows_requested": 2916,
+  "rows_scored": 2916,
+  "rows_truncated": 0,
+  "slurm": {
+    "job_id": "800765",
+    "node": "evc42",
+    "partition": "normal"
+  },
+  "source_manifest": {
+    "files": {
+      "scripts/analyze_reasoning_anchor.py": "c092f87003dfb93271c7546db6ae57d4e39a28b218c77ec1a200c88d3bcdcfe1",
+      "scripts/figures_reasoning_anchor.py": "63cfb397fe9ec96c07a179df10f3fa744bc6e57ed3aa09f4bd9de0d2aac6cda1",
+      "scripts/freeze_reasoning_anchor_preregistration.py": "d1223b0a055edf95f97aee5610182e875171a4ca848a68f6cf8073612f0a888d",
+      "scripts/preflight_reasoning_anchor.py": "d200f17fa2e69c3772fe901535a743d6ab016d310447c5bba25b7c501914b2c2",
+      "scripts/run_reasoning_anchor_inference.py": "277e05d9e252817a61709452d7689726623e377fb19ace00473cf261e5a6d72a",
+      "scripts/verify_reasoning_anchor_integrity.py": "5c784db4610f672408f8db760f18f39af1945f9c6ed43c46d83457fc7e0ad84b",
+      "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
+      "src/formalcrrc/day2.py": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
+      "src/formalcrrc/day3.py": "213fcd331a67d73b8ec5cdcd30dafa778da9b7d22107c8cd756b8a6ada713cc5",
+      "src/formalcrrc/predicates.py": "5c119021ffa69d2dc875bb931a249e5f12811fda791227bc0716cb075fc56b68",
+      "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4",
+      "src/formalcrrc/provenance.py": "34e1c06f91514642b0bcc1beb946997ad275d2b69030f80d83b6e7df9920bd55",
+      "src/formalcrrc/reasoning_anchor.py": "368c403797cd3b9a5773a39640266415c5145d7934cefee6a9dbacf9df5da9e8",
+      "src/formalcrrc/reasoning_anchor_bootstrap.py": "79ae152621be229553a21547bbeb8f05fdae622214e38d24603cf677ebfee9a8",
+      "src/formalcrrc/reasoning_anchor_config.py": "25000305fe2f843891a4a6a2f1641ce0fc4b2f6a929b63f32e2cc696a75c8d3e",
+      "src/formalcrrc/scoring.py": "e9dea77babcb60820ad679226d2d826265fe0d844948163296c71be56510c8d4"
+    },
+    "tree_sha256": "b4f8ce9abe8acb1c68e20dfd895668b5a05eec96d71477830758e53ab42cabcf"
+  },
+  "tokenizer_revision": "144afc2f379b542fdd4e85a1fcd5e1f79112d95d",
+  "truncation_rate": 0.0
+}

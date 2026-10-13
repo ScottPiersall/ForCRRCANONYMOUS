@@ -1,0 +1,470 @@
+{
+  "amendments": [],
+  "analysis_code_paths": [
+    "src/formalcrrc/config.py",
+    "src/formalcrrc/predicates.py",
+    "src/formalcrrc/dataset.py",
+    "src/formalcrrc/prompts.py",
+    "src/formalcrrc/scoring.py",
+    "src/formalcrrc/metrics.py",
+    "src/formalcrrc/bootstrap.py",
+    "src/formalcrrc/provenance.py",
+    "scripts/generate_day1_dataset.py",
+    "scripts/run_day1_inference.py",
+    "scripts/analyze_day1.py",
+    "scripts/verify_day1_integrity.py"
+  ],
+  "bootstrap": {
+    "cluster_rule": "all 9 thresholds of an artifact are carried together",
+    "coverage": 0.95,
+    "interval_method": "percentile",
+    "metrics": [
+      "mvr",
+      "mvm",
+      "tce",
+      "accuracy",
+      "brier"
+    ],
+    "paired_comparisons": "judge-vs-judge differences use the identical resampled artifact sets for both judges; difference estimates and 95% intervals are reported",
+    "prohibited": [
+      "treating the 2916 threshold cells as independent observations",
+      "asymptotic standard errors that ignore within-artifact dependence",
+      "selecting any hyperparameter from bootstrap outcomes"
+    ],
+    "replicates": 5000,
+    "seed": 42,
+    "stratify_by": "family",
+    "unit": "artifact_id"
+  },
+  "dataset": {
+    "content_sha256": "4462bedbf5f086daa8bdfa077ad82e1ea7b79b4db59d906fafe6c814cfc85a2e",
+    "families": [
+      "coverage",
+      "max_violation",
+      "numeric_tolerance"
+    ],
+    "file_sha256": "01465951da67a5e906ba057297ec4fcebf6a22fb2980ebe76d399d25b0015f44",
+    "n_artifacts": 324,
+    "n_families": 3,
+    "n_instances_per_cell": 12,
+    "n_latent_levels": 9,
+    "n_rubric_response_pairs": 2916,
+    "n_strictness_levels": 9,
+    "path": "artifacts/day1/formal_dataset.parquet",
+    "prompt_manifest_file_sha256": "f577a947cbed7c4d96f618b5f476d6f8064fbbd7886e7e5dae576889164097fb",
+    "rubric_template_sha256": {
+      "coverage": "5a9223d9829757e4b58993ff0b4c9d673e32113e9e13725784b5e25e41aeebef",
+      "max_violation": "c52025591b3778d90695f30813de9877b782161fbe45c5f0900a164deae705fe",
+      "numeric_tolerance": "42fe5998d8e8692b301cee92c740fec652218b7ba2f5dde70ca24c21cae29c80"
+    }
+  },
+  "design": {
+    "fixed_factor": "candidate_response (byte-identical across thresholds)",
+    "ground_truth_source": "arithmetic predicate over construction-time quantities; no language model, validator, consensus panel or human annotation participates in labelling",
+    "human_involvement": "none",
+    "manipulated_factor": "formal decision threshold printed in the rubric",
+    "most_permissive_strictness": 0,
+    "most_strict_strictness": 8,
+    "n_strictness_levels": 9,
+    "strictness_index_range": [
+      0,
+      8
+    ],
+    "type": "within-artifact counterfactual threshold ladder"
+  },
+  "document": "FormalCRRC Day-1 preregistration",
+  "exclusion_rules": {
+    "artifact_exclusions": "None. All 324 artifacts enter every analysis.",
+    "model_exclusions": "A model is excluded only when it is inaccessible before any FormalCRRC study outcome has been generated for it, and is then recorded as BLOCKED_BY_MODEL_ACCESS. No model may be dropped, added or substituted on the basis of observed FormalCRRC performance.",
+    "no_filtering_of_hard_artifacts": true,
+    "no_selection_of_latent_levels": true,
+    "row_exclusions": "A row is excluded only if its scoring produced a non-finite label score, which would be an implementation defect rather than a result. Any such exclusion must be reported with an exact count and the affected prompt_ids, and blocks the affected model's analysis.",
+    "threshold_exclusions": "None. All 9 strictness levels enter every analysis."
+  },
+  "failure_handling": {
+    "implementation_defect": "Stop the affected analysis, document the defect, preserve the defective artifacts, create a numbered preregistration amendment if the protocol is affected, and rerun only under an explicitly documented correction. Low judge performance is never treated as a defect.",
+    "incomplete_model_run": "If a model's raw scores do not contain all 2916 prompts exactly once, that model's analysis is BLOCKED and reported as such. Partial results are not analysed as if complete.",
+    "model_access_failure": "Recorded as BLOCKED_BY_MODEL_ACCESS. No substitute model is chosen. A three-model panel is never described as the specified four-model panel.",
+    "no_outcome_driven_tuning": "After inference begins, no change may be made to thresholds, strictness levels, the 0.05 MVR tolerance, the 0.5 crossing boundary, the prompt, the answer labels, the model panel, the predicate families, the bootstrap units, or the metric definitions; and no post-hoc calibration, temperature fitting, isotonic regression, monotonicity enforcement, curve correction, selective rerunning or run averaging is permitted."
+  },
+  "figure_plan": [
+    {
+      "content": "Schematic: fixed artifact -> ordered rubric thresholds -> judge probabilities -> response curve.",
+      "id": "figure1",
+      "path": "figures/day1/figure1_concept.png",
+      "title": "FormalCRRC concept"
+    },
+    {
+      "content": "Mean P_met against signed distance d = s - j* from the true crossing, per judge, with uncertainty.",
+      "id": "figure2",
+      "path": "figures/day1/figure2_boundary_aligned_curves.png",
+      "title": "Boundary-aligned response curves"
+    },
+    {
+      "content": "Per-model distribution of artifact-level MVR.",
+      "id": "figure3",
+      "path": "figures/day1/figure3_mvr_distributions.png",
+      "title": "MVR distributions"
+    },
+    {
+      "content": "Per-model distribution of threshold crossing error.",
+      "id": "figure4",
+      "path": "figures/day1/figure4_tce_distributions.png",
+      "title": "TCE distributions"
+    },
+    {
+      "content": "Heatmap of primary metrics by model and predicate family.",
+      "id": "figure5",
+      "path": "figures/day1/figure5_model_family_heatmap.png",
+      "title": "Model x predicate-family summary"
+    }
+  ],
+  "frozen_at": "2026-09-07T17:20:38+00:00",
+  "git_at_freeze": {
+    "available": true,
+    "clean": false,
+    "commit": "acdaf8347ddd7e96363a47e98867d49ecc165462",
+    "dirty_paths": [
+      ".gitignore",
+      "LICENSE",
+      "artifacts/day1/label_token_check.json",
+      "artifacts/day1/model_provenance.json",
+      "scripts/audit_environment.py",
+      "scripts/freeze_day1_preregistration.py",
+      "scripts/run_day1_inference.py",
+      "scripts/verify_day1_ready.py",
+      "scripts/verify_label_tokens.py",
+      "scripts/write_results_day1.py",
+      "slurm/verify_labels.sbatch",
+      "src/formalcrrc/config.py",
+      "src/formalcrrc/prompts.py",
+      "src/formalcrrc/scoring.py",
+      "tests/test_scoring.py"
+    ]
+  },
+  "hypotheses": [
+    {
+      "directional": true,
+      "id": "H1",
+      "operationalisation": "Artifact-level MVR at tolerance 0.05 is the primary measure; a judge consistent with H1 has MVR near 0.",
+      "statement": "For a fixed artifact evaluated under an ordered family of formal thresholds, judge probability P_met is non-increasing in the strictness index s."
+    },
+    {
+      "directional": true,
+      "id": "H2",
+      "operationalisation": "Artifact-level TCE; a judge consistent with H2 has TCE near 0.",
+      "statement": "The judge's 0.5 crossing point coincides with the formal first-fail index j* known by construction."
+    },
+    {
+      "directional": false,
+      "id": "H3",
+      "operationalisation": "Joint reporting of accuracy against MVR/MVM/TCE. This is an observational contrast, not a directional prediction.",
+      "statement": "Curve fidelity and aggregate binary accuracy can diverge: a judge may score high accuracy while violating monotonicity or crossing at the wrong threshold."
+    },
+    {
+      "directional": false,
+      "id": "H4",
+      "operationalisation": "All primary metrics reported per family; no averaging away.",
+      "statement": "Curve fidelity may depend on the predicate family, in particular between count-based and arithmetic-tolerance predicates."
+    }
+  ],
+  "inference": {
+    "batch_size": 1,
+    "batching_rationale": "one prompt per forward pass, so no score depends on padding or batch composition",
+    "console_output": "operational only: progress, processed count, failures, timing, memory. No accuracy, MVR, MVM, TCE, ranking or curve summary is printed during inference.",
+    "independence": "each rubric-response pair is scored independently",
+    "model_order": "models are sorted by sha256(MODEL_ORDER_SALT|model_id)",
+    "order": "prompts are sorted by sha256(INFERENCE_ORDER_SALT|prompt_id), frozen in artifacts/day1/prompt_manifest.parquet before any GPU inference; family, latent level and strictness are therefore interleaved"
+  },
+  "judge_models": {
+    "adapters": "none",
+    "calibration_layer": "none",
+    "dtype": "bfloat16",
+    "fine_tuning": "none",
+    "model_ids": [
+      "Qwen/Qwen2.5-14B-Instruct",
+      "meta-llama/Llama-3.1-8B-Instruct",
+      "mistralai/Mistral-7B-Instruct-v0.3",
+      "google/gemma-2-9b-it"
+    ],
+    "panel_size": 4,
+    "panel_status_at_freeze": {
+      "Qwen/Qwen2.5-14B-Instruct": "AVAILABLE",
+      "google/gemma-2-9b-it": "AVAILABLE",
+      "meta-llama/Llama-3.1-8B-Instruct": "AVAILABLE",
+      "mistralai/Mistral-7B-Instruct-v0.3": "AVAILABLE"
+    },
+    "prompt_optimisation": "none",
+    "quantisation": "none",
+    "resolved_revisions": {
+      "Qwen/Qwen2.5-14B-Instruct": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+      "google/gemma-2-9b-it": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+      "meta-llama/Llama-3.1-8B-Instruct": "0e9e39f249a16976918f6564b8830bc894c89659",
+      "mistralai/Mistral-7B-Instruct-v0.3": "c170c708c41dac9275d15a8fff4eca08d52bab71"
+    },
+    "resolved_scoring_methods": {
+      "Qwen/Qwen2.5-14B-Instruct": "single_token_next_logit",
+      "google/gemma-2-9b-it": "single_token_next_logit",
+      "meta-llama/Llama-3.1-8B-Instruct": "single_token_next_logit",
+      "mistralai/Mistral-7B-Instruct-v0.3": "single_token_next_logit"
+    },
+    "run_order": [
+      "meta-llama/Llama-3.1-8B-Instruct",
+      "mistralai/Mistral-7B-Instruct-v0.3",
+      "google/gemma-2-9b-it",
+      "Qwen/Qwen2.5-14B-Instruct"
+    ],
+    "selection_rule": "The panel is fixed in advance and may not be changed on the basis of observed FormalCRRC performance."
+  },
+  "novelty_boundaries": {
+    "bibliographic_status": "Collision areas are recorded by research direction only. Exact bibliographic metadata is not asserted in this document and must be verified from authoritative public sources before being recorded anywhere in the repository.",
+    "claimed_contribution": "An experimental protocol in which a fixed evaluated artifact is paired with a programmatically parameterized family of evaluation thresholds, producing a counterfactual rubric response curve whose monotonicity, threshold crossing and sensitivity can be compared with behaviour known exactly by construction.",
+    "collision_areas_constraining_claims": [
+      "policy/rubric-threshold invariance work (Weng, Feng & Xie, 2026)",
+      "FlexGuard / FlexBench",
+      "RubricRobustness",
+      "IRT-based analyses of LLM judge reliability",
+      "rubric counterfactual/reversal work (Bagaria et al.)",
+      "RuVerBench",
+      "formal or certified judge robustness work such as 'Certifying the Judge'"
+    ],
+    "day1_does_not_establish": [
+      "human alignment",
+      "clinical reliability",
+      "HealthBench reliability",
+      "general semantic rubric reliability",
+      "reward-model correctness",
+      "causal reasoning ability",
+      "robustness to arbitrary natural-language rubrics",
+      "reliability of free-form semantic relaxation",
+      "general superiority of any model family"
+    ],
+    "explicitly_not_claimed": [
+      "first rubric perturbation method",
+      "first counterfactual evaluation of LLM judges",
+      "first strict-vs-lenient rubric experiment",
+      "first multi-level strictness experiment",
+      "first judge robustness curve",
+      "first monotonicity analysis of an LLM evaluator",
+      "first threshold-based judge evaluation",
+      "first use of controlled rubric changes",
+      "first continuous LLM judge reliability measure"
+    ]
+  },
+  "predicate_families": {
+    "coverage": {
+      "code": "A",
+      "latent_quantity": "m, number of Required Items present (0..8)",
+      "list_size": 8,
+      "markers_per_response": 14,
+      "raw_threshold_formula": "s",
+      "rubric_threshold": "at least s",
+      "true_first_fail_index": "m + 1, or 9 when m = 8",
+      "truth": "1[m >= s]"
+    },
+    "max_violation": {
+      "code": "B",
+      "latent_quantity": "v, number of Prohibited Items present (0..8)",
+      "list_size": 8,
+      "markers_per_response": 14,
+      "raw_threshold_formula": "8 - s",
+      "rubric_threshold": "at most 8 - s",
+      "true_first_fail_index": "9 - v",
+      "truth": "1[v <= 8 - s]"
+    },
+    "numeric_tolerance": {
+      "code": "C",
+      "error_signs": "alternating by instance index; 0 when e = 0",
+      "latent_quantity": "e = |V - T|, absolute error (0..8)",
+      "raw_threshold_formula": "8 - s",
+      "rubric_threshold": "at most 8 - s",
+      "target_range": [
+        20,
+        200
+      ],
+      "true_first_fail_index": "9 - e",
+      "truth": "1[|V - T| <= 8 - s]"
+    }
+  },
+  "primary_metrics": {
+    "MVM": {
+      "definition": "MVM_x = (1/8) * sum_{s=0}^{7} max(0, P_x(s+1) - P_x(s))",
+      "unit": "artifact"
+    },
+    "MVR": {
+      "definition": "MVR_x = (1/8) * sum_{s=0}^{7} 1[P_x(s+1) > P_x(s) + delta]",
+      "tolerance_delta": 0.05,
+      "unit": "artifact"
+    },
+    "TCE": {
+      "decision_threshold": 0.5,
+      "definition": "TCE_x = |j_hat_x - j*_x|",
+      "no_crossing_index": 9,
+      "predicted_boundary": "j_hat_x = min{s : P_x(s) < 0.5}, or 9 if never below",
+      "reported": [
+        "mean",
+        "median",
+        "distribution",
+        "exact-boundary rate (TCE = 0)",
+        "rate within one threshold step (TCE <= 1)"
+      ],
+      "true_boundary": "j*_x = min{s : Y_x(s) = 0}, or 9 if never 0",
+      "unit": "artifact"
+    }
+  },
+  "prompt": {
+    "chat_template": "each model's native chat template, rendered hash recorded",
+    "label_met": "A",
+    "label_not_met": "B",
+    "message_structure": "single user message; no system message",
+    "only_study_variable_text": "the numeric rubric threshold",
+    "prohibited": [
+      "chain-of-thought prompting",
+      "few-shot examples",
+      "self-explanation requests",
+      "model-specific reasoning instructions",
+      "persona or role framing",
+      "temperature or verbosity variation between models"
+    ],
+    "template": "You are evaluating exactly one criterion for one candidate response.\n\nUse only the stated criterion. Do not reward or penalize the response for properties outside that criterion.\n\nCriterion:\n{rubric_text}\n\nCandidate response:\n{candidate_response}\n\nReturn A if the criterion is met.\nReturn B if the criterion is not met.",
+    "template_sha256": "e5f3c5ba3dfd1ccaca0655307d8ad254598a17184c7ae40dfde63c1f660cae14"
+  },
+  "research_question": "When evaluation criteria differ only by a formally controlled decision threshold, do LLM judges exhibit the monotone counterfactual response function implied by the rubric?",
+  "scoring": {
+    "fallback_condition": "single-token continuation fails for at least one label; applied per model, decided from tokenizer behaviour before any study prompt is scored",
+    "fallback_formula": "P_met = exp(l_A) / (exp(l_A) + exp(l_B))",
+    "fallback_rule": "sequence_loglikelihood",
+    "label_token_resolution": {
+      "definition": "The scored token ids for a label are the continuation ids encode(rendered_prompt + label) minus encode(rendered_prompt), both with add_special_tokens=False. Encoding the bare label string is NOT used: a SentencePiece tokenizer returns a word-boundary-marked token for a string encoded in isolation, which is a different id from the one that actually continues a prompt.",
+      "observed_naive_encoding_mismatch": "mistralai/Mistral-7B-Instruct-v0.3 encodes 'A' as the word-boundary token '_A' (id 1098) but continues its prompt with 'A' (id 29509). Detected before this preregistration was frozen and before any study inference.",
+      "reference_prompt": "a message with the study prompt's chat-template structure and placeholder content (<RUBRIC>, <RESPONSE>), so the resolution depends on no rubric, threshold or candidate response",
+      "rule": "prompt_continuation_difference",
+      "stability_verification": "scripts/verify_label_tokens.py confirms, by tokenizer inspection alone and with no model call, that the resolved ids are identical for the first 25 prompts of the frozen inference order; recorded in artifacts/day1/label_token_check.json"
+    },
+    "primary_condition": "both 'A' and 'B' continue the rendered prompt with exactly one token under the model's own tokenizer",
+    "primary_formula": "P_met = exp(z_A) / (exp(z_A) + exp(z_B))",
+    "primary_rule": "single_token_next_logit",
+    "recorded_per_row": [
+      "raw_score_met",
+      "raw_score_not_met",
+      "p_met",
+      "scoring_method",
+      "n_prompt_tokens",
+      "rendered_prompt_sha256"
+    ],
+    "sampling": "none; no generation, no temperature",
+    "selection_rule": "The scoring rule is determined by tokenisation alone and may never be chosen on the basis of the curves it produces."
+  },
+  "secondary_metrics": {
+    "MVR_zero_tolerance": {
+      "definition": "MVR at delta = 0",
+      "tolerance_delta": 0.0
+    },
+    "binary_accuracy": "mean 1[(P_met >= 0.5) == Y] over all cells",
+    "boundary_relative_curve": "mean P_met as a function of signed distance d = s - j*",
+    "brier_score": "mean (P_met - Y)^2 over all cells",
+    "family_specific_performance": "every metric reported separately for coverage, max_violation and numeric_tolerance; family-specific failures are not hidden behind overall averages",
+    "spearman_threshold_sensitivity": "within-artifact Spearman association between s and P_met; expected direction non-positive; undefined (nan) for a constant curve, in which case the artifact is omitted from the mean and the omitted count is reported. Descriptive support only, never a replacement for MVR/TCE."
+  },
+  "seeds": {
+    "bootstrap_seed": 42,
+    "dataset_construction": "numpy.default_rng([SEED, family_index, latent_level, instance_index]) / PCG64",
+    "inference_order_salt": "formalcrrc-day1-inference-order-v1",
+    "master_seed": 42,
+    "model_order_salt": "formalcrrc-day1-model-order-v1"
+  },
+  "source_manifest_at_freeze": {
+    "files": {
+      "scripts/analyze_day1.py": "26e8c61d82d6548ef4128461ea99847af6d4233fc810045e00c40561430c5f96",
+      "scripts/generate_day1_dataset.py": "6814188bc5e5a64758c9e7ac0aefb295dbde6fab1f273b16b35f8031cfb15939",
+      "scripts/run_day1_inference.py": "036e0e61b8ce43f7ba49dbf36fac2c8466f54076a782d5898bb7d28d951c96ba",
+      "scripts/verify_day1_integrity.py": "6e899b0bb6bf5a430d4aace397dcd0d9f11164fc7df5b1cc5ea07700c4590e0a",
+      "src/formalcrrc/bootstrap.py": "960181bbea8781aa69cd3ed39de327f88c5eb382b6b1a79810122fe6563b2427",
+      "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
+      "src/formalcrrc/dataset.py": "c3bad767083c9e1e274a04d90f5fe64e6a56420c0e65d4df3762b178d8a53930",
+      "src/formalcrrc/metrics.py": "7f9e7909272c7bcbe6f0971d140027088ac8cc7a98a582563c08b8fce570ed39",
+      "src/formalcrrc/predicates.py": "5c119021ffa69d2dc875bb931a249e5f12811fda791227bc0716cb075fc56b68",
+      "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4",
+      "src/formalcrrc/provenance.py": "34e1c06f91514642b0bcc1beb946997ad275d2b69030f80d83b6e7df9920bd55",
+      "src/formalcrrc/scoring.py": "e9dea77babcb60820ad679226d2d826265fe0d844948163296c71be56510c8d4"
+    },
+    "tree_sha256": "bcb5ca6a1c23fd83d74ac5582adc721ef34df809b5febc4182ff68e85d86cb67"
+  },
+  "stopping_rule": {
+    "no_data_dependent_extension": "The design is not extended, repeated or enlarged on the basis of observed results. No Day-2 experiment follows automatically.",
+    "no_interim_analysis": "No monotonicity, crossing, accuracy or ranking summary is computed or displayed while inference is running. Console output during inference is restricted to operational information.",
+    "rule": "Inference stops when every preregistered judge has produced exactly 2916 scored prompts, or has been formally marked BLOCKED_BY_MODEL_ACCESS. The preregistered analysis is then run exactly once.",
+    "success_criterion": "Day 1 succeeds when dataset integrity passes, the preregistration was frozen before outcomes, intended runs completed or were transparently blocked, probability extraction is valid, the analysis matches this document, and all results are reported regardless of direction. No favourable-effect threshold is defined."
+  },
+  "threshold_values": {
+    "coverage": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": 5,
+      "6": 6,
+      "7": 7,
+      "8": 8
+    },
+    "max_violation": {
+      "0": 8,
+      "1": 7,
+      "2": 6,
+      "3": 5,
+      "4": 4,
+      "5": 3,
+      "6": 2,
+      "7": 1,
+      "8": 0
+    },
+    "numeric_tolerance": {
+      "0": 8,
+      "1": 7,
+      "2": 6,
+      "3": 5,
+      "4": 4,
+      "5": 3,
+      "6": 2,
+      "7": 1,
+      "8": 0
+    }
+  },
+  "true_first_fail_index_by_cell": {
+    "coverage": {
+      "0": 1,
+      "1": 2,
+      "2": 3,
+      "3": 4,
+      "4": 5,
+      "5": 6,
+      "6": 7,
+      "7": 8,
+      "8": 9
+    },
+    "max_violation": {
+      "0": 9,
+      "1": 8,
+      "2": 7,
+      "3": 6,
+      "4": 5,
+      "5": 4,
+      "6": 3,
+      "7": 2,
+      "8": 1
+    },
+    "numeric_tolerance": {
+      "0": 9,
+      "1": 8,
+      "2": 7,
+      "3": 6,
+      "4": 5,
+      "5": 4,
+      "6": 3,
+      "7": 2,
+      "8": 1
+    }
+  },
+  "version": 1
+}

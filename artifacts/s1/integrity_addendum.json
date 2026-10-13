@@ -1,0 +1,25 @@
+{
+  "combined_hash_definition": "sha256 over newline-joined '<repo-relative path>:<sha256>' entries, sorted by path; an empty file list is refused",
+  "combined_sha256": "d64e96cf4d1af819e917edee2bacee8164e9dc0e96c7bbd1e51ebf95c73526c9",
+  "created_at": "2026-09-07T18:05:37+00:00",
+  "defect": {
+    "affects_scientific_outcomes": false,
+    "empty_input_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "manifest_was_correct": true,
+    "quoted_in_results_document": [
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "summary": "docs/RESULTS_DAY1.md reports a combined figure hash equal to the SHA-256 of the empty string, because the results document was generated from an integrity manifest built before the figures existed."
+  },
+  "document": "FormalCRRC Day-1 integrity addendum",
+  "figures": {
+    "figures/day1/figure1_concept.png": "e7e0baf7b6a8102674cba168eb42ab6b66def559bdc7edeefa88154eee0c3561",
+    "figures/day1/figure2_boundary_aligned_curves.png": "3b9322c3a369c169102c8bca6941e7a03a72d1af931463470eb22fcc987d3059",
+    "figures/day1/figure3_mvr_distributions.png": "d8711fc79f29f4d2a99bf4b8e031eecb4a7d7880aedef79a61cf3271aa81c75f",
+    "figures/day1/figure4_tce_distributions.png": "d3bcbd446cf75a5a87983d60337cb70a37d8c001664cc1ea696a7c366fb6501c",
+    "figures/day1/figure5_model_family_heatmap.png": "50cf8bc66d49eb5674427220af05cb2c43bb565edd2209edb0ffd5efbcb0f88e"
+  },
+  "n_figures": 5,
+  "relationship_to_original": "Additive only. artifacts/day1/integrity_manifest.json is left exactly as written on 2026-09-07 and is not corrected in place. docs/RESULTS_DAY1.md is likewise unchanged. This file supplies correctly computed figure hashes and records the defect for the historical record.",
+  "status": "ADDITIVE"
+}

@@ -1,0 +1,287 @@
+{
+  "amendments": 0,
+  "analysis_code": {
+    "files": {
+      "scripts/analyze_labelswap.py": null,
+      "scripts/figures_labelswap.py": null,
+      "scripts/freeze_labelswap_preregistration.py": "d0ff89a8fc49610e541add9dc347ce759b4c9a8b0727581c5f3145f0fdef99ad",
+      "scripts/run_labelswap_inference.py": null,
+      "scripts/verify_labelswap_integrity.py": null,
+      "scripts/verify_labelswap_ready.py": null,
+      "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
+      "src/formalcrrc/day2.py": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
+      "src/formalcrrc/day3.py": "213fcd331a67d73b8ec5cdcd30dafa778da9b7d22107c8cd756b8a6ada713cc5",
+      "src/formalcrrc/labelswap.py": "7f98608a13441591bf45e965ccc72dbadf4c6951c298292e2a4e99f562019f17",
+      "src/formalcrrc/labelswap_bootstrap.py": null,
+      "src/formalcrrc/labelswap_config.py": "ea9216ddae43262378a269e7cbe4a1ec15e82df7b61e788fd8bb500630334abe",
+      "src/formalcrrc/predicates.py": "5c119021ffa69d2dc875bb931a249e5f12811fda791227bc0716cb075fc56b68",
+      "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4",
+      "src/formalcrrc/provenance.py": "34e1c06f91514642b0bcc1beb946997ad275d2b69030f80d83b6e7df9920bd55",
+      "src/formalcrrc/scoring.py": "e9dea77babcb60820ad679226d2d826265fe0d844948163296c71be56510c8d4"
+    },
+    "tree_sha256": "f42e8d1465a75e805abd962312acb33d6b752ca4b4de7491b5c17ee182cb09bb"
+  },
+  "conventions": {
+    "crossing": "j_hat = min{s : M(s) < 0}, else 9. M = 0 counts as 'criterion met'.",
+    "decision": "D(s) = 1[M(s) >= 0]",
+    "reachability": "M(j) < min_{t < j} M(t)  (strict prefix record low); crossings 0 and 9 always reachable",
+    "ties": "Exact stored float64 comparison under the strict relation. No tolerance is introduced. Tie frequencies are recorded descriptively and the rule is not changed after observing them."
+  },
+  "day3_facts": {
+    "dataset_content_sha256": "9700960d6f3aa130fa259500aeadbdfa9f511bcc943dd5fdf3401330ee8009d6",
+    "dataset_file_sha256": "2160b662fa527498c6bd245e173f0ead9030a7d69633869233b76e5184647a34",
+    "dataset_hash_matches_manifest": true,
+    "dataset_path": "artifacts/day3/test_dataset.parquet",
+    "models": {
+      "Qwen/Qwen2.5-14B-Instruct": {
+        "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+        "day3_label_tokenization": {
+          "differs_from_naive_encoding": false,
+          "label_met": "A",
+          "label_not_met": "B",
+          "met_token_ids": [
+            32
+          ],
+          "naive_met_token_ids": [
+            32
+          ],
+          "naive_not_met_token_ids": [
+            33
+          ],
+          "not_met_token_ids": [
+            33
+          ],
+          "scoring_method": "single_token_next_logit",
+          "single_token_equivalence": true
+        },
+        "day3_raw_scores_sha256": "10420978b17f61d2d6717d4ba1f2f7ab16ee4a445996bea3c2bfb7fc1630dbb6",
+        "dtype": "torch.bfloat16",
+        "model_id": "Qwen/Qwen2.5-14B-Instruct",
+        "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+        "slug": "qwen2_5_14b_instruct",
+        "tokenizer_revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+        "torch_version": "2.13.0+cu130",
+        "transformers_version": "5.16.1"
+      },
+      "google/gemma-2-9b-it": {
+        "chat_template_sha256": "ecd6ae513fe103f0eb62e8ab5bfa8d0fe45c1074fa398b089c93a7e70c15cfd6",
+        "day3_label_tokenization": {
+          "differs_from_naive_encoding": false,
+          "label_met": "A",
+          "label_not_met": "B",
+          "met_token_ids": [
+            235280
+          ],
+          "naive_met_token_ids": [
+            235280
+          ],
+          "naive_not_met_token_ids": [
+            235305
+          ],
+          "not_met_token_ids": [
+            235305
+          ],
+          "scoring_method": "single_token_next_logit",
+          "single_token_equivalence": true
+        },
+        "day3_raw_scores_sha256": "62f5a7f571f6444b509c37b7a2a41b768b9f2d77a4b9db20c1e9438cf6adc59a",
+        "dtype": "torch.bfloat16",
+        "model_id": "google/gemma-2-9b-it",
+        "revision": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+        "slug": "gemma_2_9b_it",
+        "tokenizer_revision": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+        "torch_version": "2.13.0+cu130",
+        "transformers_version": "5.16.1"
+      },
+      "meta-llama/Llama-3.1-8B-Instruct": {
+        "chat_template_sha256": "e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65",
+        "day3_label_tokenization": {
+          "differs_from_naive_encoding": false,
+          "label_met": "A",
+          "label_not_met": "B",
+          "met_token_ids": [
+            32
+          ],
+          "naive_met_token_ids": [
+            32
+          ],
+          "naive_not_met_token_ids": [
+            33
+          ],
+          "not_met_token_ids": [
+            33
+          ],
+          "scoring_method": "single_token_next_logit",
+          "single_token_equivalence": true
+        },
+        "day3_raw_scores_sha256": "d55212c8a22a5b0a00c30145876d41f1431be6d8ebb08fd5b1d817dd6016dffb",
+        "dtype": "torch.bfloat16",
+        "model_id": "meta-llama/Llama-3.1-8B-Instruct",
+        "revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+        "slug": "llama3_1_8b_instruct",
+        "tokenizer_revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+        "torch_version": "2.13.0+cu130",
+        "transformers_version": "5.16.1"
+      },
+      "mistralai/Mistral-7B-Instruct-v0.3": {
+        "chat_template_sha256": "e16746b40344d6c5b5265988e0328a0bf7277be86f1c335156eae07e29c82826",
+        "day3_label_tokenization": {
+          "differs_from_naive_encoding": true,
+          "label_met": "A",
+          "label_not_met": "B",
+          "met_token_ids": [
+            29509
+          ],
+          "naive_met_token_ids": [
+            1098
+          ],
+          "naive_not_met_token_ids": [
+            1133
+          ],
+          "not_met_token_ids": [
+            29528
+          ],
+          "scoring_method": "single_token_next_logit",
+          "single_token_equivalence": true
+        },
+        "day3_raw_scores_sha256": "0c37b53d0f3daab70ec5e06bff6ffa03c1c87277745bbf63f3c5775de53fdd95",
+        "dtype": "torch.bfloat16",
+        "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
+        "revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+        "slug": "mistral_7b_instruct_v0_3",
+        "tokenizer_revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+        "torch_version": "2.13.0+cu130",
+        "transformers_version": "5.16.1"
+      }
+    },
+    "partition": "DAY3_TEST",
+    "prompt_manifest_file_sha256": "b348872573347fdd14ab2af7c080294052798a16977cf41c0ea8eb6243e35850",
+    "prompt_manifest_hash_matches_manifest": true,
+    "prompt_template_matches_manifest": true,
+    "prompt_template_sha256": "e5f3c5ba3dfd1ccaca0655307d8ad254598a17184c7ae40dfde63c1f660cae14",
+    "seed": 45
+  },
+  "design": {
+    "n_artifacts": 324,
+    "n_models": 4,
+    "n_new_evaluations": 11664,
+    "n_nontrivial_per_model": 288,
+    "n_rows_per_model": 2916,
+    "n_strictness_levels": 9,
+    "source_partition": "DAY3_TEST",
+    "source_seed": 45
+  },
+  "document_sha256": "3b3bf31ea65cd877ced0a856c44b58126c1d7b915c6904c38c0ada4a2344e17b",
+  "draft_consistency_checks": {
+    "all_four_revisions_recovered": true,
+    "dataset_hashes_verify": true,
+    "draft_artifact_count_matches": true,
+    "draft_nontrivial_count_matches": true,
+    "draft_quotes_the_real_response_instruction": true,
+    "draft_seed_matches_day3": true,
+    "draft_swapped_margin_is_sb_minus_sa": true,
+    "prompt_diff_passes": true,
+    "prompt_template_matches_day3": true
+  },
+  "environment": {
+    "captured_at": "2026-09-09T03:29:28+00:00",
+    "hostname": "minipc",
+    "machine": "x86_64",
+    "packages": {
+      "accelerate": null,
+      "matplotlib": "3.11.1",
+      "numpy": "2.5.3",
+      "pandas": "3.0.5",
+      "pyarrow": "25.0.1",
+      "scipy": "1.18.1",
+      "tokenizers": null,
+      "torch": null,
+      "transformers": null
+    },
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python_implementation": "CPython",
+    "python_version": "3.12.3"
+  },
+  "frozen_at": "2026-09-09T03:29:27+00:00",
+  "frozen_record_fingerprint": {
+    "combined_sha256": "0de490ce39f403866e058da09f5bae2c2a1ed048da8a4b2b41aadbe0d7f185f9",
+    "n_files": 120
+  },
+  "git": {
+    "available": true,
+    "clean": false,
+    "commit": "2f12e1d000836c9305145bea9e37aea6b9a15e37",
+    "dirty_paths": [
+      ".gitignore",
+      "LICENSE",
+      "artifacts/poststudy_baselines/baseline_by_partition.csv",
+      "docs/PREREGISTRATION_LABEL_SWAP.md",
+      "scripts/freeze_labelswap_preregistration.py",
+      "src/formalcrrc/labelswap.py",
+      "src/formalcrrc/labelswap_config.py"
+    ]
+  },
+  "intervention": {
+    "canonical_margin_original": "M_O(s) = S_A - S_B",
+    "canonical_margin_swapped": "M_S(s) = S_B - S_A",
+    "factor": "the semantic mapping of 'criterion met' and 'criterion not met' to the response tokens A and B",
+    "prompt_diff": {
+      "all_differences_are_label_characters": true,
+      "differing_positions": [
+        {
+          "index": 255,
+          "original": "A",
+          "swapped": "B"
+        },
+        {
+          "index": 289,
+          "original": "B",
+          "swapped": "A"
+        }
+      ],
+      "expected_difference_count": 2,
+      "n_differing_positions": 2,
+      "non_label_text_identical": true,
+      "original_response_instruction": "Return A if the criterion is met.\nReturn B if the criterion is not met.",
+      "original_sha256": "e5f3c5ba3dfd1ccaca0655307d8ad254598a17184c7ae40dfde63c1f660cae14",
+      "same_length": true,
+      "status": "PASS",
+      "swapped_response_instruction": "Return B if the criterion is met.\nReturn A if the criterion is not met.",
+      "swapped_sha256": "c1edca6bdf4e685f1df9ed65ac1b67f80835cd9d8f6a353abf6abbbb9d89a867"
+    }
+  },
+  "preregistered": true,
+  "relationship_to_prior_work": "Reuses the frozen Day-3 TEST partition and Day-3 model panel. Not a Day-3 amendment, not a replacement for Day-3 TRR, not part of the original three preregistrations.",
+  "robustness_bands": {
+    "agreement_lower_bound": 0.9,
+    "criteria": {
+      "agreement": "lower 95% bound of semantic decision agreement >= 0.90",
+      "delta_tce": "CI95(delta TCE) contained in [-0.5, +0.5]",
+      "delta_trr": "CI95(delta TRR) contained in [-0.10, +0.10]"
+    },
+    "delta_tce": [
+      -0.5,
+      0.5
+    ],
+    "delta_trr": [
+      -0.1,
+      0.1
+    ]
+  },
+  "row_equivalence": {
+    "metadata_identical": true,
+    "mismatches": [],
+    "n_bodies_identical": 2916,
+    "n_mismatches": 0,
+    "n_rows": 2916,
+    "status": "PASS"
+  },
+  "statistics": {
+    "bootstrap_replicates": 5000,
+    "bootstrap_seed": 42,
+    "interval": "percentile, 95%",
+    "scheme": "paired artifact-clustered resampling with replacement; all nine strictness levels of a curve stay together; the original and swapped members of a pair are drawn jointly; family strata preserved for family-stratified analyses"
+  },
+  "study": "FormalCRRC Label-Swap Counterbalance Robustness Study",
+  "study_type": "post-study preregistered robustness experiment"
+}

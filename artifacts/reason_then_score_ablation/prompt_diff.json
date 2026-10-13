@@ -1,0 +1,41 @@
+{
+  "added_bytes": 229,
+  "added_lines": [
+    "",
+    "Before giving the final label, reason about whether the stated criterion is met.",
+    "Do not give the final A or B label until the reasoning is complete.",
+    "When the reasoning is complete, write exactly:",
+    "FINAL:",
+    "and then give the label."
+  ],
+  "added_suffix": "\n\nBefore giving the final label, reason about whether the stated criterion is met.\nDo not give the final A or B label until the reasoning is complete.\nWhen the reasoning is complete, write exactly:\nFINAL:\nand then give the label.",
+  "added_suffix_sha256": "fee2aa126e937aa6cd03a74e1243797455ad47e69550170ee2de6d5a2d7f91c4",
+  "checks": {
+    "marker_present": true,
+    "nothing_removed": true,
+    "placeholders_preserved": true,
+    "pure_suffix_extension": true
+  },
+  "construction": "RTS = PROMPT_TEMPLATE + '\\n\\n' + REASONING_SCAFFOLD, built programmatically from the frozen Day-3 template",
+  "is_pure_suffix_extension": true,
+  "marker_present": true,
+  "original_template": "You are evaluating exactly one criterion for one candidate response.\n\nUse only the stated criterion. Do not reward or penalize the response for properties outside that criterion.\n\nCriterion:\n{rubric_text}\n\nCandidate response:\n{candidate_response}\n\nReturn A if the criterion is met.\nReturn B if the criterion is not met.",
+  "original_template_sha256": "e5f3c5ba3dfd1ccaca0655307d8ad254598a17184c7ae40dfde63c1f660cae14",
+  "placeholders_preserved": true,
+  "removed_lines": [],
+  "rts_template": "You are evaluating exactly one criterion for one candidate response.\n\nUse only the stated criterion. Do not reward or penalize the response for properties outside that criterion.\n\nCriterion:\n{rubric_text}\n\nCandidate response:\n{candidate_response}\n\nReturn A if the criterion is met.\nReturn B if the criterion is not met.\n\nBefore giving the final label, reason about whether the stated criterion is met.\nDo not give the final A or B label until the reasoning is complete.\nWhen the reasoning is complete, write exactly:\nFINAL:\nand then give the label.",
+  "rts_template_sha256": "7d6ad3815c992b698050b9f2adf44aec81d77c09fc333b8e7374288e156ca957",
+  "unified_diff": [
+    "--- day3_prompt_template",
+    "+++ reason_then_score_template",
+    "@@ -11,2 +11,8 @@",
+    " Return A if the criterion is met.",
+    " Return B if the criterion is not met.",
+    "+",
+    "+Before giving the final label, reason about whether the stated criterion is met.",
+    "+Do not give the final A or B label until the reasoning is complete.",
+    "+When the reasoning is complete, write exactly:",
+    "+FINAL:",
+    "+and then give the label."
+  ]
+}

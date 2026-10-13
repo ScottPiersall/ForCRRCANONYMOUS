@@ -1,0 +1,32 @@
+{
+  "all_differences_are_label_characters": true,
+  "differing_positions": [
+    {
+      "index": 255,
+      "original": "A",
+      "swapped": "B"
+    },
+    {
+      "index": 289,
+      "original": "B",
+      "swapped": "A"
+    }
+  ],
+  "expected_difference_count": 2,
+  "n_differing_positions": 2,
+  "non_label_text_identical": true,
+  "original_response_instruction": "Return A if the criterion is met.\nReturn B if the criterion is not met.",
+  "original_sha256": "e5f3c5ba3dfd1ccaca0655307d8ad254598a17184c7ae40dfde63c1f660cae14",
+  "row_equivalence": {
+    "metadata_identical": true,
+    "mismatches": [],
+    "n_bodies_identical": 2916,
+    "n_mismatches": 0,
+    "n_rows": 2916,
+    "status": "PASS"
+  },
+  "same_length": true,
+  "status": "PASS",
+  "swapped_response_instruction": "Return B if the criterion is met.\nReturn A if the criterion is not met.",
+  "swapped_sha256": "c1edca6bdf4e685f1df9ed65ac1b67f80835cd9d8f6a353abf6abbbb9d89a867"
+}

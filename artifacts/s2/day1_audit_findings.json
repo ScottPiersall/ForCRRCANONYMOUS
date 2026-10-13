@@ -1,0 +1,208 @@
+{
+  "created_at": "2026-09-07T18:05:37+00:00",
+  "day1_baseline": {
+    "combined_sha256": "c21b0ce94afdd3c817a38d4f021ca81189750eb3b00b5cc704b920139202d614",
+    "n_files": 30,
+    "path": "artifacts/day2/day1_baseline_manifest.json",
+    "verification": {
+      "added": [],
+      "changed": [],
+      "checked_at": "2026-09-07T18:05:37+00:00",
+      "missing": [],
+      "n_recorded": 30,
+      "status": "PASS"
+    }
+  },
+  "issue_a_boundary_curve_claim": {
+    "claim": "every boundary-aligned curve decreases with strictness, and every judge has a negative mean within-artifact Spearman association",
+    "claim_location": "docs/RESULTS_DAY1.md, section 1 (Executive summary)",
+    "errata_required": true,
+    "first_clause_literally_true": false,
+    "models": [
+      {
+        "first_value": 0.597188,
+        "increases": [
+          {
+            "from_d": -9,
+            "from_value": 0.597188,
+            "increase": 0.088828,
+            "n_from": 36,
+            "n_to": 72,
+            "to_d": -8,
+            "to_value": 0.686016
+          },
+          {
+            "from_d": -8,
+            "from_value": 0.686016,
+            "increase": 0.054421,
+            "n_from": 72,
+            "n_to": 108,
+            "to_d": -7,
+            "to_value": 0.740437
+          }
+        ],
+        "last_value": 0.0,
+        "mean_spearman": -0.5196874412758288,
+        "model_id": "Qwen/Qwen2.5-14B-Instruct",
+        "monotone_non_increasing": false,
+        "n_increases": 2,
+        "n_steps": 16,
+        "net_change": -0.597188,
+        "short_name": "Qwen2.5-14B"
+      },
+      {
+        "first_value": 0.783284,
+        "increases": [],
+        "last_value": 0.000121,
+        "mean_spearman": -0.7607118734553528,
+        "model_id": "google/gemma-2-9b-it",
+        "monotone_non_increasing": true,
+        "n_increases": 0,
+        "n_steps": 16,
+        "net_change": -0.783163,
+        "short_name": "Gemma-2-9B"
+      },
+      {
+        "first_value": 0.299329,
+        "increases": [
+          {
+            "from_d": -9,
+            "from_value": 0.299329,
+            "increase": 0.043163,
+            "n_from": 36,
+            "n_to": 72,
+            "to_d": -8,
+            "to_value": 0.342493
+          }
+        ],
+        "last_value": 0.022424,
+        "mean_spearman": -0.2694536987334657,
+        "model_id": "meta-llama/Llama-3.1-8B-Instruct",
+        "monotone_non_increasing": false,
+        "n_increases": 1,
+        "n_steps": 16,
+        "net_change": -0.276905,
+        "short_name": "Llama-3.1-8B"
+      },
+      {
+        "first_value": 0.923573,
+        "increases": [
+          {
+            "from_d": 6,
+            "from_value": 0.257939,
+            "increase": 0.081166,
+            "n_from": 72,
+            "n_to": 36,
+            "to_d": 7,
+            "to_value": 0.339106
+          }
+        ],
+        "last_value": 0.339106,
+        "mean_spearman": -0.2888725578435465,
+        "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
+        "monotone_non_increasing": false,
+        "n_increases": 1,
+        "n_steps": 16,
+        "net_change": -0.584468,
+        "short_name": "Mistral-7B"
+      }
+    ],
+    "second_clause_literally_true": true
+  },
+  "issue_b_source_provenance": {
+    "all_runs_pinned_to_freeze": true,
+    "files_only_in_final": [
+      "scripts/figures_day1.py"
+    ],
+    "files_only_in_freeze": [],
+    "git_at_final": {
+      "available": true,
+      "clean": false,
+      "commit": "e37cb78a5c7cc20512d0c5a2051682d143b26b8d",
+      "dirty_paths": [
+        ".gitignore",
+        "LICENSE",
+        "artifacts/day1/bootstrap_results.parquet",
+        "artifacts/day1/integrity_manifest.json",
+        "artifacts/day1/metrics_by_artifact.parquet",
+        "artifacts/day1/raw_scores/",
+        "artifacts/day1/summary.json",
+        "docs/RESULTS_DAY1.md",
+        "figures/",
+        "scripts/write_results_day1.py"
+      ]
+    },
+    "git_at_freeze": {
+      "available": true,
+      "clean": false,
+      "commit": "acdaf8347ddd7e96363a47e98867d49ecc165462",
+      "dirty_paths": [
+        ".gitignore",
+        "LICENSE",
+        "artifacts/day1/label_token_check.json",
+        "artifacts/day1/model_provenance.json",
+        "scripts/audit_environment.py",
+        "scripts/freeze_day1_preregistration.py",
+        "scripts/run_day1_inference.py",
+        "scripts/verify_day1_ready.py",
+        "scripts/verify_label_tokens.py",
+        "scripts/write_results_day1.py",
+        "slurm/verify_labels.sbatch",
+        "src/formalcrrc/config.py",
+        "src/formalcrrc/prompts.py",
+        "src/formalcrrc/scoring.py",
+        "tests/test_scoring.py"
+      ]
+    },
+    "inference_run_pins": {
+      "gemma_2_9b_it": {
+        "all_match_freeze": true,
+        "mismatches": [],
+        "n_files_pinned": 4
+      },
+      "llama3_1_8b_instruct": {
+        "all_match_freeze": true,
+        "mismatches": [],
+        "n_files_pinned": 4
+      },
+      "mistral_7b_instruct_v0_3": {
+        "all_match_freeze": true,
+        "mismatches": [],
+        "n_files_pinned": 4
+      },
+      "qwen2_5_14b_instruct": {
+        "all_match_freeze": true,
+        "mismatches": [],
+        "n_files_pinned": 4
+      }
+    },
+    "n_files_at_final": 13,
+    "n_files_at_freeze": 12,
+    "preregistered_files_changed": [],
+    "preregistered_files_unchanged": true,
+    "tree_hashes_differ": true,
+    "tree_sha256_at_final": "0d5c8b6cc0067ad7cd0bcb40713534aa52ff9d1e1f9131f262fb2c8c38212926",
+    "tree_sha256_at_freeze": "bcb5ca6a1c23fd83d74ac5582adc721ef34df809b5febc4182ff68e85d86cb67"
+  },
+  "issue_c_figure_integrity": {
+    "defect_present": true,
+    "empty_input_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "figures": {
+      "figures/day1/figure1_concept.png": "e7e0baf7b6a8102674cba168eb42ab6b66def559bdc7edeefa88154eee0c3561",
+      "figures/day1/figure2_boundary_aligned_curves.png": "3b9322c3a369c169102c8bca6941e7a03a72d1af931463470eb22fcc987d3059",
+      "figures/day1/figure3_mvr_distributions.png": "d8711fc79f29f4d2a99bf4b8e031eecb4a7d7880aedef79a61cf3271aa81c75f",
+      "figures/day1/figure4_tce_distributions.png": "d3bcbd446cf75a5a87983d60337cb70a37d8c001664cc1ea696a7c366fb6501c",
+      "figures/day1/figure5_model_family_heatmap.png": "50cf8bc66d49eb5674427220af05cb2c43bb565edd2209edb0ffd5efbcb0f88e"
+    },
+    "manifest_combined_is_empty_input": false,
+    "manifest_combined_sha256": "08ebad3d7066bd818b8b30835cfec21a11335e2f6e4d77c6ff7bf416ffa0d815",
+    "manifest_matches_recomputation": false,
+    "manifest_n_files": 5,
+    "n_figures_present": 5,
+    "recomputed_combined_sha256": "d64e96cf4d1af819e917edee2bacee8164e9dc0e96c7bbd1e51ebf95c73526c9",
+    "results_document_quoted_combined_sha256": [
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "results_document_quotes_empty_input": true
+  }
+}

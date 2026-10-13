@@ -1,0 +1,48 @@
+host=evc39 job=898731 node=evc39
+nvcc=/apps/cuda/cuda-13.1.0/bin/nvcc
+name, memory.total [MiB], driver_version, uuid
+NVIDIA H100 PCIe, 81559 MiB, 580.105.08, GPU-195e9e4a-9196-7400-09bd-c7b87df936c2
+started_at=2026-10-11T15:22:19Z
+stage=preflight (no S3 prompt is scored)
+CUDA smoke test OK
+reference: reloading frozen 14B for the smoke prompt ...
+reference status PASS
+[7b] Qwen/Qwen2.5-7B-Instruct @ a09a35458c702b33eeacc393d103063234e8bc28
+[7b] status PASS
+    PASS  revision_is_full_commit_hash
+    PASS  no_quantization_config
+    PASS  no_quantized_files
+    PASS  labels_are_single_token
+    PASS  scoring_method_is_single_token_next_logit
+    PASS  label_tokens_decode_to_A_and_B
+    PASS  label_tokenization_stable_on_all_s3_prompts
+    PASS  all_s3_prompts_render_byte_identical_to_14b
+    PASS  loads_in_bf16_on_one_gpu
+    PASS  weights_are_bfloat16
+    PASS  no_offloading
+    PASS  development_prompts_scored
+    PASS  development_label_tokenization_stable
+[32b] Qwen/Qwen2.5-32B-Instruct @ 5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd
+[32b] status PASS
+    PASS  revision_is_full_commit_hash
+    PASS  no_quantization_config
+    PASS  no_quantized_files
+    PASS  labels_are_single_token
+    PASS  scoring_method_is_single_token_next_logit
+    PASS  label_tokens_decode_to_A_and_B
+    PASS  label_tokenization_stable_on_all_s3_prompts
+    PASS  all_s3_prompts_render_byte_identical_to_14b
+    PASS  loads_in_bf16_on_one_gpu
+    PASS  weights_are_bfloat16
+    PASS  no_offloading
+    PASS  development_prompts_scored
+    PASS  development_label_tokenization_stable
+
+wrote artifacts/qwen_scale_ablation/preflight.json and artifacts/qwen_scale_ablation/model_revisions.json
+  PASS  torch_matches_frozen_14b_run
+  PASS  transformers_matches_frozen_14b_run
+  PASS  tokenizers_matches_frozen_14b_run
+  PASS  single_h100_80gb
+PREFLIGHT STATUS: PASS
+finished_at=2026-10-11T15:37:09Z
+=== DONE rc=0 ===

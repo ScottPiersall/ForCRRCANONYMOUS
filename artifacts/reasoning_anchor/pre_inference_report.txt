@@ -1,0 +1,36 @@
+======================================================================
+REASONING-ANCHOR PRE-INFERENCE REPORT (Section 11)
+======================================================================
+git commit                 fda8017f2bda4b34681597cee9baa3ebf5b06d21
+git branch                 reasoning-judge-anchor
+git clean                  False
+dataset file sha256        2160b662fa527498c6bd245e173f0ead9030a7d69633869233b76e5184647a34
+dataset content sha256     9700960d6f3aa130fa259500aeadbdfa9f511bcc943dd5fdf3401330ee8009d6
+model                      Qwen/Qwen3-30B-A3B-Thinking-2507
+model revision             144afc2f379b542fdd4e85a1fcd5e1f79112d95d
+tokenizer revision         144afc2f379b542fdd4e85a1fcd5e1f79112d95d
+model dtype                bfloat16  quantization=none
+chat template sha256       3802169b2a02b81e6adb7ab4f64f91ff02db753c8c3a64a01c35192d3a61d8d7
+</think> identification     text='</think>' token_id=151668 (single token)
+generation prompt opens    True
+post-think separator       '\n\n' bytes=0a0a ids=[271]
+candidate A / B token ids  [32] / [33]
+scoring method             sequence_loglikelihood  margin=M = L_A - L_B
+generation params          T=0.6 top_p=0.95 top_k=20 min_p=0.0 budget=8192 samples=1
+seed algorithm             base=42 mod=2147483647
+                           seed_r = int.from_bytes(sha256(f'{base_seed}|{artifact_id}|{strictness_index}'.encode('utf-8'))....
+preregistration timestamp  2026-09-09T18:54:49+00:00
+preregistration sha256     b32c547bf8ba994937e144bed8fec0673af7553c0c7c3aca6838239f3ba6582b
+frozen record              147 files  4938e3dd1c67853801d018a2f0a4c778571f8a7f1596decea4c26fd74a404188
+test suite                 unknown
+
+  PASS  preregistration_checksum_verifies
+  PASS  amendments_zero
+  PASS  dataset_validation_pass
+  PASS  preflight_pass
+  PASS  frozen_record_verifies
+  PASS  no_study_inference_yet
+  PASS  test_suite_passes
+  PASS  bf16_no_quantization
+
+READY FOR REASONING-ANCHOR INFERENCE

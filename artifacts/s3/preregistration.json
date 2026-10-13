@@ -1,0 +1,529 @@
+{
+  "amendments": [],
+  "analysis_code_paths": [
+    "src/formalcrrc/config.py",
+    "src/formalcrrc/predicates.py",
+    "src/formalcrrc/dataset.py",
+    "src/formalcrrc/prompts.py",
+    "src/formalcrrc/scoring.py",
+    "src/formalcrrc/provenance.py",
+    "src/formalcrrc/day2.py",
+    "src/formalcrrc/day3.py",
+    "src/formalcrrc/day3_bootstrap.py",
+    "src/formalcrrc/day3_config.py",
+    "scripts/generate_day3_dataset.py",
+    "scripts/run_day3_inference.py",
+    "scripts/compute_day3_oracle.py",
+    "scripts/analyze_day3.py",
+    "scripts/figures_day3.py",
+    "scripts/verify_day3_integrity.py"
+  ],
+  "bootstrap": {
+    "cluster_rule": "all 9 thresholds of an artifact are carried together",
+    "coverage": 0.95,
+    "interval_method": "percentile",
+    "oracle_artifact": "OTCE recomputed from each resampled curve",
+    "oracle_family": "refit family-specific shifts inside each replicate",
+    "oracle_global": "refit the TCE-minimising global shift inside each replicate",
+    "paired_comparisons": "identical artifact resamples across judges",
+    "prohibited": [
+      "treating threshold rows as independent observations",
+      "holding a truth-optimised shift fixed while resampling",
+      "selecting any hyperparameter from bootstrap outcomes"
+    ],
+    "replicates": 5000,
+    "seed": 42,
+    "stratify_by": "family",
+    "unit": "artifact_id"
+  },
+  "dataset": {
+    "content_sha256": "9700960d6f3aa130fa259500aeadbdfa9f511bcc943dd5fdf3401330ee8009d6",
+    "family_c_uniqueness_rule": "Family-C (target, reported) pairs already used by Day 1, Day-2 CAL or Day-2 TEST are excluded and redrawn, so no evaluated item is shared with any prior experiment.",
+    "file_sha256": "2160b662fa527498c6bd245e173f0ead9030a7d69633869233b76e5184647a34",
+    "generator": "identical to Days 1 and 2: same three predicate families, nine strictness levels, latent balance, candidate formatting, rubric templates, truth functions and response-length controls. No new family, no semantic rubric, no adversarial variant.",
+    "n_artifacts": 324,
+    "n_rows": 2916,
+    "partition": "DAY3_TEST",
+    "partition_tag": "D3T",
+    "path": "artifacts/day3/test_dataset.parquet",
+    "prompt_manifest_file_sha256": "b348872573347fdd14ab2af7c080294052798a16977cf41c0ea8eb6243e35850",
+    "role": "single held-out evaluation partition; no calibration partition",
+    "seed": 45
+  },
+  "disjointness": {
+    "artifact_id_overlap": {
+      "day1": 0,
+      "day2_calibration": 0,
+      "day2_test": 0
+    },
+    "candidate_response_overlap_by_family": {
+      "day1": {
+        "coverage": 0,
+        "max_violation": 0,
+        "numeric_tolerance": 32
+      },
+      "day2_calibration": {
+        "coverage": 0,
+        "max_violation": 0,
+        "numeric_tolerance": 35
+      },
+      "day2_test": {
+        "coverage": 0,
+        "max_violation": 0,
+        "numeric_tolerance": 38
+      }
+    },
+    "family_c_candidate_coincidence_note": "A family-C candidate response is determined by the reported value alone, an integer in a bounded range, so byte-identical candidate strings recur across independently seeded partitions. They are not reused items: the (target, reported) pairs and the rendered prompts are disjoint by construction.",
+    "family_c_target_pair_overlap": {
+      "day1": 0,
+      "day2_calibration": 0,
+      "day2_test": 0
+    },
+    "rendered_prompt_overlap": {
+      "day1": 0,
+      "day2_calibration": 0,
+      "day2_test": 0
+    }
+  },
+  "document": "FormalCRRC Day-3 preregistration",
+  "exclusion_rules": {
+    "artifact_exclusions": "NONE. All 324 artifacts are used.",
+    "family_exclusions": "NONE.",
+    "model_exclusions": "Only exact-revision access failure or a scoring-condition mismatch detected before study outcomes, recorded as BLOCKED_BY_MODEL_ACCESS. No substitution.",
+    "never_filtered": [
+      "non-monotone curves",
+      "flat curves",
+      "extreme curves",
+      "hard artifacts",
+      "tied margins",
+      "unusual model outputs"
+    ],
+    "rationale": "Those are precisely the objects Day 3 measures.",
+    "row_exclusions": "Only a non-finite raw score, which blocks the affected model's analysis and is reported with an exact count and prompt_ids.",
+    "threshold_exclusions": "NONE. All 9 strictness levels are used."
+  },
+  "experiment": "Translation limits of threshold-response curves",
+  "failure_handling": {
+    "implementation_defect": "Stop the affected stage, preserve the defective output, document it, decide whether the protocol is affected, amend if necessary, and rerun only after an outcome-independent correction. Poor OTCE is not a defect.",
+    "incomplete_model_run": "If a judge's raw scores do not contain all 2916 prompts exactly once, that judge is BLOCKED and reported as such.",
+    "infrastructure_failure": "A node that fails before producing output is documented and the job resubmitted outcome-independently, per existing cluster policy. Scientific outcomes are never inspected to choose nodes or reruns.",
+    "nesting_violation": "A violation of TCE_G >= TCE_F >= TCE_A is an implementation defect and blocks the analysis.",
+    "no_outcome_driven_tuning": [
+      "changing the seed",
+      "changing dataset size",
+      "changing predicate families",
+      "changing the model panel or revisions",
+      "changing the prompt or scoring",
+      "changing the 0.5 decision boundary",
+      "introducing margin tolerances",
+      "changing strict to non-strict inequalities",
+      "changing the oracle definition",
+      "introducing slope fitting",
+      "isotonic regression",
+      "temperature scaling",
+      "monotonic regression",
+      "curve smoothing",
+      "artifact filtering",
+      "rerunning only bad curves",
+      "adding models",
+      "adding semantic tasks"
+    ],
+    "prior_immutability_failure": "If any prior hash changed, PRIOR_EXPERIMENT_IMMUTABILITY = FAIL and DAY3_ANALYSIS = BLOCKED. Files are not silently restored.",
+    "reachability_disagreement": "If Method A and Method B disagree on any artifact, ORACLE_IMPLEMENTATION = FAIL and DAY3_ANALYSIS = BLOCKED."
+  },
+  "figure_plan": [
+    {
+      "content": "One margin curve with its strict prefix-record-low points, the reachable crossing positions, an unreachable true crossing, and the zero line under translation; makes visible that translation moves the crossing but cannot reorder margins.",
+      "id": "figure1",
+      "path": "figures/day3/figure1_reachability_concept.png",
+      "title": "Translation reachability concept"
+    },
+    {
+      "content": "Per judge: raw TCE distribution and OTCE distribution.",
+      "id": "figure2",
+      "path": "figures/day3/figure2_raw_vs_otce.png",
+      "title": "Raw versus oracle-artifact TCE"
+    },
+    {
+      "content": "Nontrivial TRR by judge and by predicate family.",
+      "id": "figure3",
+      "path": "figures/day3/figure3_reachability.png",
+      "title": "Translation reachability"
+    },
+    {
+      "content": "Heatmap of the fraction of artifacts for which each true boundary j* is translation-reachable, by judge.",
+      "id": "figure4",
+      "path": "figures/day3/figure4_crossing_geometry.png",
+      "title": "Reachable crossing geometry"
+    },
+    {
+      "content": "RAW, ORACLE-GLOBAL, ORACLE-FAMILY, ORACLE-ARTIFACT mean TCE per judge, with bootstrap uncertainty.",
+      "id": "figure5",
+      "path": "figures/day3/figure5_oracle_hierarchy.png",
+      "title": "Oracle hierarchy"
+    },
+    {
+      "content": "Judge x family heatmap of OTCE, TRR, reachable count and MMVR.",
+      "id": "figure6",
+      "path": "figures/day3/figure6_shape_floor.png",
+      "title": "Shape floor by family"
+    }
+  ],
+  "formal_model": {
+    "decision_threshold": 0.5,
+    "equivalence": "identical to P_x(s) < 0.5",
+    "invariance": "M'(s+1) - M'(s) = M(s+1) - M(s), so translation cannot change margin ordering, local reversals, pairwise differences, span, Spearman ordering or record-low positions; it changes only where the fixed curve intersects zero",
+    "margin": "M_x(s) = S_A - S_B, from the recorded raw label scores",
+    "no_crossing_index": 9,
+    "predicted_crossing": "j_hat_x(alpha) = min{s : M_x(s) + alpha < 0}, or 9 if none",
+    "probability": "P_x(s) = sigmoid(M_x(s))",
+    "translation_class": "M'(s) = M(s) + alpha",
+    "true_crossing": "j*_x = min{s : Y_x(s) = 0}, or 9 if every level passes"
+  },
+  "frozen_at": "2026-09-07T19:12:29+00:00",
+  "git_at_freeze": {
+    "available": true,
+    "clean": false,
+    "commit": "c52b061a1120f182ac6a850f9e98b5dd2bfbd33e",
+    "dirty_paths": [
+      ".gitignore",
+      "LICENSE",
+      "artifacts/day3/",
+      "docs/DAY3_RATIONALE.md",
+      "docs/NOVELTY_BOUNDARIES_DAY3.md",
+      "scripts/audit_day3_models.py",
+      "scripts/audit_day3_priors.py",
+      "scripts/freeze_day3_preregistration.py",
+      "scripts/generate_day3_dataset.py",
+      "scripts/run_day3_inference.py",
+      "scripts/verify_day3_ready.py",
+      "slurm/audit_day3_models.sbatch",
+      "slurm/run_day3_inference.sbatch",
+      "src/formalcrrc/__init__.py",
+      "src/formalcrrc/day3.py",
+      "src/formalcrrc/day3_bootstrap.py",
+      "src/formalcrrc/day3_config.py",
+      "tests/conftest.py",
+      "tests/test_day3_bootstrap.py",
+      "tests/test_day3_dataset.py",
+      "tests/test_day3_reachability.py",
+      "tests/test_prior_immutability.py"
+    ]
+  },
+  "hypotheses": [
+    {
+      "id": "H1",
+      "label": "Translation reachability is incomplete",
+      "note": "No favourable threshold is defined, before or after.",
+      "quantity": "nontrivial TRR, and OTCE",
+      "statement": "For nontrivial formal boundaries j* in 1..8, not every boundary is expected to satisfy the strict prefix-record-low condition.",
+      "status": "primary"
+    },
+    {
+      "id": "H2",
+      "label": "Artifact-level oracle lowers localization error",
+      "note": "The inequality is asserted computationally on every artifact.",
+      "quantity": "delta_TCE_A = TCE_raw - OTCE",
+      "statement": "Because alpha = 0 is admissible, OTCE <= TCE_raw for every artifact. This is guaranteed; the empirical question is the size of the remaining OTCE.",
+      "status": "primary"
+    },
+    {
+      "id": "H3",
+      "label": "Residual translation-limited error remains",
+      "note": "Reported directly, with no post-hoc threshold.",
+      "quantity": "SLR1 = P(OTCE > 0), SLR2 = P(OTCE > 1)",
+      "statement": "OTCE > 0 means no additive translation places that curve's crossing exactly at the formal boundary; OTCE > 1 means none places it even within one strictness level.",
+      "status": "primary"
+    },
+    {
+      "id": "H4",
+      "label": "Translation flexibility forms nested bounds",
+      "note": "A violation is an implementation defect, not a finding.",
+      "quantity": "the three oracle means",
+      "statement": "Since G subset F subset A, the optimised means must satisfy TCE_G >= TCE_F >= TCE_A.",
+      "status": "primary"
+    },
+    {
+      "id": "H5",
+      "label": "Shape limitation varies across predicate families",
+      "note": "Family differences are never averaged away.",
+      "quantity": "all primary metrics, reported per family",
+      "statement": "OTCE, TRR and reachable-crossing count may differ by predicate family.",
+      "status": "primary"
+    }
+  ],
+  "inference": {
+    "batch_size": 1,
+    "console_output": "operational only: counts, timing, node, GPU, failures, memory. No TCE, OTCE, TRR, record lows, rankings, family results or oracle shifts before all intended raw runs complete.",
+    "model_order_salt": "formalcrrc-day3-model-order-v1",
+    "order": "prompts sorted by sha256(salt|prompt_id), frozen in the prompt manifest before any GPU inference; family, latent level and strictness are interleaved",
+    "order_salt": "formalcrrc-day3-inference-order-v1"
+  },
+  "judge_models": {
+    "continuity_check": "the same non-study smoke prompt used in Days 1 and 2; a material difference in raw scores sets MODEL_CONTINUITY = FAIL",
+    "dtype": "bfloat16",
+    "label_token_ids": {
+      "Qwen/Qwen2.5-14B-Instruct": {
+        "met": [
+          32
+        ],
+        "not_met": [
+          33
+        ]
+      },
+      "google/gemma-2-9b-it": {
+        "met": [
+          235280
+        ],
+        "not_met": [
+          235305
+        ]
+      },
+      "meta-llama/Llama-3.1-8B-Instruct": {
+        "met": [
+          32
+        ],
+        "not_met": [
+          33
+        ]
+      },
+      "mistralai/Mistral-7B-Instruct-v0.3": {
+        "met": [
+          29509
+        ],
+        "not_met": [
+          29528
+        ]
+      }
+    },
+    "model_ids": [
+      "Qwen/Qwen2.5-14B-Instruct",
+      "meta-llama/Llama-3.1-8B-Instruct",
+      "mistralai/Mistral-7B-Instruct-v0.3",
+      "google/gemma-2-9b-it"
+    ],
+    "policy": "Exactly the Day-1/Day-2 panel at exactly the Day-1 revisions, read from the immutable Day-1 provenance. No upgrade, no branch re-resolution, no substitution, no quantisation, no fine-tuning, no adapters.",
+    "revisions": {
+      "Qwen/Qwen2.5-14B-Instruct": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+      "google/gemma-2-9b-it": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+      "meta-llama/Llama-3.1-8B-Instruct": "0e9e39f249a16976918f6564b8830bc894c89659",
+      "mistralai/Mistral-7B-Instruct-v0.3": "c170c708c41dac9275d15a8fff4eca08d52bab71"
+    },
+    "scoring_methods": {
+      "Qwen/Qwen2.5-14B-Instruct": "single_token_next_logit",
+      "google/gemma-2-9b-it": "single_token_next_logit",
+      "meta-llama/Llama-3.1-8B-Instruct": "single_token_next_logit",
+      "mistralai/Mistral-7B-Instruct-v0.3": "single_token_next_logit"
+    },
+    "status_at_freeze": {
+      "Qwen/Qwen2.5-14B-Instruct": "AVAILABLE",
+      "google/gemma-2-9b-it": "AVAILABLE",
+      "meta-llama/Llama-3.1-8B-Instruct": "AVAILABLE",
+      "mistralai/Mistral-7B-Instruct-v0.3": "AVAILABLE"
+    }
+  },
+  "novelty_boundaries": {
+    "claimed_contribution": "FormalCRRC uses exact shape-preserving oracle translation bounds to distinguish threshold-localization error that can in principle be explained by response-curve location from residual error imposed by the curve's ordering itself.",
+    "day3_does_not_establish": [
+      "human alignment",
+      "clinical reliability",
+      "natural-language rubric reliability",
+      "HealthBench reliability",
+      "that any judge is reliable or unreliable in general",
+      "that calibration is futile or that another transformation would fail",
+      "that the oracle should be deployed"
+    ],
+    "explicitly_not_claimed": [
+      "first oracle calibration",
+      "first oracle bound",
+      "first additive margin correction",
+      "first per-example calibration",
+      "first threshold-response experiment",
+      "first monotonicity test",
+      "first counterfactual judge evaluation",
+      "first analysis of model bias",
+      "first study of response-curve geometry"
+    ],
+    "forbidden_phrasings": [
+      "We prove LLM judges have bad shape.",
+      "Judge X is shape-reliable.",
+      "Calibration cannot fix LLM judges."
+    ],
+    "mathematics_novelty": "None claimed. Adding a constant, the order-preservation of a translation, oracle bounds as a technique, and per-example calibration are all standard.",
+    "object_of_interest": "the diagnostic decomposition",
+    "permitted_phrasings": [
+      "Under FormalCRRC's additive-translation model, these curves possess a nonzero shape-imposed localization floor.",
+      "The correct formal boundary is unreachable by translation for X% of nontrivial artifacts."
+    ]
+  },
+  "oracle_hierarchy": {
+    "artifact": "one arbitrary intercept per artifact; its minimum is OTCE",
+    "assertion": "the inequality is checked computationally; a violation is a defect",
+    "classes": [
+      "global",
+      "family",
+      "artifact"
+    ],
+    "enumeration": "collect breakpoints -M_x(s) over the group; sort unique; evaluate every breakpoint, the midpoint of every adjacent unique pair, one value below the smallest and one above the largest, plus nextafter(b, +/-inf) for every breakpoint so that no interval is skipped when adjacent breakpoints are closer than the midpoint is representable",
+    "family": "one truth-optimised intercept per judge and predicate family",
+    "global": "one truth-optimised intercept per judge",
+    "nesting": "G subset F subset A, so TCE_G >= TCE_F >= TCE_A",
+    "no_gradient_descent": "mean TCE is piecewise constant in alpha, so the optimum is found by finite enumeration of breakpoints, not by descent",
+    "not_a_variance_decomposition": "the differences are nested operational bounds, not an algebraically additive decomposition",
+    "not_deployment": "all three use formal truth and are upper bounds on what increasingly flexible location-only explanations can accomplish",
+    "tie_break": [
+      "lowest mean TCE",
+      "then smallest |alpha|",
+      "then numerically smallest alpha"
+    ]
+  },
+  "primary_metrics": {
+    "OTCE": {
+      "definition": "OTCE_x = min_{j in R_x} |j - j*_x|",
+      "guarantee": "OTCE_x <= TCE_raw_x, asserted on every artifact",
+      "meaning": "the best threshold localisation any additive translation could achieve for this individual curve",
+      "oracle": "uses formal truth deliberately; a diagnostic lower bound, not a deployable calibration procedure"
+    },
+    "SLR": {
+      "SLR1": "P(OTCE > 0)",
+      "SLR2": "P(OTCE > 1)",
+      "terminology": "translation-limited residual, or shape-limited under additive translation; never universal 'model shape failure'"
+    },
+    "TRR": {
+      "both_preregistered": true,
+      "definition": "TR_x = 1[j*_x in R_x]; TRR = mean over artifacts",
+      "nontrivial": "restricted to j*_x in 1..8, because j* = 9 is always reachable and would otherwise inflate the headline number"
+    }
+  },
+  "prior_replication": {
+    "policy": "Raw Day-3 metrics are reported alongside the recorded Day-1 and Day-2 TEST values descriptively. There is no replication gate: Day-3 data is not modified if it fails to reproduce prior values. A failed replication is a result."
+  },
+  "prompt": {
+    "label_met": "A",
+    "label_not_met": "B",
+    "prior_template_sha256": "e5f3c5ba3dfd1ccaca0655307d8ad254598a17184c7ae40dfde63c1f660cae14",
+    "prohibited": [
+      "chain-of-thought prompting",
+      "few-shot examples",
+      "self-explanation requests",
+      "model-specific reasoning instructions",
+      "persona or role framing",
+      "temperature or verbosity variation between models"
+    ],
+    "reused_byte_identically": true,
+    "template": "You are evaluating exactly one criterion for one candidate response.\n\nUse only the stated criterion. Do not reward or penalize the response for properties outside that criterion.\n\nCriterion:\n{rubric_text}\n\nCandidate response:\n{candidate_response}\n\nReturn A if the criterion is met.\nReturn B if the criterion is not met.",
+    "template_sha256": "e5f3c5ba3dfd1ccaca0655307d8ad254598a17184c7ae40dfde63c1f660cae14"
+  },
+  "randomness_policy": {
+    "bootstrap_seed": 42,
+    "dataset_seed": 45,
+    "no_discarded_seed": true,
+    "no_seed_replacement": true,
+    "no_seed_sweep": true,
+    "no_stochastic_model_generation": true,
+    "ordering": "named deterministic hash salts"
+  },
+  "reachability_theorem": {
+    "always_reachable": [
+      0,
+      9
+    ],
+    "condition": "M(j) < min_{t < j} M(t)  (strict prefix record low)",
+    "proof": "To place the first negative level at j, an intercept must satisfy M(t) + alpha >= 0 for all t < j and M(j) + alpha < 0, hence alpha >= -min_{t<j} M(t) and alpha < -M(j). Such an interval is non-empty iff -min_{t<j} M(t) < -M(j), i.e. iff M(j) < min_{t<j} M(t). Crossing 0 is reachable with a sufficiently negative alpha and crossing 9 with a sufficiently positive one.",
+    "reachable_set": "R_x = {0, 9} union {j in 1..8 : M_x(j) < min_{t<j} M_x(t)}",
+    "tie_policy": "Exact stored float64 comparison under the strict relation M(j) < min_{t<j} M(t). No tolerance is introduced. Tie frequencies are recorded descriptively and the rule is not changed after observing them.",
+    "two_implementations": "Method A applies the prefix-record-low rule directly. Method B enumerates candidate intercepts explicitly and collects the achieved crossings. They must agree on every artifact; a disagreement is an implementation defect and blocks the analysis."
+  },
+  "relationship_to_prior": {
+    "day1_dataset_content_sha256": "4462bedbf5f086daa8bdfa077ad82e1ea7b79b4db59d906fafe6c814cfc85a2e",
+    "day1_preregistration_sha256": "8b76c80d85f01e855f9c13100b84e06471919a21813875e1af58c7f0c8123f91",
+    "day2_preregistration_sha256": "cf742630bf5365ed12ce4770a5218e7f5b34e0d6bff2cb44d75d2d556bd3fba0",
+    "prior_manifest_n_files": 77,
+    "prior_manifest_sha256": "5a1b39574dc1890c90498e7b31c93c415252229ea685f1132d623f39ba2ac76b",
+    "prior_results_status": "unchanged and final",
+    "statement": "Day 1 motivates Day 2, and Day 2 motivates Day 3. Day 3 is a new, separately preregistered experiment on new data. It is not a repair of Day 1, not a repair of Day 2, not another calibration experiment, and not a stronger post-hoc calibrator."
+  },
+  "research_questions": {
+    "primary": "What is the minimum threshold-crossing error achievable when each individual judge-response curve may undergo an arbitrary additive translation but its shape is held exactly fixed?",
+    "secondary_hierarchy": "How much additional localization capacity is gained when translation flexibility increases from judge-level to family-level to artifact-level?",
+    "secondary_reachability": "What fraction of formal decision boundaries are exactly reachable by translation alone?",
+    "secondary_variation": "How does the translation-imposed localization floor vary across judge models and predicate families?"
+  },
+  "scoring": {
+    "fallback_rule": "sequence_loglikelihood",
+    "label_token_resolution": {
+      "definition": "The scored token ids for a label are the continuation ids encode(rendered_prompt + label) minus encode(rendered_prompt), both with add_special_tokens=False. Encoding the bare label string is NOT used: a SentencePiece tokenizer returns a word-boundary-marked token for a string encoded in isolation, which is a different id from the one that actually continues a prompt.",
+      "observed_naive_encoding_mismatch": "mistralai/Mistral-7B-Instruct-v0.3 encodes 'A' as the word-boundary token '_A' (id 1098) but continues its prompt with 'A' (id 29509). Detected before this preregistration was frozen and before any study inference.",
+      "reference_prompt": "a message with the study prompt's chat-template structure and placeholder content (<RUBRIC>, <RESPONSE>), so the resolution depends on no rubric, threshold or candidate response",
+      "rule": "prompt_continuation_difference",
+      "stability_verification": "scripts/verify_label_tokens.py confirms, by tokenizer inspection alone and with no model call, that the resolved ids are identical for the first 25 prompts of the frozen inference order; recorded in artifacts/day1/label_token_check.json"
+    },
+    "no_calibration_during_inference": true,
+    "no_generation_or_sampling": true,
+    "primary_rule": "single_token_next_logit",
+    "recorded_per_row": [
+      "raw_score_met",
+      "raw_score_not_met",
+      "margin",
+      "p_met",
+      "model_id",
+      "revision",
+      "scoring_method",
+      "rendered_prompt_sha256",
+      "n_prompt_tokens",
+      "artifact_id",
+      "strictness_index"
+    ],
+    "reused_from_prior_days": true
+  },
+  "secondary_metrics": {
+    "PRR": "prefix record rate: fraction of levels 1..8 that are strict prefix record lows; descriptive, never a substitute for OTCE or TRR",
+    "RC": "reachable crossing count |R_x|, between 2 and 10",
+    "shape_metric_associations": "Spearman association between OTCE and each of MMVR, MMVM, SPAN, PRR and RC, by judge and family. Descriptive; not interpreted causally.",
+    "shape_metrics": [
+      "MMVR",
+      "MMVM",
+      "SPAN",
+      "margin Spearman"
+    ]
+  },
+  "source_manifest_at_freeze": {
+    "files": {
+      "scripts/analyze_day3.py": null,
+      "scripts/compute_day3_oracle.py": null,
+      "scripts/figures_day3.py": null,
+      "scripts/generate_day3_dataset.py": "8fc5b14b4ba0e8d4bede8d811a1520a56cc2b75ffaaab72767ff5bedb4f1faf4",
+      "scripts/run_day3_inference.py": "f5576be477db475fae7328b8bccbb0243f0588d57f78f95912072d2c7475bf79",
+      "scripts/verify_day3_integrity.py": null,
+      "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
+      "src/formalcrrc/dataset.py": "8a6cb27c91c8d05ab3c9ca29ec7808ed067b0c7d215044c892bb3e059c240d2d",
+      "src/formalcrrc/day2.py": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
+      "src/formalcrrc/day3.py": "213fcd331a67d73b8ec5cdcd30dafa778da9b7d22107c8cd756b8a6ada713cc5",
+      "src/formalcrrc/day3_bootstrap.py": "cd7ddecf0404e48636ddccf639855cec814a37bd4e9631c62577411871b6740f",
+      "src/formalcrrc/day3_config.py": "1c9c2cb1aa4462ee29fcc0215078f99acc2de518d74994efe3169620494cbb5c",
+      "src/formalcrrc/predicates.py": "5c119021ffa69d2dc875bb931a249e5f12811fda791227bc0716cb075fc56b68",
+      "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4",
+      "src/formalcrrc/provenance.py": "34e1c06f91514642b0bcc1beb946997ad275d2b69030f80d83b6e7df9920bd55",
+      "src/formalcrrc/scoring.py": "e9dea77babcb60820ad679226d2d826265fe0d844948163296c71be56510c8d4"
+    },
+    "tree_sha256": "ba651d6696aa8b1680eff6406dfcebf2990cb48c650a523f99397db1edbaaad6"
+  },
+  "stopping_rule": {
+    "no_data_dependent_extension": "The design is not extended, repeated or enlarged on the basis of observed results. No Day-4 experiment follows automatically.",
+    "no_interim_analysis": "No TCE, OTCE, TRR, record-low count, ranking, family result or oracle shift is computed or displayed while inference is running.",
+    "no_stronger_oracle": "The translation class is fixed at M'(s) = M(s) + alpha. Slope-plus- intercept, affine maps, temperature scaling, nonlinear monotone maps, isotonic regression, monotone envelopes, spline warping, threshold-specific offsets, curve editing, sorting, rearrangement and learned shape correction are all out of scope. If a substantial residual remains, a stronger transformation is a future research question and is not started now.",
+    "rule": "Inference stops when every judge has produced exactly 2916 scored prompts, or has been marked BLOCKED_BY_MODEL_ACCESS. The oracle analysis begins only then and is run exactly once.",
+    "success_criterion": "Day 3 succeeds when prior-experiment immutability passes, the dataset is disjoint and integral, the preregistration was frozen before outcomes, the reachability theorem agrees with independent enumeration on every artifact, the oracle nesting inequality holds, intended runs completed or were transparently blocked, and all results are reported regardless of direction. No favourable-effect threshold is defined."
+  },
+  "subtitle": "Oracle shape-preserving localization bounds",
+  "taxonomy": {
+    "note": "Descriptive categories reported as counts only. Never used to select favourable subsets.",
+    "order_poor": "RC <= 3",
+    "order_rich": "RC >= 8",
+    "thresholds_fixed_before_inference": true,
+    "translation_limited": "OTCE > 1",
+    "translation_near_solvable": "OTCE = 1",
+    "translation_solvable": "OTCE = 0"
+  },
+  "version": 1
+}

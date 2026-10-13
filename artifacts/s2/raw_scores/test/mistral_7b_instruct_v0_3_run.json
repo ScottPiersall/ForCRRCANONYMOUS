@@ -1,0 +1,89 @@
+{
+  "chat_template_sha256": "e16746b40344d6c5b5265988e0328a0bf7277be86f1c335156eae07e29c82826",
+  "dataset_file_sha256": "d5e742ec2c90c761d985032d0eb0edd559f889d14da0a3eaebf5808edecf54c4",
+  "dtype": "bfloat16",
+  "environment": {
+    "captured_at": "2026-09-07T18:32:11+00:00",
+    "gpu": {
+      "available": true,
+      "cudnn_version": 92000,
+      "device_count": 1,
+      "devices": [
+        {
+          "capability": "9.0",
+          "index": 0,
+          "name": "NVIDIA H100 PCIe",
+          "total_memory_bytes": 85017624576
+        }
+      ],
+      "torch_cuda_version": "13.0",
+      "torch_version": "2.13.0+cu130"
+    },
+    "hostname": "evc26",
+    "machine": "x86_64",
+    "packages": {
+      "accelerate": null,
+      "matplotlib": "3.11.1",
+      "numpy": "2.3.5",
+      "pandas": "3.0.5",
+      "pyarrow": "25.0.1",
+      "scipy": "1.17.1",
+      "tokenizers": "0.23.2",
+      "torch": "2.13.0",
+      "transformers": "5.16.1"
+    },
+    "platform": "Linux-4.18.0-553.123.1.el8_10.0.1.x86_64-x86_64-with-glibc2.28",
+    "python_implementation": "CPython",
+    "python_version": "3.11.16"
+  },
+  "experiment": "FormalCRRC Day 2",
+  "failures": [],
+  "finished_at": "2026-09-07T18:32:11+00:00",
+  "label_tokenization": {
+    "differs_from_naive_encoding": true,
+    "label_met": "A",
+    "label_not_met": "B",
+    "met_token_ids": [
+      29509
+    ],
+    "naive_met_token_ids": [
+      1098
+    ],
+    "naive_not_met_token_ids": [
+      1133
+    ],
+    "not_met_token_ids": [
+      29528
+    ],
+    "scoring_method": "single_token_next_logit",
+    "single_token_equivalence": true
+  },
+  "load_seconds": 20.1,
+  "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
+  "partition": "TST",
+  "preregistration_sha256": "cf742630bf5365ed12ce4770a5218e7f5b34e0d6bff2cb44d75d2d556bd3fba0",
+  "prompt_template_sha256": "e5f3c5ba3dfd1ccaca0655307d8ad254598a17184c7ae40dfde63c1f660cae14",
+  "prompts_requested": 2916,
+  "prompts_scored": 2916,
+  "raw_scores_sha256": "82bbb65d6f8f531a4c02954bc416c9c5c8809d72e4f9295f3dafd4e06e51790f",
+  "revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+  "scoring_method": "single_token_next_logit",
+  "slug": "mistral_7b_instruct_v0_3",
+  "slurm": {
+    "job_id": "797671",
+    "node": "evc26",
+    "partition": "normal"
+  },
+  "source_manifest": {
+    "files": {
+      "scripts/run_day2_inference.py": "6f30f5da5c11d5e8144fb475d01491f79bb777328a556e0192089ddc11c94835",
+      "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
+      "src/formalcrrc/day2_config.py": "c2a34bf4ff5f3c2d741dd3ed43a2bd23daee3780d717d5b680c72e89c79c7c71",
+      "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4",
+      "src/formalcrrc/scoring.py": "e9dea77babcb60820ad679226d2d826265fe0d844948163296c71be56510c8d4"
+    },
+    "tree_sha256": "93a856abd99821c413dfca414addf6eeda23c746fac47356e617161a1896e569"
+  },
+  "started_at_unix": 1788805840.7530904,
+  "total_seconds": 90.78
+}

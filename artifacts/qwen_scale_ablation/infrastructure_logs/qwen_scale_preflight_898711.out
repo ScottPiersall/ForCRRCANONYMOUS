@@ -1,0 +1,8 @@
+host=evc40 job=898711 node=evc40
+nvcc=/apps/cuda/cuda-13.1.0/bin/nvcc
+name, memory.total [MiB], driver_version, uuid
+NVIDIA H100 PCIe, 81559 MiB, 580.105.08, GPU-71901a3e-84aa-0d2d-0df7-63eff879606c
+started_at=2026-10-11T14:58:34Z
+stage=preflight (no S3 prompt is scored)
+CUDA smoke test failed: RuntimeError: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero.
+FATAL: evc40 cannot create a CUDA context (rc=1)

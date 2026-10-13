@@ -1,0 +1,62 @@
+{
+ "Qwen2.5-14B": {
+  "n_TR0_only_s0": 100,
+  "fixed_TR0_only_s0": 48,
+  "n_L18_TR1": 207,
+  "fixed_L18_TR1": 100,
+  "n_TR1": 143,
+  "fixed_TR1": 73,
+  "n_TR0_interior": 45,
+  "fixed_TR0_interior": 5,
+  "n_L18_TR0": 45,
+  "fixed_L18_TR0": 5
+ },
+ "Llama-3.1-8B": {
+  "n_TR0_only_s0": 53,
+  "fixed_TR0_only_s0": 8,
+  "n_L18_TR1": 94,
+  "fixed_L18_TR1": 22,
+  "n_TR0_interior": 158,
+  "fixed_TR0_interior": 30,
+  "n_L18_TR0": 158,
+  "fixed_L18_TR0": 30,
+  "n_TR1": 77,
+  "fixed_TR1": 20
+ },
+ "Mistral-7B": {
+  "n_TR0_only_s0": 73,
+  "fixed_TR0_only_s0": 36,
+  "n_L18_TR1": 134,
+  "fixed_L18_TR1": 48,
+  "n_TR1": 97,
+  "fixed_TR1": 33,
+  "n_TR0_interior": 118,
+  "fixed_TR0_interior": 33,
+  "n_L18_TR0": 118,
+  "fixed_L18_TR0": 33
+ },
+ "Gemma-2-9B": {
+  "n_TR0_only_s0": 37,
+  "fixed_TR0_only_s0": 11,
+  "n_L18_TR1": 193,
+  "fixed_L18_TR1": 50,
+  "n_TR1": 192,
+  "fixed_TR1": 52,
+  "n_TR0_interior": 59,
+  "fixed_TR0_interior": 15,
+  "n_L18_TR0": 59,
+  "fixed_L18_TR0": 15
+ },
+ "pooled": {
+  "n_TR0_only_s0": 263,
+  "fixed_TR0_only_s0": 103,
+  "n_L18_TR1": 628,
+  "fixed_L18_TR1": 220,
+  "n_TR1": 509,
+  "fixed_TR1": 178,
+  "n_TR0_interior": 380,
+  "fixed_TR0_interior": 83,
+  "n_L18_TR0": 380,
+  "fixed_L18_TR0": 83
+ }
+}

@@ -1,0 +1,32 @@
+{
+  "amendments": 0,
+  "comparator": {
+    "mean_tce": 3.373456790123457,
+    "status": "PASS",
+    "trr": 0.4791666666666667
+  },
+  "dataset": {
+    "checked_at": "2026-09-09T21:38:01+00:00",
+    "checks": {
+      "artifact_count": true,
+      "content_hash_matches_manifest": true,
+      "formal_truth_reconstructs": true,
+      "nine_levels_each": true,
+      "nontrivial_curve_count": true,
+      "one_hundred_eight_per_family": true,
+      "row_count": true,
+      "seed_is_45": true,
+      "thirty_six_at_each_crossing": true,
+      "true_crossing_reconstructs": true
+    },
+    "dataset_content_sha256": "9700960d6f3aa130fa259500aeadbdfa9f511bcc943dd5fdf3401330ee8009d6",
+    "dataset_file_sha256": "2160b662fa527498c6bd245e173f0ead9030a7d69633869233b76e5184647a34",
+    "dataset_path": "artifacts/day3/test_dataset.parquet",
+    "n_artifacts": 324,
+    "n_rows": 2916,
+    "status": "PASS"
+  },
+  "frozen_at": "2026-09-09T21:38:03+00:00",
+  "frozen_record_combined_sha256": "e618f270e00b2b5f77a2d5e2f7cfbbadc5ed58874d67d8a471bf49a3a809e3d7",
+  "preregistration_sha256": "43e9175b3717f493b58657e2d88e22d145bb769fd4a3ea51f054880acc6a40b2"
+}

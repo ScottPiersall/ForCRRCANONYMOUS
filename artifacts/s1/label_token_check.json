@@ -1,0 +1,1384 @@
+{
+  "all_ok": true,
+  "created_at": "2026-09-07T17:20:18+00:00",
+  "models": [
+    {
+      "differs_from_naive_encoding": false,
+      "model_id": "Qwen/Qwen2.5-14B-Instruct",
+      "naive_encoding_ids": {
+        "A": [
+          32
+        ],
+        "B": [
+          33
+        ]
+      },
+      "naive_encoding_tokens": {
+        "A": [
+          "A"
+        ],
+        "B": [
+          "B"
+        ]
+      },
+      "probes": [
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "b25467dabf4e6f929365d28cdcd2ec997c61a723d5fdd2642e1074a8471c1277"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "df5f552bdd01057955e958086cdce3fd1ecbcbd6807854a5f3151c0ff164dbbe"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "cbb94319d7f4f51bac04812629287dc4e58f9c170c39e707a98c5b6a5253e23f"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "56cdde3f33edf50a44b893fde2c9a2b16d1eecfcaca33806b8d2cc005273437d"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "6b208ae51f46cbcab5794d4ff7bb86df3c3c36a92c6596430b851c094fed184c"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "bfc52eacdb7aa0a37a2f9e83619b49f56dbca3df452083e3706e472c12019045"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "d5494c5219f6a7f845f0f911e6511c96f0b406c9b65e185aa2a7329c24f5c955"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "5bc97b8a247818da6d13be38a247304760d34bfa635e13034e742414bdaa13e2"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "663841af47ced105f7e836784c2dce061e2fe7abfffa984a9058339fe9d4692c"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "35a624f5481bbb1179fc03a00d626b52376982f87dae66c4dd778725703eba5f"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "7880f5f24337651f8bcc1a1f61fc3668791d83cb543ea283ce0aa4e3f2d4b788"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "c935d9bd2a8e7f1f54d0c65f0eb2df59ddaf25d74ff6847378092e566754e55e"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "d19bf35a4a6d4fbbe6cecebfad53dca19471499e22e3b30d4cc52732b8690728"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "83b51212f7c825a8cac27740637c5b0aea2e3140c7cad9323fc4cfbebbbc958e"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "2ca90aa0089a0a819cbc62c75c2fcce989cdd8faa451cc43087f1362f89fffef"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "3de561d5fc91bdad55d5018a3a31351acc5201b609467afc3a12d174584e55da"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "cbe429ab7905b963474317eb731caa71c8c331d22095af12d7c184f15f6540f7"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "7eeb2cbe4530d73250c850c4c3970f7dff47b918c3f3139ed919adbbfa9ca3ba"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "28113803f53e8ace33795787fe2e92a0d384b744a03ec6898349131fbc5853a2"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "9bdd663d6298102f007bd55517cefadd14ee867de1ee6af649341623d2ac0a93"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "7dc67359fdb60cf5624d362df6f00c398b3eb0e9e6f0ef06586eebbd7eec3cd9"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "0194d587dfca24e046e3e062c1f67131376418414f167cc7ce672e86ae58333d"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "e387fa212e79360c1082c074ed3b3536887c7231f8e0de4e7b757a7ad2d1a2c1"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "7e8140d67121ac03ef5312c257f4dee0b93c2a14e5f73c1ad6bd68b7388acd9a"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "988086e91d916008f99d16ee45c1899a0376a6864d69d5050e42d6f75bf50d68"
+        }
+      ],
+      "reference_prompt_sha256": "f1fdd2356d7d1f5cf059fb27871e079df7790167016b5875c2ea6ce13f6beaf9",
+      "resolved_continuation_ids": {
+        "A": [
+          32
+        ],
+        "B": [
+          33
+        ]
+      },
+      "resolved_continuation_tokens": {
+        "A": [
+          "A"
+        ],
+        "B": [
+          "B"
+        ]
+      },
+      "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+      "scoring_method": "single_token_next_logit",
+      "single_token": true,
+      "stable_across_study_prompts": true,
+      "verdict": "OK"
+    },
+    {
+      "differs_from_naive_encoding": false,
+      "model_id": "meta-llama/Llama-3.1-8B-Instruct",
+      "naive_encoding_ids": {
+        "A": [
+          32
+        ],
+        "B": [
+          33
+        ]
+      },
+      "naive_encoding_tokens": {
+        "A": [
+          "A"
+        ],
+        "B": [
+          "B"
+        ]
+      },
+      "probes": [
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "32de389ea4e5f5c9bcb93bd675efad5f05290ef18bd371b4981822b2e6b133ab"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "b52b4d8a832944286c4264c00829bd47b3056fa55c91d032b3dde8dc26111445"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "c2ed58b6be0989852d8bcc3182c8bf55815bb50d6b1184c74131dd3f196dbc81"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "3f768d3252639a94d7f10a609178079de69e3f8b632bc5a37b17a59a838f8e18"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "75bbde7571218b4836a0b006793292c18d69f40784c30542ca5e7fed7c0b2208"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "b3ff59f9306f2a796f8c0194906332b9107af0c5b5b6efadbf343cc1041dc71b"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "3a443e804c47e721c74d81da0367e512f3ab6874a97ce428ba6cacdbbc6bed19"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "65288d3268cb7b9fb8311976f686f025e21f98ccd4b22b0d714a80f7c1e75ee7"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "ae25f15dd57b1dd2402ca002bb93fe1791fdbdd84c8e4c59fc999229c4334890"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "e3f301eb43b7d086fe9bdae89bddeefe1ea1af7573f4eb6a372b981de9d37567"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "783067e2cfb2edd30eaca92ca3b7d1d6d98bf6487baaf06564edec697e0da7fd"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "3e0aabfd6c4a8fb01dfc9c5dc918f33f1510c86375255686c12570632adfc327"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "0f52049fbadb5c6dce0a72187be1ae72a4fe385f702397d6f49e9dc274a7b941"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "7df2d24b80f1639ffefadc7aecddd3c9c283a77afd4bf9faaa1b3b8f34adc480"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "bb81c585b7bf1e0c07bc1171fadbadf8a0dc08158650a0ab698a6105d4b971c3"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "80c6ce90c31a7db094b002aa9e440f30e4a69997f9b53fc65d5c3a6353a95dfe"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "23db8bdc71679bb2da7051d74ec27e7190e59070e07719f1ec670756d6fdd904"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "0567cfad90c7c4ef5cc3a79ab57fda56047031105b37026360f0b8f2e7679ad4"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "af1d4dc91dcd8432dd1f1104edece23cd79cdaefa800ba3eb73db5f0d9a4e78b"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "b5972f77fea9dcc8d1faa6dea9f50fa8fb09d3eecfdfbe60642c53323c55c9d0"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "cd32654f89681a03992649bbc52be803366735fac848de72ef9bab0a83a8a217"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "49de3c4df76ce330db9c6976b6469d0bc5fb0f57c4dd7b0cf2be31c490ae3d75"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "f9ed749159238f32eedb3e44c2fc7012ac79e2c36d14bf51fa3b4569af43510f"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "96310a72ec1ce88fbcf84d11ed1d3a204a753f949bce3934fac274f5484cbceb"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "909f87b25fb955f13b506db71d918a17f4cd2efa1c6d89e1049736b8c5d40235"
+        }
+      ],
+      "reference_prompt_sha256": "29addba1a10dfa95b8f4c9a6794b303cf299e000a2d016f181c1746fcb3fad74",
+      "resolved_continuation_ids": {
+        "A": [
+          32
+        ],
+        "B": [
+          33
+        ]
+      },
+      "resolved_continuation_tokens": {
+        "A": [
+          "A"
+        ],
+        "B": [
+          "B"
+        ]
+      },
+      "revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+      "scoring_method": "single_token_next_logit",
+      "single_token": true,
+      "stable_across_study_prompts": true,
+      "verdict": "OK"
+    },
+    {
+      "differs_from_naive_encoding": true,
+      "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
+      "naive_encoding_ids": {
+        "A": [
+          1098
+        ],
+        "B": [
+          1133
+        ]
+      },
+      "naive_encoding_tokens": {
+        "A": [
+          "▁A"
+        ],
+        "B": [
+          "▁B"
+        ]
+      },
+      "probes": [
+        {
+          "continuation_ids": {
+            "A": [
+              29509
+            ],
+            "B": [
+              29528
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "24b11eae43cee42af396b939ee3c7a116baf5eb01d7e8b1dd54c66098c4d7afa"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              29509
+            ],
+            "B": [
+              29528
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "4de1eb665b27a02544bfe529764b115ebb4144abae9754a3a618335037ca8d16"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              29509
+            ],
+            "B": [
+              29528
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "e646872aee47e601ccc5d4e277f7931c9a1ebd284e203db69bf797e53c2cbcbe"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              29509
+            ],
+            "B": [
+              29528
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "df470b1cb36ee1c2f9bd54164a98368ff4ccf2bd86a382dd181c23516ba68e57"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              29509
+            ],
+            "B": [
+              29528
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "2e3b0b2e8f7857f6581c298738a6a1eaffcfd67f92ed0d612aae6be994f38ff9"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              29509
+            ],
+            "B": [
+              29528
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "ae2ba1511514f93f6808d01ab9db0611be050973f7bf22c026dd50bb61518582"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              29509
+            ],
+            "B": [
+              29528
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "1b1c0219c7e98e55cc42c3845d1f143a349926137c2835b9da438f30ba23bd6f"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              29509
+            ],
+            "B": [
+              29528
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "e0d975d3e22cd733b6771bd900d97159a234ad48ceaee2190ceef42c16feeba6"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              29509
+            ],
+            "B": [
+              29528
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "4993d6a19a695b489a6bec56b62032c039648a7b69e856eed2b451b7dfa1fb79"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              29509
+            ],
+            "B": [
+              29528
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "e3809a00f667af99bf2cfb8464edca88e3b803e6797d744e397f7b8f98e3cc2e"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              29509
+            ],
+            "B": [
+              29528
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "baf2e1217a1447d52aa8f1191bf85f174cfd924590f5b4f85ac01d752ef5c31e"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              29509
+            ],
+            "B": [
+              29528
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "392eeccd3a8e866118f9f650befcb4f827904466a2f1f23debf71aff407ca2b7"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              29509
+            ],
+            "B": [
+              29528
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "f1cf8d8e13c8911cdf0c6a1aec7e8f5242fb875fa3189d759457ae1909a6e599"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              29509
+            ],
+            "B": [
+              29528
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "f765fce2268782ea5d60aad9526a9ec065e1e68ffc76a611dce7780bd0831278"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              29509
+            ],
+            "B": [
+              29528
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "02c6abccfb00101030d921be5db22a572a8aeada0ca60eb7457a396af08a62e7"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              29509
+            ],
+            "B": [
+              29528
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "712c5c2df6ba38f2f9de39b21a7321597795124e7f28a50177bd8dbb72d3c56b"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              29509
+            ],
+            "B": [
+              29528
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "3790cec40f4ccfc2fd2df470fa0fc598c4a8f859c31d287395bbe557e5b5ba14"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              29509
+            ],
+            "B": [
+              29528
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "875801132ae2ef6d899bf622bfcb6a1b4c032d0c3571d247fac5ca49f8ca1f2c"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              29509
+            ],
+            "B": [
+              29528
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "150bb3d5e66cccc80c1b29f9f2dc8cc1957a4626925138643664bca40d56208d"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              29509
+            ],
+            "B": [
+              29528
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "b7b6207163b2591d4449ed35cff11176dca7bfc80d558b1189736e4463a6c316"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              29509
+            ],
+            "B": [
+              29528
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "b35008158ccf32a6bd2ed31827a8bc89ede4f3fb9bbc3e1185f74354ddffe188"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              29509
+            ],
+            "B": [
+              29528
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "f639824448e27f99bde9de004ac5fd7fd944e82ac98b698184f3d9ed6215c665"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              29509
+            ],
+            "B": [
+              29528
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "e4d1c5b7a7f076da9ed2efa6d40b3f1ef024f9122ac790d1daf6521f56bd4509"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              29509
+            ],
+            "B": [
+              29528
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "0c9d00d57a92ed5e0cea38041a44a2b997c67a3a30b00d66bd3c1132491dfc99"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              29509
+            ],
+            "B": [
+              29528
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "3c2b850736d99e136ab65d6cb3807d09004a19feebcd0d2646f278ed22d81f6f"
+        }
+      ],
+      "reference_prompt_sha256": "a925ed51b97f81e8751b24fa2653df3dbf8b2276a5b09b5d321973edf2a1ff15",
+      "resolved_continuation_ids": {
+        "A": [
+          29509
+        ],
+        "B": [
+          29528
+        ]
+      },
+      "resolved_continuation_tokens": {
+        "A": [
+          "A"
+        ],
+        "B": [
+          "B"
+        ]
+      },
+      "revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+      "scoring_method": "single_token_next_logit",
+      "single_token": true,
+      "stable_across_study_prompts": true,
+      "verdict": "OK"
+    },
+    {
+      "differs_from_naive_encoding": false,
+      "model_id": "google/gemma-2-9b-it",
+      "naive_encoding_ids": {
+        "A": [
+          235280
+        ],
+        "B": [
+          235305
+        ]
+      },
+      "naive_encoding_tokens": {
+        "A": [
+          "A"
+        ],
+        "B": [
+          "B"
+        ]
+      },
+      "probes": [
+        {
+          "continuation_ids": {
+            "A": [
+              235280
+            ],
+            "B": [
+              235305
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "5bda1e724c6de63408386a5f6b2e66b0a8b1b10e5f4ed4dd278de588afc847bf"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              235280
+            ],
+            "B": [
+              235305
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "e229c4d885e8780e5ca0d430544d5dcd1ba93d7271c346caa57aa7020bb03299"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              235280
+            ],
+            "B": [
+              235305
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "709622c886a1b387cde971f34a54f1ccb8ee09b6740699fec1f232588bed65f8"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              235280
+            ],
+            "B": [
+              235305
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "864a93466e42c82ad268a21a853b6be83f30e4def4ec9eaf9dcb337f76a31356"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              235280
+            ],
+            "B": [
+              235305
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "cb93776c17b17f1685ce474d9dc4eabf8d7b1cdd5c7dc8c226a54bc6e7597413"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              235280
+            ],
+            "B": [
+              235305
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "6e2bbd4d8f873cd4fa5257dff9f668f2b93446861a22b7da06a78cdeefe33e2c"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              235280
+            ],
+            "B": [
+              235305
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "965f68aa862301652ed33bbe720a77cb520ac8042a4347df155b3b52e62f353d"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              235280
+            ],
+            "B": [
+              235305
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "f12d242352e13355d94dedc327bf2ab3ee4f2eab80ee38c1fcb340a36149a48b"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              235280
+            ],
+            "B": [
+              235305
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "063d4db8b3fe052363b109b8439df57c892cb301941fd4202ac5df88fe43e9f9"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              235280
+            ],
+            "B": [
+              235305
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "c6e9837c61033e51f479063b06cee6455c6a8a1af1e18a2c97c34271198ec293"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              235280
+            ],
+            "B": [
+              235305
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "5565850e82e1ee2f38c7d759042e297100fe76205a1b26e256ae71b2f2fc516f"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              235280
+            ],
+            "B": [
+              235305
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "978b472c1e51089d2a06ff07b50e967373970692d8890dfb796dce6bee42a5c4"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              235280
+            ],
+            "B": [
+              235305
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "62b947576197ca95abf2a38d23622ee2933bf24e8de42ff285217b358093a3c0"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              235280
+            ],
+            "B": [
+              235305
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "38fb4a2925d7003b36cdd24eee6baa2705c1e34871339a664f532e58816328b3"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              235280
+            ],
+            "B": [
+              235305
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "9bedd683e072e0690d530350819ce50c80c50233989c502697af5ef44588ce73"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              235280
+            ],
+            "B": [
+              235305
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "8b9edbdd7ae926e64255aff37536be1a8745c0aaa346addb5fc51a1571527dc8"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              235280
+            ],
+            "B": [
+              235305
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "582f08626d4f9434be4695e3f88040a6acd7ab117b2116d268a46b43a644b6ca"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              235280
+            ],
+            "B": [
+              235305
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "ce161f1be790a8437ddcf191c80811c94f46e56b8d7c8b8bed79dca3bfa2b2ff"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              235280
+            ],
+            "B": [
+              235305
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "09a1fed379e0efd19da4b80280b16a43863aed4060a4ae119efecdeee086f3e6"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              235280
+            ],
+            "B": [
+              235305
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "cfe70f4a5493a56827c8020bb8af8274f3eca701edcff9a12ed8037229fd8e45"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              235280
+            ],
+            "B": [
+              235305
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "f1be899e70d90297194aeea0e7a4f52040fae657c1289ff037510d92743d0449"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              235280
+            ],
+            "B": [
+              235305
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "8e91536b1122026735c727bfdfe1a9fb8d87fc59a25d1b8881a396c2de38c49c"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              235280
+            ],
+            "B": [
+              235305
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "647bf3db283e4ddce8f878a1081e7625afac3fd4cab86050e30aecba38733ef8"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              235280
+            ],
+            "B": [
+              235305
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "d56f1fb07a81e47393a48a087e5b1a53f17819ae26aafd7c13b9ee3068a1e2df"
+        },
+        {
+          "continuation_ids": {
+            "A": [
+              235280
+            ],
+            "B": [
+              235305
+            ]
+          },
+          "matches_reference": true,
+          "rendered_sha256": "67981f3b2e81986c01966fbe0c334d3a96cad8744619f35681fbde30fdbf7623"
+        }
+      ],
+      "reference_prompt_sha256": "a1529dd1f3d2804058ec09df73a0548f3af034113d1c478c10fb0cef6e863191",
+      "resolved_continuation_ids": {
+        "A": [
+          235280
+        ],
+        "B": [
+          235305
+        ]
+      },
+      "resolved_continuation_tokens": {
+        "A": [
+          "A"
+        ],
+        "B": [
+          "B"
+        ]
+      },
+      "revision": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+      "scoring_method": "single_token_next_logit",
+      "single_token": true,
+      "stable_across_study_prompts": true,
+      "verdict": "OK"
+    }
+  ],
+  "n_probe_prompts": 25,
+  "probe_source": "first rows of the frozen prompt manifest"
+}

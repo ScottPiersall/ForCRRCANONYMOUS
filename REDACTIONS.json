@@ -1,0 +1,235 @@
+[
+ {
+  "file": "LICENSE",
+  "sha256_before": "be30e2c7db1cde0f5a17926915e4650907096a9e46c31ffcf329af86d7c55bbd",
+  "sha256_after": "1d0dde41ece0f9620937f1a81a67e295ace0eae180c009d862006e8f3b288458",
+  "frozen": false,
+  "redacted": [
+   "author name (1)"
+  ]
+ },
+ {
+  "file": "artifacts/reason_then_score_ablation/model_provenance.json",
+  "sha256_before": "f83b50d55903faa42533ca45ddad6b7ce8057e0cd4cc4b6add3b815c85706c58",
+  "sha256_after": "11ff8655bb3b1a33291e2f8ff9e359539b31aa8666431a75e2afd7578701ddf2",
+  "frozen": true,
+  "redacted": [
+   "cluster home path (contains username) (1)"
+  ]
+ },
+ {
+  "file": "artifacts/reason_then_score_ablation/preflight.json",
+  "sha256_before": "6fa7c7ff3cd292d172daf86765ec1e79ca6dd88ba7fc524d191498a135993537",
+  "sha256_after": "64ca2695366b8e631d5f29b5dfa73235b59d31bd436dfc655389dfe6412baf48",
+  "frozen": true,
+  "redacted": [
+   "cluster home path (contains username) (1)"
+  ]
+ },
+ {
+  "file": "artifacts/reasoning_anchor/model_provenance.json",
+  "sha256_before": "e2cb740403726189cf5502dc86f0136cddf8714dbd3a706cb686f1d66b137833",
+  "sha256_after": "cadc6b1da30bca364d7e05429e989ca715464cb7df679019683d82d05deccdde",
+  "frozen": true,
+  "redacted": [
+   "cluster home path (contains username) (1)"
+  ]
+ },
+ {
+  "file": "artifacts/reasoning_anchor/preflight.json",
+  "sha256_before": "42dd9a8a03094504ecd0386f8660c6f8ab9d8428f3e6b7dacaca40a7e9a30a50",
+  "sha256_after": "7d48ee41cb95d41bccc21cd1c6902145960d706a0740448bc1defc775ca0650e",
+  "frozen": true,
+  "redacted": [
+   "cluster home path (contains username) (1)"
+  ]
+ },
+ {
+  "file": "cluster/newton/fetch.sh",
+  "sha256_before": "8f84a0396b0704eb33676c25afe111cdd72d7b73e8ffcfb3157a2b51009cecdd",
+  "sha256_after": "eeac5a611d967a2ccb35f5166a069b97a230bcc81840f8364b635564053de385",
+  "frozen": false,
+  "redacted": [
+   "cluster login (user@host) (1)",
+   "cluster home path (contains username) (1)"
+  ]
+ },
+ {
+  "file": "cluster/newton/rrun.sh",
+  "sha256_before": "c4f0216a081781fa2d3ed4c96b49ab129ad0b63da63cd473d4c4af66378695ea",
+  "sha256_after": "9f82df111fd7d53200d08f29e2b993419d4927ce32fcfa68cd3a673fad1ea894",
+  "frozen": false,
+  "redacted": [
+   "cluster login (user@host) (1)"
+  ]
+ },
+ {
+  "file": "cluster/newton/sync.sh",
+  "sha256_before": "3bd5588b2785339603947698417f367410b5c10596d9bad40f39891670557b75",
+  "sha256_after": "77d87e19258768233cb601cd78ebc550f44076cdd6aa22497d89e86bfd7cbdf4",
+  "frozen": false,
+  "redacted": [
+   "cluster login (user@host) (1)",
+   "cluster home path (contains username) (1)"
+  ]
+ },
+ {
+  "file": "docs/CLUSTER_NEWTON.md",
+  "sha256_before": "f2f36e88f720f51b15e88bb298c6d515ef3a9cbbc80075b3d4a1f4308f0030ee",
+  "sha256_after": "38ff8654338eb1c4ffef2e54f5094113d5a51c263ce8afdd8ae36287ad441269",
+  "frozen": false,
+  "redacted": [
+   "cluster login (user@host) (5)",
+   "cluster hostname (1)",
+   "cluster home path (contains username) (8)",
+   "cluster username (2)",
+   "SLURM account name (2)",
+   "institution name (1)",
+   "institution-specific partition name (1)"
+  ]
+ },
+ {
+  "file": "pyproject.toml",
+  "sha256_before": "47c7c22fd4e761d42b6090f843a963e8f36a0031b0acd56e0663f50e7eda249d",
+  "sha256_after": "fb360d39f110f75f7ba38a6717038c9a6281dbbfded2466a00ba58b294509dc8",
+  "frozen": false,
+  "redacted": [
+   "author name (1)"
+  ]
+ },
+ {
+  "file": "slurm/audit_s2_models.sbatch",
+  "sha256_before": "1f0aa5e194967f4bf7d9900689f76007ed1acbf47348c3ec4fdbdef5974e115b",
+  "sha256_after": "b04d86bde6580dcdfe06e696b7579510ca2dd3fdb69dfc49d90caef85ae9a610",
+  "frozen": false,
+  "redacted": [
+   "cluster home path (contains username) (3)"
+  ]
+ },
+ {
+  "file": "slurm/audit_s3_models.sbatch",
+  "sha256_before": "19c480a63cb7d7bfc755bd92507e6d9dff15bc604b44c81400141d2cbce2e85d",
+  "sha256_after": "af862710e35d5acdebb322a4ae3571372e0369c2ad99748ae1b2e6969ac4ed50",
+  "frozen": false,
+  "redacted": [
+   "cluster home path (contains username) (3)"
+  ]
+ },
+ {
+  "file": "slurm/audit_models.sbatch",
+  "sha256_before": "60e2c7e72ceed4e33d3e36629accbcc730953567d487277504496e1b2f2fcfe2",
+  "sha256_after": "823c2d8d7744c2fea5bc4bb26861d8367756c625e52ca61d12a943151bedd5c6",
+  "frozen": false,
+  "redacted": [
+   "cluster home path (contains username) (3)"
+  ]
+ },
+ {
+  "file": "slurm/common.sh",
+  "sha256_before": "63baf4fa39de91f92543bb46ba07ef1aa93f116e4af6f43ef7bc21c8a26ecd05",
+  "sha256_after": "bd65780aaf902630dfb93640bc91f84ab2a572c7e4f8a21481ccabf5c76b70d5",
+  "frozen": false,
+  "redacted": [
+   "cluster home path (contains username) (2)"
+  ]
+ },
+ {
+  "file": "slurm/preflight_qwen_scale.sbatch",
+  "sha256_before": "83c61e57475a7a3b1c3e2ed8d3fc77bca3e2d7458a56855d149c0ec58c890aaa",
+  "sha256_after": "ea8c3f6d1a3604aa49b396bf3259506c0154f1fb25912bee83ecf53bc5a0567d",
+  "frozen": false,
+  "redacted": [
+   "cluster home path (contains username) (3)"
+  ]
+ },
+ {
+  "file": "slurm/preflight_reasoning_anchor.sbatch",
+  "sha256_before": "609566cb145652bddc2d1a7eb7179cdd05e32762ca613cc2c94410dab5abe7fe",
+  "sha256_after": "7c9ea24a7b8099c7f5ec6f98f2435b3fa5bf513bb526511bb27315353e08b0b1",
+  "frozen": false,
+  "redacted": [
+   "cluster home path (contains username) (3)"
+  ]
+ },
+ {
+  "file": "slurm/preflight_rts_ablation.sbatch",
+  "sha256_before": "31ac2e39500ea01929f2acd3011b969da6fdcd5565016bc444e84cd0d4ecc290",
+  "sha256_after": "3a6b9d900c20999a207b2f23c4ba133a73ff6c3ba030c0ef91f5dd5313524aa4",
+  "frozen": false,
+  "redacted": [
+   "cluster home path (contains username) (3)"
+  ]
+ },
+ {
+  "file": "slurm/run_s2_inference.sbatch",
+  "sha256_before": "947c49cbf2b9eec7ce4852c826f971a051b0dcdd5293ecb0a7c5da8739ba5346",
+  "sha256_after": "c5d76410d738aab08cf9ae2a1d3098ce8144025507be09d81211f64e69d514d9",
+  "frozen": false,
+  "redacted": [
+   "cluster home path (contains username) (3)"
+  ]
+ },
+ {
+  "file": "slurm/run_s3_inference.sbatch",
+  "sha256_before": "09403380e1e1a76c83d10259c9b5699cdedc92787a537d025ee2f91d77200566",
+  "sha256_after": "abbfc9821acb7a799140fc388491eb220b6da64314d2c74f04a6537e3a11b058",
+  "frozen": false,
+  "redacted": [
+   "cluster home path (contains username) (3)"
+  ]
+ },
+ {
+  "file": "slurm/run_inference.sbatch",
+  "sha256_before": "635e18c2801a6bf27b9ef6e3c1d72ed07119bd4d155059c1b8ae082ad05e8bd5",
+  "sha256_after": "307e9bc03e0665f8f55329fa0930a4ef35cd6030caf4900582a26f91097ca1fa",
+  "frozen": false,
+  "redacted": [
+   "cluster home path (contains username) (3)"
+  ]
+ },
+ {
+  "file": "slurm/run_labelswap_inference.sbatch",
+  "sha256_before": "07c5609ce29f1ef50c3961cf854ee6def6efb3c162f76fcec00ce0cb3eeaf60c",
+  "sha256_after": "5e998e812a69036c9a2d2612cabe6880a7b4a4c92a0497eef82bc13aa9dccaa7",
+  "frozen": false,
+  "redacted": [
+   "cluster home path (contains username) (3)"
+  ]
+ },
+ {
+  "file": "slurm/run_qwen_scale_inference.sbatch",
+  "sha256_before": "49c321c7e32f863683c131fbeb4f18b6b92e5aacc85580d6897c3d86550ab340",
+  "sha256_after": "d280cc380b7999f13993a5e326747fb5619d0d17b4730dab224e293d86b10619",
+  "frozen": false,
+  "redacted": [
+   "cluster home path (contains username) (3)"
+  ]
+ },
+ {
+  "file": "slurm/run_reasoning_anchor_inference.sbatch",
+  "sha256_before": "629244e6b9fd6c2dad352a036c75ecae458564e34684d73a5c9c4966e3aa9527",
+  "sha256_after": "e93e72c6450edd73445a1e63a3d5dc766b0c41c1df71bd4364e092971c007ae4",
+  "frozen": false,
+  "redacted": [
+   "cluster home path (contains username) (3)"
+  ]
+ },
+ {
+  "file": "slurm/run_rts_ablation_inference.sbatch",
+  "sha256_before": "32f5b5bed4c98044c17161b331b4809c20a048a522a6ea6d08c82b732ab47d78",
+  "sha256_after": "cbae98a9a10026cbfcc8aba4dd228f66085e0dd6fe0b678f7907be6c5410add4",
+  "frozen": false,
+  "redacted": [
+   "cluster home path (contains username) (3)"
+  ]
+ },
+ {
+  "file": "slurm/verify_labels.sbatch",
+  "sha256_before": "2868ef8b97531a527594c90e5185265c757e11f46bb2b9d5fff7c000abf0b1ff",
+  "sha256_after": "5f376e4ad8434d4491466451c06f2deeaf28349edf0c99ab4ef3f48f6ad6c83e",
+  "frozen": false,
+  "redacted": [
+   "cluster home path (contains username) (3)"
+  ]
+ }
+]

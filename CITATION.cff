@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this archive, please cite it as below. (Anonymous review release; creators, DOI and the paper reference are added at publication.)"
+type: dataset
+title: "FormalCRRC reproducibility archive: exact rubric-threshold sweeps for LLM-judge evaluation"
+version: "1.1.0-review"
+date-released: "2026-10-12"
+authors:
+  - name: "Anonymous Authors"
+license:
+  - MIT
+  - CC-BY-4.0
+keywords:
+  - LLM-as-a-judge
+  - meta-evaluation
+  - rubric thresholds
+  - calibration
+  - recoverability
+  - reproducibility
+abstract: "Source code, frozen datasets, preregistrations, raw judge scores and analysis code for the FormalCRRC threshold-sweep studies (S1-S3, label swap, Qwen3 anchor, reason-then-score ablation, Qwen2.5 scale ablation) and the post-hoc analyses reported in the paper."

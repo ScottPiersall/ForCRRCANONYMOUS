@@ -1,0 +1,374 @@
+{
+  "created_at": "2026-09-07T17:38:00+00:00",
+  "dataset": {
+    "checks": {
+      "artifact_count": true,
+      "content_hash_reproduces": true,
+      "dataset_file_hash": true,
+      "prompt_manifest_file_hash": true,
+      "prompt_template_hash": true,
+      "row_count": true
+    },
+    "content_sha256": "4462bedbf5f086daa8bdfa077ad82e1ea7b79b4db59d906fafe6c814cfc85a2e",
+    "status": "PASS"
+  },
+  "environment": {
+    "captured_at": "2026-09-07T17:38:00+00:00",
+    "hostname": "minipc",
+    "machine": "x86_64",
+    "packages": {
+      "accelerate": null,
+      "matplotlib": "3.11.1",
+      "numpy": "2.5.3",
+      "pandas": "3.0.5",
+      "pyarrow": "25.0.1",
+      "scipy": "1.18.1",
+      "tokenizers": null,
+      "torch": null,
+      "transformers": null
+    },
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python_implementation": "CPython",
+    "python_version": "3.12.3"
+  },
+  "figures": {
+    "combined_sha256": "08ebad3d7066bd818b8b30835cfec21a11335e2f6e4d77c6ff7bf416ffa0d815",
+    "files": {
+      "figure1_concept.png": "e7e0baf7b6a8102674cba168eb42ab6b66def559bdc7edeefa88154eee0c3561",
+      "figure2_boundary_aligned_curves.png": "3b9322c3a369c169102c8bca6941e7a03a72d1af931463470eb22fcc987d3059",
+      "figure3_mvr_distributions.png": "d8711fc79f29f4d2a99bf4b8e031eecb4a7d7880aedef79a61cf3271aa81c75f",
+      "figure4_tce_distributions.png": "d3bcbd446cf75a5a87983d60337cb70a37d8c001664cc1ea696a7c366fb6501c",
+      "figure5_model_family_heatmap.png": "50cf8bc66d49eb5674427220af05cb2c43bb565edd2209edb0ffd5efbcb0f88e"
+    },
+    "path": "figures/day1"
+  },
+  "files": {
+    "bootstrap_results": {
+      "path": "artifacts/day1/bootstrap_results.parquet",
+      "present": true,
+      "sha256": "1eaf371fc05019e9caabd78f3fb9c35b030b0f42776059172a1590e264c7c435",
+      "size_bytes": 9391
+    },
+    "dataset": {
+      "path": "artifacts/day1/formal_dataset.parquet",
+      "present": true,
+      "sha256": "01465951da67a5e906ba057297ec4fcebf6a22fb2980ebe76d399d25b0015f44",
+      "size_bytes": 359092
+    },
+    "dataset_manifest": {
+      "path": "artifacts/day1/dataset_manifest.json",
+      "present": true,
+      "sha256": "abdb442924fb307a948e3c2b48881c2ba3b0ad0d1ac9594c10a593e4e3f4354e",
+      "size_bytes": 2930
+    },
+    "lineage": {
+      "path": "docs/LINEAGE.md",
+      "present": true,
+      "sha256": "6fa8f0eb504c180c32e7c9fe6c531b47c2dfa8b4f198a4f05669ee02a944e745",
+      "size_bytes": 3123
+    },
+    "metrics_by_artifact": {
+      "path": "artifacts/day1/metrics_by_artifact.parquet",
+      "present": true,
+      "sha256": "cd0660bb48952cc5651796a6259f3dd18567842a4df2df126def348c0a45040a",
+      "size_bytes": 41140
+    },
+    "model_provenance": {
+      "path": "artifacts/day1/model_provenance.json",
+      "present": true,
+      "sha256": "c9e1b613bc7939c8ae3089e24c5a5b489a8b6af7212a32c451e4ed5312ce4b19",
+      "size_bytes": 10623
+    },
+    "novelty_boundaries": {
+      "path": "docs/NOVELTY_BOUNDARIES.md",
+      "present": true,
+      "sha256": "617d96f2956c02d96371e7e5d4ccf10b50bc49bef882f2e88fce0dec78c0df3b",
+      "size_bytes": 3471
+    },
+    "preregistration": {
+      "path": "artifacts/day1/preregistration.json",
+      "present": true,
+      "sha256": "8b76c80d85f01e855f9c13100b84e06471919a21813875e1af58c7f0c8123f91",
+      "size_bytes": 21957
+    },
+    "preregistration_checksum": {
+      "path": "artifacts/day1/preregistration.sha256",
+      "present": true,
+      "sha256": "5ca80879fad9166f76fc043759e2dc793f54f384b938b273fca75ca26eee2432",
+      "size_bytes": 87
+    },
+    "preregistration_document": {
+      "path": "docs/PREREGISTRATION_DAY1.md",
+      "present": true,
+      "sha256": "a11b8b4f52d11d9945ef85724d1a4770c306e82cd0f464f4c70db1281b4ebf57",
+      "size_bytes": 15596
+    },
+    "prompt_manifest": {
+      "path": "artifacts/day1/prompt_manifest.parquet",
+      "present": true,
+      "sha256": "f577a947cbed7c4d96f618b5f476d6f8064fbbd7886e7e5dae576889164097fb",
+      "size_bytes": 766438
+    },
+    "results_document": {
+      "path": "docs/RESULTS_DAY1.md",
+      "present": true,
+      "sha256": "d8d7cd3bad24e9f6c594a1e6c17c11bc27ac510f9ea840cb40f27ba52a798d56",
+      "size_bytes": 25635
+    },
+    "specification": {
+      "path": "docs/FORMALCRRC_DAY1_SPEC.md",
+      "present": true,
+      "sha256": "49e3cb986135ff603a519cee8c83c6a0ecbc9a11faf55727986d0fd7475a3dec",
+      "size_bytes": 11644
+    },
+    "summary": {
+      "path": "artifacts/day1/summary.json",
+      "present": true,
+      "sha256": "13380e52def89437134eda164141e7b2a890f5af4342a9ebdb4306740a301f56",
+      "size_bytes": 93600
+    }
+  },
+  "git": {
+    "available": true,
+    "clean": false,
+    "commit": "e37cb78a5c7cc20512d0c5a2051682d143b26b8d",
+    "dirty_paths": [
+      ".gitignore",
+      "LICENSE",
+      "artifacts/day1/bootstrap_results.parquet",
+      "artifacts/day1/integrity_manifest.json",
+      "artifacts/day1/metrics_by_artifact.parquet",
+      "artifacts/day1/raw_scores/",
+      "artifacts/day1/summary.json",
+      "docs/RESULTS_DAY1.md",
+      "figures/",
+      "scripts/write_results_day1.py"
+    ]
+  },
+  "panel": {
+    "complete": 4,
+    "size": 4,
+    "status": "COMPLETE"
+  },
+  "preregistration": {
+    "amendment_count": 0,
+    "amendments": [],
+    "frozen_at": "2026-09-07T17:20:38+00:00",
+    "panel_intact": true,
+    "sha256": "8b76c80d85f01e855f9c13100b84e06471919a21813875e1af58c7f0c8123f91",
+    "status": "PASS"
+  },
+  "prompt_template_sha256": "e5f3c5ba3dfd1ccaca0655307d8ad254598a17184c7ae40dfde63c1f660cae14",
+  "raw_score_run_records": {
+    "combined_sha256": "168fe04cd35775ab574cbcbd0f6c329ad73aa7555da88422f5c83a778ceca172",
+    "files": {
+      "gemma_2_9b_it_run.json": "d04f7343e28ba5c62ff16430d156154be781ffa59e2e773f66f77127971216f9",
+      "llama3_1_8b_instruct_run.json": "53e2b7179ac45773e73333632f20c1a30036d1dd0762a6335cbb657ae0c5d25c",
+      "mistral_7b_instruct_v0_3_run.json": "b6f5bbd1f770036aa93daf6453c0f2573bddd375c831d8dffab9b6407511a8b4",
+      "qwen2_5_14b_instruct_run.json": "20dace97a1fd91c9265a7430ca020837ae8823a95108fc806aea507b1905de93"
+    },
+    "path": "artifacts/day1/raw_scores"
+  },
+  "raw_scores": {
+    "combined_sha256": "43051a1cca57dd55b3eb08da7f3d4b81dcfdf01f50acbead5e9da38babc51088",
+    "files": {
+      "gemma_2_9b_it.parquet": "ccc4d94739bbe2b03fbacb97119373ab689d49b2ee6bb5e180f7d5226865f5bc",
+      "llama3_1_8b_instruct.parquet": "db34ce5568917259f12ecc0d81978703ee28e10b00a177691ef8711ab40ac603",
+      "mistral_7b_instruct_v0_3.parquet": "c95eb5e5dc39559c77f704736c81cfb84d783ba911ed631c2c1cc4933b0cf95c",
+      "qwen2_5_14b_instruct.parquet": "164fef25e702c0c9bf6cf948e38c7215dd460bcfa308ee30b75dfb27777f7b27"
+    },
+    "path": "artifacts/day1/raw_scores"
+  },
+  "runs": {
+    "Qwen/Qwen2.5-14B-Instruct": {
+      "checks": {
+        "all_artifacts_present": true,
+        "nine_thresholds_each": true,
+        "probabilities_finite": true,
+        "probabilities_in_range": true,
+        "prompt_ids_match_dataset": true,
+        "prompt_ids_unique": true,
+        "raw_scores_finite": true,
+        "row_count": true,
+        "single_revision": true,
+        "single_scoring_method": true
+      },
+      "model_id": "Qwen/Qwen2.5-14B-Instruct",
+      "raw_scores_sha256": "164fef25e702c0c9bf6cf948e38c7215dd460bcfa308ee30b75dfb27777f7b27",
+      "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+      "rows": 2916,
+      "run": {
+        "failures": 0,
+        "finished_at": "2026-09-07T17:35:09+00:00",
+        "gpu": [
+          {
+            "capability": "9.0",
+            "index": 0,
+            "name": "NVIDIA H100 PCIe",
+            "total_memory_bytes": 85017624576
+          }
+        ],
+        "slurm": {
+          "job_id": "797603",
+          "node": "evc47",
+          "partition": "normal"
+        },
+        "source_tree_sha256": "71e55c9768f2b0fa4900a4cab7d4685e60df88335a2afc4e2f75cd8b05695096",
+        "started_at_unix": 1788802344.7980652,
+        "torch_version": "2.13.0",
+        "total_seconds": 164.61,
+        "transformers_version": "5.16.1"
+      },
+      "scoring_method": "single_token_next_logit",
+      "slug": "qwen2_5_14b_instruct",
+      "status": "COMPLETE"
+    },
+    "google/gemma-2-9b-it": {
+      "checks": {
+        "all_artifacts_present": true,
+        "nine_thresholds_each": true,
+        "probabilities_finite": true,
+        "probabilities_in_range": true,
+        "prompt_ids_match_dataset": true,
+        "prompt_ids_unique": true,
+        "raw_scores_finite": true,
+        "row_count": true,
+        "single_revision": true,
+        "single_scoring_method": true
+      },
+      "model_id": "google/gemma-2-9b-it",
+      "raw_scores_sha256": "ccc4d94739bbe2b03fbacb97119373ab689d49b2ee6bb5e180f7d5226865f5bc",
+      "revision": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+      "rows": 2916,
+      "run": {
+        "failures": 0,
+        "finished_at": "2026-09-07T17:34:08+00:00",
+        "gpu": [
+          {
+            "capability": "9.0",
+            "index": 0,
+            "name": "NVIDIA H100 PCIe",
+            "total_memory_bytes": 85017624576
+          }
+        ],
+        "slurm": {
+          "job_id": "797602",
+          "node": "evc41",
+          "partition": "normal"
+        },
+        "source_tree_sha256": "71e55c9768f2b0fa4900a4cab7d4685e60df88335a2afc4e2f75cd8b05695096",
+        "started_at_unix": 1788802277.2979777,
+        "torch_version": "2.13.0",
+        "total_seconds": 171.63,
+        "transformers_version": "5.16.1"
+      },
+      "scoring_method": "single_token_next_logit",
+      "slug": "gemma_2_9b_it",
+      "status": "COMPLETE"
+    },
+    "meta-llama/Llama-3.1-8B-Instruct": {
+      "checks": {
+        "all_artifacts_present": true,
+        "nine_thresholds_each": true,
+        "probabilities_finite": true,
+        "probabilities_in_range": true,
+        "prompt_ids_match_dataset": true,
+        "prompt_ids_unique": true,
+        "raw_scores_finite": true,
+        "row_count": true,
+        "single_revision": true,
+        "single_scoring_method": true
+      },
+      "model_id": "meta-llama/Llama-3.1-8B-Instruct",
+      "raw_scores_sha256": "db34ce5568917259f12ecc0d81978703ee28e10b00a177691ef8711ab40ac603",
+      "revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+      "rows": 2916,
+      "run": {
+        "failures": 0,
+        "finished_at": "2026-09-07T17:30:24+00:00",
+        "gpu": [
+          {
+            "capability": "9.0",
+            "index": 0,
+            "name": "NVIDIA H100 PCIe",
+            "total_memory_bytes": 85017624576
+          }
+        ],
+        "slurm": {
+          "job_id": "797600",
+          "node": "evc47",
+          "partition": "normal"
+        },
+        "source_tree_sha256": "71e55c9768f2b0fa4900a4cab7d4685e60df88335a2afc4e2f75cd8b05695096",
+        "started_at_unix": 1788802108.930888,
+        "torch_version": "2.13.0",
+        "total_seconds": 115.67,
+        "transformers_version": "5.16.1"
+      },
+      "scoring_method": "single_token_next_logit",
+      "slug": "llama3_1_8b_instruct",
+      "status": "COMPLETE"
+    },
+    "mistralai/Mistral-7B-Instruct-v0.3": {
+      "checks": {
+        "all_artifacts_present": true,
+        "nine_thresholds_each": true,
+        "probabilities_finite": true,
+        "probabilities_in_range": true,
+        "prompt_ids_match_dataset": true,
+        "prompt_ids_unique": true,
+        "raw_scores_finite": true,
+        "row_count": true,
+        "single_revision": true,
+        "single_scoring_method": true
+      },
+      "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
+      "raw_scores_sha256": "c95eb5e5dc39559c77f704736c81cfb84d783ba911ed631c2c1cc4933b0cf95c",
+      "revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+      "rows": 2916,
+      "run": {
+        "failures": 0,
+        "finished_at": "2026-09-07T17:32:15+00:00",
+        "gpu": [
+          {
+            "capability": "9.0",
+            "index": 0,
+            "name": "NVIDIA H100 PCIe",
+            "total_memory_bytes": 85017624576
+          }
+        ],
+        "slurm": {
+          "job_id": "797601",
+          "node": "evc47",
+          "partition": "normal"
+        },
+        "source_tree_sha256": "71e55c9768f2b0fa4900a4cab7d4685e60df88335a2afc4e2f75cd8b05695096",
+        "started_at_unix": 1788802234.5557356,
+        "torch_version": "2.13.0",
+        "total_seconds": 101.13,
+        "transformers_version": "5.16.1"
+      },
+      "scoring_method": "single_token_next_logit",
+      "slug": "mistral_7b_instruct_v0_3",
+      "status": "COMPLETE"
+    }
+  },
+  "source_manifest": {
+    "files": {
+      "scripts/analyze_day1.py": "26e8c61d82d6548ef4128461ea99847af6d4233fc810045e00c40561430c5f96",
+      "scripts/figures_day1.py": "38a939a077e04cea9347b0d527649f2f8fd8724c67464452d5c8ea3336cfa79b",
+      "scripts/generate_day1_dataset.py": "6814188bc5e5a64758c9e7ac0aefb295dbde6fab1f273b16b35f8031cfb15939",
+      "scripts/run_day1_inference.py": "036e0e61b8ce43f7ba49dbf36fac2c8466f54076a782d5898bb7d28d951c96ba",
+      "scripts/verify_day1_integrity.py": "6e899b0bb6bf5a430d4aace397dcd0d9f11164fc7df5b1cc5ea07700c4590e0a",
+      "src/formalcrrc/bootstrap.py": "960181bbea8781aa69cd3ed39de327f88c5eb382b6b1a79810122fe6563b2427",
+      "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
+      "src/formalcrrc/dataset.py": "c3bad767083c9e1e274a04d90f5fe64e6a56420c0e65d4df3762b178d8a53930",
+      "src/formalcrrc/metrics.py": "7f9e7909272c7bcbe6f0971d140027088ac8cc7a98a582563c08b8fce570ed39",
+      "src/formalcrrc/predicates.py": "5c119021ffa69d2dc875bb931a249e5f12811fda791227bc0716cb075fc56b68",
+      "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4",
+      "src/formalcrrc/provenance.py": "34e1c06f91514642b0bcc1beb946997ad275d2b69030f80d83b6e7df9920bd55",
+      "src/formalcrrc/scoring.py": "e9dea77babcb60820ad679226d2d826265fe0d844948163296c71be56510c8d4"
+    },
+    "tree_sha256": "0d5c8b6cc0067ad7cd0bcb40713534aa52ff9d1e1f9131f262fb2c8c38212926"
+  }
+}

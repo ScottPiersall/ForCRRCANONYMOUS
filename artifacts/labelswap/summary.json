@@ -1,0 +1,3964 @@
+{
+  "bootstrap": {
+    "interval": "percentile, 95%",
+    "replicates": 5000,
+    "scheme": "paired artifact-clustered resampling with replacement; all nine strictness levels of a curve stay together; the original and swapped members of a pair are drawn jointly; family strata preserved for family-stratified analyses",
+    "seed": 42
+  },
+  "by_model": {
+    "Qwen/Qwen2.5-14B-Instruct": {
+      "bootstrap": {
+        "n_artifacts": 324,
+        "n_nontrivial": 288,
+        "replicates": 5000,
+        "seed": 42,
+        "statistics": {
+          "accuracy_original": {
+            "bootstrap_mean": 0.7675817558299038,
+            "bootstrap_sd": 0.009856279518252117,
+            "ci_high": 0.7866941015089163,
+            "ci_low": 0.7482767489711932,
+            "point": 0.7678326474622771,
+            "replicates": 5000
+          },
+          "accuracy_swapped": {
+            "bootstrap_mean": 0.757364609053498,
+            "bootstrap_sd": 0.010128236287961771,
+            "ci_high": 0.7770919067215363,
+            "ci_low": 0.7373113854595336,
+            "point": 0.7575445816186557,
+            "replicates": 5000
+          },
+          "agreement": {
+            "bootstrap_mean": 0.9773765432098764,
+            "bootstrap_sd": 0.003549475914184418,
+            "ci_high": 0.9838820301783264,
+            "ci_low": 0.9698216735253771,
+            "point": 0.977366255144033,
+            "replicates": 5000
+          },
+          "brier_original": {
+            "bootstrap_mean": 0.22707828724683146,
+            "bootstrap_sd": 0.00956284724173358,
+            "ci_high": 0.24596156611310943,
+            "ci_low": 0.20851479809176846,
+            "point": 0.22683374650488405,
+            "replicates": 5000
+          },
+          "brier_swapped": {
+            "bootstrap_mean": 0.2358763835208501,
+            "bootstrap_sd": 0.009779747746289962,
+            "ci_high": 0.25512553550333866,
+            "ci_low": 0.2168817760510328,
+            "point": 0.23566272650071135,
+            "replicates": 5000
+          },
+          "delta_accuracy": {
+            "bootstrap_mean": -0.010217146776406035,
+            "bootstrap_sd": 0.0031886388937550835,
+            "ci_high": -0.00411522633744856,
+            "ci_low": -0.016803840877914953,
+            "point": -0.010288065843621397,
+            "replicates": 5000
+          },
+          "delta_brier": {
+            "bootstrap_mean": 0.008798096274018652,
+            "bootstrap_sd": 0.0026764439602807934,
+            "ci_high": 0.014154141288154945,
+            "ci_low": 0.0036545804013165205,
+            "point": 0.008828979995827336,
+            "replicates": 5000
+          },
+          "delta_rc": {
+            "bootstrap_mean": -0.20101111111111108,
+            "bootstrap_sd": 0.045135244598894286,
+            "ci_high": -0.11419753086419752,
+            "ci_low": -0.29012345679012347,
+            "point": -0.2006172839506173,
+            "replicates": 5000
+          },
+          "delta_tce": {
+            "bootstrap_mean": 0.10395432098765432,
+            "bootstrap_sd": 0.038809097596044694,
+            "ci_high": 0.18518518518518517,
+            "ci_low": 0.037037037037037035,
+            "point": 0.10493827160493827,
+            "replicates": 5000
+          },
+          "delta_trr": {
+            "bootstrap_mean": -0.04468958333333333,
+            "bootstrap_sd": 0.012074486991051217,
+            "ci_high": -0.024305555555555525,
+            "ci_low": -0.06944444444444448,
+            "point": -0.045138888888888895,
+            "replicates": 5000
+          },
+          "full_reachability_original": {
+            "bootstrap_mean": 0.03705987654320987,
+            "bootstrap_sd": 0.010063939625962989,
+            "ci_high": 0.05864197530864197,
+            "ci_low": 0.018518518518518517,
+            "point": 0.037037037037037035,
+            "replicates": 5000
+          },
+          "full_reachability_swapped": {
+            "bootstrap_mean": 0.018453086419753087,
+            "bootstrap_sd": 0.007359598634343947,
+            "ci_high": 0.033950617283950615,
+            "ci_low": 0.006172839506172839,
+            "point": 0.018518518518518517,
+            "replicates": 5000
+          },
+          "margin_rank_correlation": {
+            "bootstrap_mean": 0.9275989612076483,
+            "bootstrap_sd": 0.00848275746408968,
+            "ci_high": 0.9431682789063787,
+            "ci_low": 0.9099933879973005,
+            "median": 0.9833333333333333,
+            "n_defined": 324,
+            "n_undefined": 0,
+            "point": 0.9276996891359092,
+            "replicates": 5000
+          },
+          "mmvr_original": {
+            "bootstrap_mean": 0.30775501543209877,
+            "bootstrap_sd": 0.009124944353192398,
+            "ci_high": 0.32600308641975306,
+            "ci_low": 0.29012345679012347,
+            "point": 0.30787037037037035,
+            "replicates": 5000
+          },
+          "mmvr_swapped": {
+            "bootstrap_mean": 0.33099591049382715,
+            "bootstrap_sd": 0.009477861488663038,
+            "ci_high": 0.34992283950617287,
+            "ci_low": 0.3125,
+            "point": 0.33101851851851855,
+            "replicates": 5000
+          },
+          "prr_original": {
+            "bootstrap_mean": 0.3704354938271605,
+            "bootstrap_sd": 0.011654829048121415,
+            "ci_high": 0.39351851851851855,
+            "ci_low": 0.34760802469135804,
+            "point": 0.37037037037037035,
+            "replicates": 5000
+          },
+          "prr_swapped": {
+            "bootstrap_mean": 0.3453091049382716,
+            "bootstrap_sd": 0.01170882793482007,
+            "ci_high": 0.36844135802469136,
+            "ci_low": 0.32253086419753085,
+            "point": 0.3452932098765432,
+            "replicates": 5000
+          },
+          "rc_original": {
+            "bootstrap_mean": 4.963483950617284,
+            "bootstrap_sd": 0.09323863238497132,
+            "ci_high": 5.148148148148148,
+            "ci_low": 4.780864197530864,
+            "point": 4.962962962962963,
+            "replicates": 5000
+          },
+          "rc_swapped": {
+            "bootstrap_mean": 4.762472839506173,
+            "bootstrap_sd": 0.09367062347856056,
+            "ci_high": 4.947530864197531,
+            "ci_low": 4.580246913580247,
+            "point": 4.762345679012346,
+            "replicates": 5000
+          },
+          "reachable_set_identical": {
+            "bootstrap_mean": 0.5741561728395063,
+            "bootstrap_sd": 0.027522938805426864,
+            "ci_high": 0.6296296296296297,
+            "ci_low": 0.5215277777777778,
+            "point": 0.5740740740740741,
+            "replicates": 5000
+          },
+          "reachable_set_jaccard": {
+            "bootstrap_mean": 0.8986362206055263,
+            "bootstrap_sd": 0.007835299460195731,
+            "ci_high": 0.9135557821379581,
+            "ci_low": 0.8831581300215559,
+            "point": 0.8986405055849499,
+            "replicates": 5000
+          },
+          "sign_agreement": {
+            "bootstrap_mean": 0.9773765432098764,
+            "bootstrap_sd": 0.003549475914184418,
+            "ci_high": 0.9838820301783264,
+            "ci_low": 0.9698216735253771,
+            "point": 0.977366255144033,
+            "replicates": 5000
+          },
+          "tce_original": {
+            "bootstrap_mean": 3.375113580246913,
+            "bootstrap_sd": 0.12851606546005725,
+            "ci_high": 3.626543209876543,
+            "ci_low": 3.123456790123457,
+            "point": 3.373456790123457,
+            "replicates": 5000
+          },
+          "tce_swapped": {
+            "bootstrap_mean": 3.479067901234568,
+            "bootstrap_sd": 0.12931936669178576,
+            "ci_high": 3.7314814814814814,
+            "ci_low": 3.2252314814814813,
+            "point": 3.478395061728395,
+            "replicates": 5000
+          },
+          "trr_original": {
+            "bootstrap_mean": 0.47923819444444443,
+            "bootstrap_sd": 0.025307045756290402,
+            "ci_high": 0.5277777777777778,
+            "ci_low": 0.4305555555555556,
+            "point": 0.4791666666666667,
+            "replicates": 5000
+          },
+          "trr_swapped": {
+            "bootstrap_mean": 0.43454861111111115,
+            "bootstrap_sd": 0.024897306198828593,
+            "ci_high": 0.4826388888888889,
+            "ci_low": 0.3854166666666667,
+            "point": 0.4340277777777778,
+            "replicates": 5000
+          },
+          "unreachable_original": {
+            "bootstrap_mean": 0.5207618055555555,
+            "bootstrap_sd": 0.025307045756290402,
+            "ci_high": 0.5694444444444444,
+            "ci_low": 0.4722222222222222,
+            "point": 0.5208333333333333,
+            "replicates": 5000
+          },
+          "unreachable_swapped": {
+            "bootstrap_mean": 0.5654513888888889,
+            "bootstrap_sd": 0.024897306198828593,
+            "ci_high": 0.6145833333333333,
+            "ci_low": 0.5173611111111112,
+            "point": 0.5659722222222222,
+            "replicates": 5000
+          }
+        }
+      },
+      "families": {
+        "coverage": {
+          "n_artifacts": 108,
+          "n_nontrivial": 96,
+          "statistics": {
+            "accuracy_original": {
+              "bootstrap_mean": 0.8292617283950618,
+              "bootstrap_sd": 0.010691186569415265,
+              "ci_high": 0.8497942386831276,
+              "ci_low": 0.8076131687242799,
+              "point": 0.8292181069958849,
+              "replicates": 5000
+            },
+            "accuracy_swapped": {
+              "bootstrap_mean": 0.835451851851852,
+              "bootstrap_sd": 0.010033133459854333,
+              "ci_high": 0.8549382716049384,
+              "ci_low": 0.8148148148148151,
+              "point": 0.8353909465020577,
+              "replicates": 5000
+            },
+            "agreement": {
+              "bootstrap_mean": 0.9896913580246913,
+              "bootstrap_sd": 0.0034422212416704845,
+              "ci_high": 0.9958847736625515,
+              "ci_low": 0.9825102880658436,
+              "point": 0.9897119341563786,
+              "replicates": 5000
+            },
+            "brier_original": {
+              "bootstrap_mean": 0.1671176486717398,
+              "bootstrap_sd": 0.010029100948786781,
+              "ci_high": 0.1873443078947828,
+              "ci_low": 0.1479067194241064,
+              "point": 0.1671569116495206,
+              "replicates": 5000
+            },
+            "brier_swapped": {
+              "bootstrap_mean": 0.16109841161840452,
+              "bootstrap_sd": 0.009553451811763532,
+              "ci_high": 0.18017724885342604,
+              "ci_low": 0.14276404841443677,
+              "point": 0.16116633668824432,
+              "replicates": 5000
+            },
+            "delta_accuracy": {
+              "bootstrap_mean": 0.006190123456790123,
+              "bootstrap_sd": 0.003535575784352244,
+              "ci_high": 0.013374485596707817,
+              "ci_low": 1.0022846750088306e-18,
+              "point": 0.006172839506172839,
+              "replicates": 5000
+            },
+            "delta_brier": {
+              "bootstrap_mean": -0.006019237053335284,
+              "bootstrap_sd": 0.0029396359178544638,
+              "ci_high": -0.0006569983880231825,
+              "ci_low": -0.012045211535158428,
+              "point": -0.005990574961276283,
+              "replicates": 5000
+            },
+            "delta_rc": {
+              "bootstrap_mean": -0.1128037037037037,
+              "bootstrap_sd": 0.07740749718253172,
+              "ci_high": 0.037037037037037035,
+              "ci_low": -0.26851851851851855,
+              "point": -0.1111111111111111,
+              "replicates": 5000
+            },
+            "delta_tce": {
+              "bootstrap_mean": 0.0,
+              "bootstrap_sd": 0.0,
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "point": 0.0,
+              "replicates": 5000
+            },
+            "delta_trr": {
+              "bootstrap_mean": -0.061827083333333324,
+              "bootstrap_sd": 0.024669579883479592,
+              "ci_high": -0.020833333333333315,
+              "ci_low": -0.11458333333333334,
+              "point": -0.0625,
+              "replicates": 5000
+            },
+            "full_reachability_original": {
+              "bootstrap_mean": 0.0,
+              "bootstrap_sd": 0.0,
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "point": 0.0,
+              "replicates": 5000
+            },
+            "full_reachability_swapped": {
+              "bootstrap_mean": 0.0,
+              "bootstrap_sd": 0.0,
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "point": 0.0,
+              "replicates": 5000
+            },
+            "margin_rank_correlation": {
+              "bootstrap_mean": 0.9436387249494524,
+              "bootstrap_sd": 0.012053600970961186,
+              "ci_high": 0.96514126507868,
+              "ci_low": 0.9179637505398929,
+              "median": 0.9833333333333333,
+              "n_defined": 108,
+              "n_undefined": 0,
+              "point": 0.9436295637731681,
+              "replicates": 5000
+            },
+            "mmvr_original": {
+              "bootstrap_mean": 0.2512087962962963,
+              "bootstrap_sd": 0.012143252665393707,
+              "ci_high": 0.27546296296296297,
+              "ci_low": 0.22800925925925927,
+              "point": 0.2511574074074074,
+              "replicates": 5000
+            },
+            "mmvr_swapped": {
+              "bootstrap_mean": 0.2441990740740741,
+              "bootstrap_sd": 0.013030845299029554,
+              "ci_high": 0.26967592592592593,
+              "ci_low": 0.21987847222222223,
+              "point": 0.24421296296296297,
+              "replicates": 5000
+            },
+            "prr_original": {
+              "bootstrap_mean": 0.199225,
+              "bootstrap_sd": 0.022330292853211427,
+              "ci_high": 0.24537037037037038,
+              "ci_low": 0.15625,
+              "point": 0.19907407407407407,
+              "replicates": 5000
+            },
+            "prr_swapped": {
+              "bootstrap_mean": 0.18512453703703705,
+              "bootstrap_sd": 0.020764767196913305,
+              "ci_high": 0.22916666666666666,
+              "ci_low": 0.14467592592592593,
+              "point": 0.18518518518518517,
+              "replicates": 5000
+            },
+            "rc_original": {
+              "bootstrap_mean": 3.5938,
+              "bootstrap_sd": 0.1786423428256914,
+              "ci_high": 3.962962962962963,
+              "ci_low": 3.25,
+              "point": 3.5925925925925926,
+              "replicates": 5000
+            },
+            "rc_swapped": {
+              "bootstrap_mean": 3.480996296296296,
+              "bootstrap_sd": 0.16611813757530644,
+              "ci_high": 3.8333333333333335,
+              "ci_low": 3.1574074074074074,
+              "point": 3.4814814814814814,
+              "replicates": 5000
+            },
+            "reachable_set_identical": {
+              "bootstrap_mean": 0.6204111111111111,
+              "bootstrap_sd": 0.046668008920521066,
+              "ci_high": 0.7129629629629629,
+              "ci_low": 0.5277777777777778,
+              "point": 0.6203703703703703,
+              "replicates": 5000
+            },
+            "reachable_set_jaccard": {
+              "bootstrap_mean": 0.9056174132863023,
+              "bootstrap_sd": 0.012836691831317621,
+              "ci_high": 0.9301302542621988,
+              "ci_low": 0.8799087852733685,
+              "point": 0.9055959729570842,
+              "replicates": 5000
+            },
+            "sign_agreement": {
+              "bootstrap_mean": 0.9896913580246913,
+              "bootstrap_sd": 0.0034422212416704845,
+              "ci_high": 0.9958847736625515,
+              "ci_low": 0.9825102880658436,
+              "point": 0.9897119341563786,
+              "replicates": 5000
+            },
+            "tce_original": {
+              "bootstrap_mean": 4.887605555555556,
+              "bootstrap_sd": 0.2653096248026595,
+              "ci_high": 5.398148148148148,
+              "ci_low": 4.37037037037037,
+              "point": 4.888888888888889,
+              "replicates": 5000
+            },
+            "tce_swapped": {
+              "bootstrap_mean": 4.887605555555556,
+              "bootstrap_sd": 0.2653096248026595,
+              "ci_high": 5.398148148148148,
+              "ci_low": 4.37037037037037,
+              "point": 4.888888888888889,
+              "replicates": 5000
+            },
+            "trr_original": {
+              "bootstrap_mean": 0.34400833333333336,
+              "bootstrap_sd": 0.04905113071996612,
+              "ci_high": 0.4375,
+              "ci_low": 0.25,
+              "point": 0.34375,
+              "replicates": 5000
+            },
+            "trr_swapped": {
+              "bootstrap_mean": 0.28218125,
+              "bootstrap_sd": 0.046813671743756106,
+              "ci_high": 0.375,
+              "ci_low": 0.1875,
+              "point": 0.28125,
+              "replicates": 5000
+            },
+            "unreachable_original": {
+              "bootstrap_mean": 0.6559916666666668,
+              "bootstrap_sd": 0.04905113071996611,
+              "ci_high": 0.75,
+              "ci_low": 0.5625,
+              "point": 0.65625,
+              "replicates": 5000
+            },
+            "unreachable_swapped": {
+              "bootstrap_mean": 0.71781875,
+              "bootstrap_sd": 0.0468136717437561,
+              "ci_high": 0.8125,
+              "ci_low": 0.625,
+              "point": 0.71875,
+              "replicates": 5000
+            }
+          }
+        },
+        "max_violation": {
+          "n_artifacts": 108,
+          "n_nontrivial": 96,
+          "statistics": {
+            "accuracy_original": {
+              "bootstrap_mean": 0.6460765432098766,
+              "bootstrap_sd": 0.02336202394943362,
+              "ci_high": 0.6913580246913581,
+              "ci_low": 0.5997942386831276,
+              "point": 0.6460905349794238,
+              "replicates": 5000
+            },
+            "accuracy_swapped": {
+              "bootstrap_mean": 0.6235699588477366,
+              "bootstrap_sd": 0.02416097458138133,
+              "ci_high": 0.6697530864197532,
+              "ci_low": 0.5761059670781893,
+              "point": 0.6234567901234568,
+              "replicates": 5000
+            },
+            "agreement": {
+              "bootstrap_mean": 0.9692037037037037,
+              "bootstrap_sd": 0.00787704257064031,
+              "ci_high": 0.9835390946502057,
+              "ci_low": 0.9526748971193415,
+              "point": 0.9691358024691359,
+              "replicates": 5000
+            },
+            "brier_original": {
+              "bootstrap_mean": 0.34468065539645976,
+              "bootstrap_sd": 0.02267735759650327,
+              "ci_high": 0.38949772480549893,
+              "ci_low": 0.3008173034185967,
+              "point": 0.3446505215362818,
+              "replicates": 5000
+            },
+            "brier_swapped": {
+              "bootstrap_mean": 0.3674079743142313,
+              "bootstrap_sd": 0.023411861385856127,
+              "ci_high": 0.4138343956216124,
+              "ci_low": 0.3220688900943001,
+              "point": 0.3674994314944919,
+              "replicates": 5000
+            },
+            "delta_accuracy": {
+              "bootstrap_mean": -0.022506584362139922,
+              "bootstrap_sd": 0.006799707948445008,
+              "ci_high": -0.0102880658436214,
+              "ci_low": -0.037037037037037035,
+              "point": -0.02263374485596708,
+              "replicates": 5000
+            },
+            "delta_brier": {
+              "bootstrap_mean": 0.02272731891777147,
+              "bootstrap_sd": 0.0060858537145149485,
+              "ci_high": 0.035568649053474344,
+              "ci_low": 0.011623066366059144,
+              "point": 0.022848909958210102,
+              "replicates": 5000
+            },
+            "delta_rc": {
+              "bootstrap_mean": -0.11164444444444444,
+              "bootstrap_sd": 0.06990199940830549,
+              "ci_high": 0.027777777777777776,
+              "ci_low": -0.25,
+              "point": -0.1111111111111111,
+              "replicates": 5000
+            },
+            "delta_tce": {
+              "bootstrap_mean": 0.15642962962962964,
+              "bootstrap_sd": 0.10544438017810141,
+              "ci_high": 0.3888888888888889,
+              "ci_low": 0.0,
+              "point": 0.1574074074074074,
+              "replicates": 5000
+            },
+            "delta_trr": {
+              "bootstrap_mean": -0.04144791666666666,
+              "bootstrap_sd": 0.020177460905423276,
+              "ci_high": -0.010416666666666657,
+              "ci_low": -0.08333333333333334,
+              "point": -0.04166666666666666,
+              "replicates": 5000
+            },
+            "full_reachability_original": {
+              "bootstrap_mean": 0.0,
+              "bootstrap_sd": 0.0,
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "point": 0.0,
+              "replicates": 5000
+            },
+            "full_reachability_swapped": {
+              "bootstrap_mean": 0.0,
+              "bootstrap_sd": 0.0,
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "point": 0.0,
+              "replicates": 5000
+            },
+            "margin_rank_correlation": {
+              "bootstrap_mean": 0.9442208227861764,
+              "bootstrap_sd": 0.005369573399638566,
+              "ci_high": 0.9542321522599708,
+              "ci_low": 0.9333658241828349,
+              "median": 0.9642960063643682,
+              "n_defined": 108,
+              "n_undefined": 0,
+              "point": 0.9443132575775128,
+              "replicates": 5000
+            },
+            "mmvr_original": {
+              "bootstrap_mean": 0.43429930555555557,
+              "bootstrap_sd": 0.019577038519263963,
+              "ci_high": 0.47337962962962965,
+              "ci_low": 0.39699074074074076,
+              "point": 0.4340277777777778,
+              "replicates": 5000
+            },
+            "mmvr_swapped": {
+              "bootstrap_mean": 0.46315324074074077,
+              "bootstrap_sd": 0.018592120099947162,
+              "ci_high": 0.5,
+              "ci_low": 0.42824074074074076,
+              "point": 0.46296296296296297,
+              "replicates": 5000
+            },
+            "prr_original": {
+              "bootstrap_mean": 0.25130902777777775,
+              "bootstrap_sd": 0.014776808484720143,
+              "ci_high": 0.2800925925925926,
+              "ci_low": 0.2222222222222222,
+              "point": 0.2511574074074074,
+              "replicates": 5000
+            },
+            "prr_swapped": {
+              "bootstrap_mean": 0.23735347222222222,
+              "bootstrap_sd": 0.01392061115683835,
+              "ci_high": 0.2638888888888889,
+              "ci_low": 0.21064814814814814,
+              "point": 0.23726851851851852,
+              "replicates": 5000
+            },
+            "rc_original": {
+              "bootstrap_mean": 4.010472222222223,
+              "bootstrap_sd": 0.11821446787776113,
+              "ci_high": 4.2407407407407405,
+              "ci_low": 3.7777777777777777,
+              "point": 4.0092592592592595,
+              "replicates": 5000
+            },
+            "rc_swapped": {
+              "bootstrap_mean": 3.898827777777778,
+              "bootstrap_sd": 0.11136488925470682,
+              "ci_high": 4.111111111111111,
+              "ci_low": 3.685185185185185,
+              "point": 3.8981481481481484,
+              "replicates": 5000
+            },
+            "reachable_set_identical": {
+              "bootstrap_mean": 0.6009351851851852,
+              "bootstrap_sd": 0.046394913784162266,
+              "ci_high": 0.6944444444444444,
+              "ci_low": 0.5092592592592593,
+              "point": 0.6018518518518519,
+              "replicates": 5000
+            },
+            "reachable_set_jaccard": {
+              "bootstrap_mean": 0.9041473589065255,
+              "bootstrap_sd": 0.012183973985157833,
+              "ci_high": 0.9273826058201059,
+              "ci_low": 0.8793843694885363,
+              "point": 0.9043650793650794,
+              "replicates": 5000
+            },
+            "sign_agreement": {
+              "bootstrap_mean": 0.9692037037037037,
+              "bootstrap_sd": 0.00787704257064031,
+              "ci_high": 0.9835390946502057,
+              "ci_low": 0.9526748971193415,
+              "point": 0.9691358024691359,
+              "replicates": 5000
+            },
+            "tce_original": {
+              "bootstrap_mean": 3.712205555555556,
+              "bootstrap_sd": 0.2463649130991913,
+              "ci_high": 4.194675925925923,
+              "ci_low": 3.2314814814814814,
+              "point": 3.712962962962963,
+              "replicates": 5000
+            },
+            "tce_swapped": {
+              "bootstrap_mean": 3.8686351851851852,
+              "bootstrap_sd": 0.24713557215560766,
+              "ci_high": 4.361111111111111,
+              "ci_low": 3.388888888888889,
+              "point": 3.8703703703703702,
+              "replicates": 5000
+            },
+            "trr_original": {
+              "bootstrap_mean": 0.2506125,
+              "bootstrap_sd": 0.0443693403499453,
+              "ci_high": 0.34375,
+              "ci_low": 0.16666666666666666,
+              "point": 0.25,
+              "replicates": 5000
+            },
+            "trr_swapped": {
+              "bootstrap_mean": 0.2091645833333333,
+              "bootstrap_sd": 0.04193025036500724,
+              "ci_high": 0.2916666666666667,
+              "ci_low": 0.125,
+              "point": 0.20833333333333334,
+              "replicates": 5000
+            },
+            "unreachable_original": {
+              "bootstrap_mean": 0.7493875,
+              "bootstrap_sd": 0.04436934034994531,
+              "ci_high": 0.8333333333333334,
+              "ci_low": 0.65625,
+              "point": 0.75,
+              "replicates": 5000
+            },
+            "unreachable_swapped": {
+              "bootstrap_mean": 0.7908354166666666,
+              "bootstrap_sd": 0.04193025036500725,
+              "ci_high": 0.875,
+              "ci_low": 0.7083333333333333,
+              "point": 0.7916666666666666,
+              "replicates": 5000
+            }
+          }
+        },
+        "numeric_tolerance": {
+          "n_artifacts": 108,
+          "n_nontrivial": 96,
+          "statistics": {
+            "accuracy_original": {
+              "bootstrap_mean": 0.8280176954732509,
+              "bootstrap_sd": 0.014598821595472315,
+              "ci_high": 0.8559670781893005,
+              "ci_low": 0.7993827160493828,
+              "point": 0.8281893004115226,
+              "replicates": 5000
+            },
+            "accuracy_swapped": {
+              "bootstrap_mean": 0.813629218106996,
+              "bootstrap_sd": 0.01550630335246495,
+              "ci_high": 0.8436471193415637,
+              "ci_low": 0.7839506172839507,
+              "point": 0.8137860082304527,
+              "replicates": 5000
+            },
+            "agreement": {
+              "bootstrap_mean": 0.9732493827160495,
+              "bootstrap_sd": 0.005999450875794552,
+              "ci_high": 0.9845679012345679,
+              "ci_low": 0.9609053497942386,
+              "point": 0.9732510288065844,
+              "replicates": 5000
+            },
+            "brier_original": {
+              "bootstrap_mean": 0.16886639387475547,
+              "bootstrap_sd": 0.014455384534346307,
+              "ci_high": 0.197232270956888,
+              "ci_low": 0.1408063328597446,
+              "point": 0.16869380632884973,
+              "replicates": 5000
+            },
+            "brier_swapped": {
+              "bootstrap_mean": 0.17849488938975172,
+              "bootstrap_sd": 0.015055481385940764,
+              "ci_high": 0.20761114191826044,
+              "ci_low": 0.149243843340354,
+              "point": 0.17832241131939788,
+              "replicates": 5000
+            },
+            "delta_accuracy": {
+              "bootstrap_mean": -0.014388477366255143,
+              "bootstrap_sd": 0.005214022790564376,
+              "ci_high": -0.005144032921810696,
+              "ci_low": -0.024691358024691357,
+              "point": -0.014403292181069957,
+              "replicates": 5000
+            },
+            "delta_brier": {
+              "bootstrap_mean": 0.009628495514996258,
+              "bootstrap_sd": 0.003923334537541797,
+              "ci_high": 0.017713819656361433,
+              "ci_low": 0.002460911927308842,
+              "point": 0.009628604990548203,
+              "replicates": 5000
+            },
+            "delta_rc": {
+              "bootstrap_mean": -0.38007407407407406,
+              "bootstrap_sd": 0.08788949947071617,
+              "ci_high": -0.21296296296296297,
+              "ci_low": -0.5648148148148148,
+              "point": -0.37962962962962965,
+              "replicates": 5000
+            },
+            "delta_tce": {
+              "bootstrap_mean": 0.15737592592592595,
+              "bootstrap_sd": 0.053772412677112996,
+              "ci_high": 0.26851851851851855,
+              "ci_low": 0.05555555555555555,
+              "point": 0.1574074074074074,
+              "replicates": 5000
+            },
+            "delta_trr": {
+              "bootstrap_mean": -0.03128958333333333,
+              "bootstrap_sd": 0.017755961297636184,
+              "ci_high": 0.0,
+              "ci_low": -0.07291666666666663,
+              "point": -0.03125,
+              "replicates": 5000
+            },
+            "full_reachability_original": {
+              "bootstrap_mean": 0.11116296296296295,
+              "bootstrap_sd": 0.030375057486378962,
+              "ci_high": 0.17592592592592593,
+              "ci_low": 0.05555555555555555,
+              "point": 0.1111111111111111,
+              "replicates": 5000
+            },
+            "full_reachability_swapped": {
+              "bootstrap_mean": 0.05542037037037037,
+              "bootstrap_sd": 0.021988576390467068,
+              "ci_high": 0.10185185185185185,
+              "ci_low": 0.018518518518518517,
+              "point": 0.05555555555555555,
+              "replicates": 5000
+            },
+            "margin_rank_correlation": {
+              "bootstrap_mean": 0.8950255802133117,
+              "bootstrap_sd": 0.022409909125256214,
+              "ci_high": 0.9343785851674627,
+              "ci_low": 0.8460697937072456,
+              "median": 0.9833333333333333,
+              "n_defined": 108,
+              "n_undefined": 0,
+              "point": 0.895156246057047,
+              "replicates": 5000
+            },
+            "mmvr_original": {
+              "bootstrap_mean": 0.2384136574074074,
+              "bootstrap_sd": 0.015519277360123032,
+              "ci_high": 0.26851851851851855,
+              "ci_low": 0.20949074074074073,
+              "point": 0.23842592592592593,
+              "replicates": 5000
+            },
+            "mmvr_swapped": {
+              "bootstrap_mean": 0.2860069444444444,
+              "bootstrap_sd": 0.01775376036489397,
+              "ci_high": 0.32175925925925924,
+              "ci_low": 0.2523148148148148,
+              "point": 0.28587962962962965,
+              "replicates": 5000
+            },
+            "prr_original": {
+              "bootstrap_mean": 0.6610106481481481,
+              "bootstrap_sd": 0.022709978709372726,
+              "ci_high": 0.7048611111111112,
+              "ci_low": 0.6157407407407407,
+              "point": 0.6608796296296297,
+              "replicates": 5000
+            },
+            "prr_swapped": {
+              "bootstrap_mean": 0.6135013888888888,
+              "bootstrap_sd": 0.025385286595119457,
+              "ci_high": 0.6620370370370371,
+              "ci_low": 0.5636574074074074,
+              "point": 0.6134259259259259,
+              "replicates": 5000
+            },
+            "rc_original": {
+              "bootstrap_mean": 7.288085185185185,
+              "bootstrap_sd": 0.1816798296749818,
+              "ci_high": 7.638888888888889,
+              "ci_low": 6.925925925925926,
+              "point": 7.287037037037037,
+              "replicates": 5000
+            },
+            "rc_swapped": {
+              "bootstrap_mean": 6.908011111111112,
+              "bootstrap_sd": 0.20308229276095566,
+              "ci_high": 7.296296296296297,
+              "ci_low": 6.5092592592592595,
+              "point": 6.907407407407407,
+              "replicates": 5000
+            },
+            "reachable_set_identical": {
+              "bootstrap_mean": 0.4990166666666666,
+              "bootstrap_sd": 0.047222697587234214,
+              "ci_high": 0.5925925925925926,
+              "ci_low": 0.4074074074074074,
+              "point": 0.5,
+              "replicates": 5000
+            },
+            "reachable_set_jaccard": {
+              "bootstrap_mean": 0.8856914925044094,
+              "bootstrap_sd": 0.014989651198900833,
+              "ci_high": 0.9143029835390947,
+              "ci_low": 0.8554807833627278,
+              "point": 0.8859604644326866,
+              "replicates": 5000
+            },
+            "sign_agreement": {
+              "bootstrap_mean": 0.9732493827160495,
+              "bootstrap_sd": 0.005999450875794552,
+              "ci_high": 0.9845679012345679,
+              "ci_low": 0.9609053497942386,
+              "point": 0.9732510288065844,
+              "replicates": 5000
+            },
+            "tce_original": {
+              "bootstrap_mean": 1.5201777777777776,
+              "bootstrap_sd": 0.12947656136001012,
+              "ci_high": 1.7777777777777777,
+              "ci_low": 1.2777777777777777,
+              "point": 1.5185185185185186,
+              "replicates": 5000
+            },
+            "tce_swapped": {
+              "bootstrap_mean": 1.6775537037037036,
+              "bootstrap_sd": 0.139948729024423,
+              "ci_high": 1.9537037037037037,
+              "ci_low": 1.3981481481481481,
+              "point": 1.6759259259259258,
+              "replicates": 5000
+            },
+            "trr_original": {
+              "bootstrap_mean": 0.8440583333333332,
+              "bootstrap_sd": 0.03704945481197824,
+              "ci_high": 0.9166666666666666,
+              "ci_low": 0.7708333333333334,
+              "point": 0.84375,
+              "replicates": 5000
+            },
+            "trr_swapped": {
+              "bootstrap_mean": 0.81276875,
+              "bootstrap_sd": 0.03995233224087894,
+              "ci_high": 0.8854166666666666,
+              "ci_low": 0.7291666666666666,
+              "point": 0.8125,
+              "replicates": 5000
+            },
+            "unreachable_original": {
+              "bootstrap_mean": 0.15594166666666667,
+              "bootstrap_sd": 0.03704945481197824,
+              "ci_high": 0.22916666666666663,
+              "ci_low": 0.08333333333333337,
+              "point": 0.15625,
+              "replicates": 5000
+            },
+            "unreachable_swapped": {
+              "bootstrap_mean": 0.18723125,
+              "bootstrap_sd": 0.03995233224087894,
+              "ci_high": 0.27083333333333337,
+              "ci_low": 0.11458333333333337,
+              "point": 0.1875,
+              "replicates": 5000
+            }
+          }
+        }
+      },
+      "model_id": "Qwen/Qwen2.5-14B-Instruct",
+      "n_artifacts": 324,
+      "n_nontrivial": 288,
+      "n_rows": 2916,
+      "point_estimates": {
+        "accuracy_original": 0.7678326474622771,
+        "accuracy_swapped": 0.7575445816186557,
+        "adjacent_equal_original": 58,
+        "adjacent_equal_swapped": 53,
+        "brier_original": 0.22683374650488405,
+        "brier_swapped": 0.23566272650071135,
+        "delta_tce": 0.10493827160493827,
+        "delta_trr": -0.045138888888888895,
+        "median_margin_rank_correlation": 0.9833333333333333,
+        "mmvr_original": 0.30787037037037035,
+        "mmvr_swapped": 0.33101851851851855,
+        "prr_original": 0.37037037037037035,
+        "prr_swapped": 0.3452932098765432,
+        "rc10_original": 0.037037037037037035,
+        "rc10_swapped": 0.018518518518518517,
+        "rc_original": 4.962962962962963,
+        "rc_swapped": 4.762345679012346,
+        "reachable_set_identical": 0.5740740740740741,
+        "reachable_set_jaccard": 0.8986405055849499,
+        "semantic_agreement": 0.977366255144033,
+        "sign_agreement": 0.977366255144033,
+        "tce_original": 3.373456790123457,
+        "tce_swapped": 3.478395061728395,
+        "trr_original": 0.4791666666666667,
+        "trr_swapped": 0.4340277777777778,
+        "unreachable_original": 0.5208333333333333,
+        "unreachable_swapped": 0.5659722222222222
+      },
+      "robustness": {
+        "classification": "strong",
+        "criteria": {
+          "agreement_lower_bound_met": true,
+          "delta_tce_within_band": true,
+          "delta_trr_within_band": true
+        },
+        "failed_criteria": [],
+        "strong_robustness": true
+      },
+      "short_name": "Qwen2.5-14B"
+    },
+    "google/gemma-2-9b-it": {
+      "bootstrap": {
+        "n_artifacts": 324,
+        "n_nontrivial": 288,
+        "replicates": 5000,
+        "seed": 42,
+        "statistics": {
+          "accuracy_original": {
+            "bootstrap_mean": 0.6319974622770919,
+            "bootstrap_sd": 0.013183083370579033,
+            "ci_high": 0.657750342935528,
+            "ci_low": 0.606310013717421,
+            "point": 0.6320301783264746,
+            "replicates": 5000
+          },
+          "accuracy_swapped": {
+            "bootstrap_mean": 0.6426015775034293,
+            "bootstrap_sd": 0.013681177706322335,
+            "ci_high": 0.6690672153635114,
+            "ci_low": 0.6155692729766803,
+            "point": 0.6426611796982166,
+            "replicates": 5000
+          },
+          "agreement": {
+            "bootstrap_mean": 0.9545156378600823,
+            "bootstrap_sd": 0.00679526724810304,
+            "ci_high": 0.9670781893004115,
+            "ci_low": 0.9403292181069958,
+            "point": 0.9543895747599451,
+            "replicates": 5000
+          },
+          "brier_original": {
+            "bootstrap_mean": 0.3583692477733214,
+            "bootstrap_sd": 0.012857810269383634,
+            "ci_high": 0.3837144780144971,
+            "ci_low": 0.33331395153381876,
+            "point": 0.35833181200796893,
+            "replicates": 5000
+          },
+          "brier_swapped": {
+            "bootstrap_mean": 0.3447065087426131,
+            "bootstrap_sd": 0.013374390045746577,
+            "ci_high": 0.3712273399799209,
+            "ci_low": 0.3186987661154197,
+            "point": 0.3446598841613899,
+            "replicates": 5000
+          },
+          "delta_accuracy": {
+            "bootstrap_mean": 0.010604115226337448,
+            "bootstrap_sd": 0.006752599943337972,
+            "ci_high": 0.024348422496570647,
+            "ci_low": -0.0020576131687242804,
+            "point": 0.010631001371742114,
+            "replicates": 5000
+          },
+          "delta_brier": {
+            "bootstrap_mean": -0.01366273903070831,
+            "bootstrap_sd": 0.006406642394405048,
+            "ci_high": -0.0015574570078380984,
+            "ci_low": -0.02693423348929672,
+            "point": -0.013671927846579113,
+            "replicates": 5000
+          },
+          "delta_rc": {
+            "bootstrap_mean": -0.7263395061728395,
+            "bootstrap_sd": 0.06422799121043013,
+            "ci_high": -0.6018518518518519,
+            "ci_low": -0.8488425925925925,
+            "point": -0.7253086419753086,
+            "replicates": 5000
+          },
+          "delta_tce": {
+            "bootstrap_mean": -0.09821975308641974,
+            "bootstrap_sd": 0.056849891083537746,
+            "ci_high": 0.009259259259259259,
+            "ci_low": -0.21296296296296297,
+            "point": -0.09876543209876543,
+            "replicates": 5000
+          },
+          "delta_trr": {
+            "bootstrap_mean": -0.0834125,
+            "bootstrap_sd": 0.023814505930798813,
+            "ci_high": -0.03819444444444442,
+            "ci_low": -0.12847222222222232,
+            "point": -0.08333333333333326,
+            "replicates": 5000
+          },
+          "full_reachability_original": {
+            "bootstrap_mean": 0.036893827160493824,
+            "bootstrap_sd": 0.010248982950758575,
+            "ci_high": 0.05864197530864197,
+            "ci_low": 0.018518518518518517,
+            "point": 0.037037037037037035,
+            "replicates": 5000
+          },
+          "full_reachability_swapped": {
+            "bootstrap_mean": 0.009286419753086418,
+            "bootstrap_sd": 0.005269473595789298,
+            "ci_high": 0.021604938271604937,
+            "ci_low": 0.0,
+            "point": 0.009259259259259259,
+            "replicates": 5000
+          },
+          "margin_rank_correlation": {
+            "bootstrap_mean": 0.8918693847447124,
+            "bootstrap_sd": 0.006642401380476028,
+            "ci_high": 0.9042698776336972,
+            "ci_low": 0.8782460567151711,
+            "median": 0.9474519384815508,
+            "n_defined": 324,
+            "n_undefined": 0,
+            "point": 0.8920057846888302,
+            "replicates": 5000
+          },
+          "mmvr_original": {
+            "bootstrap_mean": 0.1952061728395062,
+            "bootstrap_sd": 0.007052614539157816,
+            "ci_high": 0.20910493827160495,
+            "ci_low": 0.18132716049382716,
+            "point": 0.19521604938271606,
+            "replicates": 5000
+          },
+          "mmvr_swapped": {
+            "bootstrap_mean": 0.2264454475308642,
+            "bootstrap_sd": 0.006661737153499144,
+            "ci_high": 0.23996913580246915,
+            "ci_low": 0.21334876543209877,
+            "point": 0.22646604938271606,
+            "replicates": 5000
+          },
+          "prr_original": {
+            "bootstrap_mean": 0.5749112654320988,
+            "bootstrap_sd": 0.012043880670680913,
+            "ci_high": 0.5976176697530863,
+            "ci_low": 0.5513117283950617,
+            "point": 0.5748456790123457,
+            "replicates": 5000
+          },
+          "prr_swapped": {
+            "bootstrap_mean": 0.48411882716049387,
+            "bootstrap_sd": 0.011956087501123402,
+            "ci_high": 0.5073302469135802,
+            "ci_low": 0.46026234567901236,
+            "point": 0.4841820987654321,
+            "replicates": 5000
+          },
+          "rc_original": {
+            "bootstrap_mean": 6.59929012345679,
+            "bootstrap_sd": 0.0963510453654473,
+            "ci_high": 6.78094135802469,
+            "ci_low": 6.410493827160494,
+            "point": 6.598765432098766,
+            "replicates": 5000
+          },
+          "rc_swapped": {
+            "bootstrap_mean": 5.8729506172839505,
+            "bootstrap_sd": 0.0956487000089872,
+            "ci_high": 6.058641975308642,
+            "ci_low": 5.682098765432099,
+            "point": 5.8734567901234565,
+            "replicates": 5000
+          },
+          "reachable_set_identical": {
+            "bootstrap_mean": 0.3057432098765432,
+            "bootstrap_sd": 0.02476223949397939,
+            "ci_high": 0.3549382716049383,
+            "ci_low": 0.25617283950617287,
+            "point": 0.3055555555555556,
+            "replicates": 5000
+          },
+          "reachable_set_jaccard": {
+            "bootstrap_mean": 0.8038812184009406,
+            "bootstrap_sd": 0.009487111586786166,
+            "ci_high": 0.8224337399568881,
+            "ci_low": 0.7847099439055458,
+            "point": 0.8039192631785224,
+            "replicates": 5000
+          },
+          "sign_agreement": {
+            "bootstrap_mean": 0.9534827160493825,
+            "bootstrap_sd": 0.0068864579098646865,
+            "ci_high": 0.96639231824417,
+            "ci_low": 0.9393004115226335,
+            "point": 0.953360768175583,
+            "replicates": 5000
+          },
+          "tce_original": {
+            "bootstrap_mean": 3.361298148148148,
+            "bootstrap_sd": 0.1227299270335319,
+            "ci_high": 3.5988425925925913,
+            "ci_low": 3.123456790123457,
+            "point": 3.361111111111111,
+            "replicates": 5000
+          },
+          "tce_swapped": {
+            "bootstrap_mean": 3.2630783950617284,
+            "bootstrap_sd": 0.12265054932065113,
+            "ci_high": 3.503086419753086,
+            "ci_low": 3.0246913580246915,
+            "point": 3.2623456790123457,
+            "replicates": 5000
+          },
+          "trr_original": {
+            "bootstrap_mean": 0.6041222222222222,
+            "bootstrap_sd": 0.027505082056457818,
+            "ci_high": 0.65625,
+            "ci_low": 0.5520833333333334,
+            "point": 0.6041666666666666,
+            "replicates": 5000
+          },
+          "trr_swapped": {
+            "bootstrap_mean": 0.5207097222222222,
+            "bootstrap_sd": 0.027124554125031085,
+            "ci_high": 0.5729166666666666,
+            "ci_low": 0.46875,
+            "point": 0.5208333333333334,
+            "replicates": 5000
+          },
+          "unreachable_original": {
+            "bootstrap_mean": 0.3958777777777778,
+            "bootstrap_sd": 0.027505082056457818,
+            "ci_high": 0.44791666666666663,
+            "ci_low": 0.34375,
+            "point": 0.39583333333333337,
+            "replicates": 5000
+          },
+          "unreachable_swapped": {
+            "bootstrap_mean": 0.4792902777777777,
+            "bootstrap_sd": 0.027124554125031085,
+            "ci_high": 0.53125,
+            "ci_low": 0.42708333333333337,
+            "point": 0.47916666666666663,
+            "replicates": 5000
+          }
+        }
+      },
+      "families": {
+        "coverage": {
+          "n_artifacts": 108,
+          "n_nontrivial": 96,
+          "statistics": {
+            "accuracy_original": {
+              "bootstrap_mean": 0.709900205761317,
+              "bootstrap_sd": 0.01879098798250487,
+              "ci_high": 0.7469135802469135,
+              "ci_low": 0.6728395061728397,
+              "point": 0.7098765432098766,
+              "replicates": 5000
+            },
+            "accuracy_swapped": {
+              "bootstrap_mean": 0.6873742798353909,
+              "bootstrap_sd": 0.020761666510351794,
+              "ci_high": 0.7273662551440331,
+              "ci_low": 0.6460905349794238,
+              "point": 0.6872427983539096,
+              "replicates": 5000
+            },
+            "agreement": {
+              "bootstrap_mean": 0.9754522633744857,
+              "bootstrap_sd": 0.00531810971569687,
+              "ci_high": 0.98559670781893,
+              "ci_low": 0.9639917695473251,
+              "point": 0.9753086419753086,
+              "replicates": 5000
+            },
+            "brier_original": {
+              "bootstrap_mean": 0.28161847757619884,
+              "bootstrap_sd": 0.017855540741111554,
+              "ci_high": 0.31666488576599455,
+              "ci_low": 0.24649069867432502,
+              "point": 0.2816696930858673,
+              "replicates": 5000
+            },
+            "brier_swapped": {
+              "bootstrap_mean": 0.307553578635773,
+              "bootstrap_sd": 0.020109304817549058,
+              "ci_high": 0.34712965348458585,
+              "ci_low": 0.2681466326179309,
+              "point": 0.307662986692074,
+              "replicates": 5000
+            },
+            "delta_accuracy": {
+              "bootstrap_mean": -0.02252592592592593,
+              "bootstrap_sd": 0.005405273593434549,
+              "ci_high": -0.01234567901234568,
+              "ci_low": -0.03292181069958848,
+              "point": -0.02263374485596708,
+              "replicates": 5000
+            },
+            "delta_brier": {
+              "bootstrap_mean": 0.02593510105957414,
+              "bootstrap_sd": 0.004977101163774079,
+              "ci_high": 0.03620785605695189,
+              "ci_low": 0.016904976714566818,
+              "point": 0.025993293606206665,
+              "replicates": 5000
+            },
+            "delta_rc": {
+              "bootstrap_mean": -1.4184277777777778,
+              "bootstrap_sd": 0.12447756734908774,
+              "ci_high": -1.1759259259259258,
+              "ci_low": -1.6666666666666667,
+              "point": -1.4166666666666667,
+              "replicates": 5000
+            },
+            "delta_tce": {
+              "bootstrap_mean": 0.21183148148148148,
+              "bootstrap_sd": 0.04738362465962737,
+              "ci_high": 0.3055555555555556,
+              "ci_low": 0.12962962962962962,
+              "point": 0.21296296296296297,
+              "replicates": 5000
+            },
+            "delta_trr": {
+              "bootstrap_mean": -0.15687291666666664,
+              "bootstrap_sd": 0.046002203752631574,
+              "ci_high": -0.07265625000000375,
+              "ci_low": -0.24999999999999997,
+              "point": -0.15625,
+              "replicates": 5000
+            },
+            "full_reachability_original": {
+              "bootstrap_mean": 0.0,
+              "bootstrap_sd": 0.0,
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "point": 0.0,
+              "replicates": 5000
+            },
+            "full_reachability_swapped": {
+              "bootstrap_mean": 0.0,
+              "bootstrap_sd": 0.0,
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "point": 0.0,
+              "replicates": 5000
+            },
+            "margin_rank_correlation": {
+              "bootstrap_mean": 0.9032950427649757,
+              "bootstrap_sd": 0.01092803756452695,
+              "ci_high": 0.9234847793208457,
+              "ci_low": 0.8813399991793274,
+              "median": 0.9456149718939671,
+              "n_defined": 108,
+              "n_undefined": 0,
+              "point": 0.9032906264014224,
+              "replicates": 5000
+            },
+            "mmvr_original": {
+              "bootstrap_mean": 0.17023935185185185,
+              "bootstrap_sd": 0.00736982062087761,
+              "ci_high": 0.18518518518518517,
+              "ci_low": 0.15622106481481482,
+              "point": 0.1701388888888889,
+              "replicates": 5000
+            },
+            "mmvr_swapped": {
+              "bootstrap_mean": 0.1921363425925926,
+              "bootstrap_sd": 0.00797369361130612,
+              "ci_high": 0.20833333333333334,
+              "ci_low": 0.17708333333333334,
+              "point": 0.19212962962962962,
+              "replicates": 5000
+            },
+            "prr_original": {
+              "bootstrap_mean": 0.4724657407407407,
+              "bootstrap_sd": 0.019640890859693047,
+              "ci_high": 0.5104166666666666,
+              "ci_low": 0.43287037037037035,
+              "point": 0.4722222222222222,
+              "replicates": 5000
+            },
+            "prr_swapped": {
+              "bootstrap_mean": 0.2951622685185185,
+              "bootstrap_sd": 0.021529538560479285,
+              "ci_high": 0.33912037037037035,
+              "ci_low": 0.2534722222222222,
+              "point": 0.2951388888888889,
+              "replicates": 5000
+            },
+            "rc_original": {
+              "bootstrap_mean": 5.779725925925925,
+              "bootstrap_sd": 0.15712712687754438,
+              "ci_high": 6.083333333333333,
+              "ci_low": 5.462962962962963,
+              "point": 5.777777777777778,
+              "replicates": 5000
+            },
+            "rc_swapped": {
+              "bootstrap_mean": 4.3612981481481485,
+              "bootstrap_sd": 0.1722363084838343,
+              "ci_high": 4.712962962962963,
+              "ci_low": 4.027777777777778,
+              "point": 4.361111111111111,
+              "replicates": 5000
+            },
+            "reachable_set_identical": {
+              "bootstrap_mean": 0.2779148148148148,
+              "bootstrap_sd": 0.043224518596259615,
+              "ci_high": 0.3611111111111111,
+              "ci_low": 0.19444444444444445,
+              "point": 0.2777777777777778,
+              "replicates": 5000
+            },
+            "reachable_set_jaccard": {
+              "bootstrap_mean": 0.7222903681657848,
+              "bootstrap_sd": 0.02231471744525667,
+              "ci_high": 0.7660558127572017,
+              "ci_low": 0.6786447310405642,
+              "point": 0.7223875661375663,
+              "replicates": 5000
+            },
+            "sign_agreement": {
+              "bootstrap_mean": 0.9744174897119341,
+              "bootstrap_sd": 0.005371212757926478,
+              "ci_high": 0.9845679012345678,
+              "ci_low": 0.9629629629629629,
+              "point": 0.9742798353909464,
+              "replicates": 5000
+            },
+            "tce_original": {
+              "bootstrap_mean": 2.6018,
+              "bootstrap_sd": 0.1697738165101311,
+              "ci_high": 2.935185185185185,
+              "ci_low": 2.2685185185185186,
+              "point": 2.6018518518518516,
+              "replicates": 5000
+            },
+            "tce_swapped": {
+              "bootstrap_mean": 2.8136314814814813,
+              "bootstrap_sd": 0.18685499859316612,
+              "ci_high": 3.185185185185185,
+              "ci_low": 2.4537037037037037,
+              "point": 2.814814814814815,
+              "replicates": 5000
+            },
+            "trr_original": {
+              "bootstrap_mean": 0.4375645833333333,
+              "bootstrap_sd": 0.049785052326109004,
+              "ci_high": 0.53125,
+              "ci_low": 0.3333333333333333,
+              "point": 0.4375,
+              "replicates": 5000
+            },
+            "trr_swapped": {
+              "bootstrap_mean": 0.2806916666666667,
+              "bootstrap_sd": 0.0462817495835383,
+              "ci_high": 0.375,
+              "ci_low": 0.19791666666666666,
+              "point": 0.28125,
+              "replicates": 5000
+            },
+            "unreachable_original": {
+              "bootstrap_mean": 0.5624354166666667,
+              "bootstrap_sd": 0.049785052326109,
+              "ci_high": 0.6666666666666667,
+              "ci_low": 0.46875,
+              "point": 0.5625,
+              "replicates": 5000
+            },
+            "unreachable_swapped": {
+              "bootstrap_mean": 0.7193083333333333,
+              "bootstrap_sd": 0.04628174958353829,
+              "ci_high": 0.8020833333333334,
+              "ci_low": 0.625,
+              "point": 0.71875,
+              "replicates": 5000
+            }
+          }
+        },
+        "max_violation": {
+          "n_artifacts": 108,
+          "n_nontrivial": 96,
+          "statistics": {
+            "accuracy_original": {
+              "bootstrap_mean": 0.4629543209876543,
+              "bootstrap_sd": 0.025252179103939766,
+              "ci_high": 0.5123456790123456,
+              "ci_low": 0.4135802469135803,
+              "point": 0.46296296296296285,
+              "replicates": 5000
+            },
+            "accuracy_swapped": {
+              "bootstrap_mean": 0.5229092592592594,
+              "bootstrap_sd": 0.025168742884392657,
+              "ci_high": 0.5709876543209877,
+              "ci_low": 0.4732510288065844,
+              "point": 0.5226337448559669,
+              "replicates": 5000
+            },
+            "agreement": {
+              "bootstrap_mean": 0.940045061728395,
+              "bootstrap_sd": 0.01728142572524558,
+              "ci_high": 0.9722222222222222,
+              "ci_low": 0.904320987654321,
+              "point": 0.9403292181069958,
+              "replicates": 5000
+            },
+            "brier_original": {
+              "bootstrap_mean": 0.5291370610246776,
+              "bootstrap_sd": 0.024568933606735798,
+              "ci_high": 0.5767470894509328,
+              "ci_low": 0.48207355706752264,
+              "point": 0.5291807620165382,
+              "replicates": 5000
+            },
+            "brier_swapped": {
+              "bootstrap_mean": 0.45972083997342705,
+              "bootstrap_sd": 0.02483676205648569,
+              "ci_high": 0.5094564905785226,
+              "ci_low": 0.4121182464016467,
+              "point": 0.4599315792459483,
+              "replicates": 5000
+            },
+            "delta_accuracy": {
+              "bootstrap_mean": 0.05995493827160493,
+              "bootstrap_sd": 0.01728142572524558,
+              "ci_high": 0.09567901234567901,
+              "ci_low": 0.027777777777777776,
+              "point": 0.059670781893004114,
+              "replicates": 5000
+            },
+            "delta_brier": {
+              "bootstrap_mean": -0.06941622105125052,
+              "bootstrap_sd": 0.01726030088021137,
+              "ci_high": -0.03783236521463436,
+              "ci_low": -0.10477266706817419,
+              "point": -0.06924918277058993,
+              "replicates": 5000
+            },
+            "delta_rc": {
+              "bootstrap_mean": -0.5355685185185184,
+              "bootstrap_sd": 0.11913286760275264,
+              "ci_high": -0.30532407407407747,
+              "ci_low": -0.7685185185185185,
+              "point": -0.5370370370370371,
+              "replicates": 5000
+            },
+            "delta_tce": {
+              "bootstrap_mean": -0.49347037037037045,
+              "bootstrap_sd": 0.14768793546582026,
+              "ci_high": -0.2222222222222222,
+              "ci_low": -0.8055555555555556,
+              "point": -0.49074074074074076,
+              "replicates": 5000
+            },
+            "delta_trr": {
+              "bootstrap_mean": -0.08409583333333333,
+              "bootstrap_sd": 0.052349417166881705,
+              "ci_high": 0.02083333333333326,
+              "ci_low": -0.1875,
+              "point": -0.08333333333333326,
+              "replicates": 5000
+            },
+            "full_reachability_original": {
+              "bootstrap_mean": 0.07371851851851852,
+              "bootstrap_sd": 0.02544129611343601,
+              "ci_high": 0.12962962962962962,
+              "ci_low": 0.027777777777777776,
+              "point": 0.07407407407407407,
+              "replicates": 5000
+            },
+            "full_reachability_swapped": {
+              "bootstrap_mean": 0.009325925925925925,
+              "bootstrap_sd": 0.009222829210454973,
+              "ci_high": 0.027777777777777776,
+              "ci_low": 0.0,
+              "point": 0.009259259259259259,
+              "replicates": 5000
+            },
+            "margin_rank_correlation": {
+              "bootstrap_mean": 0.832185473448379,
+              "bootstrap_sd": 0.013432225801151325,
+              "ci_high": 0.8578912919806767,
+              "ci_low": 0.8056919472838069,
+              "median": 0.8650385928019642,
+              "n_defined": 108,
+              "n_undefined": 0,
+              "point": 0.8321592515428393,
+              "replicates": 5000
+            },
+            "mmvr_original": {
+              "bootstrap_mean": 0.2025703703703704,
+              "bootstrap_sd": 0.013371390135062507,
+              "ci_high": 0.22916666666666666,
+              "ci_low": 0.17708333333333334,
+              "point": 0.2025462962962963,
+              "replicates": 5000
+            },
+            "mmvr_swapped": {
+              "bootstrap_mean": 0.25009004629629633,
+              "bootstrap_sd": 0.012501022279860304,
+              "ci_high": 0.2743055555555556,
+              "ci_low": 0.22569444444444445,
+              "point": 0.25,
+              "replicates": 5000
+            },
+            "prr_original": {
+              "bootstrap_mean": 0.6445662037037037,
+              "bootstrap_sd": 0.018915352810889203,
+              "ci_high": 0.6817129629629629,
+              "ci_low": 0.6076388888888888,
+              "point": 0.6446759259259259,
+              "replicates": 5000
+            },
+            "prr_swapped": {
+              "bootstrap_mean": 0.5776201388888889,
+              "bootstrap_sd": 0.01382445814177971,
+              "ci_high": 0.6041666666666666,
+              "ci_low": 0.5509259259259259,
+              "point": 0.5775462962962963,
+              "replicates": 5000
+            },
+            "rc_original": {
+              "bootstrap_mean": 7.156529629629629,
+              "bootstrap_sd": 0.15132282248711362,
+              "ci_high": 7.453703703703703,
+              "ci_low": 6.861111111111111,
+              "point": 7.157407407407407,
+              "replicates": 5000
+            },
+            "rc_swapped": {
+              "bootstrap_mean": 6.620961111111111,
+              "bootstrap_sd": 0.11059566513423769,
+              "ci_high": 6.833333333333333,
+              "ci_low": 6.407407407407407,
+              "point": 6.62037037037037,
+              "replicates": 5000
+            },
+            "reachable_set_identical": {
+              "bootstrap_mean": 0.20362222222222223,
+              "bootstrap_sd": 0.03909413200468697,
+              "ci_high": 0.2777777777777778,
+              "ci_low": 0.12962962962962962,
+              "point": 0.2037037037037037,
+              "replicates": 5000
+            },
+            "reachable_set_jaccard": {
+              "bootstrap_mean": 0.8116595473251029,
+              "bootstrap_sd": 0.0122441751778886,
+              "ci_high": 0.8354585537918872,
+              "ci_low": 0.787282480893592,
+              "point": 0.8115116108171663,
+              "replicates": 5000
+            },
+            "sign_agreement": {
+              "bootstrap_mean": 0.940045061728395,
+              "bootstrap_sd": 0.01728142572524558,
+              "ci_high": 0.9722222222222222,
+              "ci_low": 0.904320987654321,
+              "point": 0.9403292181069958,
+              "replicates": 5000
+            },
+            "tce_original": {
+              "bootstrap_mean": 4.935640740740741,
+              "bootstrap_sd": 0.2392174516661562,
+              "ci_high": 5.398148148148148,
+              "ci_low": 4.472222222222222,
+              "point": 4.935185185185185,
+              "replicates": 5000
+            },
+            "tce_swapped": {
+              "bootstrap_mean": 4.442170370370371,
+              "bootstrap_sd": 0.22213948978451106,
+              "ci_high": 4.87037037037037,
+              "ci_low": 4.0092592592592595,
+              "point": 4.444444444444445,
+              "replicates": 5000
+            },
+            "trr_original": {
+              "bootstrap_mean": 0.6044833333333334,
+              "bootstrap_sd": 0.049603474378096944,
+              "ci_high": 0.6979166666666666,
+              "ci_low": 0.5104166666666666,
+              "point": 0.6041666666666666,
+              "replicates": 5000
+            },
+            "trr_swapped": {
+              "bootstrap_mean": 0.5203875,
+              "bootstrap_sd": 0.05096098533126066,
+              "ci_high": 0.625,
+              "ci_low": 0.4166666666666667,
+              "point": 0.5208333333333334,
+              "replicates": 5000
+            },
+            "unreachable_original": {
+              "bootstrap_mean": 0.3955166666666666,
+              "bootstrap_sd": 0.049603474378096944,
+              "ci_high": 0.48958333333333337,
+              "ci_low": 0.30208333333333337,
+              "point": 0.39583333333333337,
+              "replicates": 5000
+            },
+            "unreachable_swapped": {
+              "bootstrap_mean": 0.4796125,
+              "bootstrap_sd": 0.050960985331260665,
+              "ci_high": 0.5833333333333333,
+              "ci_low": 0.375,
+              "point": 0.47916666666666663,
+              "replicates": 5000
+            }
+          }
+        },
+        "numeric_tolerance": {
+          "n_artifacts": 108,
+          "n_nontrivial": 96,
+          "statistics": {
+            "accuracy_original": {
+              "bootstrap_mean": 0.7234294238683128,
+              "bootstrap_sd": 0.02338880613393144,
+              "ci_high": 0.7685185185185186,
+              "ci_low": 0.6769547325102881,
+              "point": 0.7232510288065844,
+              "replicates": 5000
+            },
+            "accuracy_swapped": {
+              "bootstrap_mean": 0.718167901234568,
+              "bootstrap_sd": 0.025001782570406264,
+              "ci_high": 0.7674897119341564,
+              "ci_low": 0.6676954732510288,
+              "point": 0.7181069958847736,
+              "replicates": 5000
+            },
+            "agreement": {
+              "bootstrap_mean": 0.9478644032921811,
+              "bootstrap_sd": 0.009289878595336616,
+              "ci_high": 0.9650205761316873,
+              "ci_low": 0.9290123456790125,
+              "point": 0.947530864197531,
+              "replicates": 5000
+            },
+            "brier_original": {
+              "bootstrap_mean": 0.26406163595147536,
+              "bootstrap_sd": 0.023334195080527656,
+              "ci_high": 0.31077104008893314,
+              "ci_low": 0.21921247561542326,
+              "point": 0.2641449809215013,
+              "replicates": 5000
+            },
+            "brier_swapped": {
+              "bootstrap_mean": 0.26633797175775364,
+              "bootstrap_sd": 0.024486057273165093,
+              "ci_high": 0.31547792493007043,
+              "ci_low": 0.21898717298358034,
+              "point": 0.2663850865461473,
+              "replicates": 5000
+            },
+            "delta_accuracy": {
+              "bootstrap_mean": -0.005261522633744856,
+              "bootstrap_sd": 0.009238550571949706,
+              "ci_high": 0.012345679012345678,
+              "ci_low": -0.02469135802469136,
+              "point": -0.005144032921810699,
+              "replicates": 5000
+            },
+            "delta_brier": {
+              "bootstrap_mean": 0.0022763358062782495,
+              "bootstrap_sd": 0.006917779572182584,
+              "ci_high": 0.016593101243092653,
+              "ci_low": -0.010668964005436621,
+              "point": 0.002240105624645925,
+              "replicates": 5000
+            },
+            "delta_rc": {
+              "bootstrap_mean": -0.22178518518518522,
+              "bootstrap_sd": 0.09054878552468953,
+              "ci_high": -0.046296296296296294,
+              "ci_low": -0.39814814814814814,
+              "point": -0.2222222222222222,
+              "replicates": 5000
+            },
+            "delta_tce": {
+              "bootstrap_mean": -0.0173,
+              "bootstrap_sd": 0.07451030843889937,
+              "ci_high": 0.12962962962962962,
+              "ci_low": -0.1574074074074074,
+              "point": -0.018518518518518517,
+              "replicates": 5000
+            },
+            "delta_trr": {
+              "bootstrap_mean": -0.0108375,
+              "bootstrap_sd": 0.018042700706434683,
+              "ci_high": 0.02083333333333337,
+              "ci_low": -0.05208333333333326,
+              "point": -0.01041666666666674,
+              "replicates": 5000
+            },
+            "full_reachability_original": {
+              "bootstrap_mean": 0.03639074074074074,
+              "bootstrap_sd": 0.018142704727772782,
+              "ci_high": 0.07407407407407407,
+              "ci_low": 0.009259259259259259,
+              "point": 0.037037037037037035,
+              "replicates": 5000
+            },
+            "full_reachability_swapped": {
+              "bootstrap_mean": 0.018048148148148146,
+              "bootstrap_sd": 0.012961015866494945,
+              "ci_high": 0.046296296296296294,
+              "ci_low": 0.0,
+              "point": 0.018518518518518517,
+              "replicates": 5000
+            },
+            "margin_rank_correlation": {
+              "bootstrap_mean": 0.9406149846800694,
+              "bootstrap_sd": 0.009809473898763113,
+              "ci_high": 0.9587234904771299,
+              "ci_low": 0.920426693732428,
+              "median": 0.9810694578509116,
+              "n_defined": 108,
+              "n_undefined": 0,
+              "point": 0.9405674761222286,
+              "replicates": 5000
+            },
+            "mmvr_original": {
+              "bootstrap_mean": 0.2132844907407408,
+              "bootstrap_sd": 0.014721939491680092,
+              "ci_high": 0.24305555555555555,
+              "ci_low": 0.18518518518518517,
+              "point": 0.21296296296296297,
+              "replicates": 5000
+            },
+            "mmvr_swapped": {
+              "bootstrap_mean": 0.23742361111111113,
+              "bootstrap_sd": 0.013409037527117293,
+              "ci_high": 0.2638888888888889,
+              "ci_low": 0.21180555555555555,
+              "point": 0.23726851851851852,
+              "replicates": 5000
+            },
+            "prr_original": {
+              "bootstrap_mean": 0.6071638888888888,
+              "bootstrap_sd": 0.023705191910365974,
+              "ci_high": 0.6527777777777778,
+              "ci_low": 0.5601851851851852,
+              "point": 0.6076388888888888,
+              "replicates": 5000
+            },
+            "prr_swapped": {
+              "bootstrap_mean": 0.5794407407407407,
+              "bootstrap_sd": 0.024296289529048724,
+              "ci_high": 0.6261574074074074,
+              "ci_low": 0.53125,
+              "point": 0.5798611111111112,
+              "replicates": 5000
+            },
+            "rc_original": {
+              "bootstrap_mean": 6.857311111111111,
+              "bootstrap_sd": 0.1896415352829278,
+              "ci_high": 7.222222222222222,
+              "ci_low": 6.481481481481482,
+              "point": 6.861111111111111,
+              "replicates": 5000
+            },
+            "rc_swapped": {
+              "bootstrap_mean": 6.635525925925926,
+              "bootstrap_sd": 0.1943703162323898,
+              "ci_high": 7.0092592592592595,
+              "ci_low": 6.25,
+              "point": 6.638888888888889,
+              "replicates": 5000
+            },
+            "reachable_set_identical": {
+              "bootstrap_mean": 0.4353907407407407,
+              "bootstrap_sd": 0.047744950828817245,
+              "ci_high": 0.5277777777777778,
+              "ci_low": 0.3425925925925926,
+              "point": 0.4351851851851852,
+              "replicates": 5000
+            },
+            "reachable_set_jaccard": {
+              "bootstrap_mean": 0.8778400161669607,
+              "bootstrap_sd": 0.012594910045173553,
+              "ci_high": 0.9020989491475603,
+              "ci_low": 0.8532367908583187,
+              "point": 0.8778586125808348,
+              "replicates": 5000
+            },
+            "sign_agreement": {
+              "bootstrap_mean": 0.9457981481481482,
+              "bootstrap_sd": 0.009848489704181935,
+              "ci_high": 0.9639917695473251,
+              "ci_low": 0.9259259259259259,
+              "point": 0.9454732510288066,
+              "replicates": 5000
+            },
+            "tce_original": {
+              "bootstrap_mean": 2.544290740740741,
+              "bootstrap_sd": 0.21754122370329593,
+              "ci_high": 2.9722222222222223,
+              "ci_low": 2.1203703703703702,
+              "point": 2.5462962962962963,
+              "replicates": 5000
+            },
+            "tce_swapped": {
+              "bootstrap_mean": 2.5269907407407404,
+              "bootstrap_sd": 0.22572498564241011,
+              "ci_high": 2.9814814814814814,
+              "ci_low": 2.0833333333333335,
+              "point": 2.5277777777777777,
+              "replicates": 5000
+            },
+            "trr_original": {
+              "bootstrap_mean": 0.7715916666666667,
+              "bootstrap_sd": 0.04277849066694192,
+              "ci_high": 0.8541666666666666,
+              "ci_low": 0.6875,
+              "point": 0.7708333333333334,
+              "replicates": 5000
+            },
+            "trr_swapped": {
+              "bootstrap_mean": 0.7607541666666666,
+              "bootstrap_sd": 0.04354271939638688,
+              "ci_high": 0.84375,
+              "ci_low": 0.6770833333333334,
+              "point": 0.7604166666666666,
+              "replicates": 5000
+            },
+            "unreachable_original": {
+              "bootstrap_mean": 0.22840833333333335,
+              "bootstrap_sd": 0.04277849066694193,
+              "ci_high": 0.3125,
+              "ci_low": 0.14583333333333337,
+              "point": 0.22916666666666663,
+              "replicates": 5000
+            },
+            "unreachable_swapped": {
+              "bootstrap_mean": 0.2392458333333333,
+              "bootstrap_sd": 0.04354271939638688,
+              "ci_high": 0.32291666666666663,
+              "ci_low": 0.15625,
+              "point": 0.23958333333333337,
+              "replicates": 5000
+            }
+          }
+        }
+      },
+      "model_id": "google/gemma-2-9b-it",
+      "n_artifacts": 324,
+      "n_nontrivial": 288,
+      "n_rows": 2916,
+      "point_estimates": {
+        "accuracy_original": 0.6320301783264746,
+        "accuracy_swapped": 0.6426611796982166,
+        "adjacent_equal_original": 150,
+        "adjacent_equal_swapped": 154,
+        "brier_original": 0.35833181200796893,
+        "brier_swapped": 0.3446598841613899,
+        "delta_tce": -0.09876543209876543,
+        "delta_trr": -0.08333333333333326,
+        "median_margin_rank_correlation": 0.9474519384815508,
+        "mmvr_original": 0.19521604938271606,
+        "mmvr_swapped": 0.22646604938271606,
+        "prr_original": 0.5748456790123457,
+        "prr_swapped": 0.4841820987654321,
+        "rc10_original": 0.037037037037037035,
+        "rc10_swapped": 0.009259259259259259,
+        "rc_original": 6.598765432098766,
+        "rc_swapped": 5.8734567901234565,
+        "reachable_set_identical": 0.3055555555555556,
+        "reachable_set_jaccard": 0.8039192631785224,
+        "semantic_agreement": 0.9543895747599451,
+        "sign_agreement": 0.953360768175583,
+        "tce_original": 3.361111111111111,
+        "tce_swapped": 3.2623456790123457,
+        "trr_original": 0.6041666666666666,
+        "trr_swapped": 0.5208333333333334,
+        "unreachable_original": 0.39583333333333337,
+        "unreachable_swapped": 0.47916666666666663
+      },
+      "robustness": {
+        "classification": "not_strong",
+        "criteria": {
+          "agreement_lower_bound_met": true,
+          "delta_tce_within_band": true,
+          "delta_trr_within_band": false
+        },
+        "failed_criteria": [
+          "delta_trr_within_band"
+        ],
+        "strong_robustness": false
+      },
+      "short_name": "Gemma-2-9B"
+    },
+    "meta-llama/Llama-3.1-8B-Instruct": {
+      "bootstrap": {
+        "n_artifacts": 324,
+        "n_nontrivial": 288,
+        "replicates": 5000,
+        "seed": 42,
+        "statistics": {
+          "accuracy_original": {
+            "bootstrap_mean": 0.535428257887517,
+            "bootstrap_sd": 0.013853570847426994,
+            "ci_high": 0.5617283950617284,
+            "ci_low": 0.5082218792866938,
+            "point": 0.5356652949245542,
+            "replicates": 5000
+          },
+          "accuracy_swapped": {
+            "bootstrap_mean": 0.49334122085048004,
+            "bootstrap_sd": 0.015502068901415022,
+            "ci_high": 0.5229766803840878,
+            "ci_low": 0.46330589849108367,
+            "point": 0.4934842249657064,
+            "replicates": 5000
+          },
+          "agreement": {
+            "bootstrap_mean": 0.8797135116598078,
+            "bootstrap_sd": 0.012888145191018139,
+            "ci_high": 0.904320987654321,
+            "ci_low": 0.8542524005486967,
+            "point": 0.8796296296296297,
+            "replicates": 5000
+          },
+          "brier_original": {
+            "bootstrap_mean": 0.35197837528745296,
+            "bootstrap_sd": 0.009449713246196397,
+            "ci_high": 0.370532981977809,
+            "ci_low": 0.3336246017468721,
+            "point": 0.3518450645365884,
+            "replicates": 5000
+          },
+          "brier_swapped": {
+            "bootstrap_mean": 0.3446277302243041,
+            "bootstrap_sd": 0.009601963252909764,
+            "ci_high": 0.36368639943604997,
+            "ci_low": 0.32602789922501973,
+            "point": 0.3446238216013492,
+            "replicates": 5000
+          },
+          "delta_accuracy": {
+            "bootstrap_mean": -0.04208703703703704,
+            "bootstrap_sd": 0.011057493032945615,
+            "ci_high": -0.020919067215363515,
+            "ci_low": -0.06378600823045266,
+            "point": -0.04218106995884773,
+            "replicates": 5000
+          },
+          "delta_brier": {
+            "bootstrap_mean": -0.007350645063148845,
+            "bootstrap_sd": 0.0082518236666333,
+            "ci_high": 0.008576023078814124,
+            "ci_low": -0.023392368552734556,
+            "point": -0.007221242935239252,
+            "replicates": 5000
+          },
+          "delta_rc": {
+            "bootstrap_mean": 0.5131141975308641,
+            "bootstrap_sd": 0.06736620577624983,
+            "ci_high": 0.6419753086419753,
+            "ci_low": 0.3826388888888889,
+            "point": 0.5123456790123457,
+            "replicates": 5000
+          },
+          "delta_tce": {
+            "bootstrap_mean": -0.04334629629629629,
+            "bootstrap_sd": 0.06651290627543571,
+            "ci_high": 0.08641975308641975,
+            "ci_low": -0.1728395061728395,
+            "point": -0.043209876543209874,
+            "replicates": 5000
+          },
+          "delta_trr": {
+            "bootstrap_mean": 0.12179930555555554,
+            "bootstrap_sd": 0.032228304574217784,
+            "ci_high": 0.1840277777777778,
+            "ci_low": 0.05902777777777779,
+            "point": 0.12152777777777779,
+            "replicates": 5000
+          },
+          "full_reachability_original": {
+            "bootstrap_mean": 0.0,
+            "bootstrap_sd": 0.0,
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "point": 0.0,
+            "replicates": 5000
+          },
+          "full_reachability_swapped": {
+            "bootstrap_mean": 0.0,
+            "bootstrap_sd": 0.0,
+            "ci_high": 0.0,
+            "ci_low": 0.0,
+            "point": 0.0,
+            "replicates": 5000
+          },
+          "margin_rank_correlation": {
+            "bootstrap_mean": 0.43143974727408146,
+            "bootstrap_sd": 0.015972857767859595,
+            "ci_high": 0.4616212469416188,
+            "ci_low": 0.39870248957031157,
+            "median": 0.5120506632386472,
+            "n_defined": 324,
+            "n_undefined": 0,
+            "point": 0.43148245043214356,
+            "replicates": 5000
+          },
+          "mmvr_original": {
+            "bootstrap_mean": 0.3514827932098766,
+            "bootstrap_sd": 0.007041610001632254,
+            "ci_high": 0.3653549382716049,
+            "ci_low": 0.33757716049382713,
+            "point": 0.35146604938271603,
+            "replicates": 5000
+          },
+          "mmvr_swapped": {
+            "bootstrap_mean": 0.3560831018518519,
+            "bootstrap_sd": 0.005601752236082611,
+            "ci_high": 0.36728395061728397,
+            "ci_low": 0.3452932098765432,
+            "point": 0.3560956790123457,
+            "replicates": 5000
+          },
+          "prr_original": {
+            "bootstrap_mean": 0.2442249228395062,
+            "bootstrap_sd": 0.009231292513640145,
+            "ci_high": 0.2623456790123457,
+            "ci_low": 0.22607060185185185,
+            "point": 0.24421296296296297,
+            "replicates": 5000
+          },
+          "prr_swapped": {
+            "bootstrap_mean": 0.3083641975308642,
+            "bootstrap_sd": 0.008799680283750758,
+            "ci_high": 0.32600308641975306,
+            "ci_low": 0.29128086419753085,
+            "point": 0.3082561728395062,
+            "replicates": 5000
+          },
+          "rc_original": {
+            "bootstrap_mean": 3.953799382716049,
+            "bootstrap_sd": 0.07385034010912117,
+            "ci_high": 4.098765432098766,
+            "ci_low": 3.808564814814815,
+            "point": 3.9537037037037037,
+            "replicates": 5000
+          },
+          "rc_swapped": {
+            "bootstrap_mean": 4.466913580246913,
+            "bootstrap_sd": 0.07039744227000606,
+            "ci_high": 4.6080246913580245,
+            "ci_low": 4.330246913580247,
+            "point": 4.466049382716049,
+            "replicates": 5000
+          },
+          "reachable_set_identical": {
+            "bootstrap_mean": 0.16048395061728393,
+            "bootstrap_sd": 0.01832809566047832,
+            "ci_high": 0.19753086419753085,
+            "ci_low": 0.12654320987654322,
+            "point": 0.16049382716049382,
+            "replicates": 5000
+          },
+          "reachable_set_jaccard": {
+            "bootstrap_mean": 0.6201307669508133,
+            "bootstrap_sd": 0.009705093450512006,
+            "ci_high": 0.6390263080540858,
+            "ci_low": 0.6011227158044288,
+            "point": 0.620143787967862,
+            "replicates": 5000
+          },
+          "sign_agreement": {
+            "bootstrap_mean": 0.8790257887517146,
+            "bootstrap_sd": 0.01291253287512197,
+            "ci_high": 0.9039780521262003,
+            "ci_low": 0.8532235939643348,
+            "point": 0.8789437585733881,
+            "replicates": 5000
+          },
+          "tce_original": {
+            "bootstrap_mean": 4.90591049382716,
+            "bootstrap_sd": 0.14332377110023212,
+            "ci_high": 5.191358024691358,
+            "ci_low": 4.6265432098765435,
+            "point": 4.904320987654321,
+            "replicates": 5000
+          },
+          "tce_swapped": {
+            "bootstrap_mean": 4.8625641975308636,
+            "bootstrap_sd": 0.14458807841495186,
+            "ci_high": 5.138966049382716,
+            "ci_low": 4.58641975308642,
+            "point": 4.861111111111111,
+            "replicates": 5000
+          },
+          "trr_original": {
+            "bootstrap_mean": 0.2709423611111111,
+            "bootstrap_sd": 0.026356325291186016,
+            "ci_high": 0.3229166666666667,
+            "ci_low": 0.21875,
+            "point": 0.2708333333333333,
+            "replicates": 5000
+          },
+          "trr_swapped": {
+            "bootstrap_mean": 0.39274166666666666,
+            "bootstrap_sd": 0.028818977027894318,
+            "ci_high": 0.448003472222221,
+            "ci_low": 0.3368055555555556,
+            "point": 0.3923611111111111,
+            "replicates": 5000
+          },
+          "unreachable_original": {
+            "bootstrap_mean": 0.7290576388888889,
+            "bootstrap_sd": 0.026356325291186016,
+            "ci_high": 0.78125,
+            "ci_low": 0.6770833333333333,
+            "point": 0.7291666666666667,
+            "replicates": 5000
+          },
+          "unreachable_swapped": {
+            "bootstrap_mean": 0.6072583333333333,
+            "bootstrap_sd": 0.028818977027894318,
+            "ci_high": 0.6631944444444444,
+            "ci_low": 0.5519965277777777,
+            "point": 0.6076388888888888,
+            "replicates": 5000
+          }
+        }
+      },
+      "families": {
+        "coverage": {
+          "n_artifacts": 108,
+          "n_nontrivial": 96,
+          "statistics": {
+            "accuracy_original": {
+              "bootstrap_mean": 0.6880172839506172,
+              "bootstrap_sd": 0.019150393506763615,
+              "ci_high": 0.7253086419753088,
+              "ci_low": 0.6502057613168725,
+              "point": 0.6882716049382714,
+              "replicates": 5000
+            },
+            "accuracy_swapped": {
+              "bootstrap_mean": 0.5361337448559671,
+              "bootstrap_sd": 0.025174164818985302,
+              "ci_high": 0.5843621399176954,
+              "ci_low": 0.4866255144032921,
+              "point": 0.536008230452675,
+              "replicates": 5000
+            },
+            "agreement": {
+              "bootstrap_mean": 0.7700452674897118,
+              "bootstrap_sd": 0.029616914882680773,
+              "ci_high": 0.8261316872427984,
+              "ci_low": 0.7109053497942388,
+              "point": 0.7695473251028808,
+              "replicates": 5000
+            },
+            "brier_original": {
+              "bootstrap_mean": 0.19558944643039855,
+              "bootstrap_sd": 0.008900848403115582,
+              "ci_high": 0.21323101520665752,
+              "ci_low": 0.17840763106714466,
+              "point": 0.19553440731155933,
+              "replicates": 5000
+            },
+            "brier_swapped": {
+              "bootstrap_mean": 0.3496987489005065,
+              "bootstrap_sd": 0.0179253004427398,
+              "ci_high": 0.3854459272736803,
+              "ci_low": 0.31453588581167297,
+              "point": 0.3498034462709222,
+              "replicates": 5000
+            },
+            "delta_accuracy": {
+              "bootstrap_mean": -0.1518835390946502,
+              "bootstrap_sd": 0.025460545269019953,
+              "ci_high": -0.10390946502057613,
+              "ci_low": -0.20267489711934153,
+              "point": -0.15226337448559668,
+              "replicates": 5000
+            },
+            "delta_brier": {
+              "bootstrap_mean": 0.15410930247010796,
+              "bootstrap_sd": 0.013407542929269732,
+              "ci_high": 0.18149719141675028,
+              "ci_low": 0.1289389815317904,
+              "point": 0.15426903895936286,
+              "replicates": 5000
+            },
+            "delta_rc": {
+              "bootstrap_mean": 0.07557222222222222,
+              "bootstrap_sd": 0.10718272328019081,
+              "ci_high": 0.28703703703703703,
+              "ci_low": -0.1388888888888889,
+              "point": 0.07407407407407407,
+              "replicates": 5000
+            },
+            "delta_tce": {
+              "bootstrap_mean": 0.2867314814814815,
+              "bootstrap_sd": 0.13631568747041461,
+              "ci_high": 0.5833333333333334,
+              "ci_low": 0.046296296296296294,
+              "point": 0.28703703703703703,
+              "replicates": 5000
+            },
+            "delta_trr": {
+              "bootstrap_mean": 0.15577916666666666,
+              "bootstrap_sd": 0.04908582469227218,
+              "ci_high": 0.25,
+              "ci_low": 0.0625,
+              "point": 0.15625,
+              "replicates": 5000
+            },
+            "full_reachability_original": {
+              "bootstrap_mean": 0.0,
+              "bootstrap_sd": 0.0,
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "point": 0.0,
+              "replicates": 5000
+            },
+            "full_reachability_swapped": {
+              "bootstrap_mean": 0.0,
+              "bootstrap_sd": 0.0,
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "point": 0.0,
+              "replicates": 5000
+            },
+            "margin_rank_correlation": {
+              "bootstrap_mean": 0.828400757168484,
+              "bootstrap_sd": 0.012764496446763725,
+              "ci_high": 0.8526986382879508,
+              "ci_low": 0.8021626274919411,
+              "median": 0.8556398920491781,
+              "n_defined": 108,
+              "n_undefined": 0,
+              "point": 0.8284099137834174,
+              "replicates": 5000
+            },
+            "mmvr_original": {
+              "bootstrap_mean": 0.3192844907407407,
+              "bootstrap_sd": 0.010875760257552098,
+              "ci_high": 0.3402777777777778,
+              "ci_low": 0.2974537037037037,
+              "point": 0.3194444444444444,
+              "replicates": 5000
+            },
+            "mmvr_swapped": {
+              "bootstrap_mean": 0.36918101851851853,
+              "bootstrap_sd": 0.009763242221233417,
+              "ci_high": 0.3888888888888889,
+              "ci_low": 0.34953703703703703,
+              "point": 0.36921296296296297,
+              "replicates": 5000
+            },
+            "prr_original": {
+              "bootstrap_mean": 0.21198495370370374,
+              "bootstrap_sd": 0.020875562844575382,
+              "ci_high": 0.253501157407407,
+              "ci_low": 0.1712962962962963,
+              "point": 0.21180555555555555,
+              "replicates": 5000
+            },
+            "prr_swapped": {
+              "bootstrap_mean": 0.22143148148148148,
+              "bootstrap_sd": 0.020759190901238834,
+              "ci_high": 0.2604166666666667,
+              "ci_low": 0.18055555555555555,
+              "point": 0.22106481481481483,
+              "replicates": 5000
+            },
+            "rc_original": {
+              "bootstrap_mean": 3.695879629629629,
+              "bootstrap_sd": 0.16700450275660306,
+              "ci_high": 4.028009259259256,
+              "ci_low": 3.3703703703703702,
+              "point": 3.6944444444444446,
+              "replicates": 5000
+            },
+            "rc_swapped": {
+              "bootstrap_mean": 3.7714518518518516,
+              "bootstrap_sd": 0.1660735272099107,
+              "ci_high": 4.083333333333333,
+              "ci_low": 3.4444444444444446,
+              "point": 3.7685185185185186,
+              "replicates": 5000
+            },
+            "reachable_set_identical": {
+              "bootstrap_mean": 0.38841666666666663,
+              "bootstrap_sd": 0.0469753411633529,
+              "ci_high": 0.48148148148148145,
+              "ci_low": 0.2962962962962963,
+              "point": 0.3888888888888889,
+              "replicates": 5000
+            },
+            "reachable_set_jaccard": {
+              "bootstrap_mean": 0.7723139601704879,
+              "bootstrap_sd": 0.020182965381137237,
+              "ci_high": 0.8108723728689007,
+              "ci_low": 0.7324097957084068,
+              "point": 0.7723434744268077,
+              "replicates": 5000
+            },
+            "sign_agreement": {
+              "bootstrap_mean": 0.7679820987654321,
+              "bootstrap_sd": 0.029723290190023198,
+              "ci_high": 0.8240740740740741,
+              "ci_low": 0.7088477366255144,
+              "point": 0.7674897119341566,
+              "replicates": 5000
+            },
+            "tce_original": {
+              "bootstrap_mean": 4.712274074074075,
+              "bootstrap_sd": 0.2520802173225467,
+              "ci_high": 5.203935185185181,
+              "ci_low": 4.222222222222222,
+              "point": 4.712962962962963,
+              "replicates": 5000
+            },
+            "tce_swapped": {
+              "bootstrap_mean": 4.999005555555556,
+              "bootstrap_sd": 0.24763741708717488,
+              "ci_high": 5.481481481481482,
+              "ci_low": 4.518518518518518,
+              "point": 5.0,
+              "replicates": 5000
+            },
+            "trr_original": {
+              "bootstrap_mean": 0.29229166666666667,
+              "bootstrap_sd": 0.047071444868010695,
+              "ci_high": 0.3854166666666667,
+              "ci_low": 0.19791666666666666,
+              "point": 0.2916666666666667,
+              "replicates": 5000
+            },
+            "trr_swapped": {
+              "bootstrap_mean": 0.4480708333333334,
+              "bootstrap_sd": 0.051075445155754254,
+              "ci_high": 0.5520833333333334,
+              "ci_low": 0.34375,
+              "point": 0.4479166666666667,
+              "replicates": 5000
+            },
+            "unreachable_original": {
+              "bootstrap_mean": 0.7077083333333333,
+              "bootstrap_sd": 0.04707144486801068,
+              "ci_high": 0.8020833333333334,
+              "ci_low": 0.6145833333333333,
+              "point": 0.7083333333333333,
+              "replicates": 5000
+            },
+            "unreachable_swapped": {
+              "bootstrap_mean": 0.5519291666666667,
+              "bootstrap_sd": 0.05107544515575425,
+              "ci_high": 0.65625,
+              "ci_low": 0.44791666666666663,
+              "point": 0.5520833333333333,
+              "replicates": 5000
+            }
+          }
+        },
+        "max_violation": {
+          "n_artifacts": 108,
+          "n_nontrivial": 96,
+          "statistics": {
+            "accuracy_original": {
+              "bootstrap_mean": 0.44433395061728387,
+              "bootstrap_sd": 0.027515268565241655,
+              "ci_high": 0.49794238683127573,
+              "ci_low": 0.3909465020576132,
+              "point": 0.44444444444444425,
+              "replicates": 5000
+            },
+            "accuracy_swapped": {
+              "bootstrap_mean": 0.4999201646090536,
+              "bootstrap_sd": 0.027708254892184984,
+              "ci_high": 0.5545267489711935,
+              "ci_low": 0.4465020576131688,
+              "point": 0.4999999999999999,
+              "replicates": 5000
+            },
+            "agreement": {
+              "bootstrap_mean": 0.8992294238683127,
+              "bootstrap_sd": 0.023008100070380885,
+              "ci_high": 0.9423868312757201,
+              "ci_low": 0.8518261316872429,
+              "point": 0.8991769547325104,
+              "replicates": 5000
+            },
+            "brier_original": {
+              "bootstrap_mean": 0.4467785252882595,
+              "bootstrap_sd": 0.02017021955836331,
+              "ci_high": 0.48578738866163623,
+              "ci_low": 0.40677417937696914,
+              "point": 0.4467251716262905,
+              "replicates": 5000
+            },
+            "brier_swapped": {
+              "bootstrap_mean": 0.3181180610124829,
+              "bootstrap_sd": 0.014860249585884056,
+              "ci_high": 0.3476564617528871,
+              "ci_low": 0.2884739836657986,
+              "point": 0.3180259060436389,
+              "replicates": 5000
+            },
+            "delta_accuracy": {
+              "bootstrap_mean": 0.055586213991769544,
+              "bootstrap_sd": 0.018522442983449523,
+              "ci_high": 0.09362139917695472,
+              "ci_low": 0.021604938271604937,
+              "point": 0.05555555555555555,
+              "replicates": 5000
+            },
+            "delta_brier": {
+              "bootstrap_mean": -0.12866046427577654,
+              "bootstrap_sd": 0.01519023306625301,
+              "ci_high": -0.0999303921246519,
+              "ci_low": -0.15916891878955658,
+              "point": -0.12869926558265168,
+              "replicates": 5000
+            },
+            "delta_rc": {
+              "bootstrap_mean": 0.0856425925925926,
+              "bootstrap_sd": 0.1270219319276957,
+              "ci_high": 0.3333333333333333,
+              "ci_low": -0.16666666666666666,
+              "point": 0.08333333333333333,
+              "replicates": 5000
+            },
+            "delta_tce": {
+              "bootstrap_mean": -0.41559629629629635,
+              "bootstrap_sd": 0.14410164626425392,
+              "ci_high": -0.1574074074074074,
+              "ci_low": -0.7222222222222222,
+              "point": -0.4166666666666667,
+              "replicates": 5000
+            },
+            "delta_trr": {
+              "bootstrap_mean": 0.040564583333333334,
+              "bootstrap_sd": 0.05550655032142999,
+              "ci_high": 0.14583333333333334,
+              "ci_low": -0.07291666666666663,
+              "point": 0.041666666666666685,
+              "replicates": 5000
+            },
+            "full_reachability_original": {
+              "bootstrap_mean": 0.0,
+              "bootstrap_sd": 0.0,
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "point": 0.0,
+              "replicates": 5000
+            },
+            "full_reachability_swapped": {
+              "bootstrap_mean": 0.0,
+              "bootstrap_sd": 0.0,
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "point": 0.0,
+              "replicates": 5000
+            },
+            "margin_rank_correlation": {
+              "bootstrap_mean": 0.4124993820920232,
+              "bootstrap_sd": 0.028742484173671385,
+              "ci_high": 0.4672566679733939,
+              "ci_low": 0.3551859929435573,
+              "median": 0.46755437427894014,
+              "n_defined": 108,
+              "n_undefined": 0,
+              "point": 0.41272374097851855,
+              "replicates": 5000
+            },
+            "mmvr_original": {
+              "bootstrap_mean": 0.35888194444444443,
+              "bootstrap_sd": 0.012162375445222928,
+              "ci_high": 0.38310185185185186,
+              "ci_low": 0.33564814814814814,
+              "point": 0.3587962962962963,
+              "replicates": 5000
+            },
+            "mmvr_swapped": {
+              "bootstrap_mean": 0.36350439814814817,
+              "bootstrap_sd": 0.00979111365815168,
+              "ci_high": 0.38310185185185186,
+              "ci_low": 0.34375,
+              "point": 0.36342592592592593,
+              "replicates": 5000
+            },
+            "prr_original": {
+              "bootstrap_mean": 0.30192037037037034,
+              "bootstrap_sd": 0.01420617081858186,
+              "ci_high": 0.33101851851851855,
+              "ci_low": 0.2743055555555556,
+              "point": 0.3020833333333333,
+              "replicates": 5000
+            },
+            "prr_swapped": {
+              "bootstrap_mean": 0.31262569444444444,
+              "bootstrap_sd": 0.011328906124832297,
+              "ci_high": 0.33564814814814814,
+              "ci_low": 0.29050925925925924,
+              "point": 0.3125,
+              "replicates": 5000
+            },
+            "rc_original": {
+              "bootstrap_mean": 4.415362962962964,
+              "bootstrap_sd": 0.11364936654865489,
+              "ci_high": 4.648148148148148,
+              "ci_low": 4.194444444444445,
+              "point": 4.416666666666667,
+              "replicates": 5000
+            },
+            "rc_swapped": {
+              "bootstrap_mean": 4.5010055555555555,
+              "bootstrap_sd": 0.09063124899865839,
+              "ci_high": 4.685185185185185,
+              "ci_low": 4.324074074074074,
+              "point": 4.5,
+              "replicates": 5000
+            },
+            "reachable_set_identical": {
+              "bootstrap_mean": 0.08284444444444444,
+              "bootstrap_sd": 0.026438781309141873,
+              "ci_high": 0.1388888888888889,
+              "ci_low": 0.037037037037037035,
+              "point": 0.08333333333333333,
+              "replicates": 5000
+            },
+            "reachable_set_jaccard": {
+              "bootstrap_mean": 0.6423626748971194,
+              "bootstrap_sd": 0.01666417545482835,
+              "ci_high": 0.6742210464432687,
+              "ci_low": 0.609162900499706,
+              "point": 0.6427726337448559,
+              "replicates": 5000
+            },
+            "sign_agreement": {
+              "bootstrap_mean": 0.8992294238683127,
+              "bootstrap_sd": 0.023008100070380885,
+              "ci_high": 0.9423868312757201,
+              "ci_low": 0.8518261316872429,
+              "point": 0.8991769547325104,
+              "replicates": 5000
+            },
+            "tce_original": {
+              "bootstrap_mean": 5.000994444444444,
+              "bootstrap_sd": 0.24763741708717488,
+              "ci_high": 5.481481481481482,
+              "ci_low": 4.518518518518518,
+              "point": 5.0,
+              "replicates": 5000
+            },
+            "tce_swapped": {
+              "bootstrap_mean": 4.585398148148148,
+              "bootstrap_sd": 0.2533200954403959,
+              "ci_high": 5.083333333333333,
+              "ci_low": 4.092592592592593,
+              "point": 4.583333333333333,
+              "replicates": 5000
+            },
+            "trr_original": {
+              "bootstrap_mean": 0.3133020833333333,
+              "bootstrap_sd": 0.04731001447413137,
+              "ci_high": 0.40625,
+              "ci_low": 0.21875,
+              "point": 0.3125,
+              "replicates": 5000
+            },
+            "trr_swapped": {
+              "bootstrap_mean": 0.35386666666666666,
+              "bootstrap_sd": 0.04871475834992691,
+              "ci_high": 0.4479166666666667,
+              "ci_low": 0.2604166666666667,
+              "point": 0.3541666666666667,
+              "replicates": 5000
+            },
+            "unreachable_original": {
+              "bootstrap_mean": 0.6866979166666667,
+              "bootstrap_sd": 0.04731001447413137,
+              "ci_high": 0.78125,
+              "ci_low": 0.59375,
+              "point": 0.6875,
+              "replicates": 5000
+            },
+            "unreachable_swapped": {
+              "bootstrap_mean": 0.6461333333333333,
+              "bootstrap_sd": 0.04871475834992691,
+              "ci_high": 0.7395833333333333,
+              "ci_low": 0.5520833333333333,
+              "point": 0.6458333333333333,
+              "replicates": 5000
+            }
+          }
+        },
+        "numeric_tolerance": {
+          "n_artifacts": 108,
+          "n_nontrivial": 96,
+          "statistics": {
+            "accuracy_original": {
+              "bootstrap_mean": 0.474127572016461,
+              "bootstrap_sd": 0.024783020721625647,
+              "ci_high": 0.5226594650205758,
+              "ci_low": 0.425925925925926,
+              "point": 0.4742798353909463,
+              "replicates": 5000
+            },
+            "accuracy_swapped": {
+              "bootstrap_mean": 0.44433395061728387,
+              "bootstrap_sd": 0.027515268565241655,
+              "ci_high": 0.49794238683127573,
+              "ci_low": 0.3909465020576132,
+              "point": 0.44444444444444425,
+              "replicates": 5000
+            },
+            "agreement": {
+              "bootstrap_mean": 0.9702063786008229,
+              "bootstrap_sd": 0.00982259695040291,
+              "ci_high": 0.9876543209876543,
+              "ci_low": 0.9495884773662551,
+              "point": 0.970164609053498,
+              "replicates": 5000
+            },
+            "brier_original": {
+              "bootstrap_mean": 0.41326880458256837,
+              "bootstrap_sd": 0.01839404131857263,
+              "ci_high": 0.44917875948748603,
+              "ci_low": 0.37698820706933783,
+              "point": 0.4132756146719154,
+              "replicates": 5000
+            },
+            "brier_swapped": {
+              "bootstrap_mean": 0.3660697133556913,
+              "bootstrap_sd": 0.016997024726009557,
+              "ci_high": 0.3994007114428511,
+              "ci_low": 0.333873679342353,
+              "point": 0.3660421124894864,
+              "replicates": 5000
+            },
+            "delta_accuracy": {
+              "bootstrap_mean": -0.029793621399176955,
+              "bootstrap_sd": 0.009822596950402905,
+              "ci_high": -0.01234567901234568,
+              "ci_low": -0.050411522633744855,
+              "point": -0.029835390946502057,
+              "replicates": 5000
+            },
+            "delta_brier": {
+              "bootstrap_mean": -0.04719909122687708,
+              "bootstrap_sd": 0.014326900367852332,
+              "ci_high": -0.01833520555579253,
+              "ci_low": -0.07462156313530902,
+              "point": -0.04723350218242891,
+              "replicates": 5000
+            },
+            "delta_rc": {
+              "bootstrap_mean": 1.380514814814815,
+              "bootstrap_sd": 0.11899697036334142,
+              "ci_high": 1.6018518518518519,
+              "ci_low": 1.1481481481481481,
+              "point": 1.3796296296296295,
+              "replicates": 5000
+            },
+            "delta_tce": {
+              "bootstrap_mean": 0.0,
+              "bootstrap_sd": 0.0,
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "point": 0.0,
+              "replicates": 5000
+            },
+            "delta_trr": {
+              "bootstrap_mean": 0.1671875,
+              "bootstrap_sd": 0.06354657012213231,
+              "ci_high": 0.2916666666666667,
+              "ci_low": 0.04166666666666666,
+              "point": 0.16666666666666666,
+              "replicates": 5000
+            },
+            "full_reachability_original": {
+              "bootstrap_mean": 0.0,
+              "bootstrap_sd": 0.0,
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "point": 0.0,
+              "replicates": 5000
+            },
+            "full_reachability_swapped": {
+              "bootstrap_mean": 0.0,
+              "bootstrap_sd": 0.0,
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "point": 0.0,
+              "replicates": 5000
+            },
+            "margin_rank_correlation": {
+              "bootstrap_mean": 0.05357479933741397,
+              "bootstrap_sd": 0.03524250261634706,
+              "ci_high": 0.12256741249669807,
+              "ci_low": -0.017522083547386404,
+              "median": 0.03211734600563203,
+              "n_defined": 108,
+              "n_undefined": 0,
+              "point": 0.053313696534494685,
+              "replicates": 5000
+            },
+            "mmvr_original": {
+              "bootstrap_mean": 0.3764706018518518,
+              "bootstrap_sd": 0.013904439604880966,
+              "ci_high": 0.4039351851851852,
+              "ci_low": 0.34953703703703703,
+              "point": 0.3761574074074074,
+              "replicates": 5000
+            },
+            "mmvr_swapped": {
+              "bootstrap_mean": 0.3356738425925926,
+              "bootstrap_sd": 0.009706099699176155,
+              "ci_high": 0.35532407407407407,
+              "ci_low": 0.31712962962962965,
+              "point": 0.33564814814814814,
+              "replicates": 5000
+            },
+            "prr_original": {
+              "bootstrap_mean": 0.2186780092592592,
+              "bootstrap_sd": 0.012009398018665615,
+              "ci_high": 0.24305555555555555,
+              "ci_low": 0.19560185185185186,
+              "point": 0.21875,
+              "replicates": 5000
+            },
+            "prr_swapped": {
+              "bootstrap_mean": 0.39124236111111116,
+              "bootstrap_sd": 0.010976779693943853,
+              "ci_high": 0.41203703703703703,
+              "ci_low": 0.36921296296296297,
+              "point": 0.3912037037037037,
+              "replicates": 5000
+            },
+            "rc_original": {
+              "bootstrap_mean": 3.7494240740740743,
+              "bootstrap_sd": 0.09607518414932491,
+              "ci_high": 3.9444444444444446,
+              "ci_low": 3.564814814814815,
+              "point": 3.75,
+              "replicates": 5000
+            },
+            "rc_swapped": {
+              "bootstrap_mean": 5.129938888888888,
+              "bootstrap_sd": 0.08781423755155082,
+              "ci_high": 5.296296296296297,
+              "ci_low": 4.953703703703703,
+              "point": 5.12962962962963,
+              "replicates": 5000
+            },
+            "reachable_set_identical": {
+              "bootstrap_mean": 0.009148148148148147,
+              "bootstrap_sd": 0.009218680762685151,
+              "ci_high": 0.027777777777777776,
+              "ci_low": 0.0,
+              "point": 0.009259259259259259,
+              "replicates": 5000
+            },
+            "reachable_set_jaccard": {
+              "bootstrap_mean": 0.44534309082892426,
+              "bootstrap_sd": 0.01238833243344644,
+              "ci_high": 0.47009700176366837,
+              "ci_low": 0.42147266313932985,
+              "point": 0.4453152557319224,
+              "replicates": 5000
+            },
+            "sign_agreement": {
+              "bootstrap_mean": 0.9702063786008229,
+              "bootstrap_sd": 0.00982259695040291,
+              "ci_high": 0.9876543209876543,
+              "ci_low": 0.9495884773662551,
+              "point": 0.970164609053498,
+              "replicates": 5000
+            },
+            "tce_original": {
+              "bootstrap_mean": 5.000994444444444,
+              "bootstrap_sd": 0.24763741708717488,
+              "ci_high": 5.481481481481482,
+              "ci_low": 4.518518518518518,
+              "point": 5.0,
+              "replicates": 5000
+            },
+            "tce_swapped": {
+              "bootstrap_mean": 5.000994444444444,
+              "bootstrap_sd": 0.24763741708717488,
+              "ci_high": 5.481481481481482,
+              "ci_low": 4.518518518518518,
+              "point": 5.0,
+              "replicates": 5000
+            },
+            "trr_original": {
+              "bootstrap_mean": 0.2083625,
+              "bootstrap_sd": 0.04201940091307766,
+              "ci_high": 0.2916666666666667,
+              "ci_low": 0.125,
+              "point": 0.20833333333333334,
+              "replicates": 5000
+            },
+            "trr_swapped": {
+              "bootstrap_mean": 0.37555,
+              "bootstrap_sd": 0.049245260823628116,
+              "ci_high": 0.46875,
+              "ci_low": 0.28125,
+              "point": 0.375,
+              "replicates": 5000
+            },
+            "unreachable_original": {
+              "bootstrap_mean": 0.7916375,
+              "bootstrap_sd": 0.042019400913077674,
+              "ci_high": 0.875,
+              "ci_low": 0.7083333333333333,
+              "point": 0.7916666666666666,
+              "replicates": 5000
+            },
+            "unreachable_swapped": {
+              "bootstrap_mean": 0.62445,
+              "bootstrap_sd": 0.049245260823628116,
+              "ci_high": 0.71875,
+              "ci_low": 0.53125,
+              "point": 0.625,
+              "replicates": 5000
+            }
+          }
+        }
+      },
+      "model_id": "meta-llama/Llama-3.1-8B-Instruct",
+      "n_artifacts": 324,
+      "n_nontrivial": 288,
+      "n_rows": 2916,
+      "point_estimates": {
+        "accuracy_original": 0.5356652949245542,
+        "accuracy_swapped": 0.4934842249657064,
+        "adjacent_equal_original": 264,
+        "adjacent_equal_swapped": 227,
+        "brier_original": 0.3518450645365884,
+        "brier_swapped": 0.3446238216013492,
+        "delta_tce": -0.043209876543209874,
+        "delta_trr": 0.12152777777777779,
+        "median_margin_rank_correlation": 0.5120506632386472,
+        "mmvr_original": 0.35146604938271603,
+        "mmvr_swapped": 0.3560956790123457,
+        "prr_original": 0.24421296296296297,
+        "prr_swapped": 0.3082561728395062,
+        "rc10_original": 0.0,
+        "rc10_swapped": 0.0,
+        "rc_original": 3.9537037037037037,
+        "rc_swapped": 4.466049382716049,
+        "reachable_set_identical": 0.16049382716049382,
+        "reachable_set_jaccard": 0.620143787967862,
+        "semantic_agreement": 0.8796296296296297,
+        "sign_agreement": 0.8789437585733881,
+        "tce_original": 4.904320987654321,
+        "tce_swapped": 4.861111111111111,
+        "trr_original": 0.2708333333333333,
+        "trr_swapped": 0.3923611111111111,
+        "unreachable_original": 0.7291666666666667,
+        "unreachable_swapped": 0.6076388888888888
+      },
+      "robustness": {
+        "classification": "not_strong",
+        "criteria": {
+          "agreement_lower_bound_met": false,
+          "delta_tce_within_band": true,
+          "delta_trr_within_band": false
+        },
+        "failed_criteria": [
+          "delta_trr_within_band",
+          "agreement_lower_bound_met"
+        ],
+        "strong_robustness": false
+      },
+      "short_name": "Llama-3.1-8B"
+    },
+    "mistralai/Mistral-7B-Instruct-v0.3": {
+      "bootstrap": {
+        "n_artifacts": 324,
+        "n_nontrivial": 288,
+        "replicates": 5000,
+        "seed": 42,
+        "statistics": {
+          "accuracy_original": {
+            "bootstrap_mean": 0.6681879972565158,
+            "bootstrap_sd": 0.012634676661964151,
+            "ci_high": 0.6930727023319615,
+            "ci_low": 0.6440329218106996,
+            "point": 0.6683813443072701,
+            "replicates": 5000
+          },
+          "accuracy_swapped": {
+            "bootstrap_mean": 0.5859864883401921,
+            "bootstrap_sd": 0.014289236072617404,
+            "ci_high": 0.6135116598079561,
+            "ci_low": 0.5579561042524005,
+            "point": 0.586076817558299,
+            "replicates": 5000
+          },
+          "agreement": {
+            "bootstrap_mean": 0.8085539094650205,
+            "bootstrap_sd": 0.01549885790701789,
+            "ci_high": 0.8381344307270233,
+            "ci_low": 0.7770919067215364,
+            "point": 0.808641975308642,
+            "replicates": 5000
+          },
+          "brier_original": {
+            "bootstrap_mean": 0.28465249665231385,
+            "bootstrap_sd": 0.01066091522819748,
+            "ci_high": 0.3048083254486071,
+            "ci_low": 0.26364267631810584,
+            "point": 0.2846183784244311,
+            "replicates": 5000
+          },
+          "brier_swapped": {
+            "bootstrap_mean": 0.36071191524510726,
+            "bootstrap_sd": 0.011878122874722842,
+            "ci_high": 0.38431612555913486,
+            "ci_low": 0.3378038189943425,
+            "point": 0.36061415203690267,
+            "replicates": 5000
+          },
+          "delta_accuracy": {
+            "bootstrap_mean": -0.08220150891632372,
+            "bootstrap_sd": 0.01215448949281875,
+            "ci_high": -0.05864197530864197,
+            "ci_low": -0.1063100137174211,
+            "point": -0.08230452674897121,
+            "replicates": 5000
+          },
+          "delta_brier": {
+            "bootstrap_mean": 0.0760594185927934,
+            "bootstrap_sd": 0.008650906611474671,
+            "ci_high": 0.09339196423511294,
+            "ci_low": 0.05939457251860734,
+            "point": 0.07599577361247155,
+            "replicates": 5000
+          },
+          "delta_rc": {
+            "bootstrap_mean": -0.08618827160493826,
+            "bootstrap_sd": 0.04565096832933985,
+            "ci_high": 0.0030864197530864196,
+            "ci_low": -0.17592592592592593,
+            "point": -0.08641975308641975,
+            "replicates": 5000
+          },
+          "delta_tce": {
+            "bootstrap_mean": 0.644804938271605,
+            "bootstrap_sd": 0.12807903771891285,
+            "ci_high": 0.8950617283950617,
+            "ci_low": 0.3888888888888889,
+            "point": 0.6450617283950617,
+            "replicates": 5000
+          },
+          "delta_trr": {
+            "bootstrap_mean": -0.0136,
+            "bootstrap_sd": 0.014594990133832248,
+            "ci_high": 0.013888888888888895,
+            "ci_low": -0.041666666666666685,
+            "point": -0.013888888888888895,
+            "replicates": 5000
+          },
+          "full_reachability_original": {
+            "bootstrap_mean": 0.003051851851851852,
+            "bootstrap_sd": 0.00307044088205733,
+            "ci_high": 0.009259259259259259,
+            "ci_low": 0.0,
+            "point": 0.0030864197530864196,
+            "replicates": 5000
+          },
+          "full_reachability_swapped": {
+            "bootstrap_mean": 0.015330864197530866,
+            "bootstrap_sd": 0.006648532299189684,
+            "ci_high": 0.027777777777777776,
+            "ci_low": 0.0030864197530864196,
+            "point": 0.015432098765432098,
+            "replicates": 5000
+          },
+          "margin_rank_correlation": {
+            "bootstrap_mean": 0.8769807454151549,
+            "bootstrap_sd": 0.010503842809045994,
+            "ci_high": 0.8971657082763199,
+            "ci_low": 0.8555572192480904,
+            "median": 0.9500000000000001,
+            "n_defined": 324,
+            "n_undefined": 0,
+            "point": 0.8770784922332959,
+            "replicates": 5000
+          },
+          "mmvr_original": {
+            "bootstrap_mean": 0.3811340277777778,
+            "bootstrap_sd": 0.007103958140222653,
+            "ci_high": 0.39544753086419754,
+            "ci_low": 0.36728395061728397,
+            "point": 0.38117283950617287,
+            "replicates": 5000
+          },
+          "mmvr_swapped": {
+            "bootstrap_mean": 0.3629700617283951,
+            "bootstrap_sd": 0.006916418277764075,
+            "ci_high": 0.3765432098765432,
+            "ci_low": 0.34992283950617287,
+            "point": 0.3630401234567901,
+            "replicates": 5000
+          },
+          "prr_original": {
+            "bootstrap_mean": 0.33333680555555556,
+            "bootstrap_sd": 0.00940484955379029,
+            "ci_high": 0.35146604938271603,
+            "ci_low": 0.3148148148148148,
+            "point": 0.3333333333333333,
+            "replicates": 5000
+          },
+          "prr_swapped": {
+            "bootstrap_mean": 0.3225632716049383,
+            "bootstrap_sd": 0.008132644815834717,
+            "ci_high": 0.3387345679012346,
+            "ci_low": 0.30632716049382713,
+            "point": 0.32253086419753085,
+            "replicates": 5000
+          },
+          "rc_original": {
+            "bootstrap_mean": 4.6666944444444445,
+            "bootstrap_sd": 0.07523879643032232,
+            "ci_high": 4.811728395061729,
+            "ci_low": 4.518518518518518,
+            "point": 4.666666666666667,
+            "replicates": 5000
+          },
+          "rc_swapped": {
+            "bootstrap_mean": 4.580506172839506,
+            "bootstrap_sd": 0.06506115852667772,
+            "ci_high": 4.709876543209877,
+            "ci_low": 4.450617283950617,
+            "point": 4.580246913580247,
+            "replicates": 5000
+          },
+          "reachable_set_identical": {
+            "bootstrap_mean": 0.5893401234567901,
+            "bootstrap_sd": 0.026088627340642084,
+            "ci_high": 0.6419753086419753,
+            "ci_low": 0.5400462962962963,
+            "point": 0.5895061728395061,
+            "replicates": 5000
+          },
+          "reachable_set_jaccard": {
+            "bootstrap_mean": 0.8951045294434643,
+            "bootstrap_sd": 0.008871687445997343,
+            "ci_high": 0.9122728052126199,
+            "ci_low": 0.8775015003429355,
+            "point": 0.895216049382716,
+            "replicates": 5000
+          },
+          "sign_agreement": {
+            "bootstrap_mean": 0.8065130315500686,
+            "bootstrap_sd": 0.015550402993122122,
+            "ci_high": 0.8364197530864196,
+            "ci_low": 0.7750342935528121,
+            "point": 0.8065843621399178,
+            "replicates": 5000
+          },
+          "tce_original": {
+            "bootstrap_mean": 2.9394296296296294,
+            "bootstrap_sd": 0.1200035870327534,
+            "ci_high": 3.1666666666666665,
+            "ci_low": 2.7037037037037037,
+            "point": 2.9382716049382718,
+            "replicates": 5000
+          },
+          "tce_swapped": {
+            "bootstrap_mean": 3.5842345679012344,
+            "bootstrap_sd": 0.12625135671950558,
+            "ci_high": 3.8271604938271606,
+            "ci_low": 3.3425925925925926,
+            "point": 3.5833333333333335,
+            "replicates": 5000
+          },
+          "trr_original": {
+            "bootstrap_mean": 0.3332222222222222,
+            "bootstrap_sd": 0.02291342715347646,
+            "ci_high": 0.3784722222222222,
+            "ci_low": 0.2881944444444444,
+            "point": 0.3333333333333333,
+            "replicates": 5000
+          },
+          "trr_swapped": {
+            "bootstrap_mean": 0.3196222222222222,
+            "bootstrap_sd": 0.022193109486360548,
+            "ci_high": 0.3611111111111111,
+            "ci_low": 0.2777777777777778,
+            "point": 0.3194444444444444,
+            "replicates": 5000
+          },
+          "unreachable_original": {
+            "bootstrap_mean": 0.6667777777777777,
+            "bootstrap_sd": 0.02291342715347646,
+            "ci_high": 0.7118055555555556,
+            "ci_low": 0.6215277777777778,
+            "point": 0.6666666666666667,
+            "replicates": 5000
+          },
+          "unreachable_swapped": {
+            "bootstrap_mean": 0.6803777777777777,
+            "bootstrap_sd": 0.022193109486360548,
+            "ci_high": 0.7222222222222222,
+            "ci_low": 0.6388888888888888,
+            "point": 0.6805555555555556,
+            "replicates": 5000
+          }
+        }
+      },
+      "families": {
+        "coverage": {
+          "n_artifacts": 108,
+          "n_nontrivial": 96,
+          "statistics": {
+            "accuracy_original": {
+              "bootstrap_mean": 0.6565339506172839,
+              "bootstrap_sd": 0.02288728134055323,
+              "ci_high": 0.7006172839506173,
+              "ci_low": 0.6111111111111112,
+              "point": 0.6563786008230452,
+              "replicates": 5000
+            },
+            "accuracy_swapped": {
+              "bootstrap_mean": 0.668869341563786,
+              "bootstrap_sd": 0.02401917106692579,
+              "ci_high": 0.7150205761316873,
+              "ci_low": 0.6213991769547326,
+              "point": 0.668724279835391,
+              "replicates": 5000
+            },
+            "agreement": {
+              "bootstrap_mean": 0.9281098765432098,
+              "bootstrap_sd": 0.015861009922828247,
+              "ci_high": 0.95679012345679,
+              "ci_low": 0.8930041152263376,
+              "point": 0.9279835390946503,
+              "replicates": 5000
+            },
+            "brier_original": {
+              "bootstrap_mean": 0.32928131966996405,
+              "bootstrap_sd": 0.02195881382332875,
+              "ci_high": 0.3739034683837764,
+              "ci_low": 0.28675682308511896,
+              "point": 0.3294091474184071,
+              "replicates": 5000
+            },
+            "brier_swapped": {
+              "bootstrap_mean": 0.304528703272317,
+              "bootstrap_sd": 0.021272272982652454,
+              "ci_high": 0.3468054894437066,
+              "ci_low": 0.26320133590153283,
+              "point": 0.30454488608861846,
+              "replicates": 5000
+            },
+            "delta_accuracy": {
+              "bootstrap_mean": 0.012335390946502057,
+              "bootstrap_sd": 0.010662575591869937,
+              "ci_high": 0.033950617283950615,
+              "ci_low": -0.0072016460905349805,
+              "point": 0.012345679012345678,
+              "replicates": 5000
+            },
+            "delta_brier": {
+              "bootstrap_mean": -0.024752616397647007,
+              "bootstrap_sd": 0.007110413186166258,
+              "ci_high": -0.012392024865031347,
+              "ci_low": -0.039664516140556653,
+              "point": -0.024864261329788674,
+              "replicates": 5000
+            },
+            "delta_rc": {
+              "bootstrap_mean": -0.3901277777777778,
+              "bootstrap_sd": 0.08498080576315749,
+              "ci_high": -0.23148148148148148,
+              "ci_low": -0.5648148148148148,
+              "point": -0.3888888888888889,
+              "replicates": 5000
+            },
+            "delta_tce": {
+              "bootstrap_mean": -0.4143092592592593,
+              "bootstrap_sd": 0.13852673291798176,
+              "ci_high": -0.14814814814814814,
+              "ci_low": -0.6944444444444444,
+              "point": -0.4166666666666667,
+              "replicates": 5000
+            },
+            "delta_trr": {
+              "bootstrap_mean": -0.010375,
+              "bootstrap_sd": 0.018309056726126798,
+              "ci_high": 0.020833333333333336,
+              "ci_low": -0.052083333333333336,
+              "point": -0.010416666666666668,
+              "replicates": 5000
+            },
+            "full_reachability_original": {
+              "bootstrap_mean": 0.0,
+              "bootstrap_sd": 0.0,
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "point": 0.0,
+              "replicates": 5000
+            },
+            "full_reachability_swapped": {
+              "bootstrap_mean": 0.0,
+              "bootstrap_sd": 0.0,
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "point": 0.0,
+              "replicates": 5000
+            },
+            "margin_rank_correlation": {
+              "bootstrap_mean": 0.8326391235136757,
+              "bootstrap_sd": 0.020859791165956553,
+              "ci_high": 0.8715031746508701,
+              "ci_low": 0.7907846967768327,
+              "median": 0.9333333333333332,
+              "n_defined": 108,
+              "n_undefined": 0,
+              "point": 0.8330608717267325,
+              "replicates": 5000
+            },
+            "mmvr_original": {
+              "bootstrap_mean": 0.4004347222222222,
+              "bootstrap_sd": 0.00956278112255622,
+              "ci_high": 0.4201388888888889,
+              "ci_low": 0.3819444444444444,
+              "point": 0.40046296296296297,
+              "replicates": 5000
+            },
+            "mmvr_swapped": {
+              "bootstrap_mean": 0.3645472222222222,
+              "bootstrap_sd": 0.010397485358838984,
+              "ci_high": 0.3854166666666667,
+              "ci_low": 0.34375,
+              "point": 0.3645833333333333,
+              "replicates": 5000
+            },
+            "prr_original": {
+              "bootstrap_mean": 0.06962060185185184,
+              "bootstrap_sd": 0.0140428616711843,
+              "ci_high": 0.09837962962962964,
+              "ci_low": 0.04398148148148148,
+              "point": 0.06944444444444445,
+              "replicates": 5000
+            },
+            "prr_swapped": {
+              "bootstrap_mean": 0.02085462962962963,
+              "bootstrap_sd": 0.005976997431379796,
+              "ci_high": 0.03356481481481482,
+              "ci_low": 0.010416666666666666,
+              "point": 0.020833333333333332,
+              "replicates": 5000
+            },
+            "rc_original": {
+              "bootstrap_mean": 2.5569648148148145,
+              "bootstrap_sd": 0.1123428933694744,
+              "ci_high": 2.787037037037037,
+              "ci_low": 2.3518518518518516,
+              "point": 2.5555555555555554,
+              "replicates": 5000
+            },
+            "rc_swapped": {
+              "bootstrap_mean": 2.166837037037037,
+              "bootstrap_sd": 0.047815979451038375,
+              "ci_high": 2.2685185185185186,
+              "ci_low": 2.0833333333333335,
+              "point": 2.1666666666666665,
+              "replicates": 5000
+            },
+            "reachable_set_identical": {
+              "bootstrap_mean": 0.8052351851851852,
+              "bootstrap_sd": 0.03839416542002012,
+              "ci_high": 0.8796296296296297,
+              "ci_low": 0.7314814814814815,
+              "point": 0.8055555555555556,
+              "replicates": 5000
+            },
+            "reachable_set_jaccard": {
+              "bootstrap_mean": 0.9158358024691359,
+              "bootstrap_sd": 0.017428101594479547,
+              "ci_high": 0.9478472222222222,
+              "ci_low": 0.8805555555555555,
+              "point": 0.9160493827160494,
+              "replicates": 5000
+            },
+            "sign_agreement": {
+              "bootstrap_mean": 0.9270971193415638,
+              "bootstrap_sd": 0.016181983778113224,
+              "ci_high": 0.95679012345679,
+              "ci_low": 0.8929783950617283,
+              "point": 0.9269547325102881,
+              "replicates": 5000
+            },
+            "tce_original": {
+              "bootstrap_mean": 2.9883814814814817,
+              "bootstrap_sd": 0.20967740049355998,
+              "ci_high": 3.4074074074074074,
+              "ci_low": 2.5925925925925926,
+              "point": 2.990740740740741,
+              "replicates": 5000
+            },
+            "tce_swapped": {
+              "bootstrap_mean": 2.574072222222222,
+              "bootstrap_sd": 0.17381044704886622,
+              "ci_high": 2.9166666666666665,
+              "ci_low": 2.2314814814814814,
+              "point": 2.574074074074074,
+              "replicates": 5000
+            },
+            "trr_original": {
+              "bootstrap_mean": 0.031225,
+              "bootstrap_sd": 0.01771621379357252,
+              "ci_high": 0.07291666666666667,
+              "ci_low": 0.0,
+              "point": 0.03125,
+              "replicates": 5000
+            },
+            "trr_swapped": {
+              "bootstrap_mean": 0.02085,
+              "bootstrap_sd": 0.014804870281736143,
+              "ci_high": 0.052083333333333336,
+              "ci_low": 0.0,
+              "point": 0.020833333333333332,
+              "replicates": 5000
+            },
+            "unreachable_original": {
+              "bootstrap_mean": 0.968775,
+              "bootstrap_sd": 0.01771621379357252,
+              "ci_high": 1.0,
+              "ci_low": 0.9270833333333334,
+              "point": 0.96875,
+              "replicates": 5000
+            },
+            "unreachable_swapped": {
+              "bootstrap_mean": 0.97915,
+              "bootstrap_sd": 0.014804870281736146,
+              "ci_high": 1.0,
+              "ci_low": 0.9479166666666666,
+              "point": 0.9791666666666666,
+              "replicates": 5000
+            }
+          }
+        },
+        "max_violation": {
+          "n_artifacts": 108,
+          "n_nontrivial": 96,
+          "statistics": {
+            "accuracy_original": {
+              "bootstrap_mean": 0.6856325102880659,
+              "bootstrap_sd": 0.02041636822146691,
+              "ci_high": 0.7253086419753088,
+              "ci_low": 0.6460905349794238,
+              "point": 0.685185185185185,
+              "replicates": 5000
+            },
+            "accuracy_swapped": {
+              "bootstrap_mean": 0.4681753086419753,
+              "bootstrap_sd": 0.02553060921985912,
+              "ci_high": 0.5164609053497943,
+              "ci_low": 0.418724279835391,
+              "point": 0.46810699588477356,
+              "replicates": 5000
+            },
+            "agreement": {
+              "bootstrap_mean": 0.7370913580246914,
+              "bootstrap_sd": 0.03268421249553862,
+              "ci_high": 0.7983539094650206,
+              "ci_low": 0.6718106995884774,
+              "point": 0.7376543209876543,
+              "replicates": 5000
+            },
+            "brier_original": {
+              "bootstrap_mean": 0.2189892315530581,
+              "bootstrap_sd": 0.012139632519051388,
+              "ci_high": 0.24276802215947837,
+              "ci_low": 0.19496827584279594,
+              "point": 0.21918161854610207,
+              "replicates": 5000
+            },
+            "brier_swapped": {
+              "bootstrap_mean": 0.4417704744911675,
+              "bootstrap_sd": 0.019108113836848406,
+              "ci_high": 0.47938594947177604,
+              "ci_low": 0.4039895566592649,
+              "point": 0.44198912181610955,
+              "replicates": 5000
+            },
+            "delta_accuracy": {
+              "bootstrap_mean": -0.21745720164609048,
+              "bootstrap_sd": 0.029325636461960767,
+              "ci_high": -0.16152263374485598,
+              "ci_low": -0.27777777777777773,
+              "point": -0.2170781893004115,
+              "replicates": 5000
+            },
+            "delta_brier": {
+              "bootstrap_mean": 0.22278124293810941,
+              "bootstrap_sd": 0.01819108722119539,
+              "ci_high": 0.2582373330695935,
+              "ci_low": 0.18747180931860574,
+              "point": 0.22280750327000742,
+              "replicates": 5000
+            },
+            "delta_rc": {
+              "bootstrap_mean": 0.2686481481481482,
+              "bootstrap_sd": 0.08832634660654823,
+              "ci_high": 0.4351851851851852,
+              "ci_low": 0.10185185185185185,
+              "point": 0.26851851851851855,
+              "replicates": 5000
+            },
+            "delta_tce": {
+              "bootstrap_mean": 2.005592592592593,
+              "bootstrap_sd": 0.28949945802796934,
+              "ci_high": 2.6018518518518516,
+              "ci_low": 1.4722222222222223,
+              "point": 2.0,
+              "replicates": 5000
+            },
+            "delta_trr": {
+              "bootstrap_mean": 0.0007312500000000011,
+              "bootstrap_sd": 0.03602128453772396,
+              "ci_high": 0.07291666666666663,
+              "ci_low": -0.07291666666666663,
+              "point": 0.0,
+              "replicates": 5000
+            },
+            "full_reachability_original": {
+              "bootstrap_mean": 0.009298148148148147,
+              "bootstrap_sd": 0.009386111967779871,
+              "ci_high": 0.027777777777777776,
+              "ci_low": 0.0,
+              "point": 0.009259259259259259,
+              "replicates": 5000
+            },
+            "full_reachability_swapped": {
+              "bootstrap_mean": 0.04624074074074074,
+              "bootstrap_sd": 0.02052330342096868,
+              "ci_high": 0.09259259259259259,
+              "ci_low": 0.009259259259259259,
+              "point": 0.046296296296296294,
+              "replicates": 5000
+            },
+            "margin_rank_correlation": {
+              "bootstrap_mean": 0.8998645681570957,
+              "bootstrap_sd": 0.01499774630782117,
+              "ci_high": 0.9279873058099376,
+              "ci_low": 0.8687702578383911,
+              "median": 0.9500000000000001,
+              "n_defined": 108,
+              "n_undefined": 0,
+              "point": 0.8998774575190915,
+              "replicates": 5000
+            },
+            "mmvr_original": {
+              "bootstrap_mean": 0.2872483796296297,
+              "bootstrap_sd": 0.01603699187882873,
+              "ci_high": 0.3194444444444444,
+              "ci_low": 0.2569444444444444,
+              "point": 0.28703703703703703,
+              "replicates": 5000
+            },
+            "mmvr_swapped": {
+              "bootstrap_mean": 0.24787523148148147,
+              "bootstrap_sd": 0.014753605111789494,
+              "ci_high": 0.2777777777777778,
+              "ci_low": 0.2199074074074074,
+              "point": 0.24768518518518517,
+              "replicates": 5000
+            },
+            "prr_original": {
+              "bootstrap_mean": 0.6420736111111112,
+              "bootstrap_sd": 0.020152790708757442,
+              "ci_high": 0.6805555555555556,
+              "ci_low": 0.6018518518518519,
+              "point": 0.6423611111111112,
+              "replicates": 5000
+            },
+            "prr_swapped": {
+              "bootstrap_mean": 0.6756546296296296,
+              "bootstrap_sd": 0.02083124486859405,
+              "ci_high": 0.7152777777777778,
+              "ci_low": 0.6342303240740741,
+              "point": 0.6759259259259259,
+              "replicates": 5000
+            },
+            "rc_original": {
+              "bootstrap_mean": 7.136588888888889,
+              "bootstrap_sd": 0.16122232567005954,
+              "ci_high": 7.444444444444445,
+              "ci_low": 6.814814814814815,
+              "point": 7.138888888888889,
+              "replicates": 5000
+            },
+            "rc_swapped": {
+              "bootstrap_mean": 7.405237037037038,
+              "bootstrap_sd": 0.1666499589487524,
+              "ci_high": 7.722222222222222,
+              "ci_low": 7.073842592592593,
+              "point": 7.407407407407407,
+              "replicates": 5000
+            },
+            "reachable_set_identical": {
+              "bootstrap_mean": 0.36102962962962964,
+              "bootstrap_sd": 0.04611974158495595,
+              "ci_high": 0.4537037037037037,
+              "ci_low": 0.26851851851851855,
+              "point": 0.3611111111111111,
+              "replicates": 5000
+            },
+            "reachable_set_jaccard": {
+              "bootstrap_mean": 0.8797566527042916,
+              "bootstrap_sd": 0.010985155856690913,
+              "ci_high": 0.900670010288066,
+              "ci_low": 0.8585717960023517,
+              "point": 0.8797288359788359,
+              "replicates": 5000
+            },
+            "sign_agreement": {
+              "bootstrap_mean": 0.7360572016460906,
+              "bootstrap_sd": 0.032735140441863125,
+              "ci_high": 0.7973251028806585,
+              "ci_low": 0.6707561728395062,
+              "point": 0.736625514403292,
+              "replicates": 5000
+            },
+            "tce_original": {
+              "bootstrap_mean": 2.967451851851852,
+              "bootstrap_sd": 0.20019847538995178,
+              "ci_high": 3.361111111111111,
+              "ci_low": 2.5833333333333335,
+              "point": 2.9722222222222223,
+              "replicates": 5000
+            },
+            "tce_swapped": {
+              "bootstrap_mean": 4.973044444444445,
+              "bootstrap_sd": 0.2453938128910391,
+              "ci_high": 5.444444444444445,
+              "ci_low": 4.5,
+              "point": 4.972222222222222,
+              "replicates": 5000
+            },
+            "trr_original": {
+              "bootstrap_mean": 0.6664770833333334,
+              "bootstrap_sd": 0.04807596815183031,
+              "ci_high": 0.7604166666666666,
+              "ci_low": 0.5729166666666666,
+              "point": 0.6666666666666666,
+              "replicates": 5000
+            },
+            "trr_swapped": {
+              "bootstrap_mean": 0.6672083333333334,
+              "bootstrap_sd": 0.04775186666902455,
+              "ci_high": 0.7604166666666666,
+              "ci_low": 0.5729166666666666,
+              "point": 0.6666666666666666,
+              "replicates": 5000
+            },
+            "unreachable_original": {
+              "bootstrap_mean": 0.33352291666666667,
+              "bootstrap_sd": 0.04807596815183031,
+              "ci_high": 0.42708333333333337,
+              "ci_low": 0.23958333333333337,
+              "point": 0.33333333333333337,
+              "replicates": 5000
+            },
+            "unreachable_swapped": {
+              "bootstrap_mean": 0.3327916666666667,
+              "bootstrap_sd": 0.04775186666902455,
+              "ci_high": 0.42708333333333337,
+              "ci_low": 0.23958333333333337,
+              "point": 0.33333333333333337,
+              "replicates": 5000
+            }
+          }
+        },
+        "numeric_tolerance": {
+          "n_artifacts": 108,
+          "n_nontrivial": 96,
+          "statistics": {
+            "accuracy_original": {
+              "bootstrap_mean": 0.6642586419753086,
+              "bootstrap_sd": 0.021984687263077732,
+              "ci_high": 0.7068158436213989,
+              "ci_low": 0.6224022633744856,
+              "point": 0.6635802469135803,
+              "replicates": 5000
+            },
+            "accuracy_swapped": {
+              "bootstrap_mean": 0.6218633744855968,
+              "bootstrap_sd": 0.02388554397093014,
+              "ci_high": 0.6676954732510288,
+              "ci_low": 0.5751028806584363,
+              "point": 0.6213991769547325,
+              "replicates": 5000
+            },
+            "agreement": {
+              "bootstrap_mean": 0.7606351851851852,
+              "bootstrap_sd": 0.02989012963170761,
+              "ci_high": 0.8179012345679013,
+              "ci_low": 0.7006172839506172,
+              "point": 0.7602880658436213,
+              "replicates": 5000
+            },
+            "brier_original": {
+              "bootstrap_mean": 0.3047595416650148,
+              "bootstrap_sd": 0.019908686451411715,
+              "ci_high": 0.3439946451114635,
+              "ci_low": 0.2659931582945516,
+              "point": 0.305264369308784,
+              "replicates": 5000
+            },
+            "brier_swapped": {
+              "bootstrap_mean": 0.33486704878950535,
+              "bootstrap_sd": 0.020661504971514522,
+              "ci_high": 0.37486222687528653,
+              "ci_low": 0.2945729169624241,
+              "point": 0.3353084482059799,
+              "replicates": 5000
+            },
+            "delta_accuracy": {
+              "bootstrap_mean": -0.04239526748971193,
+              "bootstrap_sd": 0.019320433975259503,
+              "ci_high": -0.004115226337448562,
+              "ci_low": -0.08024691358024692,
+              "point": -0.04218106995884773,
+              "replicates": 5000
+            },
+            "delta_brier": {
+              "bootstrap_mean": 0.03010750712449054,
+              "bootstrap_sd": 0.01743256827534254,
+              "ci_high": 0.06397874001795,
+              "ci_low": -0.0037960357159636223,
+              "point": 0.030044078897195913,
+              "replicates": 5000
+            },
+            "delta_rc": {
+              "bootstrap_mean": -0.13904814814814814,
+              "bootstrap_sd": 0.060373641669940886,
+              "ci_high": -0.018518518518518517,
+              "ci_low": -0.25925925925925924,
+              "point": -0.1388888888888889,
+              "replicates": 5000
+            },
+            "delta_tce": {
+              "bootstrap_mean": 0.3556351851851852,
+              "bootstrap_sd": 0.2147404124591653,
+              "ci_high": 0.7777777777777778,
+              "ci_low": -0.06481481481481481,
+              "point": 0.35185185185185186,
+              "replicates": 5000
+            },
+            "delta_trr": {
+              "bootstrap_mean": -0.031039583333333332,
+              "bootstrap_sd": 0.017520937968989698,
+              "ci_high": 0.0,
+              "ci_low": -0.07291666666666663,
+              "point": -0.03125,
+              "replicates": 5000
+            },
+            "full_reachability_original": {
+              "bootstrap_mean": 0.0,
+              "bootstrap_sd": 0.0,
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "point": 0.0,
+              "replicates": 5000
+            },
+            "full_reachability_swapped": {
+              "bootstrap_mean": 0.0,
+              "bootstrap_sd": 0.0,
+              "ci_high": 0.0,
+              "ci_low": 0.0,
+              "point": 0.0,
+              "replicates": 5000
+            },
+            "margin_rank_correlation": {
+              "bootstrap_mean": 0.8982213978537864,
+              "bootstrap_sd": 0.01785539714712021,
+              "ci_high": 0.929570768481668,
+              "ci_low": 0.8590452872248121,
+              "median": 0.9519916229907621,
+              "n_defined": 108,
+              "n_undefined": 0,
+              "point": 0.8982971474540636,
+              "replicates": 5000
+            },
+            "mmvr_original": {
+              "bootstrap_mean": 0.4558988425925925,
+              "bootstrap_sd": 0.0103171039365586,
+              "ci_high": 0.47685185185185186,
+              "ci_low": 0.4363425925925926,
+              "point": 0.45601851851851855,
+              "replicates": 5000
+            },
+            "mmvr_swapped": {
+              "bootstrap_mean": 0.4767935185185186,
+              "bootstrap_sd": 0.010584614861502629,
+              "ci_high": 0.4976851851851852,
+              "ci_low": 0.45601851851851855,
+              "point": 0.47685185185185186,
+              "replicates": 5000
+            },
+            "prr_original": {
+              "bootstrap_mean": 0.2883368055555556,
+              "bootstrap_sd": 0.013668553423814544,
+              "ci_high": 0.3148148148148148,
+              "ci_low": 0.26157407407407407,
+              "point": 0.2881944444444444,
+              "replicates": 5000
+            },
+            "prr_swapped": {
+              "bootstrap_mean": 0.27095578703703704,
+              "bootstrap_sd": 0.011618362009193542,
+              "ci_high": 0.29398148148148145,
+              "ci_low": 0.2488425925925926,
+              "point": 0.2708333333333333,
+              "replicates": 5000
+            },
+            "rc_original": {
+              "bootstrap_mean": 4.306694444444444,
+              "bootstrap_sd": 0.10934842739051635,
+              "ci_high": 4.518518518518518,
+              "ci_low": 4.092592592592593,
+              "point": 4.305555555555555,
+              "replicates": 5000
+            },
+            "rc_swapped": {
+              "bootstrap_mean": 4.167646296296296,
+              "bootstrap_sd": 0.09294689607354834,
+              "ci_high": 4.351851851851852,
+              "ci_low": 3.990740740740741,
+              "point": 4.166666666666667,
+              "replicates": 5000
+            },
+            "reachable_set_identical": {
+              "bootstrap_mean": 0.6001722222222222,
+              "bootstrap_sd": 0.04628063684991281,
+              "ci_high": 0.6851851851851852,
+              "ci_low": 0.5092592592592593,
+              "point": 0.6018518518518519,
+              "replicates": 5000
+            },
+            "reachable_set_jaccard": {
+              "bootstrap_mean": 0.8893758289241623,
+              "bootstrap_sd": 0.015438495011384208,
+              "ci_high": 0.9185088734567902,
+              "ci_low": 0.8577480158730159,
+              "point": 0.8898699294532627,
+              "replicates": 5000
+            },
+            "sign_agreement": {
+              "bootstrap_mean": 0.7565213991769547,
+              "bootstrap_sd": 0.02993728459534813,
+              "ci_high": 0.8137860082304527,
+              "ci_low": 0.6965020576131687,
+              "point": 0.7561728395061728,
+              "replicates": 5000
+            },
+            "tce_original": {
+              "bootstrap_mean": 2.8445796296296297,
+              "bootstrap_sd": 0.2083259648239999,
+              "ci_high": 3.25,
+              "ci_low": 2.4442129629629634,
+              "point": 2.8518518518518516,
+              "replicates": 5000
+            },
+            "tce_swapped": {
+              "bootstrap_mean": 3.2002148148148146,
+              "bootstrap_sd": 0.2185497163795642,
+              "ci_high": 3.638888888888889,
+              "ci_low": 2.7777777777777777,
+              "point": 3.2037037037037037,
+              "replicates": 5000
+            },
+            "trr_original": {
+              "bootstrap_mean": 0.3019854166666667,
+              "bootstrap_sd": 0.04688537319561986,
+              "ci_high": 0.3958333333333333,
+              "ci_low": 0.20833333333333334,
+              "point": 0.3020833333333333,
+              "replicates": 5000
+            },
+            "trr_swapped": {
+              "bootstrap_mean": 0.27094583333333333,
+              "bootstrap_sd": 0.045393822447014176,
+              "ci_high": 0.3645833333333333,
+              "ci_low": 0.1875,
+              "point": 0.2708333333333333,
+              "replicates": 5000
+            },
+            "unreachable_original": {
+              "bootstrap_mean": 0.6980145833333334,
+              "bootstrap_sd": 0.04688537319561986,
+              "ci_high": 0.7916666666666666,
+              "ci_low": 0.6041666666666667,
+              "point": 0.6979166666666667,
+              "replicates": 5000
+            },
+            "unreachable_swapped": {
+              "bootstrap_mean": 0.7290541666666667,
+              "bootstrap_sd": 0.045393822447014176,
+              "ci_high": 0.8125,
+              "ci_low": 0.6354166666666667,
+              "point": 0.7291666666666667,
+              "replicates": 5000
+            }
+          }
+        }
+      },
+      "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
+      "n_artifacts": 324,
+      "n_nontrivial": 288,
+      "n_rows": 2916,
+      "point_estimates": {
+        "accuracy_original": 0.6683813443072701,
+        "accuracy_swapped": 0.586076817558299,
+        "adjacent_equal_original": 37,
+        "adjacent_equal_swapped": 40,
+        "brier_original": 0.2846183784244311,
+        "brier_swapped": 0.36061415203690267,
+        "delta_tce": 0.6450617283950617,
+        "delta_trr": -0.013888888888888895,
+        "median_margin_rank_correlation": 0.9500000000000001,
+        "mmvr_original": 0.38117283950617287,
+        "mmvr_swapped": 0.3630401234567901,
+        "prr_original": 0.3333333333333333,
+        "prr_swapped": 0.32253086419753085,
+        "rc10_original": 0.0030864197530864196,
+        "rc10_swapped": 0.015432098765432098,
+        "rc_original": 4.666666666666667,
+        "rc_swapped": 4.580246913580247,
+        "reachable_set_identical": 0.5895061728395061,
+        "reachable_set_jaccard": 0.895216049382716,
+        "semantic_agreement": 0.808641975308642,
+        "sign_agreement": 0.8065843621399178,
+        "tce_original": 2.9382716049382718,
+        "tce_swapped": 3.5833333333333335,
+        "trr_original": 0.3333333333333333,
+        "trr_swapped": 0.3194444444444444,
+        "unreachable_original": 0.6666666666666667,
+        "unreachable_swapped": 0.6805555555555556
+      },
+      "robustness": {
+        "classification": "not_strong",
+        "criteria": {
+          "agreement_lower_bound_met": false,
+          "delta_tce_within_band": false,
+          "delta_trr_within_band": true
+        },
+        "failed_criteria": [
+          "delta_tce_within_band",
+          "agreement_lower_bound_met"
+        ],
+        "strong_robustness": false
+      },
+      "short_name": "Mistral-7B"
+    }
+  },
+  "canonical_margin_original": "M_O(s) = S_A - S_B",
+  "canonical_margin_swapped": "M_S(s) = S_B - S_A",
+  "generated_utc": "2026-09-09T03:51:30+00:00",
+  "panel_complete": true,
+  "preregistered": true,
+  "preregistration_sha256": "9b82f7014ff25ad3f018e0aff81b0011668da2fceb449b750071d43e6a1bee07",
+  "robustness_bands": {
+    "agreement_lower_bound": 0.9,
+    "delta_tce": [
+      -0.5,
+      0.5
+    ],
+    "delta_trr": [
+      -0.1,
+      0.1
+    ]
+  },
+  "study": "FormalCRRC Label-Swap Counterbalance Robustness Study"
+}

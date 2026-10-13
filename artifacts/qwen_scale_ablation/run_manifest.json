@@ -1,0 +1,312 @@
+{
+  "created_at": "2026-10-11T15:45:27+00:00",
+  "model_revisions_sha256": "91478b5caa2145c2fc586bf8fbd9ceb85a1cd26929e7ac38d34fa1568112e8b6",
+  "pinned_code": {
+    "files": {
+      "scripts/analyze_qwen_scale.py": "9357726db94429ceb2b98457b6ad8cd288ef3f93653bbcb5730f7710a467e8ff",
+      "scripts/freeze_qwen_scale_preregistration.py": "56e5a1d638aec15fb87fb7e1e7a32beaf7a8d9868737c3604eb1dc02eda9779a",
+      "scripts/run_day3_inference.py": "f5576be477db475fae7328b8bccbb0243f0588d57f78f95912072d2c7475bf79",
+      "scripts/run_qwen_scale_inference.py": "f39b77781a20aaf661ae469c4acd925a4f7bd7e1d6a010505cd14efcb9cf715f",
+      "scripts/verify_qwen_scale_integrity.py": "fddd432090b6441fdbf24f3da8373467e083f69573415ec1c608920faf9af791",
+      "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
+      "src/formalcrrc/dataset.py": "8a6cb27c91c8d05ab3c9ca29ec7808ed067b0c7d215044c892bb3e059c240d2d",
+      "src/formalcrrc/day2.py": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
+      "src/formalcrrc/day2_bootstrap.py": "fd3062c196add2e7af00a227294d95de92c0642ce893f75a26961fa7dfb58993",
+      "src/formalcrrc/day3.py": "213fcd331a67d73b8ec5cdcd30dafa778da9b7d22107c8cd756b8a6ada713cc5",
+      "src/formalcrrc/day3_config.py": "1c9c2cb1aa4462ee29fcc0215078f99acc2de518d74994efe3169620494cbb5c",
+      "src/formalcrrc/metrics.py": "7f9e7909272c7bcbe6f0971d140027088ac8cc7a98a582563c08b8fce570ed39",
+      "src/formalcrrc/predicates.py": "5c119021ffa69d2dc875bb931a249e5f12811fda791227bc0716cb075fc56b68",
+      "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4",
+      "src/formalcrrc/provenance.py": "34e1c06f91514642b0bcc1beb946997ad275d2b69030f80d83b6e7df9920bd55",
+      "src/formalcrrc/qwen_scale.py": "0294434fdafad873f72b3e97b240ea575eeefb90964dfa52efc796cdf1496e06",
+      "src/formalcrrc/qwen_scale_config.py": "d267b298b84584947fe587675999f2e54948dce8cf7e880ec01b3deb7d195750",
+      "src/formalcrrc/rts_ablation.py": "aab7694a8564fd5fb8645f3e65552bb07f8f35fe731b0baa4821788b482df2d6",
+      "src/formalcrrc/rts_ablation_bootstrap.py": "ec4fcb12e3414c6c2eeee189bb634b5b0e2f18e3aab61d45c256c0e2f5902a53",
+      "src/formalcrrc/rts_ablation_config.py": "df020c365e4e73d1b3d48868d19967f70b60a9f9c987d903aad6537add2e21f8",
+      "src/formalcrrc/scoring.py": "e9dea77babcb60820ad679226d2d826265fe0d844948163296c71be56510c8d4"
+    },
+    "n_amendments": 1,
+    "source": "amendment 001",
+    "tree_sha256": "3c14b233f8d7439b621d890b3503f9d087e5fd863d0b2e8e8b385d48c50e4f53"
+  },
+  "preregistration_sha256": "e943462cf99b992cc742ce0a1572a9011593ebcbe8f9440020de7350f5130209",
+  "provenance_only_code": {
+    "files": {
+      "scripts/amend_qwen_scale_preregistration.py": "463e51fd70272cc5f81b300d4c86caa8fb88dad3fb292b864c9098b23029f7f0",
+      "scripts/preflight_qwen_scale.py": "ac2bf70afa9789dcbf8da665a57fbed04907d9f2b435ae62deeaf1e10e406bea",
+      "scripts/write_results_qwen_scale.py": "54b9acd3d9e2bcbce909d95b363f770f61835f84536277a2faea3b427c77752f"
+    },
+    "note": "Hashed for the record. Not execution-blocking: none of these files computes an outcome.",
+    "tree_sha256": "fca17dc47b5fcb8b07724da185e9525971e8e36ee77c0fb08f2338bbee92fc8b"
+  },
+  "run_order": [
+    "7b",
+    "32b"
+  ],
+  "runs": {
+    "14b": {
+      "completeness": {
+        "completed": 2916,
+        "failed": 0,
+        "missing": 0,
+        "planned": 2916,
+        "retried": 0
+      },
+      "environment": {
+        "captured_at": "2026-09-07T19:29:07+00:00",
+        "gpu": {
+          "available": true,
+          "cudnn_version": 92000,
+          "device_count": 1,
+          "devices": [
+            {
+              "capability": "9.0",
+              "index": 0,
+              "name": "NVIDIA H100 PCIe",
+              "total_memory_bytes": 85017624576
+            }
+          ],
+          "torch_cuda_version": "13.0",
+          "torch_version": "2.13.0+cu130"
+        },
+        "hostname": "evc41",
+        "machine": "x86_64",
+        "packages": {
+          "accelerate": null,
+          "matplotlib": "3.11.1",
+          "numpy": "2.3.5",
+          "pandas": "3.0.5",
+          "pyarrow": "25.0.1",
+          "scipy": "1.17.1",
+          "tokenizers": "0.23.2",
+          "torch": "2.13.0",
+          "transformers": "5.16.1"
+        },
+        "platform": "Linux-4.18.0-553.123.1.el8_10.0.1.x86_64-x86_64-with-glibc2.28",
+        "python_implementation": "CPython",
+        "python_version": "3.11.16"
+      },
+      "model_id": "Qwen/Qwen2.5-14B-Instruct",
+      "raw_scores_sha256": "10420978b17f61d2d6717d4ba1f2f7ab16ee4a445996bea3c2bfb7fc1630dbb6",
+      "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+      "role": "existing frozen S3 result; not rerun",
+      "slurm": {
+        "job_id": "797710",
+        "node": "evc41",
+        "partition": "normal"
+      },
+      "source": "artifacts/day3/raw_scores/qwen2_5_14b_instruct.parquet",
+      "status": "COMPLETE",
+      "total_seconds": 161.42
+    },
+    "32b": {
+      "batch_size": 1,
+      "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+      "completeness": {
+        "carried_from_partial": 0,
+        "completed": 2916,
+        "failed": 0,
+        "missing": 0,
+        "planned": 2916,
+        "retried": 0,
+        "scored_this_invocation": 2916
+      },
+      "dtype": "bfloat16",
+      "environment": {
+        "captured_at": "2026-10-11T15:44:32+00:00",
+        "gpu": {
+          "available": true,
+          "cudnn_version": 92000,
+          "device_count": 1,
+          "devices": [
+            {
+              "capability": "9.0",
+              "index": 0,
+              "name": "NVIDIA H100 PCIe",
+              "total_memory_bytes": 85017624576
+            }
+          ],
+          "torch_cuda_version": "13.0",
+          "torch_version": "2.13.0+cu130"
+        },
+        "hostname": "evc39",
+        "machine": "x86_64",
+        "packages": {
+          "accelerate": null,
+          "matplotlib": "3.11.1",
+          "numpy": "2.3.5",
+          "pandas": "3.0.5",
+          "pyarrow": "25.0.1",
+          "scipy": "1.17.1",
+          "tokenizers": "0.23.2",
+          "torch": "2.13.0",
+          "transformers": "5.16.1"
+        },
+        "platform": "Linux-4.18.0-553.123.1.el8_10.0.1.x86_64-x86_64-with-glibc2.28",
+        "python_implementation": "CPython",
+        "python_version": "3.11.16"
+      },
+      "failures": [],
+      "invocations": 1,
+      "label_tokenization": {
+        "differs_from_naive_encoding": false,
+        "label_met": "A",
+        "label_not_met": "B",
+        "met_token_ids": [
+          32
+        ],
+        "naive_met_token_ids": [
+          32
+        ],
+        "naive_not_met_token_ids": [
+          33
+        ],
+        "not_met_token_ids": [
+          33
+        ],
+        "scoring_method": "single_token_next_logit",
+        "single_token_equivalence": true
+      },
+      "load_seconds": 103.01,
+      "model_id": "Qwen/Qwen2.5-32B-Instruct",
+      "peak_gpu_memory_gib": 61.209,
+      "quantization": "none",
+      "raw_scores_sha256": "51587c7a1ad8050bffb9edb248d56234be1c44b909b1896aa63c9a812ca09613",
+      "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+      "role": "new rung, run under this preregistration",
+      "row_integrity": {
+        "checks": {
+          "all_scores_finite": true,
+          "artifact_ids_match_s3_panel": true,
+          "decision_agrees_with_margin_sign": true,
+          "exactly_2916_rows": true,
+          "inference_order_identical_to_14b": true,
+          "margin_is_met_minus_not_met": true,
+          "nine_thresholds_per_artifact": true,
+          "no_duplicate_rows": true,
+          "prompt_ids_match_s3_panel": true,
+          "prompt_token_counts_identical_to_14b": true,
+          "rendered_prompts_byte_identical_to_14b": true,
+          "single_revision": true,
+          "single_scoring_method": true
+        },
+        "status": "PASS"
+      },
+      "scoring_method": "single_token_next_logit",
+      "slurm": {
+        "job_id": "898740",
+        "node": "evc39",
+        "partition": "normal"
+      },
+      "source": "artifacts/qwen_scale_ablation/results_32b.parquet",
+      "status": "COMPLETE",
+      "tokenizer_revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+      "total_seconds": 307.38
+    },
+    "7b": {
+      "batch_size": 1,
+      "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+      "completeness": {
+        "carried_from_partial": 0,
+        "completed": 2916,
+        "failed": 0,
+        "missing": 0,
+        "planned": 2916,
+        "retried": 0,
+        "scored_this_invocation": 2916
+      },
+      "dtype": "bfloat16",
+      "environment": {
+        "captured_at": "2026-10-11T15:39:10+00:00",
+        "gpu": {
+          "available": true,
+          "cudnn_version": 92000,
+          "device_count": 1,
+          "devices": [
+            {
+              "capability": "9.0",
+              "index": 0,
+              "name": "NVIDIA H100 PCIe",
+              "total_memory_bytes": 85017624576
+            }
+          ],
+          "torch_cuda_version": "13.0",
+          "torch_version": "2.13.0+cu130"
+        },
+        "hostname": "evc39",
+        "machine": "x86_64",
+        "packages": {
+          "accelerate": null,
+          "matplotlib": "3.11.1",
+          "numpy": "2.3.5",
+          "pandas": "3.0.5",
+          "pyarrow": "25.0.1",
+          "scipy": "1.17.1",
+          "tokenizers": "0.23.2",
+          "torch": "2.13.0",
+          "transformers": "5.16.1"
+        },
+        "platform": "Linux-4.18.0-553.123.1.el8_10.0.1.x86_64-x86_64-with-glibc2.28",
+        "python_implementation": "CPython",
+        "python_version": "3.11.16"
+      },
+      "failures": [],
+      "invocations": 1,
+      "label_tokenization": {
+        "differs_from_naive_encoding": false,
+        "label_met": "A",
+        "label_not_met": "B",
+        "met_token_ids": [
+          32
+        ],
+        "naive_met_token_ids": [
+          32
+        ],
+        "naive_not_met_token_ids": [
+          33
+        ],
+        "not_met_token_ids": [
+          33
+        ],
+        "scoring_method": "single_token_next_logit",
+        "single_token_equivalence": true
+      },
+      "load_seconds": 35.16,
+      "model_id": "Qwen/Qwen2.5-7B-Instruct",
+      "peak_gpu_memory_gib": 14.354,
+      "quantization": "none",
+      "raw_scores_sha256": "23b637816fb7ea8bcc7c3eab35d4c8a4b67997f7ebcd88f3b3517498edf166b5",
+      "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+      "role": "new rung, run under this preregistration",
+      "row_integrity": {
+        "checks": {
+          "all_scores_finite": true,
+          "artifact_ids_match_s3_panel": true,
+          "decision_agrees_with_margin_sign": true,
+          "exactly_2916_rows": true,
+          "inference_order_identical_to_14b": true,
+          "margin_is_met_minus_not_met": true,
+          "nine_thresholds_per_artifact": true,
+          "no_duplicate_rows": true,
+          "prompt_ids_match_s3_panel": true,
+          "prompt_token_counts_identical_to_14b": true,
+          "rendered_prompts_byte_identical_to_14b": true,
+          "single_revision": true,
+          "single_scoring_method": true
+        },
+        "status": "PASS"
+      },
+      "scoring_method": "single_token_next_logit",
+      "slurm": {
+        "job_id": "898739",
+        "node": "evc39",
+        "partition": "normal"
+      },
+      "source": "artifacts/qwen_scale_ablation/results_7b.parquet",
+      "status": "COMPLETE",
+      "tokenizer_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+      "total_seconds": 104.18
+    }
+  },
+  "study": "FormalCRRC Qwen2.5 Same-Family Model-Scale Ablation"
+}

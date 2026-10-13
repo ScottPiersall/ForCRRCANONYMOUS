@@ -1,0 +1,503 @@
+{
+  "canonicalization": {
+    "canonical_thresholds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "families": [
+      {
+        "canonical_compliance": "z = m",
+        "canonical_predicate": "1[z >= tau_s]",
+        "canonical_threshold": "tau_s = s",
+        "canonical_threshold_strictly_increasing": true,
+        "direction_of_increasing_strictness": "s increasing is stricter",
+        "family": "coverage",
+        "formal_predicate": "1[m >= s]",
+        "mismatches": [],
+        "raw_printed_threshold": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "raw_threshold_strictly_increasing": true,
+        "status": "PASS",
+        "stored_latent": "m, count of required items present",
+        "stored_strictness_index": "s = 0..8",
+        "transformation_required": false,
+        "true_first_fail_index": "j* = z + 1, in 1..9"
+      },
+      {
+        "canonical_compliance": "z = 8 - latent",
+        "canonical_predicate": "1[z >= tau_s]",
+        "canonical_threshold": "tau_s = s",
+        "canonical_threshold_strictly_increasing": true,
+        "direction_of_increasing_strictness": "s increasing is stricter",
+        "family": "max_violation",
+        "formal_predicate": "1[latent <= 8 - s]",
+        "mismatches": [],
+        "raw_printed_threshold": [
+          8,
+          7,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        "raw_threshold_strictly_increasing": false,
+        "status": "PASS",
+        "stored_latent": "v, count of prohibited items present",
+        "stored_strictness_index": "s = 0..8",
+        "transformation_required": true,
+        "true_first_fail_index": "j* = z + 1, in 1..9"
+      },
+      {
+        "canonical_compliance": "z = 8 - latent",
+        "canonical_predicate": "1[z >= tau_s]",
+        "canonical_threshold": "tau_s = s",
+        "canonical_threshold_strictly_increasing": true,
+        "direction_of_increasing_strictness": "s increasing is stricter",
+        "family": "numeric_tolerance",
+        "formal_predicate": "1[latent <= 8 - s]",
+        "mismatches": [],
+        "raw_printed_threshold": [
+          8,
+          7,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        "raw_threshold_strictly_increasing": false,
+        "status": "PASS",
+        "stored_latent": "e, absolute numeric error",
+        "stored_strictness_index": "s = 0..8",
+        "transformation_required": true,
+        "true_first_fail_index": "j* = z + 1, in 1..9"
+      }
+    ],
+    "first_fail_matches_implementation": true,
+    "labels_match_implementation": true,
+    "status": "PASS",
+    "thresholds_strictly_increasing": true
+  },
+  "checks": {
+    "canonicalization_passes": true,
+    "day3_conventions_compatible": true,
+    "empirical_matches_frozen_report": true,
+    "frozen_record_verifies": true,
+    "scalar_model_always_fully_reachable": true,
+    "synthetic_cases_match_scan": true,
+    "synthetic_cases_translation_invariant": true,
+    "thresholds_strictly_increasing": true
+  },
+  "classification": "post-study theoretical analysis",
+  "day3_conventions": {
+    "compatible": true,
+    "endpoints": {
+      "reason": "translate far negative, or far positive",
+      "zero_and_nine_always_reachable": true
+    },
+    "indexing": {
+      "crossing_support": "j = 0..9, where 9 means never crossed",
+      "level_zero_is_never_a_record": true,
+      "records_enumerated_over": "j = 1..8 (level 0 has no prefix)",
+      "strictness_levels": "s = 0..8"
+    },
+    "strict_inequality": {
+      "flat_curve_has_no_records": true,
+      "flat_curve_reaches_only_endpoints": true,
+      "rule": "M(j) < min_{t<j} M(t), strict"
+    },
+    "theorem_matches_independent_enumeration": true,
+    "ties": {
+      "rule": "equality never creates a reachable crossing",
+      "tied_level_excluded": true,
+      "why_incompatible_with_the_model": "The proposition assumes tau_s strictly increasing and g strictly increasing, so M(s) = g(z_hat - tau_s) is strictly decreasing and no two levels can share a margin. An observed tie is therefore already outside the model's assumptions; Day 3's strict rule records that fact rather than weakening the theorem to admit it."
+    },
+    "zero_crossing": {
+      "all_positive_gives_nine": true,
+      "all_zero_gives_nine": true,
+      "margin_zero_counts_as_met": true,
+      "rule": "first level with margin < 0, else 9"
+    }
+  },
+  "disclaimer": "This proposition and its verification were derived after completion of the three preregistered FormalCRRC studies. They were not part of any preregistration, must not be represented as preregistered, modify no frozen experimental outcome, and require no additional model inference.",
+  "empirical": {
+    "all_agree_with_frozen_report": true,
+    "by_model": [
+      {
+        "agrees_with_day3_module": true,
+        "agrees_with_intercept_scan": true,
+        "frozen_report_trr": 0.4791666666666667,
+        "matches_frozen_report": true,
+        "model_id": "Qwen/Qwen2.5-14B-Instruct",
+        "n_fully_reachable_curves": 12,
+        "n_nontrivial": 288,
+        "n_reachable": 138,
+        "n_strictly_decreasing_curves": 12,
+        "n_unreachable": 150,
+        "one_minus_trr": 0.5208333333333334,
+        "one_minus_trr_percent": 52.0833,
+        "scalar_signature_share": 0.037037,
+        "short_name": "Qwen",
+        "trr": 0.4791666666666667,
+        "trr_exact": "23/48",
+        "trr_percent": 47.9167
+      },
+      {
+        "agrees_with_day3_module": true,
+        "agrees_with_intercept_scan": true,
+        "frozen_report_trr": 0.2708333333333333,
+        "matches_frozen_report": true,
+        "model_id": "meta-llama/Llama-3.1-8B-Instruct",
+        "n_fully_reachable_curves": 0,
+        "n_nontrivial": 288,
+        "n_reachable": 78,
+        "n_strictly_decreasing_curves": 0,
+        "n_unreachable": 210,
+        "one_minus_trr": 0.7291666666666666,
+        "one_minus_trr_percent": 72.9167,
+        "scalar_signature_share": 0.0,
+        "short_name": "Llama",
+        "trr": 0.2708333333333333,
+        "trr_exact": "13/48",
+        "trr_percent": 27.0833
+      },
+      {
+        "agrees_with_day3_module": true,
+        "agrees_with_intercept_scan": true,
+        "frozen_report_trr": 0.3333333333333333,
+        "matches_frozen_report": true,
+        "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
+        "n_fully_reachable_curves": 1,
+        "n_nontrivial": 288,
+        "n_reachable": 96,
+        "n_strictly_decreasing_curves": 1,
+        "n_unreachable": 192,
+        "one_minus_trr": 0.6666666666666666,
+        "one_minus_trr_percent": 66.6667,
+        "scalar_signature_share": 0.003086,
+        "short_name": "Mistral",
+        "trr": 0.3333333333333333,
+        "trr_exact": "1/3",
+        "trr_percent": 33.3333
+      },
+      {
+        "agrees_with_day3_module": true,
+        "agrees_with_intercept_scan": true,
+        "frozen_report_trr": 0.6041666666666666,
+        "matches_frozen_report": true,
+        "model_id": "google/gemma-2-9b-it",
+        "n_fully_reachable_curves": 12,
+        "n_nontrivial": 288,
+        "n_reachable": 174,
+        "n_strictly_decreasing_curves": 12,
+        "n_unreachable": 114,
+        "one_minus_trr": 0.3958333333333333,
+        "one_minus_trr_percent": 39.5833,
+        "scalar_signature_share": 0.037037,
+        "short_name": "Gemma",
+        "trr": 0.6041666666666666,
+        "trr_exact": "29/48",
+        "trr_percent": 60.4167
+      }
+    ],
+    "definition_of_nontrivial": "j* in 1..8 (0 and 9 are always reachable)",
+    "recomputed_from": "frozen raw margins; j* rebuilt from the predicates",
+    "trr_definition": "TR_x = 1[j*_x in R_x]; nontrivial TRR = mean over j* in 1..8"
+  },
+  "environment": {
+    "captured_at": "2026-09-09T02:47:02+00:00",
+    "hostname": "minipc",
+    "machine": "x86_64",
+    "packages": {
+      "accelerate": null,
+      "matplotlib": "3.11.1",
+      "numpy": "2.5.3",
+      "pandas": "3.0.5",
+      "pyarrow": "25.0.1",
+      "scipy": "1.18.1",
+      "tokenizers": null,
+      "torch": null,
+      "transformers": null
+    },
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python_implementation": "CPython",
+    "python_version": "3.12.3"
+  },
+  "frozen_scientific_record": {
+    "combined_sha256": "8693acf874a6da41fb88d1c3321d9f9bd3fa1d33e568a64db10fdd62348fadeb",
+    "mismatched": [],
+    "n_files": 109,
+    "recorded_prior_manifest_verifies": true
+  },
+  "generated_utc": "2026-09-09T02:47:01+00:00",
+  "git": {
+    "available": true,
+    "clean": false,
+    "commit": "c6654a9ab313ca4aa02e463889fe94474a72878a",
+    "dirty_paths": [
+      ".gitignore",
+      "LICENSE",
+      "artifacts/poststudy_baselines/baseline_by_partition.csv",
+      "scripts/audit_step_proposition.py",
+      "src/formalcrrc/step_proposition.py",
+      "tests/test_step_proposition.py"
+    ]
+  },
+  "model_inference_performed": false,
+  "preregistered": false,
+  "status": "PASS",
+  "synthetic": {
+    "all_match_scan": true,
+    "all_scalar_instances_fully_reachable": true,
+    "all_translation_invariant": true,
+    "cases": [
+      {
+        "case": "A_scalar_step",
+        "margins": [
+          5.0,
+          4,
+          3,
+          2,
+          1,
+          -1,
+          -2,
+          -3,
+          -4
+        ],
+        "matches_scan": true,
+        "prefix_record_lows": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "raw_crossing": 5,
+        "reachable_count": 10,
+        "reachable_crossings": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "strictly_decreasing": true,
+        "tie_diagnostics": {
+          "adjacent_equal_margins": 0,
+          "prefix_tie_levels": 0,
+          "target_blocked_by_equality": false
+        },
+        "translation_invariant": true,
+        "unreachable_nontrivial": []
+      },
+      {
+        "case": "B_mislocated_but_coherent",
+        "margins": [
+          4.0,
+          3,
+          2,
+          1,
+          0,
+          -1,
+          -2,
+          -3,
+          -4
+        ],
+        "matches_scan": true,
+        "prefix_record_lows": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "raw_crossing": 5,
+        "reachable_count": 10,
+        "reachable_crossings": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "strictly_decreasing": true,
+        "tie_diagnostics": {
+          "adjacent_equal_margins": 0,
+          "prefix_tie_levels": 0,
+          "target_blocked_by_equality": false
+        },
+        "translation_invariant": true,
+        "unreachable_nontrivial": []
+      },
+      {
+        "case": "C_ordering_failure",
+        "margins": [
+          5.0,
+          4,
+          2,
+          3,
+          1,
+          0,
+          -1,
+          -2,
+          -3
+        ],
+        "matches_scan": true,
+        "prefix_record_lows": [
+          1,
+          2,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "raw_crossing": 6,
+        "reachable_count": 9,
+        "reachable_crossings": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "strictly_decreasing": false,
+        "tie_diagnostics": {
+          "adjacent_equal_margins": 0,
+          "prefix_tie_levels": 0,
+          "target_blocked_by_equality": false
+        },
+        "translation_invariant": true,
+        "unreachable_nontrivial": [
+          3
+        ]
+      },
+      {
+        "case": "D_tie",
+        "margins": [
+          5.0,
+          4,
+          4,
+          3,
+          2,
+          1,
+          0,
+          -1,
+          -2
+        ],
+        "matches_scan": true,
+        "prefix_record_lows": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "raw_crossing": 7,
+        "reachable_count": 9,
+        "reachable_crossings": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "strictly_decreasing": false,
+        "tie_diagnostics": {
+          "adjacent_equal_margins": 1,
+          "prefix_tie_levels": 1,
+          "target_blocked_by_equality": true
+        },
+        "translation_invariant": true,
+        "unreachable_nontrivial": [
+          2
+        ]
+      }
+    ],
+    "scalar_model_instances": [
+      {
+        "fully_reachable": true,
+        "labels_are_step": true,
+        "strictly_decreasing": true,
+        "transitions": 0,
+        "z_hat": -1.0
+      },
+      {
+        "fully_reachable": true,
+        "labels_are_step": true,
+        "strictly_decreasing": true,
+        "transitions": 1,
+        "z_hat": 0.0
+      },
+      {
+        "fully_reachable": true,
+        "labels_are_step": true,
+        "strictly_decreasing": true,
+        "transitions": 1,
+        "z_hat": 2.5
+      },
+      {
+        "fully_reachable": true,
+        "labels_are_step": true,
+        "strictly_decreasing": true,
+        "transitions": 1,
+        "z_hat": 4.0
+      },
+      {
+        "fully_reachable": true,
+        "labels_are_step": true,
+        "strictly_decreasing": true,
+        "transitions": 0,
+        "z_hat": 9.0
+      }
+    ]
+  },
+  "title": "FormalCRRC scalar latent-estimation / step-function proposition"
+}

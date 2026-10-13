@@ -1,0 +1,41 @@
+========================================================================
+REASON-THEN-SCORE ABLATION PRE-INFERENCE REPORT (Phase 12)
+========================================================================
+branch                     reason-then-score-ablation
+git commit                 a51b4209db5d30e8f708d4a17a988da9ecee324f
+frozen protected digest    e618f270e00b2b5f77a2d5e2f7cfbbadc5ed58874d67d8a471bf49a3a809e3d7  (173 files)
+Day-3 dataset file sha     2160b662fa527498c6bd245e173f0ead9030a7d69633869233b76e5184647a34
+Day-3 dataset content sha  9700960d6f3aa130fa259500aeadbdfa9f511bcc943dd5fdf3401330ee8009d6
+model                      Qwen/Qwen2.5-14B-Instruct
+model revision             cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8  (frozen Day-3)
+tokenizer revision         cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8
+dtype                      bfloat16  quantization=none
+chat template sha256       cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f
+Day-3 prompt sha256        e5f3c5ba3dfd1ccaca0655307d8ad254598a17184c7ae40dfde63c1f660cae14
+RTS prompt sha256          7d6ad3815c992b698050b9f2adf44aec81d77c09fc333b8e7374288e156ca957
+added scaffold sha256      fee2aa126e937aa6cd03a74e1243797455ad47e69550170ee2de6d5a2d7f91c4  (229 bytes)
+marker                     'FINAL:'  token ids [98848, 25]  (multi-token: True)
+candidate A / B token ids  [362] / [425]
+scoring                    sequence_loglikelihood  margin=M_R = L_A - L_B
+generation                 T=0.6 top_p=0.95 top_k=20 min_p=0.0 (supported) budget=8192 samples=1
+seed algorithm             base=42 mod=2147483647 (SHA-256, shared with anchor study)
+comparator (Condition O)   TCE 3.3735  TRR 0.4792  unreachable 52.08%
+preregistration timestamp  2026-09-09T21:38:03+00:00
+preregistration sha256     43e9175b3717f493b58657e2d88e22d145bb769fd4a3ea51f054880acc6a40b2
+test suite                 unknown
+
+  PASS  preregistration_checksum_verifies
+  PASS  amendments_zero
+  PASS  dataset_validation_pass
+  PASS  comparator_recovery_pass
+  PASS  prompt_diff_pure_suffix
+  PASS  nothing_removed_from_prompt
+  PASS  revision_matches_day3
+  PASS  chat_template_matches_day3
+  PASS  preflight_pass
+  PASS  min_p_supported
+  PASS  frozen_record_verifies
+  PASS  no_study_inference_yet
+  PASS  test_suite_passes
+
+READY FOR QWEN2.5 REASON-THEN-SCORE ABLATION

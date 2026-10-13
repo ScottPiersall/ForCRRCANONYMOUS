@@ -1,0 +1,29 @@
+{
+  "amendments": 0,
+  "dataset": {
+    "checked_at": "2026-09-09T18:54:48+00:00",
+    "checks": {
+      "artifact_count": true,
+      "content_hash_matches_manifest": true,
+      "formal_truth_reconstructs": true,
+      "nine_levels_each": true,
+      "nontrivial_curve_count": true,
+      "one_hundred_eight_per_family": true,
+      "partition_is_day3_test": true,
+      "row_count": true,
+      "seed_is_45": true,
+      "thirty_six_at_each_crossing": true,
+      "true_crossing_reconstructs": true
+    },
+    "dataset_content_sha256": "9700960d6f3aa130fa259500aeadbdfa9f511bcc943dd5fdf3401330ee8009d6",
+    "dataset_file_sha256": "2160b662fa527498c6bd245e173f0ead9030a7d69633869233b76e5184647a34",
+    "dataset_path": "artifacts/day3/test_dataset.parquet",
+    "n_artifacts": 324,
+    "n_nontrivial_curves": 288,
+    "n_rows": 2916,
+    "status": "PASS"
+  },
+  "frozen_at": "2026-09-09T18:54:49+00:00",
+  "frozen_record_combined_sha256": "4938e3dd1c67853801d018a2f0a4c778571f8a7f1596decea4c26fd74a404188",
+  "preregistration_sha256": "b32c547bf8ba994937e144bed8fec0673af7553c0c7c3aca6838239f3ba6582b"
+}

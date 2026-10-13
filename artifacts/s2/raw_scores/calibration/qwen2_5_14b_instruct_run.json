@@ -1,0 +1,89 @@
+{
+  "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+  "dataset_file_sha256": "2bc94e23349481b0bb48b20723778bc14dc11e60f549ec35d80597579b599842",
+  "dtype": "bfloat16",
+  "environment": {
+    "captured_at": "2026-09-07T18:38:12+00:00",
+    "gpu": {
+      "available": true,
+      "cudnn_version": 92000,
+      "device_count": 1,
+      "devices": [
+        {
+          "capability": "9.0",
+          "index": 0,
+          "name": "NVIDIA H100 PCIe",
+          "total_memory_bytes": 85017624576
+        }
+      ],
+      "torch_cuda_version": "13.0",
+      "torch_version": "2.13.0+cu130"
+    },
+    "hostname": "evc24",
+    "machine": "x86_64",
+    "packages": {
+      "accelerate": null,
+      "matplotlib": "3.11.1",
+      "numpy": "2.3.5",
+      "pandas": "3.0.5",
+      "pyarrow": "25.0.1",
+      "scipy": "1.17.1",
+      "tokenizers": "0.23.2",
+      "torch": "2.13.0",
+      "transformers": "5.16.1"
+    },
+    "platform": "Linux-4.18.0-553.123.1.el8_10.0.1.x86_64-x86_64-with-glibc2.28",
+    "python_implementation": "CPython",
+    "python_version": "3.11.16"
+  },
+  "experiment": "FormalCRRC Day 2",
+  "failures": [],
+  "finished_at": "2026-09-07T18:38:12+00:00",
+  "label_tokenization": {
+    "differs_from_naive_encoding": false,
+    "label_met": "A",
+    "label_not_met": "B",
+    "met_token_ids": [
+      32
+    ],
+    "naive_met_token_ids": [
+      32
+    ],
+    "naive_not_met_token_ids": [
+      33
+    ],
+    "not_met_token_ids": [
+      33
+    ],
+    "scoring_method": "single_token_next_logit",
+    "single_token_equivalence": true
+  },
+  "load_seconds": 40.52,
+  "model_id": "Qwen/Qwen2.5-14B-Instruct",
+  "partition": "CAL",
+  "preregistration_sha256": "cf742630bf5365ed12ce4770a5218e7f5b34e0d6bff2cb44d75d2d556bd3fba0",
+  "prompt_template_sha256": "e5f3c5ba3dfd1ccaca0655307d8ad254598a17184c7ae40dfde63c1f660cae14",
+  "prompts_requested": 2916,
+  "prompts_scored": 2916,
+  "raw_scores_sha256": "3257f1a8b5692512df88e05f33d44ad6b27b3930cd609f12e35669f6845fad0d",
+  "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+  "scoring_method": "single_token_next_logit",
+  "slug": "qwen2_5_14b_instruct",
+  "slurm": {
+    "job_id": "797677",
+    "node": "evc24",
+    "partition": "normal"
+  },
+  "source_manifest": {
+    "files": {
+      "scripts/run_day2_inference.py": "6f30f5da5c11d5e8144fb475d01491f79bb777328a556e0192089ddc11c94835",
+      "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
+      "src/formalcrrc/day2_config.py": "c2a34bf4ff5f3c2d741dd3ed43a2bd23daee3780d717d5b680c72e89c79c7c71",
+      "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4",
+      "src/formalcrrc/scoring.py": "e9dea77babcb60820ad679226d2d826265fe0d844948163296c71be56510c8d4"
+    },
+    "tree_sha256": "93a856abd99821c413dfca414addf6eeda23c746fac47356e617161a1896e569"
+  },
+  "started_at_unix": 1788806140.8519046,
+  "total_seconds": 151.57
+}

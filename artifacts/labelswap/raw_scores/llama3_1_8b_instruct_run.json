@@ -1,0 +1,122 @@
+{
+  "canonical_margin": "M_S(s) = S_B - S_A",
+  "chat_template_sha256": "e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65",
+  "condition": "swapped",
+  "dataset_file_sha256": "2160b662fa527498c6bd245e173f0ead9030a7d69633869233b76e5184647a34",
+  "day3_label_tokenization": {
+    "differs_from_naive_encoding": false,
+    "label_met": "A",
+    "label_not_met": "B",
+    "met_token_ids": [
+      32
+    ],
+    "naive_met_token_ids": [
+      32
+    ],
+    "naive_not_met_token_ids": [
+      33
+    ],
+    "not_met_token_ids": [
+      33
+    ],
+    "scoring_method": "single_token_next_logit",
+    "single_token_equivalence": true
+  },
+  "dtype": "bfloat16",
+  "environment": {
+    "captured_at": "2026-09-09T03:43:40+00:00",
+    "gpu": {
+      "available": true,
+      "cudnn_version": 92000,
+      "device_count": 1,
+      "devices": [
+        {
+          "capability": "9.0",
+          "index": 0,
+          "name": "NVIDIA H100 PCIe",
+          "total_memory_bytes": 85017624576
+        }
+      ],
+      "torch_cuda_version": "13.0",
+      "torch_version": "2.13.0+cu130"
+    },
+    "hostname": "evc25",
+    "machine": "x86_64",
+    "packages": {
+      "accelerate": null,
+      "matplotlib": "3.11.1",
+      "numpy": "2.3.5",
+      "pandas": "3.0.5",
+      "pyarrow": "25.0.1",
+      "scipy": "1.17.1",
+      "tokenizers": "0.23.2",
+      "torch": "2.13.0",
+      "transformers": "5.16.1"
+    },
+    "platform": "Linux-4.18.0-553.123.1.el8_10.0.1.x86_64-x86_64-with-glibc2.28",
+    "python_implementation": "CPython",
+    "python_version": "3.11.16"
+  },
+  "experiment": "FormalCRRC Label-Swap Counterbalance Robustness Study",
+  "failures": [],
+  "finished_at": "2026-09-09T03:43:39+00:00",
+  "label_tokenization": {
+    "differs_from_naive_encoding": false,
+    "label_met": "B",
+    "label_not_met": "A",
+    "met_token_ids": [
+      33
+    ],
+    "naive_met_token_ids": [
+      33
+    ],
+    "naive_not_met_token_ids": [
+      32
+    ],
+    "not_met_token_ids": [
+      32
+    ],
+    "scoring_method": "single_token_next_logit",
+    "single_token_equivalence": true
+  },
+  "load_seconds": 140.18,
+  "model_id": "meta-llama/Llama-3.1-8B-Instruct",
+  "original_prompt_template_sha256": "e5f3c5ba3dfd1ccaca0655307d8ad254598a17184c7ae40dfde63c1f660cae14",
+  "partition": "DAY3_TEST",
+  "preregistration_sha256": "9b82f7014ff25ad3f018e0aff81b0011668da2fceb449b750071d43e6a1bee07",
+  "prompts_requested": 2916,
+  "prompts_scored": 2916,
+  "raw_scores_sha256": "8bef84050c4ffae0342568702a8f5e7ac3f21a22b6d2ca9739a7ae6c022d46eb",
+  "revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+  "scoring_method": "single_token_next_logit",
+  "slug": "llama3_1_8b_instruct",
+  "slurm": {
+    "job_id": "799326",
+    "node": "evc25",
+    "partition": "normal"
+  },
+  "source_manifest": {
+    "files": {
+      "scripts/run_labelswap_inference.py": "c066e8c691fe136aa45e323920d3d4a282aac32cbbc6ee8e5506035ec222849f",
+      "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
+      "src/formalcrrc/labelswap.py": "7f98608a13441591bf45e965ccc72dbadf4c6951c298292e2a4e99f562019f17",
+      "src/formalcrrc/labelswap_config.py": "ea9216ddae43262378a269e7cbe4a1ec15e82df7b61e788fd8bb500630334abe",
+      "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4",
+      "src/formalcrrc/scoring.py": "e9dea77babcb60820ad679226d2d826265fe0d844948163296c71be56510c8d4"
+    },
+    "tree_sha256": "7b36b0c62219c4d54a2acf77850f0cfc10eaab643b82fc3f5a1ac4cf6d53ba00"
+  },
+  "started_at_unix": 1788925162.7277586,
+  "swapped_prompt_template_sha256": "c1edca6bdf4e685f1df9ed65ac1b67f80835cd9d8f6a353abf6abbbb9d89a867",
+  "tokenization_mirror_check": {
+    "checks": {
+      "labels_exchanged": true,
+      "met_is_day3_not_met_token": true,
+      "not_met_is_day3_met_token": true,
+      "scoring_method_unchanged": true,
+      "single_token_equivalence_preserved": true
+    },
+    "status": "PASS"
+  },
+  "total_seconds": 257.09
+}

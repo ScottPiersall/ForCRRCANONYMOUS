@@ -1,0 +1,5 @@
+Judge,Median curve Spearman rho,Sign agreement,Reachable-set agreement,Reachable-set Jaccard,Original mean RC,Swapped mean RC,Original RC=10 %,Swapped RC=10 %
+Qwen2.5-14B,0.9833,0.9774,0.5741,0.8986,4.963,4.7623,3.7,1.85
+Llama-3.1-8B,0.5121,0.8789,0.1605,0.6201,3.9537,4.466,0.0,0.0
+Mistral-7B,0.95,0.8066,0.5895,0.8952,4.6667,4.5802,0.31,1.54
+Gemma-2-9B,0.9475,0.9534,0.3056,0.8039,6.5988,5.8735,3.7,0.93

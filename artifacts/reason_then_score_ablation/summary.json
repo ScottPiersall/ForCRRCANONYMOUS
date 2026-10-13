@@ -1,0 +1,556 @@
+{
+  "amendments": 0,
+  "analysis_code": {
+    "files": {
+      "scripts/analyze_rts_ablation.py": "b745c4e7bc37fb87c54e7e7af80e3c8273f61e1d550d57f2c791478347f576e8",
+      "scripts/figures_rts_ablation.py": "42368a40969214314bfb0bd918c2f09a03fb7d4e3572088cd30e2b4a5971ce70",
+      "scripts/freeze_rts_ablation_preregistration.py": "c7b459781c2487838808bbdf99a9c3a024051a070b4540de6b1af3f45e05140d",
+      "scripts/preflight_rts_ablation.py": "482b78b9fbb85d0db91cc67e2623ca7d4aa01e10565a20fe0841318af6841640",
+      "scripts/run_rts_ablation_inference.py": "37fc5eb976256281bca6918e9fd42f947f06bb5b2745066471c445e6422fba96",
+      "scripts/verify_rts_ablation_integrity.py": null,
+      "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
+      "src/formalcrrc/day2.py": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
+      "src/formalcrrc/day3.py": "213fcd331a67d73b8ec5cdcd30dafa778da9b7d22107c8cd756b8a6ada713cc5",
+      "src/formalcrrc/predicates.py": "5c119021ffa69d2dc875bb931a249e5f12811fda791227bc0716cb075fc56b68",
+      "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4",
+      "src/formalcrrc/provenance.py": "34e1c06f91514642b0bcc1beb946997ad275d2b69030f80d83b6e7df9920bd55",
+      "src/formalcrrc/rts_ablation.py": "aab7694a8564fd5fb8645f3e65552bb07f8f35fe731b0baa4821788b482df2d6",
+      "src/formalcrrc/rts_ablation_bootstrap.py": "ec4fcb12e3414c6c2eeee189bb634b5b0e2f18e3aab61d45c256c0e2f5902a53",
+      "src/formalcrrc/rts_ablation_config.py": "df020c365e4e73d1b3d48868d19967f70b60a9f9c987d903aad6537add2e21f8",
+      "src/formalcrrc/scoring.py": "e9dea77babcb60820ad679226d2d826265fe0d844948163296c71be56510c8d4"
+    },
+    "tree_sha256": "c16bb0d489422c7757fe7ea7c7f6d7f15493775c1aec3d7ad50bbaceab60612d"
+  },
+  "anchor_context": {
+    "model": "Qwen/Qwen3-30B-A3B-Thinking-2507",
+    "positioning": {
+      "category": "intermediate",
+      "caveat": "These are descriptive causal constraints, not identification of a single causal mechanism. external context only. The anchor uses native thinking under a different model family, scale and training regime; this study uses elicited reason-then-score on Qwen2.5. The two protocols are not identical and no pooled significance test across these model/protocol regimes is performed.",
+      "statement": "Both protocol and model-regime differences are consistent with the observed panel-versus-anchor contrast."
+    },
+    "status": "external context only. The anchor uses native thinking under a different model family, scale and training regime; this study uses elicited reason-then-score on Qwen2.5. The two protocols are not identical and no pooled significance test across these model/protocol regimes is performed.",
+    "tce": 0.401,
+    "trr": 1.0,
+    "unreachable_pct": 0.0
+  },
+  "baselines": {
+    "always_met_tce": 4.0,
+    "always_not_met_tce": 5.0,
+    "fixed_center_accuracy_pct": 75.30864197530865,
+    "fixed_center_tce": 2.2222222222222223,
+    "majority_accuracy_pct": 55.55555555555556,
+    "random_crossing_accuracy_pct": 67.07818930041152,
+    "random_crossing_tce": 2.962962962962963
+  },
+  "bootstrap": {
+    "bootstrap": {
+      "ci": "percentile, 95%",
+      "pairing": "both conditions of one artifact drawn together",
+      "replicates": 5000,
+      "seed": 42,
+      "stratified_by": "family",
+      "unit": "artifact_curve"
+    },
+    "by_family": {
+      "coverage": {
+        "delta_tce": {
+          "ci_high": -0.12013888888889225,
+          "ci_level": 95.0,
+          "ci_low": -0.7037037037037037,
+          "n_replicates": 5000,
+          "point": -0.37962962962962965
+        },
+        "delta_trr": {
+          "ci_high": 0.5052659875495189,
+          "ci_level": 95.0,
+          "ci_low": 0.2659411636995223,
+          "n_replicates": 5000,
+          "point": 0.38541666666666663
+        },
+        "n_curves": 108,
+        "n_nontrivial": 96,
+        "tce_o": {
+          "ci_high": 5.398148148148148,
+          "ci_level": 95.0,
+          "ci_low": 4.37037037037037,
+          "n_replicates": 5000,
+          "point": 4.888888888888889
+        },
+        "tce_r": {
+          "ci_high": 5.055555555555555,
+          "ci_level": 95.0,
+          "ci_low": 3.962962962962963,
+          "n_replicates": 5000,
+          "point": 4.5092592592592595
+        },
+        "trr_o": {
+          "ci_high": 0.44,
+          "ci_level": 95.0,
+          "ci_low": 0.25263157894736843,
+          "n_replicates": 5000,
+          "point": 0.34375
+        },
+        "trr_r": {
+          "ci_high": 0.8144329896907216,
+          "ci_level": 95.0,
+          "ci_low": 0.6363636363636364,
+          "n_replicates": 5000,
+          "point": 0.7291666666666666
+        }
+      },
+      "max_violation": {
+        "delta_tce": {
+          "ci_high": -3.175694444444448,
+          "ci_level": 95.0,
+          "ci_low": -4.157407407407407,
+          "n_replicates": 5000,
+          "point": -3.6574074074074074
+        },
+        "delta_trr": {
+          "ci_high": 0.7959183673469388,
+          "ci_level": 95.0,
+          "ci_low": 0.6138613861386139,
+          "n_replicates": 5000,
+          "point": 0.7083333333333334
+        },
+        "n_curves": 108,
+        "n_nontrivial": 96,
+        "tce_o": {
+          "ci_high": 4.203703703703703,
+          "ci_level": 95.0,
+          "ci_low": 3.240740740740741,
+          "n_replicates": 5000,
+          "point": 3.712962962962963
+        },
+        "tce_r": {
+          "ci_high": 0.10185185185185185,
+          "ci_level": 95.0,
+          "ci_low": 0.018518518518518517,
+          "n_replicates": 5000,
+          "point": 0.05555555555555555
+        },
+        "trr_o": {
+          "ci_high": 0.3368421052631579,
+          "ci_level": 95.0,
+          "ci_low": 0.16666666666666666,
+          "n_replicates": 5000,
+          "point": 0.25
+        },
+        "trr_r": {
+          "ci_high": 0.99,
+          "ci_level": 95.0,
+          "ci_low": 0.9139784946236559,
+          "n_replicates": 5000,
+          "point": 0.9583333333333334
+        }
+      },
+      "numeric_tolerance": {
+        "delta_tce": {
+          "ci_high": -1.2685185185185186,
+          "ci_level": 95.0,
+          "ci_low": -1.76875,
+          "n_replicates": 5000,
+          "point": -1.5185185185185186
+        },
+        "delta_trr": {
+          "ci_high": 0.2315789473684211,
+          "ci_level": 95.0,
+          "ci_low": 0.08510638297872342,
+          "n_replicates": 5000,
+          "point": 0.15625
+        },
+        "n_curves": 108,
+        "n_nontrivial": 96,
+        "tce_o": {
+          "ci_high": 1.7687499999999967,
+          "ci_level": 95.0,
+          "ci_low": 1.2685185185185186,
+          "n_replicates": 5000,
+          "point": 1.5185185185185186
+        },
+        "tce_r": {
+          "ci_high": 0.0,
+          "ci_level": 95.0,
+          "ci_low": 0.0,
+          "degenerate": true,
+          "n_replicates": 5000,
+          "note": "the bootstrap interval collapsed to a point; this reflects the resampling distribution of a constant statistic, not population uncertainty",
+          "point": 0.0
+        },
+        "trr_o": {
+          "ci_high": 0.9148936170212766,
+          "ci_level": 95.0,
+          "ci_low": 0.7684210526315789,
+          "n_replicates": 5000,
+          "point": 0.84375
+        },
+        "trr_r": {
+          "ci_high": 1.0,
+          "ci_level": 95.0,
+          "ci_low": 1.0,
+          "degenerate": true,
+          "n_replicates": 5000,
+          "note": "the bootstrap interval collapsed to a point; this reflects the resampling distribution of a constant statistic, not population uncertainty",
+          "point": 1.0
+        }
+      }
+    },
+    "immediate": {
+      "accuracy": {
+        "ci_high": 0.7866941015089163,
+        "ci_level": 95.0,
+        "ci_low": 0.7482767489711933,
+        "n_replicates": 5000,
+        "point": 0.7678326474622771
+      },
+      "brier": {
+        "ci_high": 0.24596156611310943,
+        "ci_level": 95.0,
+        "ci_low": 0.20851479809176846,
+        "n_replicates": 5000,
+        "point": 0.22683374650488405
+      },
+      "mean_reachable_count": {
+        "ci_high": 5.148148148148148,
+        "ci_level": 95.0,
+        "ci_low": 4.780864197530864,
+        "n_replicates": 5000,
+        "point": 4.962962962962963
+      },
+      "mean_tce": {
+        "ci_high": 3.626543209876543,
+        "ci_level": 95.0,
+        "ci_low": 3.123456790123457,
+        "n_replicates": 5000,
+        "point": 3.373456790123457
+      },
+      "trr_nontrivial": {
+        "ci_high": 0.5286243793870912,
+        "ci_level": 95.0,
+        "ci_low": 0.43109388327037895,
+        "n_replicates": 5000,
+        "point": 0.4791666666666667
+      },
+      "unreachable_fraction": {
+        "ci_high": 0.5689061167296211,
+        "ci_level": 95.0,
+        "ci_low": 0.4713756206129087,
+        "n_replicates": 5000,
+        "point": 0.5208333333333333
+      }
+    },
+    "paired": {
+      "delta_accuracy": {
+        "ci_high": 0.21707818930041156,
+        "ci_level": 95.0,
+        "ci_low": 0.17832647462277093,
+        "n_replicates": 5000,
+        "point": 0.19718792866941015
+      },
+      "delta_brier": {
+        "ci_high": -0.1737102871753734,
+        "ci_level": 95.0,
+        "ci_low": -0.2112017748921489,
+        "n_replicates": 5000,
+        "point": -0.19185438868236854
+      },
+      "delta_reachable_count": {
+        "ci_high": -0.30246913580246915,
+        "ci_level": 95.0,
+        "ci_low": -0.6882716049382716,
+        "n_replicates": 5000,
+        "point": -0.49074074074074076
+      },
+      "delta_tce": {
+        "ci_high": -1.6481481481481481,
+        "ci_level": 95.0,
+        "ci_low": -2.064814814814815,
+        "n_replicates": 5000,
+        "point": -1.8518518518518519
+      },
+      "delta_trr": {
+        "ci_high": 0.4715733888374961,
+        "ci_level": 95.0,
+        "ci_low": 0.3595850801930483,
+        "n_replicates": 5000,
+        "point": 0.4166666666666667
+      }
+    },
+    "reason_then_score": {
+      "accuracy": {
+        "ci_high": 0.9687928669410152,
+        "ci_level": 95.0,
+        "ci_low": 0.9612482853223594,
+        "n_replicates": 5000,
+        "point": 0.9650205761316873
+      },
+      "brier": {
+        "ci_high": 0.03875151679297407,
+        "ci_level": 95.0,
+        "ci_low": 0.03120706704344772,
+        "n_replicates": 5000,
+        "point": 0.034979357822515496
+      },
+      "mean_reachable_count": {
+        "ci_high": 4.614197530864198,
+        "ci_level": 95.0,
+        "ci_low": 4.339506172839506,
+        "n_replicates": 5000,
+        "point": 4.472222222222222
+      },
+      "mean_tce": {
+        "ci_high": 1.7037808641975298,
+        "ci_level": 95.0,
+        "ci_low": 1.339429012345679,
+        "n_replicates": 5000,
+        "point": 1.521604938271605
+      },
+      "trr_nontrivial": {
+        "ci_high": 0.926829268292683,
+        "ci_level": 95.0,
+        "ci_low": 0.8630052575728343,
+        "n_replicates": 5000,
+        "point": 0.8958333333333334
+      },
+      "unreachable_fraction": {
+        "ci_high": 0.1369947424271656,
+        "ci_level": 95.0,
+        "ci_low": 0.07317073170731703,
+        "n_replicates": 5000,
+        "point": 0.10416666666666663
+      }
+    }
+  },
+  "comparator_recovery": {
+    "accuracy": 0.7678326474622771,
+    "brier": 0.22683374650488405,
+    "checks": {
+      "per_artifact_rc_identical": true,
+      "per_artifact_reachability_identical": true,
+      "per_artifact_tce_identical": true
+    },
+    "mean_reachable_count": 4.962962962962963,
+    "mean_tce": 3.373456790123457,
+    "n_artifacts": 324,
+    "n_nontrivial": 288,
+    "status": "PASS",
+    "trr": 0.4791666666666667,
+    "unreachable_pct": 52.08333333333333
+  },
+  "completeness": {
+    "curve_exclusion_rule": "A curve is excluded from curve-level TCE/TRR if and only if one or more of its nine strictness levels lacks a valid reason-then-score margin. No exclusion depends on the value of any margin or on model performance.",
+    "excluded_artifact_ids": [],
+    "marker_failure_rate": 0.0,
+    "missing_levels_by_artifact": {},
+    "n_complete_curves": 324,
+    "n_excluded_curves": 0,
+    "premature_label_rate": 0.0,
+    "rows_attempted": 2916,
+    "rows_marker_reached": 2916,
+    "rows_premature_label": 0,
+    "rows_scored": 2916,
+    "rows_scoring_failures": 0,
+    "rows_truncated": 0,
+    "truncation_warning": false,
+    "truncation_warning_flag": null
+  },
+  "design": {
+    "condition_original": "immediate",
+    "condition_reasoning": "reason_then_score",
+    "intervention": "replacing immediate next-token A/B readout with an elicited reason-then-score protocol, holding model, revision, dataset, artifacts, formal thresholds and A/B semantics fixed",
+    "intervention_is_composite": "The protocol intervention jointly changes the evaluation instruction, the generation of an intermediate trace, the position at which A/B is scored, and the immediate-next-token versus conditional sequence-likelihood readout. The supported causal statement is the effect of the reason-then-score protocol, not the effect of reasoning itself.",
+    "protocol": "elicited_reason_then_score",
+    "protocol_rationale": "Qwen2.5-14B-Instruct has no thinking-only chat-template mechanism, so this ablation cannot use a native end-of-thinking boundary without inventing model behaviour that was never part of Qwen2.5. The model is instead given an explicit reasoning instruction and generates until a fixed preregistered final-answer marker. What is evaluated is therefore elicited reason-then-score, not native thinking, and the two must never be described as the same protocol."
+  },
+  "failure_decomposition": [
+    {
+      "condition": "immediate",
+      "n_nontrivial": 288,
+      "n_reachable": 138,
+      "n_strict_inversion": 147,
+      "n_tie_only": 3,
+      "n_unreachable": 150,
+      "strict_inversion_pct_of_unreachable": 98.0,
+      "tie_only_pct_of_unreachable": 2.0,
+      "unreachable_pct": 52.083333333333336
+    },
+    {
+      "condition": "reason_then_score",
+      "n_nontrivial": 288,
+      "n_reachable": 258,
+      "n_strict_inversion": 30,
+      "n_tie_only": 0,
+      "n_unreachable": 30,
+      "strict_inversion_pct_of_unreachable": 100.0,
+      "tie_only_pct_of_unreachable": 0.0,
+      "unreachable_pct": 10.416666666666666
+    }
+  ],
+  "family": [
+    {
+      "accuracy_o": 0.8292181069958849,
+      "accuracy_r": 0.9012345679012347,
+      "brier_o": 0.1671569116495206,
+      "brier_r": 0.09876523401367265,
+      "delta_tce": -0.37962962962962965,
+      "delta_trr": 0.38541666666666663,
+      "family": "coverage",
+      "mean_generated_tokens": 201.72736625514403,
+      "n_curves": 108,
+      "n_nontrivial": 96,
+      "tce_o": 4.888888888888889,
+      "tce_r": 4.5092592592592595,
+      "trr_o": 0.34375,
+      "trr_r": 0.7291666666666666,
+      "unreachable_pct_o": 65.625,
+      "unreachable_pct_r": 27.083333333333336
+    },
+    {
+      "accuracy_o": 0.6460905349794238,
+      "accuracy_r": 0.9938271604938272,
+      "brier_o": 0.3446505215362818,
+      "brier_r": 0.006172839453873793,
+      "delta_tce": -3.6574074074074074,
+      "delta_trr": 0.7083333333333334,
+      "family": "max_violation",
+      "mean_generated_tokens": 181.440329218107,
+      "n_curves": 108,
+      "n_nontrivial": 96,
+      "tce_o": 3.712962962962963,
+      "tce_r": 0.05555555555555555,
+      "trr_o": 0.25,
+      "trr_r": 0.9583333333333334,
+      "unreachable_pct_o": 75.0,
+      "unreachable_pct_r": 4.1666666666666625
+    },
+    {
+      "accuracy_o": 0.8281893004115226,
+      "accuracy_r": 1.0,
+      "brier_o": 0.16869380632884973,
+      "brier_r": 4.705338747403595e-19,
+      "delta_tce": -1.5185185185185186,
+      "delta_trr": 0.15625,
+      "family": "numeric_tolerance",
+      "mean_generated_tokens": 80.40329218106993,
+      "n_curves": 108,
+      "n_nontrivial": 96,
+      "tce_o": 1.5185185185185186,
+      "tce_r": 0.0,
+      "trr_o": 0.84375,
+      "trr_r": 1.0,
+      "unreachable_pct_o": 15.625,
+      "unreachable_pct_r": 0.0
+    }
+  ],
+  "generated_at": "2026-09-09T21:51:43+00:00",
+  "interpretation": {
+    "category": "increase",
+    "delta_trr": 0.4166666666666667,
+    "delta_trr_ci": [
+      0.3595850801930483,
+      0.4715733888374961
+    ],
+    "statement": "Elicited reason-then-score increases true-boundary reachability for the same Qwen2.5 judge.",
+    "unit_of_intervention": "The protocol intervention jointly changes the evaluation instruction, the generation of an intermediate trace, the position at which A/B is scored, and the immediate-next-token versus conditional sequence-likelihood readout. The supported causal statement is the effect of the reason-then-score protocol, not the effect of reasoning itself."
+  },
+  "model": {
+    "chat_template_matches_day3": true,
+    "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+    "config_sha256": "0f2085dbbe2ee251bd6a6a0797d84a6ce34436044d629aa3cba793b43d311a9e",
+    "dtype": "bfloat16",
+    "model_id": "Qwen/Qwen2.5-14B-Instruct",
+    "quantization": "none",
+    "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+    "revision_source": "artifacts/day3/model_provenance.json (frozen)",
+    "short_name": "Qwen2.5-14B",
+    "slug": "qwen2_5_14b_instruct",
+    "tokenizer_revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8"
+  },
+  "preregistration_frozen_at": "2026-09-09T21:38:03+00:00",
+  "preregistration_sha256": "43e9175b3717f493b58657e2d88e22d145bb769fd4a3ea51f054880acc6a40b2",
+  "primary": {
+    "delta_trr": {
+      "ci_high": 0.4715733888374961,
+      "ci_level": 95.0,
+      "ci_low": 0.3595850801930483,
+      "n_replicates": 5000,
+      "point": 0.4166666666666667
+    },
+    "exact_interval": {
+      "applies": false,
+      "clopper_pearson_high": 0.14535770581708277,
+      "clopper_pearson_low": 0.07139164439439143,
+      "level": 0.95,
+      "n_nontrivial": 288,
+      "n_unreachable": 30,
+      "observed_fraction": 0.10416666666666667,
+      "rule": "If the reason-then-score unreachable count is zero over all nontrivial curves, report the observed count out of N together with an exact two-sided 95% Clopper-Pearson interval for the unreachable probability, and lead with its upper bound. A bootstrap interval of [0, 0] must not be presented as population uncertainty; it is retained in machine artifacts for completeness only."
+    },
+    "n_nontrivial_curves": 288,
+    "trr_immediate": 0.4791666666666667,
+    "trr_reason_then_score": 0.8958333333333334,
+    "unreachable_pct_immediate": 52.08333333333333,
+    "unreachable_pct_reason_then_score": 10.416666666666663
+  },
+  "reasoning_length_associations": [
+    {
+      "interpretation": "descriptive association only; not causal",
+      "length_column": "mean_generated_tokens",
+      "n": 324,
+      "outcome": "tce_r",
+      "p_value": 2.696501237966497e-34,
+      "spearman_rho": 0.609190959890833
+    },
+    {
+      "interpretation": "descriptive association only; not causal",
+      "length_column": "mean_generated_tokens",
+      "n": 324,
+      "outcome": "reachable_r",
+      "p_value": 2.582218764780332e-07,
+      "spearman_rho": -0.28148248379264473
+    }
+  ],
+  "secondary": {
+    "accuracy_o": 0.7678326474622771,
+    "accuracy_r": 0.9650205761316873,
+    "brier_o": 0.22683374650488405,
+    "brier_r": 0.034979357822515496,
+    "generated_tokens": {
+      "max": 430.0,
+      "mean": 154.52366255144034,
+      "median": 148.0,
+      "min": 45.0,
+      "p05": 67.0,
+      "p95": 281.25
+    },
+    "mean_rc_o": 4.962962962962963,
+    "mean_rc_r": 4.472222222222222,
+    "mvm_r": 0.034336400205630384,
+    "mvr_practical_r": 0.03433641975308642,
+    "mvr_zero_r": 0.4486882716049383,
+    "prefix_record_rate_o": 0.37037037037037035,
+    "prefix_record_rate_r": 0.3090277777777778,
+    "rc_is_ten_o": 12,
+    "rc_is_ten_r": 0
+  },
+  "study": "FormalCRRC Qwen2.5 Reason-Then-Score Protocol Ablation",
+  "tce": {
+    "delta_tce": {
+      "ci_high": -1.6481481481481481,
+      "ci_level": 95.0,
+      "ci_low": -2.064814814814815,
+      "n_replicates": 5000,
+      "point": -1.8518518518518519
+    },
+    "immediate": 3.373456790123457,
+    "immediate_ci": [
+      3.123456790123457,
+      3.626543209876543
+    ],
+    "reason_then_score": 1.521604938271605,
+    "reason_then_score_ci": [
+      1.339429012345679,
+      1.7037808641975298
+    ]
+  }
+}

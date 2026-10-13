@@ -1,0 +1,300 @@
+{
+  "blocked": [],
+  "created_at": "2026-09-07T18:41:15+00:00",
+  "day1_outcomes_read": false,
+  "environment": {
+    "captured_at": "2026-09-07T18:41:15+00:00",
+    "hostname": "minipc",
+    "machine": "x86_64",
+    "packages": {
+      "accelerate": null,
+      "matplotlib": "3.11.1",
+      "numpy": "2.5.3",
+      "pandas": "3.0.5",
+      "pyarrow": "25.0.1",
+      "scipy": "1.18.1",
+      "tokenizers": null,
+      "torch": null,
+      "transformers": null
+    },
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python_implementation": "CPython",
+    "python_version": "3.12.3"
+  },
+  "experiment": "FormalCRRC Day 2",
+  "fitted_on": "CALIBRATION partition only",
+  "model": {
+    "objective": "argmin_alpha of the calibration-set logistic log-loss; equivalently the root of sum_i [sigma(M_i + alpha) - Y_i] = 0",
+    "primary": "global_intercept",
+    "primary_equation": "M(s) + alpha_J",
+    "secondary": "family_intercept",
+    "secondary_equation": "M(s) + alpha_{J,F}",
+    "slope": 1.0,
+    "solver": "newton_with_bisection_safeguard"
+  },
+  "parameters": {
+    "Qwen/Qwen2.5-14B-Instruct": {
+      "family": {
+        "coverage": {
+          "alpha": 20.234806552398595,
+          "converged": true,
+          "degenerate": false,
+          "iterations": 6,
+          "method": "newton_with_bisection_safeguard",
+          "n_positive": 540,
+          "n_rows": 972,
+          "residual": 2.9052316108391096e-12
+        },
+        "max_violation": {
+          "alpha": 21.436316619683627,
+          "converged": true,
+          "degenerate": false,
+          "iterations": 7,
+          "method": "newton_with_bisection_safeguard",
+          "n_positive": 540,
+          "n_rows": 972,
+          "residual": 6.488143355909415e-13
+        },
+        "numeric_tolerance": {
+          "alpha": -10.418205733166293,
+          "converged": true,
+          "degenerate": false,
+          "iterations": 6,
+          "method": "newton_with_bisection_safeguard",
+          "n_positive": 540,
+          "n_rows": 972,
+          "residual": 1.3322676295501878e-15
+        }
+      },
+      "fitted_on": {
+        "dataset_content_sha256": "7a0ad398c53adee98fdca8674f4dc967e1c2bbaf949b33f6afeeb4007ee8f191",
+        "n_artifacts": 324,
+        "n_rows": 2916,
+        "partition": "CAL",
+        "positive_label_rate": 0.5555555555555556
+      },
+      "global": {
+        "alpha": 16.074853570600958,
+        "converged": true,
+        "degenerate": false,
+        "iterations": 8,
+        "method": "newton_with_bisection_safeguard",
+        "n_positive": 1620,
+        "n_rows": 2916,
+        "residual": 3.2862601528904634e-14
+      },
+      "margin_summary": {
+        "mean": -3.1925582990397805,
+        "median": -10.25,
+        "p05": -30.375,
+        "p95": 33.125,
+        "sd": 23.65761351067799
+      },
+      "model_id": "Qwen/Qwen2.5-14B-Instruct",
+      "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+      "scoring_method": "single_token_next_logit",
+      "short_name": "Qwen2.5-14B",
+      "status": "FITTED"
+    },
+    "google/gemma-2-9b-it": {
+      "family": {
+        "coverage": {
+          "alpha": -7.447762562253351,
+          "converged": true,
+          "degenerate": false,
+          "iterations": 12,
+          "method": "newton_with_bisection_safeguard",
+          "n_positive": 540,
+          "n_rows": 972,
+          "residual": 4.3076653355456074e-14
+        },
+        "max_violation": {
+          "alpha": 8.977627023220734,
+          "converged": true,
+          "degenerate": false,
+          "iterations": 11,
+          "method": "newton_with_bisection_safeguard",
+          "n_positive": 540,
+          "n_rows": 972,
+          "residual": 1.376676550535194e-13
+        },
+        "numeric_tolerance": {
+          "alpha": 6.022307796644005,
+          "converged": true,
+          "degenerate": false,
+          "iterations": 9,
+          "method": "newton_with_bisection_safeguard",
+          "n_positive": 540,
+          "n_rows": 972,
+          "residual": 3.197442310920451e-14
+        }
+      },
+      "fitted_on": {
+        "dataset_content_sha256": "7a0ad398c53adee98fdca8674f4dc967e1c2bbaf949b33f6afeeb4007ee8f191",
+        "n_artifacts": 324,
+        "n_rows": 2916,
+        "partition": "CAL",
+        "positive_label_rate": 0.5555555555555556
+      },
+      "global": {
+        "alpha": 6.532568887224016,
+        "converged": true,
+        "degenerate": false,
+        "iterations": 8,
+        "method": "newton_with_bisection_safeguard",
+        "n_positive": 1620,
+        "n_rows": 2916,
+        "residual": 9.769962616701378e-15
+      },
+      "margin_summary": {
+        "mean": -1.4457090192043895,
+        "median": -6.125,
+        "p05": -9.75,
+        "p95": 10.4375,
+        "sd": 8.12918126143421
+      },
+      "model_id": "google/gemma-2-9b-it",
+      "revision": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+      "scoring_method": "single_token_next_logit",
+      "short_name": "Gemma-2-9B",
+      "status": "FITTED"
+    },
+    "meta-llama/Llama-3.1-8B-Instruct": {
+      "family": {
+        "coverage": {
+          "alpha": 0.901271021116903,
+          "converged": true,
+          "degenerate": false,
+          "iterations": 5,
+          "method": "newton_with_bisection_safeguard",
+          "n_positive": 540,
+          "n_rows": 972,
+          "residual": -1.4210854715202004e-14
+        },
+        "max_violation": {
+          "alpha": 2.890919262484533,
+          "converged": true,
+          "degenerate": false,
+          "iterations": 7,
+          "method": "newton_with_bisection_safeguard",
+          "n_positive": 540,
+          "n_rows": 972,
+          "residual": -4.440892098500626e-14
+        },
+        "numeric_tolerance": {
+          "alpha": 2.8136798652961734,
+          "converged": true,
+          "degenerate": false,
+          "iterations": 6,
+          "method": "newton_with_bisection_safeguard",
+          "n_positive": 540,
+          "n_rows": 972,
+          "residual": -4.884981308350689e-14
+        }
+      },
+      "fitted_on": {
+        "dataset_content_sha256": "7a0ad398c53adee98fdca8674f4dc967e1c2bbaf949b33f6afeeb4007ee8f191",
+        "n_artifacts": 324,
+        "n_rows": 2916,
+        "partition": "CAL",
+        "positive_label_rate": 0.5555555555555556
+      },
+      "global": {
+        "alpha": 2.317622335915507,
+        "converged": true,
+        "degenerate": false,
+        "iterations": 6,
+        "method": "newton_with_bisection_safeguard",
+        "n_positive": 1620,
+        "n_rows": 2916,
+        "residual": -7.460698725481052e-14
+      },
+      "margin_summary": {
+        "mean": -1.9216606652949246,
+        "median": -2.25,
+        "p05": -3.75,
+        "p95": 0.875,
+        "sd": 1.4781316308686374
+      },
+      "model_id": "meta-llama/Llama-3.1-8B-Instruct",
+      "revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+      "scoring_method": "single_token_next_logit",
+      "short_name": "Llama-3.1-8B",
+      "status": "FITTED"
+    },
+    "mistralai/Mistral-7B-Instruct-v0.3": {
+      "family": {
+        "coverage": {
+          "alpha": -11.218852100584781,
+          "converged": true,
+          "degenerate": false,
+          "iterations": 8,
+          "method": "newton_with_bisection_safeguard",
+          "n_positive": 540,
+          "n_rows": 972,
+          "residual": -2.042810365310288e-14
+        },
+        "max_violation": {
+          "alpha": 2.4215180515200636,
+          "converged": true,
+          "degenerate": false,
+          "iterations": 5,
+          "method": "newton_with_bisection_safeguard",
+          "n_positive": 540,
+          "n_rows": 972,
+          "residual": 7.993605777301127e-15
+        },
+        "numeric_tolerance": {
+          "alpha": -0.3652154118472066,
+          "converged": true,
+          "degenerate": false,
+          "iterations": 4,
+          "method": "newton_with_bisection_safeguard",
+          "n_positive": 540,
+          "n_rows": 972,
+          "residual": -2.220446049250313e-15
+        }
+      },
+      "fitted_on": {
+        "dataset_content_sha256": "7a0ad398c53adee98fdca8674f4dc967e1c2bbaf949b33f6afeeb4007ee8f191",
+        "n_artifacts": 324,
+        "n_rows": 2916,
+        "partition": "CAL",
+        "positive_label_rate": 0.5555555555555556
+      },
+      "global": {
+        "alpha": -0.6097233271590266,
+        "converged": true,
+        "degenerate": false,
+        "iterations": 5,
+        "method": "newton_with_bisection_safeguard",
+        "n_positive": 1620,
+        "n_rows": 2916,
+        "residual": -2.3092638912203256e-14
+      },
+      "margin_summary": {
+        "mean": 3.454072180435327,
+        "median": 1.375,
+        "p05": -7.1953125,
+        "p95": 14.478515625,
+        "sd": 7.463873036066783
+      },
+      "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
+      "revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+      "scoring_method": "single_token_next_logit",
+      "short_name": "Mistral-7B",
+      "status": "FITTED"
+    }
+  },
+  "preregistration_sha256": "cf742630bf5365ed12ce4770a5218e7f5b34e0d6bff2cb44d75d2d556bd3fba0",
+  "source_manifest": {
+    "files": {
+      "scripts/fit_day2_bias.py": "8f8666aecd18a978b9c24ea219dcae49d5018e55c8a79ac17d62c659d9fc2b23",
+      "src/formalcrrc/day2.py": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
+      "src/formalcrrc/day2_config.py": "c2a34bf4ff5f3c2d741dd3ed43a2bd23daee3780d717d5b680c72e89c79c7c71"
+    },
+    "tree_sha256": "23dff294a0edb18114d7355027d0ae71d400dd0be0c28da2af283836c0e77afd"
+  },
+  "stage": "calibration fitting (Phase G)",
+  "test_partition_read": false
+}
