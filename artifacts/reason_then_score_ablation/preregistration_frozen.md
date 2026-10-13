@@ -1,15 +1,15 @@
 # FormalCRRC Qwen2.5 Reason-Then-Score Protocol Ablation
 
 **Study type:** Post-study preregistered within-model protocol ablation
-**Relationship to prior work:** Follow-up to FormalCRRC Day 3 and the reasoning-capable external-anchor study
+**Relationship to prior work:** Follow-up to FormalCRRC s 3 and the reasoning-capable external-anchor study
 **Human subjects:** None
 **New model inference:** Yes
-**Dataset:** Frozen FormalCRRC Day-3 TEST partition, seed 45
+**Dataset:** Frozen FormalCRRC s-3 TEST partition, seed 45
 **Ablation model:** `Qwen/Qwen2.5-14B-Instruct`
-**Comparator:** Frozen Day-3 results for the exact same Qwen2.5-14B model/revision under immediate next-token A/B scoring
+**Comparator:** Frozen s-3 results for the exact same Qwen2.5-14B model/revision under immediate next-token A/B scoring
 **New protocol:** Elicited reason-then-score
 **Quantization:** None
-**Precision:** BF16, matching Day 3
+**Precision:** BF16, matching s 3
 **Preregistration freeze timestamp:** `2026-09-09T21:38:03+00:00`
 **Preregistration SHA-256:** `43e9175b3717f493b58657e2d88e22d145bb769fd4a3ea51f054880acc6a40b2`
 **Exact model revision:** `cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8`
@@ -20,7 +20,7 @@
 
 ## 1. Motivation
 
-FormalCRRC Day 3 evaluated `Qwen/Qwen2.5-14B-Instruct` using an immediate two-label next-token margin. Under that protocol, Qwen2.5 had:
+FormalCRRC s 3 evaluated `Qwen/Qwen2.5-14B-Instruct` using an immediate two-label next-token margin. Under that protocol, Qwen2.5 had:
 
 $$
 TCE = 3.373
@@ -54,13 +54,13 @@ $$
 
 with 0/288 nontrivial true boundaries unreachable.
 
-The anchor differs from the original Day-3 panel in model family, scale, training, and inference/readout procedure. The anchor therefore cannot determine whether the large difference in reachability arises primarily from model capability or from the reason-then-score protocol.
+The anchor differs from the original s-3 panel in model family, scale, training, and inference/readout procedure. The anchor therefore cannot determine whether the large difference in reachability arises primarily from model capability or from the reason-then-score protocol.
 
 This experiment attacks that confound directly by holding the model and evaluation dataset fixed.
 
 The narrow question is:
 
-> For the exact same Qwen2.5-14B model and frozen Day-3 artifacts, does inserting an explicit reasoning stage before the final A/B likelihood readout materially change boundary localization and boundary reachability?
+> For the exact same Qwen2.5-14B model and frozen s-3 artifacts, does inserting an explicit reasoning stage before the final A/B likelihood readout materially change boundary localization and boundary reachability?
 
 ---
 
@@ -68,7 +68,7 @@ The narrow question is:
 
 The study compares two protocols for the same model.
 
-### Condition O — frozen original Day-3 protocol
+### Condition O — frozen original s-3 protocol
 
 Model:
 
@@ -84,9 +84,9 @@ $$
 M_x^O(s)=S_A-S_B.
 $$
 
-These scores already exist in the frozen Day-3 scientific record and will be read only.
+These scores already exist in the frozen s-3 scientific record and will be read only.
 
-No original Day-3 inference will be rerun.
+No original s-3 inference will be rerun.
 
 ### Condition R — new reason-then-score protocol
 
@@ -128,7 +128,7 @@ The protocol change is intentionally composite: it includes explicit reasoning e
 
 ## 3. Dataset
 
-Use the complete frozen Day-3 TEST partition, seed 45.
+Use the complete frozen s-3 TEST partition, seed 45.
 
 Expected design:
 
@@ -142,7 +142,7 @@ Expected design:
 
 No subsampling is permitted.
 
-Every new study row must pair exactly to one frozen Day-3 Qwen2.5 row.
+Every new study row must pair exactly to one frozen s-3 Qwen2.5 row.
 
 ---
 
@@ -192,7 +192,7 @@ Formal labels and true crossings must be independently recomputed from primitive
 
 ## 5. Model
 
-The exact Day-3 Qwen2.5 model will be reused:
+The exact s-3 Qwen2.5 model will be reused:
 
 `Qwen/Qwen2.5-14B-Instruct`
 
@@ -205,7 +205,7 @@ The exact:
 * attention implementation where relevant,
 * library environment,
 
-must be recovered from frozen Day-3 provenance.
+must be recovered from frozen s-3 provenance.
 
 No model substitution is permitted.
 
@@ -213,9 +213,9 @@ No quantization is permitted.
 
 No fine-tuning, LoRA, adapters, or parameter updates are permitted.
 
-Use BF16 exactly as in Day 3.
+Use BF16 exactly as in s 3.
 
-If the frozen Day-3 revision cannot be loaded exactly, the study stops.
+If the frozen s-3 revision cannot be loaded exactly, the study stops.
 
 ---
 
@@ -239,9 +239,9 @@ This difference must remain explicit in all reporting.
 
 # 7. Reason-then-score prompt
 
-The frozen Day-3 prompt is preserved as closely as possible.
+The frozen s-3 prompt is preserved as closely as possible.
 
-The original Day-3 semantic content is:
+The original s-3 semantic content is:
 
 ```text
 You are evaluating exactly one criterion for one candidate response.
@@ -442,7 +442,7 @@ Before preregistration freeze, using only synthetic non-FormalCRRC prompts, veri
 10. generation parameters;
 11. row-seed function.
 
-Synthetic preflight must not inspect any Day-3 study result.
+Synthetic preflight must not inspect any s-3 study result.
 
 ---
 
@@ -601,7 +601,7 @@ Report:
 * strict-inversion-present count,
 * tie-only count.
 
-Apply the same classification read-only to frozen original Qwen2.5 Day-3 margins for contextual comparison.
+Apply the same classification read-only to frozen original Qwen2.5 s-3 margins for contextual comparison.
 
 This is a prespecified diagnostic designed to distinguish resolution/flatness failures from strict ordering inversions.
 
@@ -699,7 +699,7 @@ They are not competitive learned baselines.
 
 Report, separately and descriptively:
 
-### Qwen2.5 immediate Day 3
+### Qwen2.5 immediate s 3
 
 * immediate next-token scoring,
 * TCE = 3.373,
@@ -821,7 +821,7 @@ If Qwen2.5 reason-then-score approaches the Qwen3 anchor's reachability:
 
 > The previous panel-versus-anchor difference cannot be attributed primarily to model capability alone; the inference/readout protocol materially contributes.
 
-If Qwen2.5 remains close to its original Day-3 reachability:
+If Qwen2.5 remains close to its original s-3 reachability:
 
 > Applying elicited reason-then-score to Qwen2.5 does not reproduce the Qwen3 anchor's complete reachability, strengthening the interpretation that model capability/training differences contribute materially to the anchor result.
 
@@ -856,7 +856,7 @@ not:
 
 # 23. Prompt-related limitation
 
-The reason-then-score prompt necessarily differs from the frozen Day-3 prompt because explicit reasoning must be elicited.
+The reason-then-score prompt necessarily differs from the frozen s-3 prompt because explicit reasoning must be elicited.
 
 This is the intended protocol intervention.
 
@@ -903,12 +903,12 @@ Before first study inference:
 1. verify the current git branch;
 2. record git commit;
 3. fingerprint all previously protected scientific artifacts;
-4. verify Days 1-3 integrity;
+4. verify ss 1-3 integrity;
 5. verify baseline-audit integrity;
 6. verify step-proposition integrity;
 7. verify label-swap integrity;
 8. verify reasoning-anchor integrity;
-9. record the frozen Day-3 dataset hash;
+9. record the frozen s-3 dataset hash;
 10. record exact Qwen2.5 model/tokenizer revisions;
 11. freeze the reasoning prompt and marker;
 12. freeze candidate continuations;
@@ -932,15 +932,15 @@ Implement at minimum:
 
 ### A. Qwen2.5 revision continuity
 
-Verify exact Day-3 model and tokenizer revisions.
+Verify exact s-3 model and tokenizer revisions.
 
 ### B. Frozen dataset identity
 
-Verify exact Day-3 TEST dataset.
+Verify exact s-3 TEST dataset.
 
 ### C. Prompt construction
 
-Verify only the preregistered reasoning scaffold differs from the frozen Day-3 semantic prompt.
+Verify only the preregistered reasoning scaffold differs from the frozen s-3 semantic prompt.
 
 ### D. Marker tokenization
 
@@ -982,7 +982,7 @@ First \(M<0\), otherwise 9.
 
 ### L. Strict prefix record
 
-Day-3 reachability rule reproduced exactly.
+s-3 reachability rule reproduced exactly.
 
 ### M. Tie-vs-inversion classification
 
@@ -990,7 +990,7 @@ Synthetic examples distinguish tie-only and strict-inversion failure.
 
 ### N. Frozen original Qwen2.5 recovery
 
-Original Qwen2.5 Day-3 TCE/TRR reproduce exactly from frozen scores.
+Original Qwen2.5 s-3 TCE/TRR reproduce exactly from frozen scores.
 
 ### O. Frozen-file integrity
 
@@ -1078,7 +1078,7 @@ Columns:
 
 Rows:
 
-* Qwen2.5 immediate Day 3
+* Qwen2.5 immediate s 3
 * Qwen2.5 reason-then-score
 
 ## Table B — paired protocol effects
@@ -1102,7 +1102,7 @@ Include:
 
 Rows:
 
-* Immediate Day 3
+* Immediate s 3
 * Reason-then-score
 
 Columns:
@@ -1191,7 +1191,7 @@ and figures, if needed, under:
 
 `figures/reason_then_score_ablation/`.
 
-Do not alter existing Day-3 or reasoning-anchor artifacts.
+Do not alter existing s-3 or reasoning-anchor artifacts.
 
 ---
 

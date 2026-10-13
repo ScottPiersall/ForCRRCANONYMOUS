@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-"""Day-3 integrity verification and manifest (Phase J).
+"""s-3 integrity verification and manifest (Phase J).
 
-Re-verifies that Days 1 and 2 are untouched, that the Day-3 dataset still hashes
+Re-verifies that ss 1 and 2 are untouched, that the s-3 dataset still hashes
 to its manifest, that every judge's raw scores are complete and well formed,
 that the reachability theorem still agrees with independent enumeration, and
 that the oracle nesting inequality holds.
@@ -9,8 +9,8 @@ that the oracle nesting inequality holds.
 Figures are hashed individually and the combined digest refuses an empty file
 list. The results document is generated after this manifest, not before it.
 
-Writes ``artifacts/day3/integrity_manifest.json`` and, with ``--final``,
-``artifacts/day3/final_console_block.txt``.
+Writes ``artifacts/s3/integrity_manifest.json`` and, with ``--final``,
+``artifacts/s3/final_console_block.txt``.
 """
 
 from __future__ import annotations
@@ -26,7 +26,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from formalcrrc import dataset as ds  # noqa: E402
-from formalcrrc import day3, day3_config as d3c, prompts, provenance  # noqa: E402
+from formalcrrc import s3, s3_config as d3c, prompts, provenance  # noqa: E402
 from formalcrrc.config import (  # noqa: E402
     FAMILIES,
     MODEL_IDS,
@@ -39,27 +39,27 @@ from formalcrrc.config import (  # noqa: E402
 
 
 def check_priors(root: Path) -> dict:
-    """Days 1 and 2 must be exactly as Day 3 found them."""
+    """ss 1 and 2 must be exactly as s 3 found them."""
     manifest_path = root / d3c.PRIOR_MANIFEST_PATH
     if not manifest_path.is_file():
         return {"status": "FAIL", "reason": "prior fingerprint missing"}
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    verification = day3.verify_prior_manifest(manifest, root)
+    verification = s3.verify_prior_manifest(manifest, root)
     rebuilt = ds.dataset_content_hash(ds.build_dataset())
     return {
         "status": (
             "PASS"
             if verification["status"] == "PASS"
-            and rebuilt == d3c.DAY1_DATASET_CONTENT_SHA256
+            and rebuilt == d3c.s1_DATASET_CONTENT_SHA256
             else "FAIL"
         ),
         "n_files_fingerprinted": manifest["n_files"],
         "combined_sha256": manifest["combined_sha256"],
-        "day1": verification["day1"],
-        "day2": verification["day2"],
+        "s1": verification["s1"],
+        "s2": verification["s2"],
         "added": verification["added"],
-        "day1_dataset_reproduces": rebuilt == d3c.DAY1_DATASET_CONTENT_SHA256,
-        "day1_dataset_content_sha256": rebuilt,
+        "s1_dataset_reproduces": rebuilt == d3c.s1_DATASET_CONTENT_SHA256,
+        "s1_dataset_content_sha256": rebuilt,
     }
 
 
@@ -223,7 +223,7 @@ def hash_figures(root: Path) -> dict:
         "status": "PASS",
         "n_files": len(files),
         "files": files,
-        "combined_sha256": day3._combined(files),
+        "combined_sha256": s3._combined(files),
         "definition": (
             "sha256 over newline-joined '<repo-relative path>:<sha256>' entries, "
             "sorted by path; an empty list is refused"
@@ -265,7 +265,7 @@ def build_manifest(root: Path) -> dict:
 
     return {
         "created_at": provenance.utc_now(),
-        "experiment": "FormalCRRC Day 3",
+        "experiment": "FormalCRRC s 3",
         "prior_immutability": check_priors(root),
         "preregistration": preregistration,
         "dataset": check_dataset(root),
@@ -284,9 +284,9 @@ def build_manifest(root: Path) -> dict:
         "files": provenance.hash_paths(
             {
                 "prior_experiments_manifest": d3c.PRIOR_MANIFEST_PATH,
-                "day3_rationale": "docs/DAY3_RATIONALE.md",
-                "day3_novelty_boundaries": "docs/NOVELTY_BOUNDARIES_DAY3.md",
-                "day3_preregistration_doc": "docs/PREREGISTRATION_DAY3.md",
+                "s3_rationale": "docs/s3_RATIONALE.md",
+                "s3_novelty_boundaries": "docs/NOVELTY_BOUNDARIES_s3.md",
+                "s3_preregistration_doc": "docs/PREREGISTRATION_s3.md",
                 "preregistration": d3c.PREREG_JSON_PATH,
                 "preregistration_checksum": d3c.PREREG_SHA_PATH,
                 "test_dataset": d3c.DATASET_PATH,
@@ -300,7 +300,7 @@ def build_manifest(root: Path) -> dict:
                 "metrics_by_artifact": d3c.METRICS_PATH,
                 "bootstrap_results": d3c.BOOTSTRAP_PATH,
                 "summary": d3c.SUMMARY_PATH,
-                "results_document": "docs/RESULTS_DAY3.md",
+                "results_document": "docs/RESULTS_s3.md",
             },
             root=root,
         ),
@@ -332,15 +332,15 @@ def render_console_block(root: Path, manifest: dict) -> str:
     prompt_overlap = sum(disjoint.get("rendered_prompt_overlap", {}).values())
 
     lines = [
-        "FORMALCRRC DAY 3",
+        "FORMALCRRC s 3",
         "Translation Limits of Threshold-Response Curves",
         "",
         "PRIOR EXPERIMENT IMMUTABILITY:",
-        f"  Day 1:                    {priors.get('day1', {}).get('status', '--')}",
-        f"  Day 2:                    {priors.get('day2', {}).get('status', '--')}",
+        f"  s 1:                    {priors.get('s1', {}).get('status', '--')}",
+        f"  s 2:                    {priors.get('s2', {}).get('status', '--')}",
         f"  files fingerprinted:      {priors.get('n_files_fingerprinted', '--')}",
         "",
-        "DAY-3 DATA:",
+        "s-3 DATA:",
         f"  artifacts:                {N_ARTIFACTS}",
         f"  thresholds/artifact:      {N_STRICTNESS}",
         f"  pairs/judge:              {N_ROWS}",
@@ -404,7 +404,7 @@ def render_console_block(root: Path, manifest: dict) -> str:
         f"FIGURES HASHED:            {manifest['figures']['n_files']} "
         f"({manifest['figures']['status']})",
         "",
-        f"DAY-3 ANALYSIS:            {'COMPLETE' if models else 'BLOCKED'}",
+        f"s-3 ANALYSIS:            {'COMPLETE' if models else 'BLOCKED'}",
         "",
         "No prior scientific outcome modified.",
         "No human labels used.",
@@ -413,7 +413,7 @@ def render_console_block(root: Path, manifest: dict) -> str:
         "No model calibration proposed for deployment.",
         "No curve shape modified.",
         "No outcome-driven tuning performed.",
-        "No Day-4 experiment started.",
+        "No s-4 experiment started.",
         "",
     ]
     return "\n".join(lines)

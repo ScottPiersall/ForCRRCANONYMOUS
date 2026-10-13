@@ -36,7 +36,7 @@
     "python_implementation": "CPython",
     "python_version": "3.11.16"
   },
-  "experiment": "FormalCRRC Day 2",
+  "experiment": "FormalCRRC s 2",
   "failures": [],
   "finished_at": "2026-09-07T18:31:12+00:00",
   "label_tokenization": {
@@ -76,9 +76,9 @@
   },
   "source_manifest": {
     "files": {
-      "scripts/run_day2_inference.py": "6f30f5da5c11d5e8144fb475d01491f79bb777328a556e0192089ddc11c94835",
+      "scripts/run_s2_inference.py": "6f30f5da5c11d5e8144fb475d01491f79bb777328a556e0192089ddc11c94835",
       "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
-      "src/formalcrrc/day2_config.py": "c2a34bf4ff5f3c2d741dd3ed43a2bd23daee3780d717d5b680c72e89c79c7c71",
+      "src/formalcrrc/s2_config.py": "c2a34bf4ff5f3c2d741dd3ed43a2bd23daee3780d717d5b680c72e89c79c7c71",
       "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4",
       "src/formalcrrc/scoring.py": "e9dea77babcb60820ad679226d2d826265fe0d844948163296c71be56510c8d4"
     },

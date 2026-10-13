@@ -1,19 +1,19 @@
 #!/usr/bin/env python
-"""Generate and freeze the Day-2 CALIBRATION and TEST partitions (Phase C).
+"""Generate and freeze the s-2 CALIBRATION and TEST partitions (Phase C).
 
 Two new partitions of 324 artifacts x 9 thresholds each, drawn from the same
-data-generating process as Day 1 with master seeds 43 and 44. Neither reuses a
-Day-1 artifact.
+data-generating process as s 1 with master seeds 43 and 44. Neither reuses a
+s-1 artifact.
 
 Family C draws an integer target from a bounded range, so independent draws can
 coincide. Generation therefore carries a forbidden set of (target, reported)
-pairs -- Day 1's, then Day 1's plus calibration's -- so that no evaluated item is
-shared between Day 1, CALIBRATION and TEST. Families A and B need no such rule:
+pairs -- s 1's, then s 1's plus calibration's -- so that no evaluated item is
+shared between s 1, CALIBRATION and TEST. Families A and B need no such rule:
 their marker pools make a collision astronomically unlikely, and the observed
 overlap is zero.
 
 Writes the two datasets, their prompt manifests with frozen inference orders,
-and a manifest per partition. Runs before any Day-2 model is loaded.
+and a manifest per partition. Runs before any s-2 model is loaded.
 """
 
 from __future__ import annotations
@@ -29,7 +29,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from formalcrrc import dataset as ds  # noqa: E402
-from formalcrrc import day2_config as d2c  # noqa: E402
+from formalcrrc import s2_config as d2c  # noqa: E402
 from formalcrrc import predicates, prompts, provenance  # noqa: E402
 from formalcrrc.config import (  # noqa: E402
     FAMILIES,
@@ -58,7 +58,7 @@ def family_c_pairs(frame: pd.DataFrame) -> frozenset[tuple[int, int]]:
 
 
 def assert_partition_structure(frame: pd.DataFrame, partition: str) -> None:
-    """Every structural invariant a Day-2 partition must satisfy on its own."""
+    """Every structural invariant a s-2 partition must satisfy on its own."""
     label = f"[{partition}]"
     assert len(frame) == N_ROWS, f"{label} expected {N_ROWS} rows, got {len(frame)}"
     assert frame["artifact_id"].nunique() == N_ARTIFACTS, f"{label} artifact count"
@@ -124,7 +124,7 @@ def rendered_prompts(frame: pd.DataFrame) -> set[str]:
 
 
 def cross_partition_report(
-    calibration: pd.DataFrame, test: pd.DataFrame, day1: pd.DataFrame
+    calibration: pd.DataFrame, test: pd.DataFrame, s1: pd.DataFrame
 ) -> dict:
     """Overlap between the three partitions, asserted where it must be zero."""
 
@@ -136,12 +136,12 @@ def cross_partition_report(
         return set(subset.drop_duplicates("artifact_id")["candidate_sha256"])
 
     pairs = {
-        "day1": family_c_pairs(day1),
+        "s1": family_c_pairs(s1),
         "cal": family_c_pairs(calibration),
         "test": family_c_pairs(test),
     }
     prompt_sets = {
-        "day1": rendered_prompts(day1),
+        "s1": rendered_prompts(s1),
         "cal": rendered_prompts(calibration),
         "test": rendered_prompts(test),
     }
@@ -149,29 +149,29 @@ def cross_partition_report(
     report = {
         "artifact_id_overlap": {
             "cal_vs_test": len(artifacts(calibration) & artifacts(test)),
-            "cal_vs_day1": len(artifacts(calibration) & artifacts(day1)),
-            "test_vs_day1": len(artifacts(test) & artifacts(day1)),
+            "cal_vs_s1": len(artifacts(calibration) & artifacts(s1)),
+            "test_vs_s1": len(artifacts(test) & artifacts(s1)),
         },
         "rendered_prompt_overlap": {
             "cal_vs_test": len(prompt_sets["cal"] & prompt_sets["test"]),
-            "cal_vs_day1": len(prompt_sets["cal"] & prompt_sets["day1"]),
-            "test_vs_day1": len(prompt_sets["test"] & prompt_sets["day1"]),
+            "cal_vs_s1": len(prompt_sets["cal"] & prompt_sets["s1"]),
+            "test_vs_s1": len(prompt_sets["test"] & prompt_sets["s1"]),
         },
         "family_c_target_pair_overlap": {
             "cal_vs_test": len(pairs["cal"] & pairs["test"]),
-            "cal_vs_day1": len(pairs["cal"] & pairs["day1"]),
-            "test_vs_day1": len(pairs["test"] & pairs["day1"]),
+            "cal_vs_s1": len(pairs["cal"] & pairs["s1"]),
+            "test_vs_s1": len(pairs["test"] & pairs["s1"]),
         },
         "candidate_response_overlap_by_family": {
             family: {
                 "cal_vs_test": len(
                     candidates(calibration, family) & candidates(test, family)
                 ),
-                "cal_vs_day1": len(
-                    candidates(calibration, family) & candidates(day1, family)
+                "cal_vs_s1": len(
+                    candidates(calibration, family) & candidates(s1, family)
                 ),
-                "test_vs_day1": len(
-                    candidates(test, family) & candidates(day1, family)
+                "test_vs_s1": len(
+                    candidates(test, family) & candidates(s1, family)
                 ),
             }
             for family in FAMILIES
@@ -241,7 +241,7 @@ def build_manifest(
 ) -> dict:
     return {
         "created_at": provenance.utc_now(),
-        "experiment": "FormalCRRC Day 2",
+        "experiment": "FormalCRRC s 2",
         "partition": partition,
         "role": (
             "intercept fitting only"
@@ -278,8 +278,8 @@ def build_manifest(
                 "src/formalcrrc/predicates.py",
                 "src/formalcrrc/dataset.py",
                 "src/formalcrrc/prompts.py",
-                "src/formalcrrc/day2_config.py",
-                "scripts/generate_day2_datasets.py",
+                "src/formalcrrc/s2_config.py",
+                "scripts/generate_s2_datasets.py",
             ],
             root=root,
         ),
@@ -293,20 +293,20 @@ def main() -> int:
     args = parser.parse_args()
     root = Path(args.root)
 
-    print("rebuilding Day-1 dataset for the forbidden-pair set ...", flush=True)
-    day1 = ds.build_dataset()
-    day1_hash = ds.dataset_content_hash(day1)
-    if day1_hash != d2c.DAY1_DATASET_CONTENT_SHA256:
+    print("rebuilding s-1 dataset for the forbidden-pair set ...", flush=True)
+    s1 = ds.build_dataset()
+    s1_hash = ds.dataset_content_hash(s1)
+    if s1_hash != d2c.s1_DATASET_CONTENT_SHA256:
         print(
-            "ABORT: Day-1 dataset no longer reproduces its frozen content hash\n"
-            f"  expected {d2c.DAY1_DATASET_CONTENT_SHA256}\n"
-            f"  got      {day1_hash}",
+            "ABORT: s-1 dataset no longer reproduces its frozen content hash\n"
+            f"  expected {d2c.s1_DATASET_CONTENT_SHA256}\n"
+            f"  got      {s1_hash}",
             flush=True,
         )
         return 2
-    print(f"Day-1 content hash reproduced: {day1_hash}", flush=True)
+    print(f"s-1 content hash reproduced: {s1_hash}", flush=True)
 
-    forbidden = family_c_pairs(day1)
+    forbidden = family_c_pairs(s1)
     frames: dict[str, pd.DataFrame] = {}
     prompt_frames: dict[str, pd.DataFrame] = {}
 
@@ -335,7 +335,7 @@ def main() -> int:
 
     calibration = frames[d2c.PARTITION_CALIBRATION]
     test = frames[d2c.PARTITION_TEST]
-    cross = cross_partition_report(calibration, test, day1)
+    cross = cross_partition_report(calibration, test, s1)
 
     for partition, frame in frames.items():
         leakage = leakage_checks(frame, partition)

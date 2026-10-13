@@ -6,9 +6,9 @@ console carries progress, failures, timing and memory, so that the 7B run cannot
 inform the 32B run or the frozen analysis.
 
 The scoring path is the frozen immediate-readout implementation, reused without
-modification: the Day-3 model loader, ``scoring.render_chat_prompt`` and
+modification: the s-3 model loader, ``scoring.render_chat_prompt`` and
 ``scoring.score_prompt``, one forward pass per rubric condition, batch size 1,
-in the frozen Day-3 inference order.
+in the frozen s-3 inference order.
 
 Fails closed unless the preregistration is frozen and verified, the S3 dataset
 and prompt manifest match their manifest, the protocol-defining source files are
@@ -36,7 +36,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from formalcrrc import day3_config as d3c  # noqa: E402
+from formalcrrc import s3_config as d3c  # noqa: E402
 from formalcrrc import prompts, provenance, scoring  # noqa: E402
 from formalcrrc import qwen_scale as qs  # noqa: E402
 from formalcrrc import qwen_scale_config as qc  # noqa: E402
@@ -68,7 +68,7 @@ PROTOCOL_SOURCE_PATHS = (
     "src/formalcrrc/scoring.py",
     "src/formalcrrc/qwen_scale_config.py",
     "scripts/run_qwen_scale_inference.py",
-    "scripts/run_day3_inference.py",
+    "scripts/run_s3_inference.py",
     "src/formalcrrc/qwen_scale.py",
 )
 
@@ -220,7 +220,7 @@ def main() -> int:
     print("loading model ...", flush=True)
 
     import torch
-    from run_day3_inference import load_model
+    from run_s3_inference import load_model
 
     torch.cuda.reset_peak_memory_stats()
     tokenizer, model = load_model(model_id, revision, token, args.cache_dir)

@@ -167,7 +167,7 @@ def main() -> int:
             flush=True,
         )
 
-    out = root / "artifacts/day1/label_token_check.json"
+    out = root / "artifacts/s1/label_token_check.json"
     provenance.write_json(
         out,
         {
@@ -178,7 +178,7 @@ def main() -> int:
             "all_ok": ok,
         },
     )
-    print(f"\nwrote artifacts/day1/label_token_check.json  all_ok={ok}", flush=True)
+    print(f"\nwrote artifacts/s1/label_token_check.json  all_ok={ok}", flush=True)
     return 0 if ok else 1
 
 

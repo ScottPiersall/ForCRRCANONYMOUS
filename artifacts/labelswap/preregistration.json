@@ -9,8 +9,8 @@
       "scripts/verify_labelswap_integrity.py": null,
       "scripts/verify_labelswap_ready.py": null,
       "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
-      "src/formalcrrc/day2.py": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
-      "src/formalcrrc/day3.py": "213fcd331a67d73b8ec5cdcd30dafa778da9b7d22107c8cd756b8a6ada713cc5",
+      "src/formalcrrc/s2.py": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
+      "src/formalcrrc/s3.py": "213fcd331a67d73b8ec5cdcd30dafa778da9b7d22107c8cd756b8a6ada713cc5",
       "src/formalcrrc/labelswap.py": "7f98608a13441591bf45e965ccc72dbadf4c6951c298292e2a4e99f562019f17",
       "src/formalcrrc/labelswap_bootstrap.py": null,
       "src/formalcrrc/labelswap_config.py": "ea9216ddae43262378a269e7cbe4a1ec15e82df7b61e788fd8bb500630334abe",
@@ -27,15 +27,15 @@
     "reachability": "M(j) < min_{t < j} M(t)  (strict prefix record low); crossings 0 and 9 always reachable",
     "ties": "Exact stored float64 comparison under the strict relation. No tolerance is introduced. Tie frequencies are recorded descriptively and the rule is not changed after observing them."
   },
-  "day3_facts": {
+  "s3_facts": {
     "dataset_content_sha256": "9700960d6f3aa130fa259500aeadbdfa9f511bcc943dd5fdf3401330ee8009d6",
     "dataset_file_sha256": "2160b662fa527498c6bd245e173f0ead9030a7d69633869233b76e5184647a34",
     "dataset_hash_matches_manifest": true,
-    "dataset_path": "artifacts/day3/test_dataset.parquet",
+    "dataset_path": "artifacts/s3/test_dataset.parquet",
     "models": {
       "Qwen/Qwen2.5-14B-Instruct": {
         "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
-        "day3_label_tokenization": {
+        "s3_label_tokenization": {
           "differs_from_naive_encoding": false,
           "label_met": "A",
           "label_not_met": "B",
@@ -54,7 +54,7 @@
           "scoring_method": "single_token_next_logit",
           "single_token_equivalence": true
         },
-        "day3_raw_scores_sha256": "10420978b17f61d2d6717d4ba1f2f7ab16ee4a445996bea3c2bfb7fc1630dbb6",
+        "s3_raw_scores_sha256": "10420978b17f61d2d6717d4ba1f2f7ab16ee4a445996bea3c2bfb7fc1630dbb6",
         "dtype": "torch.bfloat16",
         "model_id": "Qwen/Qwen2.5-14B-Instruct",
         "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
@@ -65,7 +65,7 @@
       },
       "google/gemma-2-9b-it": {
         "chat_template_sha256": "ecd6ae513fe103f0eb62e8ab5bfa8d0fe45c1074fa398b089c93a7e70c15cfd6",
-        "day3_label_tokenization": {
+        "s3_label_tokenization": {
           "differs_from_naive_encoding": false,
           "label_met": "A",
           "label_not_met": "B",
@@ -84,7 +84,7 @@
           "scoring_method": "single_token_next_logit",
           "single_token_equivalence": true
         },
-        "day3_raw_scores_sha256": "62f5a7f571f6444b509c37b7a2a41b768b9f2d77a4b9db20c1e9438cf6adc59a",
+        "s3_raw_scores_sha256": "62f5a7f571f6444b509c37b7a2a41b768b9f2d77a4b9db20c1e9438cf6adc59a",
         "dtype": "torch.bfloat16",
         "model_id": "google/gemma-2-9b-it",
         "revision": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
@@ -95,7 +95,7 @@
       },
       "meta-llama/Llama-3.1-8B-Instruct": {
         "chat_template_sha256": "e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65",
-        "day3_label_tokenization": {
+        "s3_label_tokenization": {
           "differs_from_naive_encoding": false,
           "label_met": "A",
           "label_not_met": "B",
@@ -114,7 +114,7 @@
           "scoring_method": "single_token_next_logit",
           "single_token_equivalence": true
         },
-        "day3_raw_scores_sha256": "d55212c8a22a5b0a00c30145876d41f1431be6d8ebb08fd5b1d817dd6016dffb",
+        "s3_raw_scores_sha256": "d55212c8a22a5b0a00c30145876d41f1431be6d8ebb08fd5b1d817dd6016dffb",
         "dtype": "torch.bfloat16",
         "model_id": "meta-llama/Llama-3.1-8B-Instruct",
         "revision": "0e9e39f249a16976918f6564b8830bc894c89659",
@@ -125,7 +125,7 @@
       },
       "mistralai/Mistral-7B-Instruct-v0.3": {
         "chat_template_sha256": "e16746b40344d6c5b5265988e0328a0bf7277be86f1c335156eae07e29c82826",
-        "day3_label_tokenization": {
+        "s3_label_tokenization": {
           "differs_from_naive_encoding": true,
           "label_met": "A",
           "label_not_met": "B",
@@ -144,7 +144,7 @@
           "scoring_method": "single_token_next_logit",
           "single_token_equivalence": true
         },
-        "day3_raw_scores_sha256": "0c37b53d0f3daab70ec5e06bff6ffa03c1c87277745bbf63f3c5775de53fdd95",
+        "s3_raw_scores_sha256": "0c37b53d0f3daab70ec5e06bff6ffa03c1c87277745bbf63f3c5775de53fdd95",
         "dtype": "torch.bfloat16",
         "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
         "revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
@@ -154,7 +154,7 @@
         "transformers_version": "5.16.1"
       }
     },
-    "partition": "DAY3_TEST",
+    "partition": "s3_TEST",
     "prompt_manifest_file_sha256": "b348872573347fdd14ab2af7c080294052798a16977cf41c0ea8eb6243e35850",
     "prompt_manifest_hash_matches_manifest": true,
     "prompt_template_matches_manifest": true,
@@ -168,7 +168,7 @@
     "n_nontrivial_per_model": 288,
     "n_rows_per_model": 2916,
     "n_strictness_levels": 9,
-    "source_partition": "DAY3_TEST",
+    "source_partition": "s3_TEST",
     "source_seed": 45
   },
   "document_sha256": "3b3bf31ea65cd877ced0a856c44b58126c1d7b915c6904c38c0ada4a2344e17b",
@@ -178,10 +178,10 @@
     "draft_artifact_count_matches": true,
     "draft_nontrivial_count_matches": true,
     "draft_quotes_the_real_response_instruction": true,
-    "draft_seed_matches_day3": true,
+    "draft_seed_matches_s3": true,
     "draft_swapped_margin_is_sb_minus_sa": true,
     "prompt_diff_passes": true,
-    "prompt_template_matches_day3": true
+    "prompt_template_matches_s3": true
   },
   "environment": {
     "captured_at": "2026-09-09T03:29:28+00:00",
@@ -251,7 +251,7 @@
     }
   },
   "preregistered": true,
-  "relationship_to_prior_work": "Reuses the frozen Day-3 TEST partition and Day-3 model panel. Not a Day-3 amendment, not a replacement for Day-3 TRR, not part of the original three preregistrations.",
+  "relationship_to_prior_work": "Reuses the frozen s-3 TEST partition and s-3 model panel. Not a s-3 amendment, not a replacement for s-3 TRR, not part of the original three preregistrations.",
   "robustness_bands": {
     "agreement_lower_bound": 0.9,
     "criteria": {

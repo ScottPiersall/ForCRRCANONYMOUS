@@ -2,7 +2,7 @@
 """Integrity audit for the Qwen2.5 scale ablation.
 
 Recomputes every artifact-level quantity for all three rungs **without** using
-``formalcrrc.qwen_scale``, ``formalcrrc.day3`` or ``formalcrrc.metrics``, straight
+``formalcrrc.qwen_scale``, ``formalcrrc.s3`` or ``formalcrrc.metrics``, straight
 from saved margins and the dataset's truth labels, and requires agreement with
 the primary analysis output. The recomputation deliberately takes different
 routes: reachability by brute-force intercept enumeration rather than the
@@ -28,7 +28,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from formalcrrc import day3_config as d3c  # noqa: E402
+from formalcrrc import s3_config as d3c  # noqa: E402
 from formalcrrc import provenance  # noqa: E402
 from formalcrrc import qwen_scale as qs  # noqa: E402  (fingerprint + panel only)
 from formalcrrc import qwen_scale_config as qc  # noqa: E402

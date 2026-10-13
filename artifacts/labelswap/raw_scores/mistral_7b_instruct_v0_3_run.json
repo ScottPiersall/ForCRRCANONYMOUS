@@ -3,7 +3,7 @@
   "chat_template_sha256": "e16746b40344d6c5b5265988e0328a0bf7277be86f1c335156eae07e29c82826",
   "condition": "swapped",
   "dataset_file_sha256": "2160b662fa527498c6bd245e173f0ead9030a7d69633869233b76e5184647a34",
-  "day3_label_tokenization": {
+  "s3_label_tokenization": {
     "differs_from_naive_encoding": true,
     "label_met": "A",
     "label_not_met": "B",
@@ -82,7 +82,7 @@
   "load_seconds": 65.69,
   "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
   "original_prompt_template_sha256": "e5f3c5ba3dfd1ccaca0655307d8ad254598a17184c7ae40dfde63c1f660cae14",
-  "partition": "DAY3_TEST",
+  "partition": "s3_TEST",
   "preregistration_sha256": "9b82f7014ff25ad3f018e0aff81b0011668da2fceb449b750071d43e6a1bee07",
   "prompts_requested": 2916,
   "prompts_scored": 2916,
@@ -111,8 +111,8 @@
   "tokenization_mirror_check": {
     "checks": {
       "labels_exchanged": true,
-      "met_is_day3_not_met_token": true,
-      "not_met_is_day3_met_token": true,
+      "met_is_s3_not_met_token": true,
+      "not_met_is_s3_met_token": true,
       "scoring_method_unchanged": true,
       "single_token_equivalence_preserved": true
     },

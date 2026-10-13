@@ -12,10 +12,10 @@ ANALYTIC BASELINES:
   always-not-met TCE:            5.000000
 
 DATASET CROSS-CHECK:
-  Day 1:                        PASS
-  Day-2 CAL:                    PASS
-  Day-2 TEST:                   PASS
-  Day-3 TEST:                   PASS
+  s1:                        PASS
+  s2 CAL:                    PASS
+  s2 TEST:                   PASS
+  s3 TEST:                   PASS
 
 No model inference performed.
 No frozen scientific outcome modified.

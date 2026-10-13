@@ -10,7 +10,7 @@ Writes, all additive, under ``artifacts/reason_then_score_ablation/``.
 
 ``docs/PREREGISTRATION_REASON_THEN_SCORE_ABLATION.md`` is the governing draft.
 This script fills only repository-verifiable placeholders -- the model and
-tokenizer revision recovered from frozen Day-3 provenance, the freeze timestamp,
+tokenizer revision recovered from frozen s-3 provenance, the freeze timestamp,
 and the machine form's SHA-256 -- and never edits its protocol text.
 
 The document cites the machine form's digest; the machine form deliberately does
@@ -32,7 +32,7 @@ from formalcrrc import dataset as ds  # noqa: E402
 from formalcrrc import provenance  # noqa: E402
 from formalcrrc import rts_ablation as ra  # noqa: E402
 from formalcrrc import rts_ablation_config as rc  # noqa: E402
-from formalcrrc import day3_config as d3c  # noqa: E402
+from formalcrrc import s3_config as d3c  # noqa: E402
 from formalcrrc.config import PROMPT_TEMPLATE  # noqa: E402
 
 ROOT = provenance.repo_root()
@@ -118,7 +118,7 @@ def validate_dataset() -> dict:
 def recover_and_verify_comparator() -> dict:
     """Phase 4: recompute Condition O and check it against the frozen table."""
     raw = pd.read_parquet(
-        ROOT / "artifacts/day3/raw_scores/qwen2_5_14b_instruct.parquet"
+        ROOT / "artifacts/s3/raw_scores/qwen2_5_14b_instruct.parquet"
     )
     data = pd.read_parquet(ROOT / d3c.DATASET_PATH)
     recovered = ra.recover_comparator(raw, data)
@@ -132,7 +132,7 @@ def recover_and_verify_comparator() -> dict:
     }
     verdict["source"] = rc.COMPARATOR_SOURCE
     verdict["raw_scores_sha256"] = provenance.sha256_file(
-        ROOT / "artifacts/day3/raw_scores/qwen2_5_14b_instruct.parquet"
+        ROOT / "artifacts/s3/raw_scores/qwen2_5_14b_instruct.parquet"
     )
     return verdict
 
@@ -172,19 +172,19 @@ def build_preregistration(
             "model_id": rc.MODEL_ID,
             "slug": rc.MODEL_SLUG,
             "short_name": rc.MODEL_SHORT_NAME,
-            "revision": rc.DAY3_REVISION,
-            "tokenizer_revision": rc.DAY3_TOKENIZER_REVISION,
-            "revision_source": "artifacts/day3/model_provenance.json (frozen)",
+            "revision": rc.s3_REVISION,
+            "tokenizer_revision": rc.s3_TOKENIZER_REVISION,
+            "revision_source": "artifacts/s3/model_provenance.json (frozen)",
             "dtype": rc.MODEL_DTYPE,
             "quantization": rc.QUANTIZATION,
             "chat_template_sha256": preflight["chat_template_sha256"],
-            "chat_template_matches_day3": preflight["checks"][
-                "chat_template_matches_day3"
+            "chat_template_matches_s3": preflight["checks"][
+                "chat_template_matches_s3"
             ],
             "config_sha256": preflight["config_sha256"],
         },
         "prompt": {
-            "day3_template_sha256": provenance.sha256_text(PROMPT_TEMPLATE),
+            "s3_template_sha256": provenance.sha256_text(PROMPT_TEMPLATE),
             "rts_template_sha256": diff["rts_template_sha256"],
             "added_suffix_sha256": diff["added_suffix_sha256"],
             "added_bytes": diff["added_bytes"],
@@ -282,10 +282,10 @@ def fill_document(prereg: dict) -> str:
         "**Preregistration freeze timestamp:** [RESOLVE BEFORE FIRST STUDY INFERENCE]": (
             f"**Preregistration freeze timestamp:** `{prereg['frozen_at']}`"
         ),
-        "**Exact model revision:** [READ FROM FROZEN DAY-3 PROVENANCE]": (
+        "**Exact model revision:** [READ FROM FROZEN s-3 PROVENANCE]": (
             f"**Exact model revision:** `{prereg['model']['revision']}`"
         ),
-        "**Exact tokenizer revision:** [READ FROM FROZEN DAY-3 PROVENANCE]": (
+        "**Exact tokenizer revision:** [READ FROM FROZEN s-3 PROVENANCE]": (
             f"**Exact tokenizer revision:** "
             f"`{prereg['model']['tokenizer_revision']}`"
         ),
@@ -332,7 +332,7 @@ def main() -> int:
     for name, ok in comparator["checks"].items():
         print(f"    {'PASS' if ok else 'FAIL'}  {name}")
     if comparator["status"] != "PASS":
-        print("REFUSING TO FREEZE: comparator recomputation disagrees with Day 3.")
+        print("REFUSING TO FREEZE: comparator recomputation disagrees with s 3.")
         return 2
 
     diff = ra.prompt_diff()

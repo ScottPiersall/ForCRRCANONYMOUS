@@ -36,7 +36,7 @@ from formalcrrc import dataset as ds  # noqa: E402
 from formalcrrc import provenance  # noqa: E402
 from formalcrrc import reasoning_anchor as ra  # noqa: E402
 from formalcrrc import reasoning_anchor_config as rc  # noqa: E402
-from formalcrrc import day3_config as d3c  # noqa: E402
+from formalcrrc import s3_config as d3c  # noqa: E402
 from formalcrrc.config import PROMPT_TEMPLATE  # noqa: E402
 
 ROOT = provenance.repo_root()
@@ -81,7 +81,7 @@ def _canonical_z(family: str, latent_level: int) -> int:
 
 
 def validate_dataset() -> dict:
-    """Verify the frozen Day-3 TEST partition, from primitive fields only."""
+    """Verify the frozen s-3 TEST partition, from primitive fields only."""
     frame = pd.read_parquet(ROOT / d3c.DATASET_PATH)
     manifest = json.loads(
         (ROOT / d3c.DATASET_MANIFEST_PATH).read_text(encoding="utf-8")
@@ -115,7 +115,7 @@ def validate_dataset() -> dict:
         )
         == rc.N_NONTRIVIAL,
         "seed_is_45": int(manifest["seed"]) == rc.SOURCE_SEED,
-        "partition_is_day3_test": manifest["partition"] == rc.SOURCE_PARTITION,
+        "partition_is_s3_test": manifest["partition"] == rc.SOURCE_PARTITION,
         "content_hash_matches_manifest": (
             ds.dataset_content_hash(frame)
             == manifest["hashes"]["dataset_content_sha256"]
@@ -255,10 +255,10 @@ def build_preregistration(preflight: dict, dataset: dict, fingerprint: dict) -> 
             "random_crossing_accuracy": rc.BASELINE_RANDOM_CROSSING_ACC,
             "majority_accuracy": rc.BASELINE_MAJORITY_ACC,
         },
-        "day3_comparison": {
-            "tce": rc.DAY3_TCE,
-            "unreachable_pct": rc.DAY3_UNREACHABLE_PCT,
-            "unreachable_range": list(rc.DAY3_UNREACHABLE_RANGE),
+        "s3_comparison": {
+            "tce": rc.s3_TCE,
+            "unreachable_pct": rc.s3_UNREACHABLE_PCT,
+            "unreachable_range": list(rc.s3_UNREACHABLE_RANGE),
             "status": rc.COMPARISON_STATUS,
         },
         "statistics": {

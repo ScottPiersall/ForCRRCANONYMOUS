@@ -7,7 +7,7 @@ preregistration hashed, both new result files hold exactly 2,916 scored
 conditions, and the frozen 14B rung reproduces every reference value from its
 saved margins. There is no partial mode: 7B cannot be analysed before 32B exists.
 
-The 14B column is always recomputed from ``artifacts/day3`` margins. No 14B
+The 14B column is always recomputed from ``artifacts/s3`` margins. No 14B
 number is typed in.
 """
 
@@ -24,7 +24,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from formalcrrc import day3_config as d3c  # noqa: E402
+from formalcrrc import s3_config as d3c  # noqa: E402
 from formalcrrc import provenance  # noqa: E402
 from formalcrrc import qwen_scale as qs  # noqa: E402
 from formalcrrc import qwen_scale_config as qc  # noqa: E402

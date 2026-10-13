@@ -5,8 +5,8 @@ Confirms that every judge's raw scores contain exactly the frozen prompt set,
 that no score is malformed, that no threshold is missing, and that every frozen
 input still hashes to what it hashed to when it was frozen.
 
-Writes ``artifacts/day1/integrity_manifest.json`` and, when ``--final`` is given,
-``artifacts/day1/final_console_block.txt``.
+Writes ``artifacts/s1/integrity_manifest.json`` and, when ``--final`` is given,
+``artifacts/s1/final_console_block.txt``.
 """
 
 from __future__ import annotations
@@ -198,9 +198,9 @@ def build_manifest(root: Path) -> dict:
                 "metrics_by_artifact": METRICS_PATH,
                 "bootstrap_results": BOOTSTRAP_PATH,
                 "summary": SUMMARY_PATH,
-                "results_document": "docs/RESULTS_DAY1.md",
-                "specification": "docs/FORMALCRRC_DAY1_SPEC.md",
-                "preregistration_document": "docs/PREREGISTRATION_DAY1.md",
+                "results_document": "docs/RESULTS_s1.md",
+                "specification": "docs/FORMALCRRC_s1_SPEC.md",
+                "preregistration_document": "docs/PREREGISTRATION_s1.md",
                 "lineage": "docs/LINEAGE.md",
                 "novelty_boundaries": "docs/NOVELTY_BOUNDARIES.md",
             },
@@ -215,7 +215,7 @@ def build_manifest(root: Path) -> dict:
         "figures": provenance.hash_directory(FIGURE_DIR, "*.png", root=root),
         "prompt_template_sha256": prompts.prompt_template_sha256(),
         "source_manifest": provenance.source_manifest(
-            list(ANALYSIS_CODE_PATHS) + ["scripts/figures_day1.py"], root=root
+            list(ANALYSIS_CODE_PATHS) + ["scripts/figures_s1.py"], root=root
         ),
         "git": provenance.git_state(root),
         "environment": provenance.environment_snapshot(include_gpu=False),
@@ -232,7 +232,7 @@ def render_console_block(root: Path, manifest: dict) -> str:
     )
     models = summary.get("models", {})
 
-    lines = ["FORMALCRRC DAY 1", ""]
+    lines = ["FORMALCRRC s 1", ""]
     dataset = manifest["dataset"]
     lines += [
         "Formal dataset:",
@@ -286,7 +286,7 @@ def render_console_block(root: Path, manifest: dict) -> str:
         "No human annotation performed.",
         "No semantic rubric generation performed.",
         "No outcome-driven tuning performed.",
-        "No Day-2 experiment started.",
+        "No s-2 experiment started.",
         "",
     ]
     return "\n".join(lines)

@@ -11,10 +11,10 @@
 | | |
 |---|---|
 | Classification | post-study theoretical analysis |
-| Preregistered | **no** — no Day-1/2/3 preregistration contains this proposition |
+| Preregistered | **no** — no s-1/2/3 preregistration contains this proposition |
 | Model inference | **none run** |
 | Frozen outcomes modified | **none** |
-| New empirical quantity | **none** — TRR is the preregistered Day-3 quantity, recomputed read-only |
+| New empirical quantity | **none** — TRR is the preregistered s-3 quantity, recomputed read-only |
 | Verified by | [`tests/test_step_proposition.py`](../../tests/test_step_proposition.py) — 218 tests |
 | Produced by | [`scripts/audit_step_proposition.py`](../../scripts/audit_step_proposition.py) |
 | Machine record | [`step_proposition_audit.json`](step_proposition_audit.json), [`reachability_by_model.csv`](reachability_by_model.csv) |
@@ -22,7 +22,7 @@
 | Overall status | **PASS** |
 
 This document adds an *interpretation* of an existing frozen result. It
-introduces no new measurement. Day 3 already reported nontrivial TRR; what is new
+introduces no new measurement. s 3 already reported nontrivial TRR; what is new
 is a proof of what TRR = 0 rules out.
 
 ## 2. Proposition
@@ -44,7 +44,7 @@ an order-preserving readout of the same comparison,
 $$M_x(s) = g(\hat z_x - \tau_s), \qquad g \text{ strictly increasing}.$$
 
 Then $M_x$ is strictly decreasing, every level $j \in \{1,\dots,8\}$ is a strict
-prefix record low, and by the Day-3 reachability theorem every crossing
+prefix record low, and by the s-3 reachability theorem every crossing
 $0,\dots,9$ is reachable by an additive translation. In particular
 
 $$\text{pure scalar latent-estimation model} \implies TR_x = 1.$$
@@ -66,7 +66,7 @@ latent quantity.
 | A3 | The same comparison $\mathbf 1[\hat z \ge \tau_s]$ at every level | Tier 1 | assumption under test |
 | A4 | Margin readout $M_x(s) = g(\hat z_x - \tau_s)$ | Tier 2 | assumption under test |
 | A5 | $g$ strictly increasing | Tier 2 | assumption under test |
-| A6 | Day-3 reachability characterisation is exact | Tier 2 → $TR_x$ | §6 — **PASS**, three independent implementations agree |
+| A6 | s-3 reachability characterisation is exact | Tier 2 → $TR_x$ | §6 — **PASS**, three independent implementations agree |
 
 A2–A5 are the hypothesis being falsified; A1 and A6 are facts about the
 repository, and both were checked rather than assumed.
@@ -104,7 +104,7 @@ reachability is likewise equivalent to strict decrease.
 
 **Consequence worth stating precisely.** Tier 2 implies strictly more than
 $TR_x = 1$: it implies $RC_x = 10$. $TR_x$ is used as the headline test because it
-is the *preregistered* Day-3 quantity and the *weakest* consequence of the model,
+is the *preregistered* s-3 quantity and the *weakest* consequence of the model,
 so the falsification rests on the least the model commits to. The stronger
 signature is reported in §8 as a secondary, clearly post-study observation.
 
@@ -149,13 +149,13 @@ Verified computationally:
 **Result: PASS.** No family violates the required assumptions, so the proposition
 is valid after canonicalization and nothing had to be forced.
 
-## 6. Relationship to the Day-3 reachability theorem
+## 6. Relationship to the s-3 reachability theorem
 
-Day 3 ([`src/formalcrrc/day3.py`](../../src/formalcrrc/day3.py)) defines
+s 3 ([`src/formalcrrc/s3.py`](../../src/formalcrrc/s3.py)) defines
 reachability exactly as the proposition requires. Conventions confirmed
 individually:
 
-| Convention | Day-3 implementation | Compatible |
+| Convention | s-3 implementation | Compatible |
 |---|---|---|
 | Indexing | strictness $s = 0..8$; crossings $j = 0..9$ | yes |
 | Record enumeration | over $j = 1..8$; level 0 has no prefix and is never a record | yes |
@@ -186,14 +186,14 @@ no two strictness levels can carry the same margin. An observed equality
 $M(j) = M(t)$ for some $t < j$ is therefore already outside the model's
 assumptions — it falsifies A4/A5 directly, before reachability is even consulted.
 
-Day 3's strict rule records this rather than accommodating it. Had reachability
+s3's strict rule records this rather than accommodating it. Had reachability
 used $\le$, a tied level would have been counted reachable, which would have
 credited the model with a crossing that a strictly-increasing readout can never
 produce. The strict convention is the one that matches the hypothesis being
 tested; weakening it would have made TRR easier to pass for exactly the curves
 that most clearly violate the model.
 
-Ties are common in the frozen Day-3 data, and their frequency is itself
+Ties are common in the frozen s-3 data, and their frequency is itself
 informative (counts are over 324 artifacts per judge):
 
 | Judge | artifacts with an adjacent equality | with a prefix tie | boundary blocked by equality |
@@ -207,7 +207,7 @@ Llama shows an adjacent equality on 264 of 324 curves. Those curves are
 incompatible with a strictly order-preserving scalar readout regardless of where
 their boundary happens to fall.
 
-**Result: PASS.** The proposition and the Day-3 theorem use compatible
+**Result: PASS.** The proposition and the s-3 theorem use compatible
 definitions, and the tie convention is the one the proposition requires.
 
 ## 7. Synthetic verification
@@ -257,10 +257,10 @@ $\hat z \in \{-1, 0, 2.5, 4, 9\}$: **every** instance is strictly decreasing,
 fully reachable, and never falsified at any boundary — the proposition's Tier-2
 conclusion, confirmed.
 
-## 8. Frozen Day-3 empirical counts
+## 8. Frozen s-3 empirical counts
 
 Recomputed **read-only** from frozen raw margins
-(`artifacts/day3/raw_scores/*.parquet`), with $j^*$ rebuilt from the predicate
+(`artifacts/s3/raw_scores/*.parquet`), with $j^*$ rebuilt from the predicate
 definitions rather than read from a stored column. Nontrivial means
 $j^* \in 1..8$; crossings 0 and 9 are always reachable and carry no information.
 
@@ -271,13 +271,13 @@ $j^* \in 1..8$; crossings 0 and 9 are always reachable and carry no information.
 | Mistral-7B-v0.3 | 288 | 96 | 192 | $1/3$ | **33.33%** | **66.67%** |
 | Gemma-2-9B | 288 | 174 | 114 | $29/48$ | **60.42%** | **39.58%** |
 
-**Agreement with the frozen report: exact.** `RESULTS_DAY3.md` reports nontrivial
+**Agreement with the frozen report: exact.** `RESULTS_s3.md` reports nontrivial
 TRR of 47.9%, 27.1%, 33.3% and 60.4% over $n = 288$ — identical to the
 recomputation. Three independent reachability implementations (theorem written
-from its statement, `day3.prefix_record_lows`, brute-force intercept scan) agree
+from its statement, `s3.prefix_record_lows`, brute-force intercept scan) agree
 on all 1,296 curves. **No discrepancy was found.**
 
-### Secondary observation (post-study, not a Day-3 endpoint)
+### Secondary observation (post-study, not a s-3 endpoint)
 
 Tier 2 implies the stronger signature $RC_x = 10$, equivalently a strictly
 decreasing margin curve. That is rare:
@@ -310,7 +310,7 @@ margins does not contain the required boundary at all. No recalibration, no
 threshold shift, and no per-judge or per-family intercept can produce it, because
 translation cannot reorder margins.
 
-This also explains the Day-2 result from a different direction: intercept
+This also explains the s-2 result from a different direction: intercept
 calibration improved TCE for some judges but could not close the gap, and the
 proposition says why — a location-only correction is the exact operation that
 $TR_x = 0$ curves are immune to.
@@ -347,7 +347,7 @@ This is the falsification of **one specific simple explanation**, nothing more.
   the estimate is re-drawn per level is outside the proposition entirely, since A2
   fixes one $\hat z_x$ across all nine levels.
 - $TR_x$ is a per-artifact binary; TRR is a proportion over a balanced design. No
-  new uncertainty quantification is introduced here — the Day-3 bootstrap CIs
+  new uncertainty quantification is introduced here — the s-3 bootstrap CIs
   remain the interval estimates of record.
 - The 1.93% full-reachability figure is a post-study descriptive statistic, not a
   preregistered endpoint, and carries no interval.
@@ -358,11 +358,11 @@ Fingerprinted before any work began and re-verified afterwards.
 
 | | |
 |---|---|
-| Frozen files covered | **109** — `artifacts/day{1,2,3}/**`, `figures/day{1,2,3}/**`, `artifacts/poststudy_baselines/**`, all three preregistrations, all three results documents, the Day-1 errata / provenance / integrity addendum, and the post-study baseline audit |
+| Frozen files covered | **109** — `artifacts/s{1,2,3}/**`, `figures/s{1,2,3}/**`, `artifacts/poststudy_baselines/**`, all three preregistrations, all three results documents, the s-1 errata / provenance / integrity addendum, and the post-study baseline audit |
 | Combined SHA-256 before | `8693acf874a6da41fb88d1c3321d9f9bd3fa1d33e568a64db10fdd62348fadeb` |
 | Combined SHA-256 after | `8693acf874a6da41fb88d1c3321d9f9bd3fa1d33e568a64db10fdd62348fadeb` |
 | Result | **byte-identical — PASS** |
-| Recorded prior manifest (`artifacts/day3/prior_experiments_manifest.json`, 77 files) | re-verifies, **read only, never rewritten** |
+| Recorded prior manifest (`artifacts/s3/prior_experiments_manifest.json`, 77 files) | re-verifies, **read only, never rewritten** |
 
 No old hash was updated to accommodate a modification, because there was no
 modification. New files are confined to additive locations:
@@ -416,7 +416,7 @@ Wording requirements:
 
 | | |
 |---|---|
-| [`docs/PREREGISTRATION_DAY3.md`](../../docs/PREREGISTRATION_DAY3.md) | The frozen protocol defining TRR — unchanged |
-| [`docs/RESULTS_DAY3.md`](../../docs/RESULTS_DAY3.md) | The frozen Day-3 record — unchanged |
+| [`docs/PREREGISTRATION_s3.md`](../../docs/PREREGISTRATION_s3.md) | The frozen protocol defining TRR — unchanged |
+| [`docs/RESULTS_s3.md`](../../docs/RESULTS_s3.md) | The frozen s-3 record — unchanged |
 | [`docs/POSTSTUDY_BASELINE_AUDIT.md`](../../docs/POSTSTUDY_BASELINE_AUDIT.md) | The other post-study audit — reference baselines |
 | [`docs/DEVLOG.md`](../../docs/DEVLOG.md) | Engineering log |

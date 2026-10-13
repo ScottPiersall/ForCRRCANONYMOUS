@@ -69,10 +69,10 @@ def check_additive(root: pathlib.Path) -> dict[str, Any]:
     }
 
 
-def check_day3_read_only(root: pathlib.Path, fingerprint: dict) -> dict[str, Any]:
-    """The Day-3 inputs this study reads must be unchanged."""
+def check_s3_read_only(root: pathlib.Path, fingerprint: dict) -> dict[str, Any]:
+    """The s-3 inputs this study reads must be unchanged."""
     changed = []
-    for relative in rc.DAY3_READ_ONLY:
+    for relative in rc.s3_READ_ONLY:
         recorded = fingerprint["files"].get(relative)
         path = root / relative
         if recorded is None or not path.is_file():
@@ -80,7 +80,7 @@ def check_day3_read_only(root: pathlib.Path, fingerprint: dict) -> dict[str, Any
         elif provenance.sha256_file(path) != recorded:
             changed.append(relative)
     return {
-        "paths": list(rc.DAY3_READ_ONLY),
+        "paths": list(rc.s3_READ_ONLY),
         "changed": changed,
         "status": "PASS" if not changed else "FAIL",
     }
@@ -111,8 +111,8 @@ def main() -> int:
     print(f"  combined now       {verdict['combined_now']}")
     print(f"  verdict            {verdict['status']}")
 
-    day3 = check_day3_read_only(root, fingerprint)
-    print(f"Day-3 inputs read-only  {day3['status']}")
+    s3 = check_s3_read_only(root, fingerprint)
+    print(f"s-3 inputs read-only  {s3['status']}")
 
     additive = check_additive(root)
     print(f"new files additive only {additive['status']} ({additive['n_new_artifact_files']} files)")
@@ -139,7 +139,7 @@ def main() -> int:
     checks = {
         "frozen_record_byte_identical": verdict["status"] == "PASS",
         "combined_fingerprint_matches": bool(verdict["combined_matches"]),
-        "day3_inputs_read_only": day3["status"] == "PASS",
+        "s3_inputs_read_only": s3["status"] == "PASS",
         "new_files_additive_only": additive["status"] == "PASS",
         "preregistration_checksum_verifies": prereg_ok,
     }
@@ -149,7 +149,7 @@ def main() -> int:
         "study": rc.STUDY_NAME,
         "audited_at": provenance.utc_now(),
         "frozen_record": verdict,
-        "day3_read_only": day3,
+        "s3_read_only": s3,
         "additive": additive,
         "raw_rows": row_check,
         "checks": checks,

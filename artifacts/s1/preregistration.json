@@ -9,10 +9,10 @@
     "src/formalcrrc/metrics.py",
     "src/formalcrrc/bootstrap.py",
     "src/formalcrrc/provenance.py",
-    "scripts/generate_day1_dataset.py",
-    "scripts/run_day1_inference.py",
-    "scripts/analyze_day1.py",
-    "scripts/verify_day1_integrity.py"
+    "scripts/generate_s1_dataset.py",
+    "scripts/run_s1_inference.py",
+    "scripts/analyze_s1.py",
+    "scripts/verify_s1_integrity.py"
   ],
   "bootstrap": {
     "cluster_rule": "all 9 thresholds of an artifact are carried together",
@@ -50,7 +50,7 @@
     "n_latent_levels": 9,
     "n_rubric_response_pairs": 2916,
     "n_strictness_levels": 9,
-    "path": "artifacts/day1/formal_dataset.parquet",
+    "path": "artifacts/s1/formal_dataset.parquet",
     "prompt_manifest_file_sha256": "f577a947cbed7c4d96f618b5f476d6f8064fbbd7886e7e5dae576889164097fb",
     "rubric_template_sha256": {
       "coverage": "5a9223d9829757e4b58993ff0b4c9d673e32113e9e13725784b5e25e41aeebef",
@@ -72,7 +72,7 @@
     ],
     "type": "within-artifact counterfactual threshold ladder"
   },
-  "document": "FormalCRRC Day-1 preregistration",
+  "document": "FormalCRRC s-1 preregistration",
   "exclusion_rules": {
     "artifact_exclusions": "None. All 324 artifacts enter every analysis.",
     "model_exclusions": "A model is excluded only when it is inaccessible before any FormalCRRC study outcome has been generated for it, and is then recorded as BLOCKED_BY_MODEL_ACCESS. No model may be dropped, added or substituted on the basis of observed FormalCRRC performance.",
@@ -91,31 +91,31 @@
     {
       "content": "Schematic: fixed artifact -> ordered rubric thresholds -> judge probabilities -> response curve.",
       "id": "figure1",
-      "path": "figures/day1/figure1_concept.png",
+      "path": "figures/s1/figure1_concept.png",
       "title": "FormalCRRC concept"
     },
     {
       "content": "Mean P_met against signed distance d = s - j* from the true crossing, per judge, with uncertainty.",
       "id": "figure2",
-      "path": "figures/day1/figure2_boundary_aligned_curves.png",
+      "path": "figures/s1/figure2_boundary_aligned_curves.png",
       "title": "Boundary-aligned response curves"
     },
     {
       "content": "Per-model distribution of artifact-level MVR.",
       "id": "figure3",
-      "path": "figures/day1/figure3_mvr_distributions.png",
+      "path": "figures/s1/figure3_mvr_distributions.png",
       "title": "MVR distributions"
     },
     {
       "content": "Per-model distribution of threshold crossing error.",
       "id": "figure4",
-      "path": "figures/day1/figure4_tce_distributions.png",
+      "path": "figures/s1/figure4_tce_distributions.png",
       "title": "TCE distributions"
     },
     {
       "content": "Heatmap of primary metrics by model and predicate family.",
       "id": "figure5",
-      "path": "figures/day1/figure5_model_family_heatmap.png",
+      "path": "figures/s1/figure5_model_family_heatmap.png",
       "title": "Model x predicate-family summary"
     }
   ],
@@ -127,14 +127,14 @@
     "dirty_paths": [
       ".gitignore",
       "LICENSE",
-      "artifacts/day1/label_token_check.json",
-      "artifacts/day1/model_provenance.json",
+      "artifacts/s1/label_token_check.json",
+      "artifacts/s1/model_provenance.json",
       "scripts/audit_environment.py",
-      "scripts/freeze_day1_preregistration.py",
-      "scripts/run_day1_inference.py",
-      "scripts/verify_day1_ready.py",
+      "scripts/freeze_s1_preregistration.py",
+      "scripts/run_s1_inference.py",
+      "scripts/verify_s1_ready.py",
       "scripts/verify_label_tokens.py",
-      "scripts/write_results_day1.py",
+      "scripts/write_results_s1.py",
       "slurm/verify_labels.sbatch",
       "src/formalcrrc/config.py",
       "src/formalcrrc/prompts.py",
@@ -174,7 +174,7 @@
     "console_output": "operational only: progress, processed count, failures, timing, memory. No accuracy, MVR, MVM, TCE, ranking or curve summary is printed during inference.",
     "independence": "each rubric-response pair is scored independently",
     "model_order": "models are sorted by sha256(MODEL_ORDER_SALT|model_id)",
-    "order": "prompts are sorted by sha256(INFERENCE_ORDER_SALT|prompt_id), frozen in artifacts/day1/prompt_manifest.parquet before any GPU inference; family, latent level and strictness are therefore interleaved"
+    "order": "prompts are sorted by sha256(INFERENCE_ORDER_SALT|prompt_id), frozen in artifacts/s1/prompt_manifest.parquet before any GPU inference; family, latent level and strictness are therefore interleaved"
   },
   "judge_models": {
     "adapters": "none",
@@ -228,7 +228,7 @@
       "RuVerBench",
       "formal or certified judge robustness work such as 'Certifying the Judge'"
     ],
-    "day1_does_not_establish": [
+    "s1_does_not_establish": [
       "human alignment",
       "clinical reliability",
       "HealthBench reliability",
@@ -339,7 +339,7 @@
       "observed_naive_encoding_mismatch": "mistralai/Mistral-7B-Instruct-v0.3 encodes 'A' as the word-boundary token '_A' (id 1098) but continues its prompt with 'A' (id 29509). Detected before this preregistration was frozen and before any study inference.",
       "reference_prompt": "a message with the study prompt's chat-template structure and placeholder content (<RUBRIC>, <RESPONSE>), so the resolution depends on no rubric, threshold or candidate response",
       "rule": "prompt_continuation_difference",
-      "stability_verification": "scripts/verify_label_tokens.py confirms, by tokenizer inspection alone and with no model call, that the resolved ids are identical for the first 25 prompts of the frozen inference order; recorded in artifacts/day1/label_token_check.json"
+      "stability_verification": "scripts/verify_label_tokens.py confirms, by tokenizer inspection alone and with no model call, that the resolved ids are identical for the first 25 prompts of the frozen inference order; recorded in artifacts/s1/label_token_check.json"
     },
     "primary_condition": "both 'A' and 'B' continue the rendered prompt with exactly one token under the model's own tokenizer",
     "primary_formula": "P_met = exp(z_A) / (exp(z_A) + exp(z_B))",
@@ -369,16 +369,16 @@
   "seeds": {
     "bootstrap_seed": 42,
     "dataset_construction": "numpy.default_rng([SEED, family_index, latent_level, instance_index]) / PCG64",
-    "inference_order_salt": "formalcrrc-day1-inference-order-v1",
+    "inference_order_salt": "formalcrrc-s1-inference-order-v1",
     "master_seed": 42,
-    "model_order_salt": "formalcrrc-day1-model-order-v1"
+    "model_order_salt": "formalcrrc-s1-model-order-v1"
   },
   "source_manifest_at_freeze": {
     "files": {
-      "scripts/analyze_day1.py": "26e8c61d82d6548ef4128461ea99847af6d4233fc810045e00c40561430c5f96",
-      "scripts/generate_day1_dataset.py": "6814188bc5e5a64758c9e7ac0aefb295dbde6fab1f273b16b35f8031cfb15939",
-      "scripts/run_day1_inference.py": "036e0e61b8ce43f7ba49dbf36fac2c8466f54076a782d5898bb7d28d951c96ba",
-      "scripts/verify_day1_integrity.py": "6e899b0bb6bf5a430d4aace397dcd0d9f11164fc7df5b1cc5ea07700c4590e0a",
+      "scripts/analyze_s1.py": "26e8c61d82d6548ef4128461ea99847af6d4233fc810045e00c40561430c5f96",
+      "scripts/generate_s1_dataset.py": "6814188bc5e5a64758c9e7ac0aefb295dbde6fab1f273b16b35f8031cfb15939",
+      "scripts/run_s1_inference.py": "036e0e61b8ce43f7ba49dbf36fac2c8466f54076a782d5898bb7d28d951c96ba",
+      "scripts/verify_s1_integrity.py": "6e899b0bb6bf5a430d4aace397dcd0d9f11164fc7df5b1cc5ea07700c4590e0a",
       "src/formalcrrc/bootstrap.py": "960181bbea8781aa69cd3ed39de327f88c5eb382b6b1a79810122fe6563b2427",
       "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
       "src/formalcrrc/dataset.py": "c3bad767083c9e1e274a04d90f5fe64e6a56420c0e65d4df3762b178d8a53930",
@@ -391,10 +391,10 @@
     "tree_sha256": "bcb5ca6a1c23fd83d74ac5582adc721ef34df809b5febc4182ff68e85d86cb67"
   },
   "stopping_rule": {
-    "no_data_dependent_extension": "The design is not extended, repeated or enlarged on the basis of observed results. No Day-2 experiment follows automatically.",
+    "no_data_dependent_extension": "The design is not extended, repeated or enlarged on the basis of observed results. No s-2 experiment follows automatically.",
     "no_interim_analysis": "No monotonicity, crossing, accuracy or ranking summary is computed or displayed while inference is running. Console output during inference is restricted to operational information.",
     "rule": "Inference stops when every preregistered judge has produced exactly 2916 scored prompts, or has been formally marked BLOCKED_BY_MODEL_ACCESS. The preregistered analysis is then run exactly once.",
-    "success_criterion": "Day 1 succeeds when dataset integrity passes, the preregistration was frozen before outcomes, intended runs completed or were transparently blocked, probability extraction is valid, the analysis matches this document, and all results are reported regardless of direction. No favourable-effect threshold is defined."
+    "success_criterion": "s 1 succeeds when dataset integrity passes, the preregistration was frozen before outcomes, intended runs completed or were transparently blocked, probability extraction is valid, the analysis matches this document, and all results are reported regardless of direction. No favourable-effect threshold is defined."
   },
   "threshold_values": {
     "coverage": {

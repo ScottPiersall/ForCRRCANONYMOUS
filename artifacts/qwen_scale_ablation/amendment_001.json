@@ -3,15 +3,15 @@
     "files": {
       "scripts/analyze_qwen_scale.py": "9357726db94429ceb2b98457b6ad8cd288ef3f93653bbcb5730f7710a467e8ff",
       "scripts/freeze_qwen_scale_preregistration.py": "56e5a1d638aec15fb87fb7e1e7a32beaf7a8d9868737c3604eb1dc02eda9779a",
-      "scripts/run_day3_inference.py": "f5576be477db475fae7328b8bccbb0243f0588d57f78f95912072d2c7475bf79",
+      "scripts/run_s3_inference.py": "f5576be477db475fae7328b8bccbb0243f0588d57f78f95912072d2c7475bf79",
       "scripts/run_qwen_scale_inference.py": "f39b77781a20aaf661ae469c4acd925a4f7bd7e1d6a010505cd14efcb9cf715f",
       "scripts/verify_qwen_scale_integrity.py": "fddd432090b6441fdbf24f3da8373467e083f69573415ec1c608920faf9af791",
       "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
       "src/formalcrrc/dataset.py": "8a6cb27c91c8d05ab3c9ca29ec7808ed067b0c7d215044c892bb3e059c240d2d",
-      "src/formalcrrc/day2.py": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
-      "src/formalcrrc/day2_bootstrap.py": "fd3062c196add2e7af00a227294d95de92c0642ce893f75a26961fa7dfb58993",
-      "src/formalcrrc/day3.py": "213fcd331a67d73b8ec5cdcd30dafa778da9b7d22107c8cd756b8a6ada713cc5",
-      "src/formalcrrc/day3_config.py": "1c9c2cb1aa4462ee29fcc0215078f99acc2de518d74994efe3169620494cbb5c",
+      "src/formalcrrc/s2.py": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
+      "src/formalcrrc/s2_bootstrap.py": "fd3062c196add2e7af00a227294d95de92c0642ce893f75a26961fa7dfb58993",
+      "src/formalcrrc/s3.py": "213fcd331a67d73b8ec5cdcd30dafa778da9b7d22107c8cd756b8a6ada713cc5",
+      "src/formalcrrc/s3_config.py": "1c9c2cb1aa4462ee29fcc0215078f99acc2de518d74994efe3169620494cbb5c",
       "src/formalcrrc/metrics.py": "7f9e7909272c7bcbe6f0971d140027088ac8cc7a98a582563c08b8fce570ed39",
       "src/formalcrrc/predicates.py": "5c119021ffa69d2dc875bb931a249e5f12811fda791227bc0716cb075fc56b68",
       "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4",
@@ -54,7 +54,7 @@
       "sha256": "56e5a1d638aec15fb87fb7e1e7a32beaf7a8d9868737c3604eb1dc02eda9779a",
       "status": "unchanged"
     },
-    "scripts/run_day3_inference.py": {
+    "scripts/run_s3_inference.py": {
       "previous_sha256": "f5576be477db475fae7328b8bccbb0243f0588d57f78f95912072d2c7475bf79",
       "sha256": "f5576be477db475fae7328b8bccbb0243f0588d57f78f95912072d2c7475bf79",
       "status": "unchanged"
@@ -79,22 +79,22 @@
       "sha256": "8a6cb27c91c8d05ab3c9ca29ec7808ed067b0c7d215044c892bb3e059c240d2d",
       "status": "unchanged"
     },
-    "src/formalcrrc/day2.py": {
+    "src/formalcrrc/s2.py": {
       "previous_sha256": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
       "sha256": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
       "status": "unchanged"
     },
-    "src/formalcrrc/day2_bootstrap.py": {
+    "src/formalcrrc/s2_bootstrap.py": {
       "previous_sha256": "fd3062c196add2e7af00a227294d95de92c0642ce893f75a26961fa7dfb58993",
       "sha256": "fd3062c196add2e7af00a227294d95de92c0642ce893f75a26961fa7dfb58993",
       "status": "unchanged"
     },
-    "src/formalcrrc/day3.py": {
+    "src/formalcrrc/s3.py": {
       "previous_sha256": "213fcd331a67d73b8ec5cdcd30dafa778da9b7d22107c8cd756b8a6ada713cc5",
       "sha256": "213fcd331a67d73b8ec5cdcd30dafa778da9b7d22107c8cd756b8a6ada713cc5",
       "status": "unchanged"
     },
-    "src/formalcrrc/day3_config.py": {
+    "src/formalcrrc/s3_config.py": {
       "previous_sha256": "1c9c2cb1aa4462ee29fcc0215078f99acc2de518d74994efe3169620494cbb5c",
       "sha256": "1c9c2cb1aa4462ee29fcc0215078f99acc2de518d74994efe3169620494cbb5c",
       "status": "unchanged"

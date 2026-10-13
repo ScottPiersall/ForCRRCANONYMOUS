@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Fit the Day-2 calibration intercepts (Phase G).
+"""Fit the s-2 calibration intercepts (Phase G).
 
 Runs only after every intended raw run is complete. Fits, per judge:
 
@@ -7,8 +7,8 @@ Runs only after every intended raw run is complete. Fits, per judge:
 * one intercept per predicate family ``alpha_{J,F}`` (secondary),
 
 **on the CALIBRATION partition alone**. The TEST partition is not read here, and
-neither is any Day-1 outcome. The fitted values are written to
-``artifacts/day2/calibration_parameters.json`` and frozen; the held-out analysis
+neither is any s-1 outcome. The fitted values are written to
+``artifacts/s2/calibration_parameters.json`` and frozen; the held-out analysis
 applies them without refitting.
 
 Exactly one free parameter per fitted unit. No slope, no temperature, no
@@ -27,7 +27,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from formalcrrc import day2, day2_config as d2c, provenance  # noqa: E402
+from formalcrrc import s2, s2_config as d2c, provenance  # noqa: E402
 from formalcrrc.config import FAMILIES, MODEL_IDS, MODEL_SHORT_NAMES, MODEL_SLUGS, N_ROWS  # noqa: E402
 
 
@@ -61,10 +61,10 @@ def main() -> int:
     prereg = root / d2c.PREREG_JSON_PATH
     sha_path = root / d2c.PREREG_SHA_PATH
     if not (prereg.is_file() and sha_path.is_file()):
-        print("ABORT: Day-2 preregistration is not frozen", flush=True)
+        print("ABORT: s-2 preregistration is not frozen", flush=True)
         return 2
     if not provenance.verify_checksum_file(prereg, sha_path):
-        print("ABORT: Day-2 preregistration checksum does not match", flush=True)
+        print("ABORT: s-2 preregistration checksum does not match", flush=True)
         return 2
 
     calibration_dataset = pd.read_parquet(root / d2c.CALIBRATION_DATASET_PATH)
@@ -101,8 +101,8 @@ def main() -> int:
             }
             continue
 
-        global_fit = day2.fit_intercept(margins, truths)
-        family_fits = day2.fit_family_intercepts(scores)
+        global_fit = s2.fit_intercept(margins, truths)
+        family_fits = s2.fit_family_intercepts(scores)
 
         parameters[model_id] = {
             "model_id": model_id,
@@ -157,7 +157,7 @@ def main() -> int:
 
     document = {
         "created_at": provenance.utc_now(),
-        "experiment": "FormalCRRC Day 2",
+        "experiment": "FormalCRRC s 2",
         "stage": "calibration fitting (Phase G)",
         "model": {
             "primary": d2c.CALIBRATION_PRIMARY,
@@ -170,16 +170,16 @@ def main() -> int:
         },
         "fitted_on": "CALIBRATION partition only",
         "test_partition_read": False,
-        "day1_outcomes_read": False,
+        "s1_outcomes_read": False,
         "preregistration_sha256": sha_path.read_text(encoding="utf-8").split()[0],
         "parameters": parameters,
         "blocked": blocked,
         "environment": provenance.environment_snapshot(include_gpu=False),
         "source_manifest": provenance.source_manifest(
             [
-                "src/formalcrrc/day2.py",
-                "src/formalcrrc/day2_config.py",
-                "scripts/fit_day2_bias.py",
+                "src/formalcrrc/s2.py",
+                "src/formalcrrc/s2_config.py",
+                "scripts/fit_s2_bias.py",
             ],
             root=root,
         ),

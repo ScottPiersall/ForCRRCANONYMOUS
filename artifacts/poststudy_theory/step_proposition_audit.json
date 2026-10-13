@@ -101,7 +101,7 @@
   },
   "checks": {
     "canonicalization_passes": true,
-    "day3_conventions_compatible": true,
+    "s3_conventions_compatible": true,
     "empirical_matches_frozen_report": true,
     "frozen_record_verifies": true,
     "scalar_model_always_fully_reachable": true,
@@ -110,7 +110,7 @@
     "thresholds_strictly_increasing": true
   },
   "classification": "post-study theoretical analysis",
-  "day3_conventions": {
+  "s3_conventions": {
     "compatible": true,
     "endpoints": {
       "reason": "translate far negative, or far positive",
@@ -131,7 +131,7 @@
     "ties": {
       "rule": "equality never creates a reachable crossing",
       "tied_level_excluded": true,
-      "why_incompatible_with_the_model": "The proposition assumes tau_s strictly increasing and g strictly increasing, so M(s) = g(z_hat - tau_s) is strictly decreasing and no two levels can share a margin. An observed tie is therefore already outside the model's assumptions; Day 3's strict rule records that fact rather than weakening the theorem to admit it."
+      "why_incompatible_with_the_model": "The proposition assumes tau_s strictly increasing and g strictly increasing, so M(s) = g(z_hat - tau_s) is strictly decreasing and no two levels can share a margin. An observed tie is therefore already outside the model's assumptions; s 3's strict rule records that fact rather than weakening the theorem to admit it."
     },
     "zero_crossing": {
       "all_positive_gives_nine": true,
@@ -145,7 +145,7 @@
     "all_agree_with_frozen_report": true,
     "by_model": [
       {
-        "agrees_with_day3_module": true,
+        "agrees_with_s3_module": true,
         "agrees_with_intercept_scan": true,
         "frozen_report_trr": 0.4791666666666667,
         "matches_frozen_report": true,
@@ -164,7 +164,7 @@
         "trr_percent": 47.9167
       },
       {
-        "agrees_with_day3_module": true,
+        "agrees_with_s3_module": true,
         "agrees_with_intercept_scan": true,
         "frozen_report_trr": 0.2708333333333333,
         "matches_frozen_report": true,
@@ -183,7 +183,7 @@
         "trr_percent": 27.0833
       },
       {
-        "agrees_with_day3_module": true,
+        "agrees_with_s3_module": true,
         "agrees_with_intercept_scan": true,
         "frozen_report_trr": 0.3333333333333333,
         "matches_frozen_report": true,
@@ -202,7 +202,7 @@
         "trr_percent": 33.3333
       },
       {
-        "agrees_with_day3_module": true,
+        "agrees_with_s3_module": true,
         "agrees_with_intercept_scan": true,
         "frozen_report_trr": 0.6041666666666666,
         "matches_frozen_report": true,

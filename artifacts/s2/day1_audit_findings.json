@@ -1,9 +1,9 @@
 {
   "created_at": "2026-09-07T18:05:37+00:00",
-  "day1_baseline": {
+  "s1_baseline": {
     "combined_sha256": "c21b0ce94afdd3c817a38d4f021ca81189750eb3b00b5cc704b920139202d614",
     "n_files": 30,
-    "path": "artifacts/day2/day1_baseline_manifest.json",
+    "path": "artifacts/s2/s1_baseline_manifest.json",
     "verification": {
       "added": [],
       "changed": [],
@@ -15,7 +15,7 @@
   },
   "issue_a_boundary_curve_claim": {
     "claim": "every boundary-aligned curve decreases with strictness, and every judge has a negative mean within-artifact Spearman association",
-    "claim_location": "docs/RESULTS_DAY1.md, section 1 (Executive summary)",
+    "claim_location": "docs/RESULTS_s1.md, section 1 (Executive summary)",
     "errata_required": true,
     "first_clause_literally_true": false,
     "models": [
@@ -112,7 +112,7 @@
   "issue_b_source_provenance": {
     "all_runs_pinned_to_freeze": true,
     "files_only_in_final": [
-      "scripts/figures_day1.py"
+      "scripts/figures_s1.py"
     ],
     "files_only_in_freeze": [],
     "git_at_final": {
@@ -122,14 +122,14 @@
       "dirty_paths": [
         ".gitignore",
         "LICENSE",
-        "artifacts/day1/bootstrap_results.parquet",
-        "artifacts/day1/integrity_manifest.json",
-        "artifacts/day1/metrics_by_artifact.parquet",
-        "artifacts/day1/raw_scores/",
-        "artifacts/day1/summary.json",
-        "docs/RESULTS_DAY1.md",
+        "artifacts/s1/bootstrap_results.parquet",
+        "artifacts/s1/integrity_manifest.json",
+        "artifacts/s1/metrics_by_artifact.parquet",
+        "artifacts/s1/raw_scores/",
+        "artifacts/s1/summary.json",
+        "docs/RESULTS_s1.md",
         "figures/",
-        "scripts/write_results_day1.py"
+        "scripts/write_results_s1.py"
       ]
     },
     "git_at_freeze": {
@@ -139,14 +139,14 @@
       "dirty_paths": [
         ".gitignore",
         "LICENSE",
-        "artifacts/day1/label_token_check.json",
-        "artifacts/day1/model_provenance.json",
+        "artifacts/s1/label_token_check.json",
+        "artifacts/s1/model_provenance.json",
         "scripts/audit_environment.py",
-        "scripts/freeze_day1_preregistration.py",
-        "scripts/run_day1_inference.py",
-        "scripts/verify_day1_ready.py",
+        "scripts/freeze_s1_preregistration.py",
+        "scripts/run_s1_inference.py",
+        "scripts/verify_s1_ready.py",
         "scripts/verify_label_tokens.py",
-        "scripts/write_results_day1.py",
+        "scripts/write_results_s1.py",
         "slurm/verify_labels.sbatch",
         "src/formalcrrc/config.py",
         "src/formalcrrc/prompts.py",
@@ -188,11 +188,11 @@
     "defect_present": true,
     "empty_input_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "figures": {
-      "figures/day1/figure1_concept.png": "e7e0baf7b6a8102674cba168eb42ab6b66def559bdc7edeefa88154eee0c3561",
-      "figures/day1/figure2_boundary_aligned_curves.png": "3b9322c3a369c169102c8bca6941e7a03a72d1af931463470eb22fcc987d3059",
-      "figures/day1/figure3_mvr_distributions.png": "d8711fc79f29f4d2a99bf4b8e031eecb4a7d7880aedef79a61cf3271aa81c75f",
-      "figures/day1/figure4_tce_distributions.png": "d3bcbd446cf75a5a87983d60337cb70a37d8c001664cc1ea696a7c366fb6501c",
-      "figures/day1/figure5_model_family_heatmap.png": "50cf8bc66d49eb5674427220af05cb2c43bb565edd2209edb0ffd5efbcb0f88e"
+      "figures/s1/figure1_concept.png": "e7e0baf7b6a8102674cba168eb42ab6b66def559bdc7edeefa88154eee0c3561",
+      "figures/s1/figure2_boundary_aligned_curves.png": "3b9322c3a369c169102c8bca6941e7a03a72d1af931463470eb22fcc987d3059",
+      "figures/s1/figure3_mvr_distributions.png": "d8711fc79f29f4d2a99bf4b8e031eecb4a7d7880aedef79a61cf3271aa81c75f",
+      "figures/s1/figure4_tce_distributions.png": "d3bcbd446cf75a5a87983d60337cb70a37d8c001664cc1ea696a7c366fb6501c",
+      "figures/s1/figure5_model_family_heatmap.png": "50cf8bc66d49eb5674427220af05cb2c43bb565edd2209edb0ffd5efbcb0f88e"
     },
     "manifest_combined_is_empty_input": false,
     "manifest_combined_sha256": "08ebad3d7066bd818b8b30835cfec21a11335e2f6e4d77c6ff7bf416ffa0d815",

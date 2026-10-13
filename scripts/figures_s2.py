@@ -1,9 +1,9 @@
-"""Day-2 figures, exactly as predeclared in the preregistration's figure plan.
+"""s-2 figures, exactly as predeclared in the preregistration's figure plan.
 
 Six static figures. Which judges and families appear is fixed by the design,
 never by how favourably they performed.
 
-Colour follows the same validated categorical palette as Day 1, so a judge keeps
+Colour follows the same validated categorical palette as s 1, so a judge keeps
 its identity across both experiments. Raw and corrected series are distinguished
 by line style as well as colour, and every heatmap cell carries its exact value.
 """
@@ -21,14 +21,14 @@ import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
 from matplotlib.colors import LinearSegmentedColormap  # noqa: E402
 
-from formalcrrc import day2  # noqa: E402
+from formalcrrc import s2  # noqa: E402
 from formalcrrc.config import (  # noqa: E402
     FAMILIES,
     MODEL_IDS,
     MODEL_SHORT_NAMES,
     N_STRICTNESS,
 )
-from formalcrrc.day2_config import FIGURE_DIR  # noqa: E402
+from formalcrrc.s2_config import FIGURE_DIR  # noqa: E402
 
 SURFACE = "#fcfcfb"
 INK = "#0b0b0b"
@@ -36,7 +36,7 @@ INK_SECONDARY = "#52514e"
 INK_MUTED = "#86857f"
 GRID = "#e3e2de"
 
-#: Same fixed categorical order as Day 1; a judge keeps its colour.
+#: Same fixed categorical order as s 1; a judge keeps its colour.
 SERIES_COLORS = ("#2a78d6", "#eb6834", "#1baf7a", "#eda100")
 
 SEQUENTIAL = LinearSegmentedColormap.from_list(
@@ -165,16 +165,16 @@ def figure1_bias_vs_shape(root: Path) -> Path:
     # -- probability space ---------------------------------------------------
     ax = axes[2]
     _style_axes(ax)
-    p_raw = day2.sigmoid(margin)
-    p_shift = day2.sigmoid(margin + alpha)
+    p_raw = s2.sigmoid(margin)
+    p_shift = s2.sigmoid(margin + alpha)
     ax.axhline(0.5, color=GRID, linewidth=1.4, linestyle=(0, (2, 2)))
     ax.plot(strictness, p_raw, color=SERIES_COLORS[0], linewidth=2.0, label="raw P")
     ax.plot(
         strictness, p_shift, color=SERIES_COLORS[1], linewidth=2.0,
         linestyle=(0, (5, 2)), label="corrected P",
     )
-    j_raw = day2.predicted_first_fail_from_margin(margin)
-    j_shift = day2.predicted_first_fail_from_margin(margin, alpha)
+    j_raw = s2.predicted_first_fail_from_margin(margin)
+    j_shift = s2.predicted_first_fail_from_margin(margin, alpha)
     ax.axvline(j_raw, color=SERIES_COLORS[0], linewidth=1.2, alpha=0.4)
     ax.axvline(j_shift, color=SERIES_COLORS[1], linewidth=1.2, alpha=0.4)
     ax.annotate(
@@ -344,7 +344,7 @@ def figure4_boundary_aligned(
     present = _present(test_scores)
     aligned = pd.concat(
         [
-            day2.boundary_aligned_curves(
+            s2.boundary_aligned_curves(
                 test_scores[m], parameters["parameters"][m]["global"]["alpha"]
             )
             for m in present
@@ -531,7 +531,7 @@ def render_all(
     parameters: dict,
     samples: dict,
 ) -> list[Path]:
-    """Render every predeclared Day-2 figure and return the paths written."""
+    """Render every predeclared s-2 figure and return the paths written."""
     paths = [
         figure1_bias_vs_shape(root),
         figure2_global_offsets(root, parameters, samples),

@@ -5,15 +5,15 @@
     "files": {
       "scripts/analyze_qwen_scale.py": "302fa75c4732c44ee8d4482a95915ca74b07e1a16e26394dabb845ff36f9094f",
       "scripts/freeze_qwen_scale_preregistration.py": "56e5a1d638aec15fb87fb7e1e7a32beaf7a8d9868737c3604eb1dc02eda9779a",
-      "scripts/run_day3_inference.py": "f5576be477db475fae7328b8bccbb0243f0588d57f78f95912072d2c7475bf79",
+      "scripts/run_s3_inference.py": "f5576be477db475fae7328b8bccbb0243f0588d57f78f95912072d2c7475bf79",
       "scripts/run_qwen_scale_inference.py": "c0750d9a8189b61dc2cc6829ed26be12d7f9636a8d56b8f96e30ef5421fcf646",
       "scripts/verify_qwen_scale_integrity.py": "233396b3cf84fa26ad94e8605376028fa800eb0a7f768348556ebf6f2c7f3227",
       "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
       "src/formalcrrc/dataset.py": "8a6cb27c91c8d05ab3c9ca29ec7808ed067b0c7d215044c892bb3e059c240d2d",
-      "src/formalcrrc/day2.py": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
-      "src/formalcrrc/day2_bootstrap.py": "fd3062c196add2e7af00a227294d95de92c0642ce893f75a26961fa7dfb58993",
-      "src/formalcrrc/day3.py": "213fcd331a67d73b8ec5cdcd30dafa778da9b7d22107c8cd756b8a6ada713cc5",
-      "src/formalcrrc/day3_config.py": "1c9c2cb1aa4462ee29fcc0215078f99acc2de518d74994efe3169620494cbb5c",
+      "src/formalcrrc/s2.py": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
+      "src/formalcrrc/s2_bootstrap.py": "fd3062c196add2e7af00a227294d95de92c0642ce893f75a26961fa7dfb58993",
+      "src/formalcrrc/s3.py": "213fcd331a67d73b8ec5cdcd30dafa778da9b7d22107c8cd756b8a6ada713cc5",
+      "src/formalcrrc/s3_config.py": "1c9c2cb1aa4462ee29fcc0215078f99acc2de518d74994efe3169620494cbb5c",
       "src/formalcrrc/metrics.py": "7f9e7909272c7bcbe6f0971d140027088ac8cc7a98a582563c08b8fce570ed39",
       "src/formalcrrc/predicates.py": "5c119021ffa69d2dc875bb931a249e5f12811fda791227bc0716cb075fc56b68",
       "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4",
@@ -37,7 +37,7 @@
     "n_nontrivial": 288,
     "n_rows": 2916,
     "nontrivial_rule": "An artifact is nontrivial when its truth curve is nonconstant, i.e. j*_x <= 8. In S3 j* ranges over 1..9, so the 36 artifacts with j* = 9 (all nine thresholds met) are the constant-truth cases.",
-    "partition": "DAY3_TEST",
+    "partition": "s3_TEST",
     "seed": 45,
     "validation": {
       "checks": {
@@ -57,7 +57,7 @@
         "truth_is_a_single_step": true,
         "twelve_per_cell": true
       },
-      "dataset_path": "artifacts/day3/test_dataset.parquet",
+      "dataset_path": "artifacts/s3/test_dataset.parquet",
       "hashes": {
         "dataset_content_sha256": "9700960d6f3aa130fa259500aeadbdfa9f511bcc943dd5fdf3401330ee8009d6",
         "dataset_file_sha256": "2160b662fa527498c6bd245e173f0ead9030a7d69633869233b76e5184647a34",
@@ -68,7 +68,7 @@
       "n_artifacts": 324,
       "n_nontrivial": 288,
       "n_rows": 2916,
-      "prompt_manifest_path": "artifacts/day3/prompt_manifest.parquet",
+      "prompt_manifest_path": "artifacts/s3/prompt_manifest.parquet",
       "status": "PASS"
     }
   },
@@ -90,7 +90,7 @@
       ".gitignore",
       "LICENSE",
       "artifacts.zip",
-      "artifacts/day3.zip",
+      "artifacts/s3.zip",
       "artifacts/poststudy_baselines/baseline_by_partition.csv",
       "scripts/analyze_qwen_scale.py",
       "scripts/freeze_qwen_scale_preregistration.py",
@@ -169,10 +169,10 @@
       "accuracy": "Pointwise accuracy: share of the 2,916 rubric conditions with 1[P_met >= 0.5] = Y. Existing definition (formalcrrc.metrics.accuracy). All 324 artifacts.",
       "fsrr": "Full-sequence recovery rate. With P_x = {s : Y_x(s) = 1} and N_x = {s : Y_x(s) = 0}, FSR_x = 1 iff min_{s in P_x} M_x(s) > max_{s in N_x} M_x(s); equivalently one scalar cut c reproduces all nine verdicts, 1[M_x(s) >= c] = Y_x(s). FSRR is the mean of this strict indicator over the 288 nontrivial artifacts only.",
       "mvr_0": "The same with delta = 0, the existing sensitivity diagnostic.",
-      "mvr_05": "MVR_x(delta) = (1/8) sum_{s=0..7} 1[P_met(s+1) > P_met(s) + delta] with delta = 0.05. Existing Day-1 definition (formalcrrc.metrics.monotonicity_violation_rate). All 324 artifacts.",
+      "mvr_05": "MVR_x(delta) = (1/8) sum_{s=0..7} 1[P_met(s+1) > P_met(s) + delta] with delta = 0.05. Existing s-1 definition (formalcrrc.metrics.monotonicity_violation_rate). All 324 artifacts.",
       "oracle_errors": "Oracle minimum errors, E*_x = min_c sum_{s=0..8} 1[1[M_x(s) >= c] != Y_x(s)], minimised over every distinct scalar-cut state including all-pass and all-fail, with tied margins always falling on the same side of a cut. PRIMARY: mean over the 288 nontrivial artifacts. SECONDARY: mean over all 324.",
       "tce": "Mean threshold crossing error, TCE_x = |j_hat_x - j*_x|. Existing definition. All 324 artifacts.",
-      "trr": "Translation reachability rate: share of the 288 nontrivial artifacts whose true boundary j* is a strict prefix record low of the margin curve, M(j*) < min_{t<j*} M(t). Existing Day-3 definition (formalcrrc.day3.translation_reachable)."
+      "trr": "Translation reachability rate: share of the 288 nontrivial artifacts whose true boundary j* is a strict prefix record low of the margin curve, M(j*) < min_{t<j*} M(t). Existing s-3 definition (formalcrrc.s3.translation_reachable)."
     },
     "higher_is_better": [
       "accuracy",
@@ -221,12 +221,12 @@
       "brier": "Mean Brier score (formalcrrc.metrics.brier_score). All 324.",
       "exact_boundary_rate": "Share of artifacts with TCE_x = 0. All 324.",
       "oracle_errors_all": "Mean E*_x over all 324 artifacts.",
-      "otce": "Mean oracle translation TCE (formalcrrc.day3). All 324.",
-      "reachable_count": "Mean reachable-set size RC (formalcrrc.day3). All 324."
+      "otce": "Mean oracle translation TCE (formalcrrc.s3). All 324.",
+      "reachable_count": "Mean reachable-set size RC (formalcrrc.s3). All 324."
     },
     "tie_policy": "Exact stored float64 comparison under the strict relations. No tolerance is introduced anywhere except the stated MVR delta."
   },
-  "not_a_rerun": "This is not a rerun, extension or revision of the preregistered Day-1, Day-2 or Day-3 studies and must never be described as one.",
+  "not_a_rerun": "This is not a rerun, extension or revision of the preregistered s-1, s-2 or s-3 studies and must never be described as one.",
   "not_preregistered_for_14b": "The Qwen2.5-14B S3 results already existed, and had been inspected, before this study was designed. This document is therefore not a preregistration with respect to the 14B outcomes; it is prospective only with respect to the 7B and 32B outcomes and to every comparison involving them.",
   "outputs": {
     "artifact_level_metrics": "artifacts/qwen_scale_ablation/artifact_level_metrics.csv",
@@ -266,10 +266,10 @@
     "dtype": "bfloat16",
     "hardware": "one NVIDIA H100 PCIe 80 GB per model",
     "held_fixed": [
-      "frozen S3 (Day-3 TEST, seed 45) artifacts",
+      "frozen S3 (s-3 TEST, seed 45) artifacts",
       "all nine rubric thresholds per artifact",
       "rubric text",
-      "user prompt (frozen Day-1 template, single user message)",
+      "user prompt (frozen s-1 template, single user message)",
       "answer labels A / B",
       "A = criterion met, B = criterion not met",
       "native chat template with generation prompt",
@@ -284,7 +284,7 @@
       "no generated explanation",
       "no sampled verdict",
       "batch size 1, one forward pass per rubric condition",
-      "frozen inference order (artifacts/day3/prompt_manifest.parquet)",
+      "frozen inference order (artifacts/s3/prompt_manifest.parquet)",
       "scoring rule and scoring implementation (formalcrrc.scoring)",
       "truth computation",
       "analysis code"
@@ -311,13 +311,13 @@
   "question": "Under the same immediate-readout FormalCRRC protocol, does increasing Qwen2.5 model scale improve rubric-threshold localization and recoverability?",
   "read_only_inputs": {
     "files": {
-      "artifacts/day3/metrics_by_artifact.parquet": "2879a3cdd2374f7d2ef654b41a7dc38836746e71be704cbe4a0c759e4f7f034a",
-      "artifacts/day3/model_provenance.json": "92bd497304986aa25ee1fb71890dd379c13f31c22e33a7d44db7d19b158bfad3",
-      "artifacts/day3/prompt_manifest.parquet": "b348872573347fdd14ab2af7c080294052798a16977cf41c0ea8eb6243e35850",
-      "artifacts/day3/raw_scores/qwen2_5_14b_instruct.parquet": "10420978b17f61d2d6717d4ba1f2f7ab16ee4a445996bea3c2bfb7fc1630dbb6",
-      "artifacts/day3/raw_scores/qwen2_5_14b_instruct_run.json": "1b2f3fd201d6c491ae88ba2ce5973144416effdd859383961a2ff15d99e7c21b",
-      "artifacts/day3/test_dataset.parquet": "2160b662fa527498c6bd245e173f0ead9030a7d69633869233b76e5184647a34",
-      "artifacts/day3/test_manifest.json": "ec5a1408c6acba75daf9e8c84680c099262aa68f106dd2803437e54482837c0b"
+      "artifacts/s3/metrics_by_artifact.parquet": "2879a3cdd2374f7d2ef654b41a7dc38836746e71be704cbe4a0c759e4f7f034a",
+      "artifacts/s3/model_provenance.json": "92bd497304986aa25ee1fb71890dd379c13f31c22e33a7d44db7d19b158bfad3",
+      "artifacts/s3/prompt_manifest.parquet": "b348872573347fdd14ab2af7c080294052798a16977cf41c0ea8eb6243e35850",
+      "artifacts/s3/raw_scores/qwen2_5_14b_instruct.parquet": "10420978b17f61d2d6717d4ba1f2f7ab16ee4a445996bea3c2bfb7fc1630dbb6",
+      "artifacts/s3/raw_scores/qwen2_5_14b_instruct_run.json": "1b2f3fd201d6c491ae88ba2ce5973144416effdd859383961a2ff15d99e7c21b",
+      "artifacts/s3/test_dataset.parquet": "2160b662fa527498c6bd245e173f0ead9030a7d69633869233b76e5184647a34",
+      "artifacts/s3/test_manifest.json": "ec5a1408c6acba75daf9e8c84680c099262aa68f106dd2803437e54482837c0b"
     },
     "tree_sha256": "adf5ceab12d98f1a9587d959db75238f85f843ff5320a054c40e15c12698f7cd"
   },
@@ -352,12 +352,12 @@
       "accuracy_count_matches": true,
       "all_2916_scored": true,
       "chat_template_sha256_matches": true,
-      "frozen_day3_artifact_ids_match": true,
-      "frozen_day3_j_hat_raw_matches": true,
-      "frozen_day3_otce_matches": true,
-      "frozen_day3_reachable_count_matches": true,
-      "frozen_day3_tce_raw_matches": true,
-      "frozen_day3_translation_reachable_matches": true,
+      "frozen_s3_artifact_ids_match": true,
+      "frozen_s3_j_hat_raw_matches": true,
+      "frozen_s3_otce_matches": true,
+      "frozen_s3_reachable_count_matches": true,
+      "frozen_s3_tce_raw_matches": true,
+      "frozen_s3_translation_reachable_matches": true,
       "fsr_iff_zero_oracle_errors_on_nontrivial": true,
       "fsrr_count_matches": true,
       "fsrr_is_136_over_288": true,
@@ -457,7 +457,7 @@
       "tce": 3.373456790123457,
       "trr": 0.4791666666666667
     },
-    "provenance_note": "Accuracy, TCE and TRR for 14B reproduce the frozen Day-3 report. FSRR (136/288) and E* are confirmed by the author against the manuscript definitions. The S3 MVR values are newly recomputed S3 reference values: the manuscript reports Day-1 MVR, not S3 MVR.",
+    "provenance_note": "Accuracy, TCE and TRR for 14B reproduce the frozen s-3 report. FSRR (136/288) and E* are confirmed by the author against the manuscript definitions. The S3 MVR values are newly recomputed S3 reference values: the manuscript reports s-1 MVR, not S3 MVR.",
     "run": {
       "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
       "dtype": "bfloat16",

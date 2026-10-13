@@ -2,7 +2,7 @@
 """Re-verify the frozen scientific record after the reason-then-score ablation.
 
 Checks that every previously protected file is still byte-identical -- including
-the Day-3 Qwen2.5 comparator this study reads and the completed reasoning-anchor
+the s-3 Qwen2.5 comparator this study reads and the completed reasoning-anchor
 study -- that the ablation wrote only into its own additive locations, and that
 the frozen preregistration still matches its recorded checksum.
 

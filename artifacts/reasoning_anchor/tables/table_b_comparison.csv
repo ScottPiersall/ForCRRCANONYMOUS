@@ -2,8 +2,8 @@ row_kind,name,inference_mode,tce,accuracy_pct,unreachable_pct
 structural reference,Fixed center / no input,no model input,2.2222222222222223,75.30864197530865,
 structural reference,Uniform random crossing,no model input,2.962962962962963,67.07818930041152,
 structural reference,Always met / majority class,no model input,4.0,55.55555555555556,
-original Day-3 judge,Qwen2.5-14B,immediate next-token logit,3.373,,52.08
-original Day-3 judge,Llama-3.1-8B,immediate next-token logit,4.904,,72.92
-original Day-3 judge,Mistral-7B,immediate next-token logit,2.938,,66.67
-original Day-3 judge,Gemma-2-9B,immediate next-token logit,3.361,,39.58
+original s3 judge,Qwen2.5-14B,immediate next-token logit,3.373,,52.08
+original s3 judge,Llama-3.1-8B,immediate next-token logit,4.904,,72.92
+original s3 judge,Mistral-7B,immediate next-token logit,2.938,,66.67
+original s3 judge,Gemma-2-9B,immediate next-token logit,3.361,,39.58
 reasoning anchor,Qwen3-30B-A3B-Thinking,reason-then-score (Stage R + Stage D),0.4012345679012346,91.56378600823047,0.0

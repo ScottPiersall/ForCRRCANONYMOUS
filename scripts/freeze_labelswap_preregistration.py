@@ -33,7 +33,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from formalcrrc import labelswap, prompts, provenance  # noqa: E402
 from formalcrrc import labelswap_config as lsc  # noqa: E402
-from formalcrrc import day3_config as d3c  # noqa: E402
+from formalcrrc import s3_config as d3c  # noqa: E402
 from formalcrrc.config import (  # noqa: E402
     BOOTSTRAP_REPLICATES,
     BOOTSTRAP_SEED,
@@ -90,7 +90,7 @@ def fingerprint_frozen_record() -> dict:
         "combined_sha256": provenance.sha256_text(
             "\n".join(f"{k}:{v}" for k, v in sorted(files.items()))
         ),
-        "recorded_day3_prior_manifest_verifies": not mismatched,
+        "recorded_s3_prior_manifest_verifies": not mismatched,
         "mismatched_against_recorded_manifest": mismatched,
         "trees": list(lsc.PROTECTED_TREES),
         "documents": list(lsc.PROTECTED_DOCS),
@@ -98,8 +98,8 @@ def fingerprint_frozen_record() -> dict:
     }
 
 
-def day3_facts() -> dict:
-    """Everything recovered from the frozen Day-3 record, verified live."""
+def s3_facts() -> dict:
+    """Everything recovered from the frozen s-3 record, verified live."""
     manifest = json.loads(
         (ROOT / d3c.DATASET_MANIFEST_PATH).read_text(encoding="utf-8")
     )
@@ -119,9 +119,9 @@ def day3_facts() -> dict:
             "chat_template_sha256": record["chat_template_sha256"],
             "transformers_version": record["transformers_version"],
             "torch_version": record["torch_version"],
-            "day3_label_tokenization": record["label_tokenization"],
-            "day3_raw_scores_sha256": provenance.sha256_file(
-                ROOT / f"artifacts/day3/raw_scores/{MODEL_SLUGS[model_id]}.parquet"
+            "s3_label_tokenization": record["label_tokenization"],
+            "s3_raw_scores_sha256": provenance.sha256_file(
+                ROOT / f"artifacts/s3/raw_scores/{MODEL_SLUGS[model_id]}.parquet"
             ),
         }
 
@@ -171,7 +171,7 @@ protocol text above was altered.
 
 **Freeze timestamp (UTC):** `{frozen_at}`
 
-### A.1 Dataset (frozen Day-3 TEST, reused read-only)
+### A.1 Dataset (frozen s-3 TEST, reused read-only)
 
 | | |
 |---|---|
@@ -179,10 +179,10 @@ protocol text above was altered.
 | Seed | {facts["seed"]} |
 | Dataset file SHA-256 | `{facts["dataset_file_sha256"]}` |
 | Dataset content SHA-256 | `{facts["dataset_content_sha256"]}` |
-| Day-3 prompt manifest SHA-256 | `{facts["prompt_manifest_file_sha256"]}` |
-| Hashes match Day-3 manifest | {facts["dataset_hash_matches_manifest"]} / {facts["prompt_manifest_hash_matches_manifest"]} |
+| s-3 prompt manifest SHA-256 | `{facts["prompt_manifest_file_sha256"]}` |
+| Hashes match s-3 manifest | {facts["dataset_hash_matches_manifest"]} / {facts["prompt_manifest_hash_matches_manifest"]} |
 
-### A.2 Model panel — exact Day-3 revisions
+### A.2 Model panel — exact s-3 revisions
 
 | Model | Revision | Tokenizer revision | dtype | Chat template SHA-256 |
 |---|---|---|---|---|
@@ -201,7 +201,7 @@ Inference configuration: `{MODEL_DTYPE}`, transformers
 `{facts["models"][MODEL_IDS[0]]["transformers_version"]}`, torch
 `{facts["models"][MODEL_IDS[0]]["torch_version"]}`, scoring rule
 `single_token_next_logit` via prompt-continuation label resolution — all
-inherited from Day 3 unchanged.
+inherited from s 3 unchanged.
 
 ### A.3 Prompt templates
 
@@ -263,7 +263,7 @@ def main() -> int:
 
     # ---- consistency of the draft against the implementation ----------------
     diff = labelswap.prompt_diff()
-    facts = day3_facts()
+    facts = s3_facts()
     consistency = {
         "draft_quotes_the_real_response_instruction": (
             "Return A if the criterion is met." in draft
@@ -271,13 +271,13 @@ def main() -> int:
             and PROMPT_TEMPLATE.endswith(labelswap.ORIGINAL_RESPONSE_INSTRUCTION)
         ),
         "draft_swapped_margin_is_sb_minus_sa": "S_B-S_A" in draft.replace(" ", ""),
-        "draft_seed_matches_day3": f"Seed: {d3c.SEED}" in draft,
+        "draft_seed_matches_s3": f"Seed: {d3c.SEED}" in draft,
         "draft_artifact_count_matches": "324" in draft,
         "draft_nontrivial_count_matches": "288" in draft,
         "prompt_diff_passes": diff["status"] == "PASS",
         "dataset_hashes_verify": facts["dataset_hash_matches_manifest"]
         and facts["prompt_manifest_hash_matches_manifest"],
-        "prompt_template_matches_day3": facts["prompt_template_matches_manifest"],
+        "prompt_template_matches_s3": facts["prompt_template_matches_manifest"],
         "all_four_revisions_recovered": all(
             facts["models"][m]["revision"] for m in MODEL_IDS
         ),
@@ -290,8 +290,8 @@ def main() -> int:
 
     # ---- Phase 2 fingerprint, taken before anything is written --------------
     fingerprint = fingerprint_frozen_record()
-    if not fingerprint["recorded_day3_prior_manifest_verifies"]:
-        print("FAIL: recorded Day-3 prior manifest does not verify")
+    if not fingerprint["recorded_s3_prior_manifest_verifies"]:
+        print("FAIL: recorded s-3 prior manifest does not verify")
         print(fingerprint["mismatched_against_recorded_manifest"][:10])
         return 2
 
@@ -314,8 +314,8 @@ def main() -> int:
         "frozen_at": frozen_at,
         "amendments": 0,
         "relationship_to_prior_work": (
-            "Reuses the frozen Day-3 TEST partition and Day-3 model panel. Not a "
-            "Day-3 amendment, not a replacement for Day-3 TRR, not part of the "
+            "Reuses the frozen s-3 TEST partition and s-3 model panel. Not a "
+            "s-3 amendment, not a replacement for s-3 TRR, not part of the "
             "original three preregistrations."
         ),
         "intervention": {
@@ -352,7 +352,7 @@ def main() -> int:
             "scheme": lsc.BOOTSTRAP_SCHEME,
             "interval": lsc.BOOTSTRAP_CI,
         },
-        "day3_facts": facts,
+        "s3_facts": facts,
         "draft_consistency_checks": consistency,
         "row_equivalence": equivalence,
         "frozen_record_fingerprint": {
@@ -399,7 +399,7 @@ def main() -> int:
     print(f"frozen record        {fingerprint['n_files']} files, "
           f"combined {fingerprint['combined_sha256']}")
     print()
-    print("model panel (exact Day-3 revisions):")
+    print("model panel (exact s-3 revisions):")
     for model_id in MODEL_IDS:
         print(f"    {model_id:<40} {facts['models'][model_id]['revision']}")
     print()

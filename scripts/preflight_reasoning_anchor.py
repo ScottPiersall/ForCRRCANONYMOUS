@@ -4,7 +4,7 @@
 Everything this script needs to establish is a property of the model, its
 tokenizer and its chat template -- never of FormalCRRC data. It therefore runs
 on synthetic prompts that have nothing to do with the study, and it refuses to
-touch the Day-3 partition at all. Running it cannot contaminate the
+touch the s-3 partition at all. Running it cannot contaminate the
 preregistration.
 
 What must be settled here, because the frozen protocol depends on all of it:

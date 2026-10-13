@@ -3,7 +3,7 @@
   "created_at": "2026-09-07T19:29:31+00:00",
   "deployable": false,
   "enumeration": "collect breakpoints -M_x(s) over the group; sort unique; evaluate every breakpoint, the midpoint of every adjacent unique pair, one value below the smallest and one above the largest, plus nextafter(b, +/-inf) for every breakpoint so that no interval is skipped when adjacent breakpoints are closer than the midpoint is representable",
-  "experiment": "FormalCRRC Day 3",
+  "experiment": "FormalCRRC s3",
   "models": {
     "Qwen/Qwen2.5-14B-Instruct": {
       "alpha": 26.5,

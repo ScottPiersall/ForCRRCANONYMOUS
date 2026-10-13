@@ -1,17 +1,17 @@
 #!/usr/bin/env python
-"""Day-2 integrity verification and manifest (Phase I / J).
+"""s-2 integrity verification and manifest (Phase I / J).
 
-Re-verifies that Day 1 is untouched, that both Day-2 partitions still hash to
+Re-verifies that s 1 is untouched, that both s-2 partitions still hash to
 their manifests, that every judge's raw scores are complete and well formed on
 both partitions, that no calibration leakage occurred, and that shape invariance
 holds.
 
 Figures are hashed **explicitly and individually**, and the combined digest
-refuses an empty file list, so the Day-1 empty-input defect cannot recur. The
+refuses an empty file list, so the s-1 empty-input defect cannot recur. The
 results document is generated after this manifest, not before it.
 
-Writes ``artifacts/day2/integrity_manifest.json`` and, with ``--final``,
-``artifacts/day2/final_console_block.txt``.
+Writes ``artifacts/s2/integrity_manifest.json`` and, with ``--final``,
+``artifacts/s2/final_console_block.txt``.
 """
 
 from __future__ import annotations
@@ -27,7 +27,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from formalcrrc import dataset as ds  # noqa: E402
-from formalcrrc import day1_audit, day2_config as d2c, prompts, provenance  # noqa: E402
+from formalcrrc import s1_audit, s2_config as d2c, prompts, provenance  # noqa: E402
 from formalcrrc.config import (  # noqa: E402
     FAMILIES,
     MODEL_IDS,
@@ -39,14 +39,14 @@ from formalcrrc.config import (  # noqa: E402
 )
 
 
-def check_day1(root: Path) -> dict:
-    """Day 1 must be exactly as Day 2 found it."""
-    baseline_path = root / d2c.DAY1_BASELINE_PATH
+def check_s1(root: Path) -> dict:
+    """s 1 must be exactly as s 2 found it."""
+    baseline_path = root / d2c.s1_BASELINE_PATH
     if not baseline_path.is_file():
         return {"status": "FAIL", "reason": "baseline fingerprint missing"}
     baseline = json.loads(baseline_path.read_text(encoding="utf-8"))
-    verification = day1_audit.verify_day1_baseline(baseline, root)
-    permitted = {"artifacts/day1/integrity_addendum.json"}
+    verification = s1_audit.verify_s1_baseline(baseline, root)
+    permitted = {"artifacts/s1/integrity_addendum.json"}
     unexpected = [p for p in verification["added"] if p not in permitted]
     rebuilt = ds.dataset_content_hash(ds.build_dataset())
     return {
@@ -54,7 +54,7 @@ def check_day1(root: Path) -> dict:
             "PASS"
             if verification["status"] == "PASS"
             and not unexpected
-            and rebuilt == d2c.DAY1_DATASET_CONTENT_SHA256
+            and rebuilt == d2c.s1_DATASET_CONTENT_SHA256
             else "FAIL"
         ),
         "n_files_fingerprinted": baseline["n_files"],
@@ -63,8 +63,8 @@ def check_day1(root: Path) -> dict:
         "missing": verification["missing"],
         "unexpected_additions": unexpected,
         "permitted_additions": sorted(set(verification["added"]) & permitted),
-        "day1_dataset_reproduces": rebuilt == d2c.DAY1_DATASET_CONTENT_SHA256,
-        "day1_dataset_content_sha256": rebuilt,
+        "s1_dataset_reproduces": rebuilt == d2c.s1_DATASET_CONTENT_SHA256,
+        "s1_dataset_content_sha256": rebuilt,
     }
 
 
@@ -223,13 +223,13 @@ def check_calibration_leakage(root: Path) -> dict:
             "PASS"
             if document.get("fitted_on") == "CALIBRATION partition only"
             and document.get("test_partition_read") is False
-            and document.get("day1_outcomes_read") is False
+            and document.get("s1_outcomes_read") is False
             and fitted_hashes <= {expected}
             else "FAIL"
         ),
         "fitted_on": document.get("fitted_on"),
         "test_partition_read": document.get("test_partition_read"),
-        "day1_outcomes_read": document.get("day1_outcomes_read"),
+        "s1_outcomes_read": document.get("s1_outcomes_read"),
         "calibration_dataset_sha256": expected,
         "fitted_against": sorted(fitted_hashes),
         "slope": document["model"]["slope"],
@@ -281,7 +281,7 @@ def hash_figures(root: Path) -> dict:
         "status": "PASS",
         "n_files": len(files),
         "files": files,
-        "combined_sha256": day1_audit.combined_hash(files),
+        "combined_sha256": s1_audit.combined_hash(files),
         "definition": (
             "sha256 over newline-joined '<repo-relative path>:<sha256>' entries, "
             "sorted by path; an empty list is refused"
@@ -326,8 +326,8 @@ def build_manifest(root: Path) -> dict:
 
     return {
         "created_at": provenance.utc_now(),
-        "experiment": "FormalCRRC Day 2",
-        "day1_immutability": check_day1(root),
+        "experiment": "FormalCRRC s 2",
+        "s1_immutability": check_s1(root),
         "preregistration": preregistration,
         "partitions": check_partitions(root),
         "runs": runs,
@@ -345,15 +345,15 @@ def build_manifest(root: Path) -> dict:
         "figures": hash_figures(root),
         "files": provenance.hash_paths(
             {
-                "day1_baseline_manifest": d2c.DAY1_BASELINE_PATH,
-                "day1_audit_findings": d2c.DAY1_AUDIT_FINDINGS_PATH,
-                "day1_errata": "docs/DAY1_ERRATA.md",
-                "day1_provenance_audit": "docs/DAY1_PROVENANCE_AUDIT.md",
-                "day1_integrity_addendum_doc": "docs/DAY1_INTEGRITY_ADDENDUM.md",
-                "day1_integrity_addendum_json": "artifacts/day1/integrity_addendum.json",
-                "day2_rationale": "docs/DAY2_RATIONALE.md",
-                "day2_novelty_boundaries": "docs/NOVELTY_BOUNDARIES_DAY2.md",
-                "day2_preregistration_doc": "docs/PREREGISTRATION_DAY2.md",
+                "s1_baseline_manifest": d2c.s1_BASELINE_PATH,
+                "s1_audit_findings": d2c.s1_AUDIT_FINDINGS_PATH,
+                "s1_errata": "docs/s1_ERRATA.md",
+                "s1_provenance_audit": "docs/s1_PROVENANCE_AUDIT.md",
+                "s1_integrity_addendum_doc": "docs/s1_INTEGRITY_ADDENDUM.md",
+                "s1_integrity_addendum_json": "artifacts/s1/integrity_addendum.json",
+                "s2_rationale": "docs/s2_RATIONALE.md",
+                "s2_novelty_boundaries": "docs/NOVELTY_BOUNDARIES_s2.md",
+                "s2_preregistration_doc": "docs/PREREGISTRATION_s2.md",
                 "preregistration": d2c.PREREG_JSON_PATH,
                 "preregistration_checksum": d2c.PREREG_SHA_PATH,
                 "calibration_dataset": d2c.CALIBRATION_DATASET_PATH,
@@ -367,7 +367,7 @@ def build_manifest(root: Path) -> dict:
                 "metrics_by_artifact": d2c.METRICS_PATH,
                 "bootstrap_results": d2c.BOOTSTRAP_PATH,
                 "summary": d2c.SUMMARY_PATH,
-                "results_document": "docs/RESULTS_DAY2.md",
+                "results_document": "docs/RESULTS_s2.md",
             },
             root=root,
         ),
@@ -399,19 +399,19 @@ def render_console_block(root: Path, manifest: dict) -> str:
     disjoint = partitions.get("disjointness", {})
     invariance = manifest["shape_invariance"]
 
-    lines = ["FORMALCRRC DAY 2", "Bias-vs-Shape Decomposition", ""]
+    lines = ["FORMALCRRC s 2", "Bias-vs-Shape Decomposition", ""]
     lines += [
-        "DAY-1 IMMUTABILITY:",
-        f"  status:                {manifest['day1_immutability']['status']}",
-        f"  files fingerprinted:   {manifest['day1_immutability']['n_files_fingerprinted']}",
-        f"  dataset reproduces:    {manifest['day1_immutability']['day1_dataset_reproduces']}",
+        "s-1 IMMUTABILITY:",
+        f"  status:                {manifest['s1_immutability']['status']}",
+        f"  files fingerprinted:   {manifest['s1_immutability']['n_files_fingerprinted']}",
+        f"  dataset reproduces:    {manifest['s1_immutability']['s1_dataset_reproduces']}",
         "",
-        "DAY-1 PROVENANCE:",
+        "s-1 PROVENANCE:",
         "  status:                CLEAN (no preregistered analysis file changed)",
-        "  errata:                DOCUMENTED (docs/DAY1_ERRATA.md)",
-        "  integrity addendum:    COMPLETE (artifacts/day1/integrity_addendum.json)",
+        "  errata:                DOCUMENTED (docs/s1_ERRATA.md)",
+        "  integrity addendum:    COMPLETE (artifacts/s1/integrity_addendum.json)",
         "",
-        "DAY-2 DATA:",
+        "s-2 DATA:",
         f"  calibration artifacts: {N_ARTIFACTS}",
         f"  calibration pairs:     {N_ROWS}/judge",
         f"  test artifacts:        {N_ARTIFACTS}",
@@ -463,16 +463,16 @@ def render_console_block(root: Path, manifest: dict) -> str:
         f"CALIBRATION LEAKAGE:      {manifest['calibration_leakage']['status']}",
         f"FIGURES HASHED:           {manifest['figures']['n_files']} "
         f"({manifest['figures']['status']})",
-        f"DAY-2 ANALYSIS:           {'COMPLETE' if models else 'BLOCKED'}",
+        f"s-2 ANALYSIS:           {'COMPLETE' if models else 'BLOCKED'}",
         "",
-        "No Day-1 scientific outcome modified.",
-        "No Day-1 outcome used to fit calibration.",
+        "No s-1 scientific outcome modified.",
+        "No s-1 outcome used to fit calibration.",
         "No human labels used.",
         "No human annotation performed.",
         "No semantic rubric generation performed.",
         "No nonlinear calibration performed.",
         "No outcome-driven tuning performed.",
-        "No Day-3 experiment started.",
+        "No s-3 experiment started.",
         "",
     ]
     return "\n".join(lines)
@@ -489,7 +489,7 @@ def main() -> int:
     provenance.write_json(root / d2c.INTEGRITY_MANIFEST_PATH, manifest)
     print(f"wrote {d2c.INTEGRITY_MANIFEST_PATH}", flush=True)
 
-    print(f"day1 immutability:      {manifest['day1_immutability']['status']}", flush=True)
+    print(f"s1 immutability:      {manifest['s1_immutability']['status']}", flush=True)
     print(f"preregistration:        {manifest['preregistration']['status']}", flush=True)
     for partition in d2c.DATASET_PATHS:
         print(
@@ -512,7 +512,7 @@ def main() -> int:
         print(block, flush=True)
 
     ok = (
-        manifest["day1_immutability"]["status"] == "PASS"
+        manifest["s1_immutability"]["status"] == "PASS"
         and manifest["preregistration"]["status"] == "PASS"
         and manifest["figures"]["status"] in {"PASS", "NOT_RUN"}
     )

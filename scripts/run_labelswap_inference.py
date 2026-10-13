@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Score the frozen Day-3 partition under the SWAPPED label mapping, one judge.
+"""Score the frozen s-3 partition under the SWAPPED label mapping, one judge.
 
 Raw scores only. No metric, ranking, agreement rate or reachability figure is
 computed or printed here: the analysis stage cannot begin until every intended
@@ -8,7 +8,7 @@ memory.
 
 Fails closed unless the label-swap preregistration is frozen and verified, the
 frozen scientific record is byte-identical to its recorded fingerprint, the
-prompt diff passes, and the model's tokenisation is the exact Day-3 tokenisation
+prompt diff passes, and the model's tokenisation is the exact s-3 tokenisation
 with the two semantic roles exchanged.
 
 Because the swapped tokenisation declares ``label_met = B``, the score this
@@ -35,7 +35,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from formalcrrc import labelswap, prompts, provenance, scoring  # noqa: E402
 from formalcrrc import labelswap_config as lsc  # noqa: E402
-from formalcrrc import day3_config as d3c  # noqa: E402
+from formalcrrc import s3_config as d3c  # noqa: E402
 from formalcrrc.config import MODEL_DTYPE, MODEL_IDS, MODEL_SLUGS  # noqa: E402
 
 RAW_SCORE_COLUMNS = [
@@ -109,16 +109,16 @@ def preflight(root: Path, model_id: str) -> dict:
     if provenance.sha256_file(root / d3c.DATASET_PATH) != (
         dataset_manifest["hashes"]["dataset_file_sha256"]
     ):
-        problems.append("Day-3 dataset hash does not match its manifest")
+        problems.append("s-3 dataset hash does not match its manifest")
 
-    day3_provenance = json.loads(
+    s3_provenance = json.loads(
         (root / d3c.MODEL_PROVENANCE_PATH).read_text(encoding="utf-8")
     )
-    record = day3_provenance.get("models", {}).get(model_id, {})
+    record = s3_provenance.get("models", {}).get(model_id, {})
     if not record:
-        problems.append(f"no Day-3 provenance record for {model_id}")
+        problems.append(f"no s-3 provenance record for {model_id}")
     elif record.get("status") != "AVAILABLE":
-        problems.append(f"{model_id} is not AVAILABLE in the Day-3 record")
+        problems.append(f"{model_id} is not AVAILABLE in the s-3 record")
 
     if problems:
         for problem in problems:
@@ -128,7 +128,7 @@ def preflight(root: Path, model_id: str) -> dict:
 
 
 def load_model(model_id: str, revision: str, token: str | None, cache_dir: str | None):
-    """Load tokenizer and model at the pinned Day-3 revision, in bf16, on the GPU."""
+    """Load tokenizer and model at the pinned s-3 revision, in bf16, on the GPU."""
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
@@ -175,7 +175,7 @@ def main() -> int:
 
     record = preflight(root, model_id)
     revision = record["revision"]
-    day3_tokenization = record["label_tokenization"]
+    s3_tokenization = record["label_tokenization"]
 
     manifest = pd.read_parquet(root / lsc.PROMPT_MANIFEST_PATH).sort_values(
         "order_index"
@@ -205,12 +205,12 @@ def main() -> int:
     )
     tokenization = labelswap.resolve_swapped_label_tokenization(tokenizer, reference)
 
-    mirror = labelswap.tokenization_is_day3_mirror(tokenization, day3_tokenization)
+    mirror = labelswap.tokenization_is_s3_mirror(tokenization, s3_tokenization)
     if mirror["status"] != "PASS":
         print(
-            "PREFLIGHT FAIL: swapped tokenisation is not the Day-3 tokenisation "
+            "PREFLIGHT FAIL: swapped tokenisation is not the s-3 tokenisation "
             "with roles exchanged\n"
-            f"  day3:     {day3_tokenization}\n"
+            f"  s3:     {s3_tokenization}\n"
             f"  swapped:  {tokenization.to_dict()}\n"
             f"  checks:   {mirror['checks']}",
             flush=True,
@@ -219,7 +219,7 @@ def main() -> int:
 
     chat_hash = provenance.sha256_text(tokenizer.chat_template or "")
     if chat_hash != record["chat_template_sha256"]:
-        print("PREFLIGHT FAIL: chat template hash differs from Day 3", flush=True)
+        print("PREFLIGHT FAIL: chat template hash differs from s 3", flush=True)
         return 2
 
     print(f"label mapping: met -> {tokenization.label_met} "
@@ -321,7 +321,7 @@ def main() -> int:
             "dtype": MODEL_DTYPE,
             "scoring_method": tokenization.scoring_method,
             "label_tokenization": tokenization.to_dict(),
-            "day3_label_tokenization": day3_tokenization,
+            "s3_label_tokenization": s3_tokenization,
             "tokenization_mirror_check": mirror,
             "chat_template_sha256": chat_hash,
             "original_prompt_template_sha256": prompts.prompt_template_sha256(),

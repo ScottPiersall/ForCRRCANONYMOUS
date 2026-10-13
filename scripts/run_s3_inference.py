@@ -1,16 +1,16 @@
 #!/usr/bin/env python
-"""Score the Day-3 evaluation partition with one judge (Phase F).
+"""Score the s-3 evaluation partition with one judge (Phase F).
 
 Raw scores only. No reachable set is computed, no oracle is fitted, no metric is
 produced and nothing scientific is printed: the oracle stage cannot begin until
 every intended raw run is complete, so the console carries only progress,
 failures, timing and memory.
 
-Fails closed unless the Day-3 preregistration is frozen and verified, the
-dataset matches its manifest, the prompt template matches the prior days, and
+Fails closed unless the s-3 preregistration is frozen and verified, the
+dataset matches its manifest, the prompt template matches the prior ss, and
 the model's scoring conditions match the recorded provenance exactly.
 
-Writes ``artifacts/day3/raw_scores/<slug>.parquet`` plus a run record.
+Writes ``artifacts/s3/raw_scores/<slug>.parquet`` plus a run record.
 """
 
 from __future__ import annotations
@@ -26,7 +26,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from formalcrrc import day3_config as d3c  # noqa: E402
+from formalcrrc import s3_config as d3c  # noqa: E402
 from formalcrrc import prompts, provenance, scoring  # noqa: E402
 from formalcrrc.config import MODEL_DTYPE, MODEL_IDS, MODEL_SLUGS, N_ROWS  # noqa: E402
 
@@ -57,13 +57,13 @@ def preflight(root: Path, model_id: str) -> dict:
     prereg = root / d3c.PREREG_JSON_PATH
     sha_path = root / d3c.PREREG_SHA_PATH
     if not (prereg.is_file() and sha_path.is_file()):
-        problems.append("Day-3 preregistration is not frozen")
+        problems.append("s-3 preregistration is not frozen")
     elif not provenance.verify_checksum_file(prereg, sha_path):
-        problems.append("Day-3 preregistration checksum does not match")
+        problems.append("s-3 preregistration checksum does not match")
 
     manifest_path = root / d3c.DATASET_MANIFEST_PATH
     if not manifest_path.is_file():
-        problems.append("Day-3 dataset manifest is missing")
+        problems.append("s-3 dataset manifest is missing")
     else:
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         dataset_path = root / d3c.DATASET_PATH
@@ -84,18 +84,18 @@ def preflight(root: Path, model_id: str) -> dict:
     provenance_path = root / d3c.MODEL_PROVENANCE_PATH
     record: dict = {}
     if not provenance_path.is_file():
-        problems.append("Day-3 model provenance missing; run audit_day3_models.py")
+        problems.append("s-3 model provenance missing; run audit_s3_models.py")
     else:
         document = json.loads(provenance_path.read_text(encoding="utf-8"))
         record = document.get("models", {}).get(model_id, {})
         if not record:
-            problems.append(f"no Day-3 provenance record for {model_id}")
+            problems.append(f"no s-3 provenance record for {model_id}")
         elif record.get("status") != "AVAILABLE":
             problems.append(
                 f"{model_id} is not AVAILABLE (status={record.get('status')})"
             )
         elif not all(record.get("continuity", {}).values()):
-            problems.append(f"{model_id} continuity with prior days not established")
+            problems.append(f"{model_id} continuity with prior ss not established")
 
     if problems:
         for problem in problems:
@@ -183,7 +183,7 @@ def main() -> int:
 
     if tokenization.to_dict() != expected_tokenization:
         print(
-            "PREFLIGHT FAIL: label tokenisation differs from the Day-3 audit\n"
+            "PREFLIGHT FAIL: label tokenisation differs from the s-3 audit\n"
             f"  recorded: {expected_tokenization}\n"
             f"  observed: {tokenization.to_dict()}",
             flush=True,
@@ -264,7 +264,7 @@ def main() -> int:
     provenance.write_json(
         out_dir / f"{slug}_run.json",
         {
-            "experiment": "FormalCRRC Day 3",
+            "experiment": "FormalCRRC s 3",
             "partition": d3c.PARTITION_NAME,
             "model_id": model_id,
             "slug": slug,
@@ -297,8 +297,8 @@ def main() -> int:
                     "src/formalcrrc/config.py",
                     "src/formalcrrc/prompts.py",
                     "src/formalcrrc/scoring.py",
-                    "src/formalcrrc/day3_config.py",
-                    "scripts/run_day3_inference.py",
+                    "src/formalcrrc/s3_config.py",
+                    "scripts/run_s3_inference.py",
                 ],
                 root=root,
             ),

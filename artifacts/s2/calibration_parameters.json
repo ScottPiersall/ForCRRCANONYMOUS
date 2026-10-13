@@ -1,7 +1,7 @@
 {
   "blocked": [],
   "created_at": "2026-09-07T18:41:15+00:00",
-  "day1_outcomes_read": false,
+  "s1_outcomes_read": false,
   "environment": {
     "captured_at": "2026-09-07T18:41:15+00:00",
     "hostname": "minipc",
@@ -21,7 +21,7 @@
     "python_implementation": "CPython",
     "python_version": "3.12.3"
   },
-  "experiment": "FormalCRRC Day 2",
+  "experiment": "FormalCRRC s 2",
   "fitted_on": "CALIBRATION partition only",
   "model": {
     "objective": "argmin_alpha of the calibration-set logistic log-loss; equivalently the root of sum_i [sigma(M_i + alpha) - Y_i] = 0",
@@ -289,9 +289,9 @@
   "preregistration_sha256": "cf742630bf5365ed12ce4770a5218e7f5b34e0d6bff2cb44d75d2d556bd3fba0",
   "source_manifest": {
     "files": {
-      "scripts/fit_day2_bias.py": "8f8666aecd18a978b9c24ea219dcae49d5018e55c8a79ac17d62c659d9fc2b23",
-      "src/formalcrrc/day2.py": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
-      "src/formalcrrc/day2_config.py": "c2a34bf4ff5f3c2d741dd3ed43a2bd23daee3780d717d5b680c72e89c79c7c71"
+      "scripts/fit_s2_bias.py": "8f8666aecd18a978b9c24ea219dcae49d5018e55c8a79ac17d62c659d9fc2b23",
+      "src/formalcrrc/s2.py": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
+      "src/formalcrrc/s2_config.py": "c2a34bf4ff5f3c2d741dd3ed43a2bd23daee3780d717d5b680c72e89c79c7c71"
     },
     "tree_sha256": "23dff294a0edb18114d7355027d0ae71d400dd0be0c28da2af283836c0e77afd"
   },

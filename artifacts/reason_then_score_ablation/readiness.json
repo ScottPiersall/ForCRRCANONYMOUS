@@ -21,7 +21,7 @@
     },
     "dataset_content_sha256": "9700960d6f3aa130fa259500aeadbdfa9f511bcc943dd5fdf3401330ee8009d6",
     "dataset_file_sha256": "2160b662fa527498c6bd245e173f0ead9030a7d69633869233b76e5184647a34",
-    "dataset_path": "artifacts/day3/test_dataset.parquet",
+    "dataset_path": "artifacts/s3/test_dataset.parquet",
     "n_artifacts": 324,
     "n_rows": 2916,
     "status": "PASS"

@@ -8,7 +8,7 @@ raw margins (Theorem 1) and whether the learned cutoff places the boundary exact
 import sys, os, json, math, random, collections
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import minipq
-A = os.path.join(sys.argv[1], 'day2')
+A = os.path.join(sys.argv[1], 's2')
 P = json.load(open(os.path.join(A, 'calibration_parameters.json')))['parameters']
 FILES = collections.OrderedDict([('Qwen/Qwen2.5-14B-Instruct', 'qwen2_5_14b_instruct'),
     ('meta-llama/Llama-3.1-8B-Instruct', 'llama3_1_8b_instruct'),

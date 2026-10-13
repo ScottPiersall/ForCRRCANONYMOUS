@@ -9,8 +9,8 @@
       "scripts/run_reasoning_anchor_inference.py": "277e05d9e252817a61709452d7689726623e377fb19ace00473cf261e5a6d72a",
       "scripts/verify_reasoning_anchor_integrity.py": "5c784db4610f672408f8db760f18f39af1945f9c6ed43c46d83457fc7e0ad84b",
       "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
-      "src/formalcrrc/day2.py": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
-      "src/formalcrrc/day3.py": "213fcd331a67d73b8ec5cdcd30dafa778da9b7d22107c8cd756b8a6ada713cc5",
+      "src/formalcrrc/s2.py": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
+      "src/formalcrrc/s3.py": "213fcd331a67d73b8ec5cdcd30dafa778da9b7d22107c8cd756b8a6ada713cc5",
       "src/formalcrrc/predicates.py": "5c119021ffa69d2dc875bb931a249e5f12811fda791227bc0716cb075fc56b68",
       "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4",
       "src/formalcrrc/provenance.py": "34e1c06f91514642b0bcc1beb946997ad275d2b69030f80d83b6e7df9920bd55",
@@ -41,7 +41,7 @@
     "n_nontrivial_curves": 288,
     "n_rows": 2916,
     "n_strictness_levels": 9,
-    "partition": "DAY3_TEST",
+    "partition": "s3_TEST",
     "prompt_template_sha256": "e5f3c5ba3dfd1ccaca0655307d8ad254598a17184c7ae40dfde63c1f660cae14",
     "seed": 45,
     "validation": {
@@ -53,7 +53,7 @@
         "nine_levels_each": true,
         "nontrivial_curve_count": true,
         "one_hundred_eight_per_family": true,
-        "partition_is_day3_test": true,
+        "partition_is_s3_test": true,
         "row_count": true,
         "seed_is_45": true,
         "thirty_six_at_each_crossing": true,
@@ -61,14 +61,14 @@
       },
       "dataset_content_sha256": "9700960d6f3aa130fa259500aeadbdfa9f511bcc943dd5fdf3401330ee8009d6",
       "dataset_file_sha256": "2160b662fa527498c6bd245e173f0ead9030a7d69633869233b76e5184647a34",
-      "dataset_path": "artifacts/day3/test_dataset.parquet",
+      "dataset_path": "artifacts/s3/test_dataset.parquet",
       "n_artifacts": 324,
       "n_nontrivial_curves": 288,
       "n_rows": 2916,
       "status": "PASS"
     }
   },
-  "day3_comparison": {
+  "s3_comparison": {
     "status": "descriptive only; the anchor uses a reason-then-score protocol rather than the original immediate next-token procedure, so no pooled hypothesis test treating the five models as exchangeable is performed",
     "tce": {
       "Gemma-2-9B": 3.361,
@@ -137,7 +137,7 @@
     "crossing_convention": "j_hat = min{s : M(s) < 0}, else 9. M = 0 counts as 'criterion met'.",
     "decision_convention": "D(s) = 1[M(s) >= 0]",
     "name": "reason_then_score",
-    "rationale": "The Day-3 panel was scored at the immediate response boundary, M = S_A - S_B on the first generated token. This anchor's native chat template opens a thinking block in the generation prompt, so the first generated token begins its reasoning rather than its judgment. Scoring A/B there would measure the start of reasoning, not the final decision.",
+    "rationale": "The s-3 panel was scored at the immediate response boundary, M = S_A - S_B on the first generated token. This anchor's native chat template opens a thinking block in the generation prompt, so the first generated token begins its reasoning rather than its judgment. Scoring A/B there would measure the start of reasoning, not the final decision.",
     "reachability_condition": "M(j) < min_{t < j} M(t)  (strict prefix record low); crossings 0 and 9 always reachable",
     "stage_d": {
       "candidate_met": "A",

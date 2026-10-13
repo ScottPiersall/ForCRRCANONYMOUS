@@ -6,7 +6,7 @@
 4. TCE and reachability by reasoning length -- descriptive, and labelled so.
 
 Generated from the saved machine-readable analysis outputs, never from numbers
-retyped by hand. Colour follows the same categorical palette as Days 1-3 so a
+retyped by hand. Colour follows the same categorical palette as ss 1-3 so a
 judge keeps its identity across every FormalCRRC figure; the anchor is drawn in
 a distinct colour and the structural references in grey, because they are not
 comparable objects and the figure should not suggest otherwise.
@@ -77,8 +77,8 @@ def figure_tce(summary: dict) -> None:
     anchor_tce = summary["primary"]["mean_tce"]
     ci = summary["primary"]["mean_tce_ci"]
 
-    names = list(rc.DAY3_TCE)
-    values = [rc.DAY3_TCE[n] for n in names]
+    names = list(rc.s3_TCE)
+    values = [rc.s3_TCE[n] for n in names]
     colors = list(SERIES_COLORS[: len(names)])
 
     names.append(rc.MODEL_SHORT_NAME)
@@ -124,8 +124,8 @@ def figure_unreachable(summary: dict) -> None:
     trr_ci = summary["primary"]["trr_ci"]
     ci = [100.0 * (1.0 - trr_ci[1]), 100.0 * (1.0 - trr_ci[0])]
 
-    names = list(rc.DAY3_UNREACHABLE_PCT)
-    values = [rc.DAY3_UNREACHABLE_PCT[n] for n in names]
+    names = list(rc.s3_UNREACHABLE_PCT)
+    values = [rc.s3_UNREACHABLE_PCT[n] for n in names]
     colors = list(SERIES_COLORS[: len(names)])
     names.append(rc.MODEL_SHORT_NAME)
     values.append(anchor)
@@ -139,7 +139,7 @@ def figure_unreachable(summary: dict) -> None:
         yerr=[[max(anchor - ci[0], 0)], [max(ci[1] - anchor, 0)]],
         fmt="none", ecolor=INK, elinewidth=1.4, capsize=5, zorder=4,
     )
-    low, high = rc.DAY3_UNREACHABLE_RANGE
+    low, high = rc.s3_UNREACHABLE_RANGE
     ax.axhspan(low, high, color=REFERENCE_COLOR, alpha=0.28, zorder=1)
     ax.text(
         0.02, high + 1.5, f"original panel range {low:.2f}-{high:.2f}%",

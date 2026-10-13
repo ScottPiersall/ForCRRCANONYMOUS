@@ -72,7 +72,7 @@
   "load_seconds": 35.16,
   "model_id": "Qwen/Qwen2.5-7B-Instruct",
   "model_revisions_sha256": "91478b5caa2145c2fc586bf8fbd9ceb85a1cd26929e7ac38d34fa1568112e8b6",
-  "partition": "DAY3_TEST",
+  "partition": "s3_TEST",
   "peak_gpu_memory_gib": 14.354,
   "preregistration_sha256": "e943462cf99b992cc742ce0a1572a9011593ebcbe8f9440020de7350f5130209",
   "prompt_manifest_file_sha256": "b348872573347fdd14ab2af7c080294052798a16977cf41c0ea8eb6243e35850",
@@ -91,7 +91,7 @@
   },
   "source_manifest": {
     "files": {
-      "scripts/run_day3_inference.py": "f5576be477db475fae7328b8bccbb0243f0588d57f78f95912072d2c7475bf79",
+      "scripts/run_s3_inference.py": "f5576be477db475fae7328b8bccbb0243f0588d57f78f95912072d2c7475bf79",
       "scripts/run_qwen_scale_inference.py": "f39b77781a20aaf661ae469c4acd925a4f7bd7e1d6a010505cd14efcb9cf715f",
       "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
       "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4",

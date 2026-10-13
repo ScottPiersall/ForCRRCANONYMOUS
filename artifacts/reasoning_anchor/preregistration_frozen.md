@@ -1,10 +1,10 @@
 # FormalCRRC Reasoning-Capable External Anchor Study
 
 **Study type:** Post-study preregistered external-validity / reasoning-capable anchor experiment
-**Relationship to prior work:** Follow-up to FormalCRRC Days 1-3 and the label-swap robustness experiment
+**Relationship to prior work:** Follow-up to FormalCRRC ss 1-3 and the label-swap robustness experiment
 **Human subjects:** None
 **New model inference:** Yes
-**Dataset:** Frozen FormalCRRC Day-3 TEST partition, seed 45
+**Dataset:** Frozen FormalCRRC s-3 TEST partition, seed 45
 **Anchor model:** `Qwen/Qwen3-30B-A3B-Thinking-2507`
 **Model class:** Modern reasoning-capable open-weight external anchor
 **Quantization:** None; official BF16 weights unless a preregistration-stopping incompatibility is discovered before freeze
@@ -24,7 +24,7 @@ A remaining external-validity question is whether these findings are primarily a
 
 This study therefore evaluates one substantially different judge: `Qwen/Qwen3-30B-A3B-Thinking-2507`, an open-weight reasoning-capable model that supports thinking mode by design.
 
-The study is intended as an **external anchor**, not as a fifth member of the original Day-3 panel. Its inference procedure necessarily differs because the model reasons before producing a final judgment.
+The study is intended as an **external anchor**, not as a fifth member of the original s-3 panel. Its inference procedure necessarily differs because the model reasons before producing a final judgment.
 
 The principal question is:
 
@@ -38,7 +38,7 @@ This study is descriptive and falsification-oriented rather than a superiority b
 
 ### H1 — Boundary localization
 
-The reasoning-capable anchor may reduce raw Threshold Crossing Error relative to the original four-judge Day-3 panel.
+The reasoning-capable anchor may reduce raw Threshold Crossing Error relative to the original four-judge s-3 panel.
 
 The study does not assume that it will.
 
@@ -75,26 +75,26 @@ The frequency of \(RC_x=10\) will therefore be reported as a post-study theoreti
 
 This experiment does not alter or rerun:
 
-* Day 1,
-* Day 2,
-* Day 3,
+* s1,
+* s2,
+* s3,
 * the baseline audit,
 * the step-function proposition audit,
 * or the label-swap study.
 
 All prior scientific artifacts remain frozen.
 
-The Day-3 TEST partition provides the evaluation dataset so that the reasoning-capable anchor is evaluated on exactly the same artifacts, predicate families, formal thresholds, and true boundaries.
+The s-3 TEST partition provides the evaluation dataset so that the reasoning-capable anchor is evaluated on exactly the same artifacts, predicate families, formal thresholds, and true boundaries.
 
-The original Day-3 panel provides contextual comparison values only.
+The original s-3 panel provides contextual comparison values only.
 
-Because the inference mechanism differs, this anchor must not be inserted into the original Day-3 table in a way that implies identical inference procedures.
+Because the inference mechanism differs, this anchor must not be inserted into the original s-3 table in a way that implies identical inference procedures.
 
 ---
 
 ## 4. Dataset
 
-Use the complete frozen Day-3 TEST partition.
+Use the complete frozen s-3 TEST partition.
 
 Expected design:
 
@@ -107,7 +107,7 @@ Expected design:
 
 No subsampling is permitted.
 
-Each artifact must be byte-identical to its frozen Day-3 counterpart.
+Each artifact must be byte-identical to its frozen s-3 counterpart.
 
 Formal truth and true crossings must be independently recomputed from primitive dataset fields.
 
@@ -190,7 +190,7 @@ $$
 
 under the established FormalCRRC crossing convention.
 
-The implementation must verify these identities against all frozen Day-3 cells before inference.
+The implementation must verify these identities against all frozen s-3 cells before inference.
 
 ---
 
@@ -223,9 +223,9 @@ A quantized variant would constitute a different preregistration.
 
 ---
 
-## 7. Why direct Day-3 next-token scoring cannot be reused unchanged
+## 7. Why direct s-3 next-token scoring cannot be reused unchanged
 
-The original Day-3 models were scored at the immediate response boundary:
+The original s-3 models were scored at the immediate response boundary:
 
 $$
 M=S_A-S_B.
@@ -245,7 +245,7 @@ For each of the 2,916 artifact-threshold prompts, inference consists of two stag
 
 ## 8.1 Stage R — reasoning generation
 
-Use the exact frozen Day-3 user-message content:
+Use the exact frozen s-3 user-message content:
 
 > You are evaluating exactly one criterion for one candidate response.
 > Use only the stated criterion. Do not reward or penalize the response for properties outside that criterion.
@@ -404,7 +404,7 @@ Before freezing the preregistration, Claude must determine and record:
 
 This validation may use synthetic prompts unrelated to FormalCRRC.
 
-It may not inspect reasoning-anchor outputs on the Day-3 study dataset.
+It may not inspect reasoning-anchor outputs on the s-3 study dataset.
 
 If no unambiguous standardized final-answer boundary can be established, the study must stop before FormalCRRC inference.
 
@@ -507,7 +507,7 @@ $$
 
 The unreachable fraction \(1-TRR\) is the principal ordering-based endpoint.
 
-Strict inequality and all Day-3 tie conventions remain unchanged.
+Strict inequality and all s-3 tie conventions remain unchanged.
 
 ---
 
@@ -555,9 +555,9 @@ These are post-study structural references, not learned competitors.
 
 ---
 
-## 14. Contextual comparisons with original Day-3 judges
+## 14. Contextual comparisons with original s-3 judges
 
-The frozen Day-3 raw TCE values are:
+The frozen s-3 raw TCE values are:
 
 * Qwen2.5-14B: 3.373,
 * Llama-3.1-8B: 4.904,
@@ -581,7 +581,7 @@ Do not perform a pooled hypothesis test treating all five models as exchangeable
 
 ### Outcome A — ordering failure persists within the original range
 
-If the reasoning anchor's nontrivial unreachable fraction lies within the original Day-3 range:
+If the reasoning anchor's nontrivial unreachable fraction lies within the original s-3 range:
 
 $$
 39.58\%-72.92\%,
@@ -595,7 +595,7 @@ the result may be described as:
 
 If its unreachable fraction is below 39.58% but above 0:
 
-> The reasoning-capable anchor reduces ordering failure relative to every original Day-3 judge, but does not eliminate the FormalCRRC phenomenon.
+> The reasoning-capable anchor reduces ordering failure relative to every original s-3 judge, but does not eliminate the FormalCRRC phenomenon.
 
 The exact percentage must be reported.
 
@@ -609,7 +609,7 @@ $$
 
 for all nontrivial complete curves:
 
-> The reasoning-capable anchor does not reproduce Day-3 boundary unreachability under this reason-then-score protocol.
+> The reasoning-capable anchor does not reproduce s-3 boundary unreachability under this reason-then-score protocol.
 
 This result must be reported even if it weakens the external-validity claim.
 
@@ -619,7 +619,7 @@ TCE must be compared separately with:
 
 * the fixed-center reference \(2.222\),
 * random crossing \(2.963\),
-* and the original Day-3 range \(2.938-4.904\).
+* and the original s-3 range \(2.938-4.904\).
 
 Do not collapse TCE and TRR into one success/failure label.
 
@@ -679,7 +679,7 @@ No second reasoning sample may be added after viewing outcomes as part of the pr
 
 ## 18. Prompt fidelity
 
-The user-message content must be identical to the frozen Day-3 prompt except for changes that are mechanically required by the reasoning model's native chat template.
+The user-message content must be identical to the frozen s-3 prompt except for changes that are mechanically required by the reasoning model's native chat template.
 
 No additional rubric explanation may be added.
 
@@ -726,7 +726,7 @@ Before first study inference:
 1. fingerprint all frozen scientific artifacts;
 2. verify prior integrity manifests;
 3. verify the merged label-swap scientific record;
-4. record Day-3 TEST dataset hash;
+4. record s-3 TEST dataset hash;
 5. record exact model and tokenizer revisions;
 6. finalize reason-then-score implementation;
 7. pass synthetic scoring tests;
@@ -770,11 +770,11 @@ $$
 
 ### E. Crossing calculation
 
-Verify existing Day-3 crossing convention.
+Verify existing s-3 crossing convention.
 
 ### F. Prefix-record reachability
 
-Verify strict Day-3 reachability convention.
+Verify strict s-3 reachability convention.
 
 ### G. Ties
 
@@ -782,7 +782,7 @@ Verify equal margins do not count as strict prefix record lows.
 
 ### H. Dataset identity
 
-Verify frozen Day-3 identity.
+Verify frozen s-3 identity.
 
 ### I. Deterministic seed mapping
 
@@ -865,11 +865,11 @@ The main text should include:
 7. structural-baseline comparisons;
 8. nontrivial TRR and unreachable fraction;
 9. RC and \(RC=10\);
-10. comparison with original Day-3 ranges;
+10. comparison with original s-3 ranges;
 11. family-stratified results;
 12. limitations of one sampled reasoning trace.
 
-Do not rewrite the original Day-3 experiment as if this judge had been preregistered there.
+Do not rewrite the original s-3 experiment as if this judge had been preregistered there.
 
 ---
 

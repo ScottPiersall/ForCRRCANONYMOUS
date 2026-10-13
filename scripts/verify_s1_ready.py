@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Fail-closed readiness gate for Day-1 GPU inference (Phase D/E boundary).
+"""Fail-closed readiness gate for s-1 GPU inference (Phase D/E boundary).
 
 Checks, in order:
 
@@ -153,7 +153,7 @@ def check_dataset(gate: Gate, root: Path, document: dict) -> None:
 
 def check_label_tokens(gate: Gate, root: Path) -> None:
     """The scored logit index must be the token the model would actually emit."""
-    path = root / "artifacts/day1/label_token_check.json"
+    path = root / "artifacts/s1/label_token_check.json"
     if not path.is_file():
         gate.check(
             "label token check",

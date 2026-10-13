@@ -1,13 +1,13 @@
 #!/usr/bin/env python
-"""Freeze the FormalCRRC Day-1 preregistration (Phase D).
+"""Freeze the FormalCRRC s-1 preregistration (Phase D).
 
-Builds ``artifacts/day1/preregistration.json`` from the central configuration
+Builds ``artifacts/s1/preregistration.json`` from the central configuration
 object, so the frozen document and the executing code cannot drift apart, and
-writes ``artifacts/day1/preregistration.sha256``.
+writes ``artifacts/s1/preregistration.sha256``.
 
 Refuses to overwrite an existing preregistration. Once frozen the document may
 only be corrected through a numbered, checksummed amendment that preserves the
-original; see ``docs/PREREGISTRATION_DAY1.md``.
+original; see ``docs/PREREGISTRATION_s1.md``.
 """
 
 from __future__ import annotations
@@ -149,7 +149,7 @@ NOVELTY_BOUNDARIES = {
         "verified from authoritative public sources before being recorded "
         "anywhere in the repository."
     ),
-    "day1_does_not_establish": [
+    "s1_does_not_establish": [
         "human alignment",
         "clinical reliability",
         "HealthBench reliability",
@@ -216,7 +216,7 @@ FIGURE_PLAN = [
             "Schematic: fixed artifact -> ordered rubric thresholds -> judge "
             "probabilities -> response curve."
         ),
-        "path": "figures/day1/figure1_concept.png",
+        "path": "figures/s1/figure1_concept.png",
     },
     {
         "id": "figure2",
@@ -225,25 +225,25 @@ FIGURE_PLAN = [
             "Mean P_met against signed distance d = s - j* from the true "
             "crossing, per judge, with uncertainty."
         ),
-        "path": "figures/day1/figure2_boundary_aligned_curves.png",
+        "path": "figures/s1/figure2_boundary_aligned_curves.png",
     },
     {
         "id": "figure3",
         "title": "MVR distributions",
         "content": "Per-model distribution of artifact-level MVR.",
-        "path": "figures/day1/figure3_mvr_distributions.png",
+        "path": "figures/s1/figure3_mvr_distributions.png",
     },
     {
         "id": "figure4",
         "title": "TCE distributions",
         "content": "Per-model distribution of threshold crossing error.",
-        "path": "figures/day1/figure4_tce_distributions.png",
+        "path": "figures/s1/figure4_tce_distributions.png",
     },
     {
         "id": "figure5",
         "title": "Model x predicate-family summary",
         "content": "Heatmap of primary metrics by model and predicate family.",
-        "path": "figures/day1/figure5_model_family_heatmap.png",
+        "path": "figures/s1/figure5_model_family_heatmap.png",
     },
 ]
 
@@ -261,10 +261,10 @@ STOPPING_RULE = {
     ),
     "no_data_dependent_extension": (
         "The design is not extended, repeated or enlarged on the basis of "
-        "observed results. No Day-2 experiment follows automatically."
+        "observed results. No s-2 experiment follows automatically."
     ),
     "success_criterion": (
-        "Day 1 succeeds when dataset integrity passes, the preregistration was "
+        "s 1 succeeds when dataset integrity passes, the preregistration was "
         "frozen before outcomes, intended runs completed or were transparently "
         "blocked, probability extraction is valid, the analysis matches this "
         "document, and all results are reported regardless of direction. No "
@@ -278,7 +278,7 @@ def build_document(root: Path) -> dict:
     dataset_manifest_path = root / DATASET_MANIFEST_PATH
     if not dataset_manifest_path.is_file():
         raise SystemExit(
-            "dataset manifest not found; run scripts/generate_day1_dataset.py first"
+            "dataset manifest not found; run scripts/generate_s1_dataset.py first"
         )
     dataset_manifest = json.loads(dataset_manifest_path.read_text(encoding="utf-8"))
 
@@ -299,7 +299,7 @@ def build_document(root: Path) -> dict:
                 panel_status[model_id] = record.get("status", "NOT_CHECKED")
 
     return {
-        "document": "FormalCRRC Day-1 preregistration",
+        "document": "FormalCRRC s-1 preregistration",
         "version": 1,
         "frozen_at": provenance.utc_now(),
         "amendments": [],
@@ -371,7 +371,7 @@ def build_document(root: Path) -> dict:
             "n_artifacts": N_ARTIFACTS,
             "n_strictness_levels": N_STRICTNESS,
             "n_rubric_response_pairs": N_ROWS,
-            "path": "artifacts/day1/formal_dataset.parquet",
+            "path": "artifacts/s1/formal_dataset.parquet",
             "content_sha256": dataset_manifest["hashes"]["dataset_content_sha256"],
             "file_sha256": dataset_manifest["hashes"]["dataset_file_sha256"],
             "prompt_manifest_file_sha256": dataset_manifest["hashes"][
@@ -449,7 +449,7 @@ def build_document(root: Path) -> dict:
                     "inspection alone and with no model call, that the resolved "
                     "ids are identical for the first 25 prompts of the frozen "
                     "inference order; recorded in "
-                    "artifacts/day1/label_token_check.json"
+                    "artifacts/s1/label_token_check.json"
                 ),
                 "observed_naive_encoding_mismatch": (
                     "mistralai/Mistral-7B-Instruct-v0.3 encodes 'A' as the "
@@ -493,7 +493,7 @@ def build_document(root: Path) -> dict:
             ),
             "order": (
                 "prompts are sorted by sha256(INFERENCE_ORDER_SALT|prompt_id), "
-                "frozen in artifacts/day1/prompt_manifest.parquet before any GPU "
+                "frozen in artifacts/s1/prompt_manifest.parquet before any GPU "
                 "inference; family, latent level and strictness are therefore "
                 "interleaved"
             ),
@@ -639,12 +639,12 @@ def render_markdown(document: dict, digest: str) -> str:
         for f in document["figure_plan"]
     )
 
-    return f"""# FormalCRRC Day-1 preregistration
+    return f"""# FormalCRRC s-1 preregistration
 
 **Frozen:** {document['frozen_at']}
 **SHA-256:** `{digest}`
-**Machine-readable copy:** [`artifacts/day1/preregistration.json`](../artifacts/day1/preregistration.json)
-**Checksum:** [`artifacts/day1/preregistration.sha256`](../artifacts/day1/preregistration.sha256)
+**Machine-readable copy:** [`artifacts/s1/preregistration.json`](../artifacts/s1/preregistration.json)
+**Checksum:** [`artifacts/s1/preregistration.sha256`](../artifacts/s1/preregistration.sha256)
 **Amendments:** {len(document['amendments'])}
 
 This document was frozen **before any FormalCRRC study inference**. It is
@@ -682,9 +682,9 @@ generated from the same object as the JSON copy, so the two cannot disagree.
 
 {novelty['bibliographic_status']}
 
-**Day 1 does not establish:**
+**s 1 does not establish:**
 
-{_bullets(novelty['day1_does_not_establish'])}
+{_bullets(novelty['s1_does_not_establish'])}
 
 ## 4. Design
 
@@ -879,12 +879,12 @@ def main() -> int:
     provenance.write_json(target, document)
     digest = provenance.write_checksum_file(target, sha_path)
 
-    markdown_path = root / "docs/PREREGISTRATION_DAY1.md"
+    markdown_path = root / "docs/PREREGISTRATION_s1.md"
     markdown_path.write_text(render_markdown(document, digest), encoding="utf-8")
 
     print(f"wrote {PREREG_JSON_PATH}", flush=True)
     print(f"wrote {PREREG_SHA_PATH}", flush=True)
-    print("wrote docs/PREREGISTRATION_DAY1.md", flush=True)
+    print("wrote docs/PREREGISTRATION_s1.md", flush=True)
     print(f"preregistration sha256: {digest}", flush=True)
     return 0
 

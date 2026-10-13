@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Run the frozen elicited reason-then-score protocol over the Day-3 partition.
+"""Run the frozen elicited reason-then-score protocol over the s-3 partition.
 
 Two stages per row. Stage R generates under a deterministic per-row seed and
 stops on the complete ``FINAL:`` marker, so the model never samples the A/B
@@ -35,7 +35,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "src"))
 from formalcrrc import provenance  # noqa: E402
 from formalcrrc import rts_ablation as ra  # noqa: E402
 from formalcrrc import rts_ablation_config as rc  # noqa: E402
-from formalcrrc import day3_config as d3c  # noqa: E402
+from formalcrrc import s3_config as d3c  # noqa: E402
 
 SHARD_DIR_NAME = "_shards"
 
@@ -60,7 +60,7 @@ def require_frozen(root: pathlib.Path) -> dict:
 
 
 def load_rows(root: pathlib.Path) -> pd.DataFrame:
-    """Frozen Day-3 rows, in the frozen inference order, with RTS prompts built."""
+    """Frozen s-3 rows, in the frozen inference order, with RTS prompts built."""
     manifest = pd.read_parquet(root / d3c.PROMPT_MANIFEST_PATH)
     dataset = pd.read_parquet(root / d3c.DATASET_PATH)
     keep = [
@@ -113,7 +113,7 @@ def main() -> int:
     budget = int(stage_r["reasoning_token_budget"])
 
     print(f"preregistration frozen at {prereg['frozen_at']}", flush=True)
-    print(f"model {rc.MODEL_ID} @ {revision} (frozen Day-3 revision)", flush=True)
+    print(f"model {rc.MODEL_ID} @ {revision} (frozen s-3 revision)", flush=True)
 
     rows_frame = load_rows(root)
     if args.limit:
@@ -145,9 +145,9 @@ def main() -> int:
             f"REFUSING TO RUN: chat template {chat_sha} does not match the "
             f"frozen record {model_block['chat_template_sha256']}."
         )
-    if chat_sha != rc.DAY3_CHAT_TEMPLATE_SHA256:
-        raise SystemExit("REFUSING TO RUN: chat template differs from Day 3.")
-    print("chat template matches Day 3 exactly", flush=True)
+    if chat_sha != rc.s3_CHAT_TEMPLATE_SHA256:
+        raise SystemExit("REFUSING TO RUN: chat template differs from s 3.")
+    print("chat template matches s 3 exactly", flush=True)
 
     retries: list[dict[str, Any]] = []
     if not todo.empty:
@@ -267,7 +267,7 @@ def main() -> int:
                     "strictness_index": int(record["strictness_index"]),
                     "formal_truth": int(record["formal_truth"]),
                     "true_first_fail_index": int(record["true_first_fail_index"]),
-                    "day3_user_message_sha256": record["user_message_sha256"],
+                    "s3_user_message_sha256": record["user_message_sha256"],
                     "rts_message_sha256": record["_rts_message_sha256"],
                     "formatted_prompt_sha256": record["_rendered_sha256"],
                     "n_prompt_tokens": len(prompt_ids[position]),

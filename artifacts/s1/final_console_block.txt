@@ -1,4 +1,4 @@
-FORMALCRRC DAY 1
+FORMALCRRC s1
 
 Formal dataset:
   artifacts:              324
@@ -35,4 +35,4 @@ No human labels used.
 No human annotation performed.
 No semantic rubric generation performed.
 No outcome-driven tuning performed.
-No Day-2 experiment started.
+No s2 experiment started.

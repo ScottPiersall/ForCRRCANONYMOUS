@@ -1,17 +1,17 @@
-FORMALCRRC DAY 2
+FORMALCRRC s 2
 Bias-vs-Shape Decomposition
 
-DAY-1 IMMUTABILITY:
+s-1 IMMUTABILITY:
   status:                PASS
   files fingerprinted:   30
   dataset reproduces:    True
 
-DAY-1 PROVENANCE:
+s-1 PROVENANCE:
   status:                CLEAN (no preregistered analysis file changed)
-  errata:                DOCUMENTED (docs/DAY1_ERRATA.md)
-  integrity addendum:    COMPLETE (artifacts/day1/integrity_addendum.json)
+  errata:                DOCUMENTED (docs/s1_ERRATA.md)
+  integrity addendum:    COMPLETE (artifacts/s1/integrity_addendum.json)
 
-DAY-2 DATA:
+s-2 DATA:
   calibration artifacts: 324
   calibration pairs:     2916/judge
   test artifacts:        324
@@ -48,13 +48,13 @@ SHAPE INVARIANCE:
 
 CALIBRATION LEAKAGE:      PASS
 FIGURES HASHED:           6 (PASS)
-DAY-2 ANALYSIS:           COMPLETE
+s2 ANALYSIS:           COMPLETE
 
-No Day-1 scientific outcome modified.
-No Day-1 outcome used to fit calibration.
+No s1 scientific outcome modified.
+No s1 outcome used to fit calibration.
 No human labels used.
 No human annotation performed.
 No semantic rubric generation performed.
 No nonlinear calibration performed.
 No outcome-driven tuning performed.
-No Day-3 experiment started.
+No s3 experiment started.

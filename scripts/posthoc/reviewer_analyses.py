@@ -75,8 +75,8 @@ def fit_alpha(pairs):
 def main():
     out = collections.OrderedDict()
     # ---------------- A. level s=0 (S3 and protocols)
-    Y3, F3 = truth(os.path.join(A, 'day3/test_dataset.parquet'))
-    s3 = collections.OrderedDict([(k + ', immediate', 'day3/raw_scores/%s.parquet' % v) for k, v in JUDGES.items()])
+    Y3, F3 = truth(os.path.join(A, 's3/test_dataset.parquet'))
+    s3 = collections.OrderedDict([(k + ', immediate', 's3/raw_scores/%s.parquet' % v) for k, v in JUDGES.items()])
     s3['Qwen2.5-14B, RTS'] = 'reason_then_score_ablation/raw_rows.parquet'
     s3['Qwen3-30B-A3B, native'] = 'reasoning_anchor/raw_rows.parquet'
     A_res = collections.OrderedDict()
@@ -96,13 +96,13 @@ def main():
                            tr0_caused_only_by_s0=only0, tr0_total=n0)
     out['A_level0_S3'] = A_res
     # ---------------- B. S2 held-out recalibration at four granularities
-    Yc, Fc = truth(os.path.join(A, 'day2/calibration_dataset.parquet'))
-    Yt, Ft = truth(os.path.join(A, 'day2/test_dataset.parquet'))
-    P = json.load(open(os.path.join(A, 'day2/calibration_parameters.json')))['parameters']
+    Yc, Fc = truth(os.path.join(A, 's2/calibration_dataset.parquet'))
+    Yt, Ft = truth(os.path.join(A, 's2/test_dataset.parquet'))
+    P = json.load(open(os.path.join(A, 's2/calibration_parameters.json')))['parameters']
     B_res = collections.OrderedDict(); C_res = collections.OrderedDict(); boot_rows = {}
     for jname, f in JUDGES.items():
-        cal = curves(os.path.join(A, 'day2/raw_scores/calibration/%s.parquet' % f), Yc)
-        tst = curves(os.path.join(A, 'day2/raw_scores/test/%s.parquet' % f), Yt)
+        cal = curves(os.path.join(A, 's2/raw_scores/calibration/%s.parquet' % f), Yc)
+        tst = curves(os.path.join(A, 's2/raw_scores/test/%s.parquet' % f), Yt)
         fams = sorted(set(Fc.values()))
         rows = lambda keep: [(m[s], y[s]) for a, (m, y) in cal.items() for s in range(L) if keep(a, s)]
         a_glob = fit_alpha(rows(lambda a, s: True))

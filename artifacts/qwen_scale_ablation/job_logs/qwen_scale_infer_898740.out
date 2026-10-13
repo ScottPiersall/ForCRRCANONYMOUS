@@ -7,7 +7,7 @@ tag=32b
 CUDA smoke test OK
 model=Qwen/Qwen2.5-32B-Instruct
 revision=5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd
-partition=DAY3_TEST
+partition=s3_TEST
 prompts=2916 already_scored=0
 loading model ...
 loaded in 103.0s; scoring ...

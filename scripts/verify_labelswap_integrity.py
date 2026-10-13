@@ -2,7 +2,7 @@
 """Phase-14 integrity audit for the label-swap study.
 
 Recomputes the pre-study fingerprint, proves every protected file is still
-byte-identical, confirms the Day-3 raw scores were read and never written, and
+byte-identical, confirms the s-3 raw scores were read and never written, and
 records the hashes of everything this study produced.
 
 Fails loudly. If any frozen scientific file changed, the verdict is FAIL and the
@@ -58,13 +58,13 @@ def recheck_fingerprint() -> dict:
     }
 
 
-def day3_read_only() -> dict:
-    """The Day-3 inputs this study consumed are unchanged."""
+def s3_read_only() -> dict:
+    """The s-3 inputs this study consumed are unchanged."""
     fingerprint = json.loads(
         (ROOT / lsc.FROZEN_FINGERPRINT_PATH).read_text(encoding="utf-8")
     )
     rows = []
-    for relative in lsc.DAY3_READ_ONLY:
+    for relative in lsc.s3_READ_ONLY:
         recorded = fingerprint["files"].get(relative)
         live = (
             provenance.sha256_file(ROOT / relative)
@@ -171,7 +171,7 @@ def test_status() -> dict:
 
 def main() -> int:
     fingerprint = recheck_fingerprint()
-    day3 = day3_read_only()
+    s3 = s3_read_only()
     produced = new_files()
     raw = raw_data_hashes()
     tests = test_status()
@@ -179,7 +179,7 @@ def main() -> int:
     checks = {
         "frozen_record_byte_identical": fingerprint["status"] == "PASS",
         "combined_fingerprint_matches": fingerprint.get("combined_matches", False),
-        "day3_inputs_read_only": day3["status"] == "PASS",
+        "s3_inputs_read_only": s3["status"] == "PASS",
         "new_files_additive_only": produced["status"] == "PASS",
         "panel_complete": raw["status"] == "PASS",
         "test_suite_passes": tests["status"] == "PASS",
@@ -192,7 +192,7 @@ def main() -> int:
         "checks": checks,
         "status": "PASS" if ok else "FAIL",
         "frozen_record": fingerprint,
-        "day3_read_only": day3,
+        "s3_read_only": s3,
         "new_files": produced,
         "raw_data": raw,
         "tests": tests,
@@ -218,7 +218,7 @@ def main() -> int:
     print(f"  combined now       {fingerprint['recomputed_combined_sha256']}")
     print(f"  verdict            {fingerprint['status']}")
     print()
-    print(f"Day-3 inputs read-only  {day3['status']}")
+    print(f"s-3 inputs read-only  {s3['status']}")
     print(f"new files additive only {produced['status']} ({produced['n_files']} files)")
     print(f"panel complete          {raw['status']}")
     for row in raw["models"]:

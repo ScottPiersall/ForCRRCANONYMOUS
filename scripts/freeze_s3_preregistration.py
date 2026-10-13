@@ -1,10 +1,10 @@
 #!/usr/bin/env python
-"""Freeze the FormalCRRC Day-3 preregistration (Phase E).
+"""Freeze the FormalCRRC s-3 preregistration (Phase E).
 
-Builds ``artifacts/day3/preregistration.json`` from the Day-3 configuration and
+Builds ``artifacts/s3/preregistration.json`` from the s-3 configuration and
 the already-frozen dataset manifest, writes
-``artifacts/day3/preregistration.sha256``, and renders
-``docs/PREREGISTRATION_DAY3.md`` from the same object so the two cannot drift.
+``artifacts/s3/preregistration.sha256``, and renders
+``docs/PREREGISTRATION_s3.md`` from the same object so the two cannot drift.
 
 Refuses to overwrite an existing preregistration.
 """
@@ -18,7 +18,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from formalcrrc import day3_config as d3c  # noqa: E402
+from formalcrrc import s3_config as d3c  # noqa: E402
 from formalcrrc import prompts, provenance  # noqa: E402
 from formalcrrc.config import (  # noqa: E402
     BOOTSTRAP_CI,
@@ -155,7 +155,7 @@ NOVELTY_BOUNDARIES = {
         "Judge X is shape-reliable.",
         "Calibration cannot fix LLM judges.",
     ],
-    "day3_does_not_establish": [
+    "s3_does_not_establish": [
         "human alignment",
         "clinical reliability",
         "natural-language rubric reliability",
@@ -187,7 +187,7 @@ EXCLUSION_RULES = {
         "tied margins",
         "unusual model outputs",
     ],
-    "rationale": "Those are precisely the objects Day 3 measures.",
+    "rationale": "Those are precisely the objects s 3 measures.",
 }
 
 NO_OUTCOME_DRIVEN_TUNING = [
@@ -221,19 +221,19 @@ FIGURE_PLAN = [
             "zero line under translation; makes visible that translation moves "
             "the crossing but cannot reorder margins."
         ),
-        "path": "figures/day3/figure1_reachability_concept.png",
+        "path": "figures/s3/figure1_reachability_concept.png",
     },
     {
         "id": "figure2",
         "title": "Raw versus oracle-artifact TCE",
         "content": "Per judge: raw TCE distribution and OTCE distribution.",
-        "path": "figures/day3/figure2_raw_vs_otce.png",
+        "path": "figures/s3/figure2_raw_vs_otce.png",
     },
     {
         "id": "figure3",
         "title": "Translation reachability",
         "content": "Nontrivial TRR by judge and by predicate family.",
-        "path": "figures/day3/figure3_reachability.png",
+        "path": "figures/s3/figure3_reachability.png",
     },
     {
         "id": "figure4",
@@ -242,7 +242,7 @@ FIGURE_PLAN = [
             "Heatmap of the fraction of artifacts for which each true boundary "
             "j* is translation-reachable, by judge."
         ),
-        "path": "figures/day3/figure4_crossing_geometry.png",
+        "path": "figures/s3/figure4_crossing_geometry.png",
     },
     {
         "id": "figure5",
@@ -251,13 +251,13 @@ FIGURE_PLAN = [
             "RAW, ORACLE-GLOBAL, ORACLE-FAMILY, ORACLE-ARTIFACT mean TCE per "
             "judge, with bootstrap uncertainty."
         ),
-        "path": "figures/day3/figure5_oracle_hierarchy.png",
+        "path": "figures/s3/figure5_oracle_hierarchy.png",
     },
     {
         "id": "figure6",
         "title": "Shape floor by family",
         "content": "Judge x family heatmap of OTCE, TRR, reachable count and MMVR.",
-        "path": "figures/day3/figure6_shape_floor.png",
+        "path": "figures/s3/figure6_shape_floor.png",
     },
 ]
 
@@ -273,7 +273,7 @@ STOPPING_RULE = {
     ),
     "no_data_dependent_extension": (
         "The design is not extended, repeated or enlarged on the basis of "
-        "observed results. No Day-4 experiment follows automatically."
+        "observed results. No s-4 experiment follows automatically."
     ),
     "no_stronger_oracle": (
         "The translation class is fixed at M'(s) = M(s) + alpha. Slope-plus- "
@@ -285,7 +285,7 @@ STOPPING_RULE = {
         "question and is not started now."
     ),
     "success_criterion": (
-        "Day 3 succeeds when prior-experiment immutability passes, the dataset "
+        "s 3 succeeds when prior-experiment immutability passes, the dataset "
         "is disjoint and integral, the preregistration was frozen before "
         "outcomes, the reachability theorem agrees with independent enumeration "
         "on every artifact, the oracle nesting inequality holds, intended runs "
@@ -296,20 +296,20 @@ STOPPING_RULE = {
 
 
 def build_document(root: Path) -> dict:
-    """Assemble the Day-3 preregistration from frozen inputs."""
+    """Assemble the s-3 preregistration from frozen inputs."""
     manifest_path = root / d3c.DATASET_MANIFEST_PATH
     if not manifest_path.is_file():
         raise SystemExit(
             f"{d3c.DATASET_MANIFEST_PATH} not found; run "
-            "scripts/generate_day3_dataset.py first"
+            "scripts/generate_s3_dataset.py first"
         )
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
 
-    day1_prereg = json.loads(
-        (root / "artifacts/day1/preregistration.json").read_text(encoding="utf-8")
+    s1_prereg = json.loads(
+        (root / "artifacts/s1/preregistration.json").read_text(encoding="utf-8")
     )
-    day1_models = json.loads(
-        (root / "artifacts/day1/model_provenance.json").read_text(encoding="utf-8")
+    s1_models = json.loads(
+        (root / "artifacts/s1/model_provenance.json").read_text(encoding="utf-8")
     )["models"]
 
     provenance_path = root / d3c.MODEL_PROVENANCE_PATH
@@ -329,7 +329,7 @@ def build_document(root: Path) -> dict:
     )
 
     return {
-        "document": "FormalCRRC Day-3 preregistration",
+        "document": "FormalCRRC s-3 preregistration",
         "experiment": "Translation limits of threshold-response curves",
         "subtitle": "Oracle shape-preserving localization bounds",
         "version": 1,
@@ -337,25 +337,25 @@ def build_document(root: Path) -> dict:
         "amendments": [],
         "relationship_to_prior": {
             "statement": (
-                "Day 1 motivates Day 2, and Day 2 motivates Day 3. Day 3 is a "
+                "s 1 motivates s 2, and s 2 motivates s 3. s 3 is a "
                 "new, separately preregistered experiment on new data. It is not "
-                "a repair of Day 1, not a repair of Day 2, not another "
+                "a repair of s 1, not a repair of s 2, not another "
                 "calibration experiment, and not a stronger post-hoc calibrator."
             ),
             "prior_results_status": "unchanged and final",
-            "day1_preregistration_sha256": (
-                (root / "artifacts/day1/preregistration.sha256")
+            "s1_preregistration_sha256": (
+                (root / "artifacts/s1/preregistration.sha256")
                 .read_text(encoding="utf-8")
                 .split()[0]
             ),
-            "day2_preregistration_sha256": (
-                (root / "artifacts/day2/preregistration.sha256")
+            "s2_preregistration_sha256": (
+                (root / "artifacts/s2/preregistration.sha256")
                 .read_text(encoding="utf-8")
                 .split()[0]
             ),
             "prior_manifest_sha256": prior.get("combined_sha256"),
             "prior_manifest_n_files": prior.get("n_files"),
-            "day1_dataset_content_sha256": d3c.DAY1_DATASET_CONTENT_SHA256,
+            "s1_dataset_content_sha256": d3c.s1_DATASET_CONTENT_SHA256,
         },
         "research_questions": RESEARCH_QUESTIONS,
         "hypotheses": HYPOTHESES,
@@ -495,7 +495,7 @@ def build_document(root: Path) -> dict:
                 "prompt_manifest_file_sha256"
             ],
             "generator": (
-                "identical to Days 1 and 2: same three predicate families, nine "
+                "identical to ss 1 and 2: same three predicate families, nine "
                 "strictness levels, latent balance, candidate formatting, rubric "
                 "templates, truth functions and response-length controls. No new "
                 "family, no semantic rubric, no adversarial variant."
@@ -505,22 +505,22 @@ def build_document(root: Path) -> dict:
         "disjointness": manifest["disjointness"],
         "judge_models": {
             "policy": (
-                "Exactly the Day-1/Day-2 panel at exactly the Day-1 revisions, "
-                "read from the immutable Day-1 provenance. No upgrade, no branch "
+                "Exactly the s-1/s-2 panel at exactly the s-1 revisions, "
+                "read from the immutable s-1 provenance. No upgrade, no branch "
                 "re-resolution, no substitution, no quantisation, no "
                 "fine-tuning, no adapters."
             ),
             "model_ids": list(MODEL_IDS),
             "dtype": MODEL_DTYPE,
-            "revisions": {m: day1_models[m]["revision"] for m in MODEL_IDS},
+            "revisions": {m: s1_models[m]["revision"] for m in MODEL_IDS},
             "scoring_methods": {
-                m: day1_models[m]["label_tokenization"]["scoring_method"]
+                m: s1_models[m]["label_tokenization"]["scoring_method"]
                 for m in MODEL_IDS
             },
             "label_token_ids": {
                 m: {
-                    "met": day1_models[m]["label_tokenization"]["met_token_ids"],
-                    "not_met": day1_models[m]["label_tokenization"][
+                    "met": s1_models[m]["label_tokenization"]["met_token_ids"],
+                    "not_met": s1_models[m]["label_tokenization"][
                         "not_met_token_ids"
                     ],
                 }
@@ -528,24 +528,24 @@ def build_document(root: Path) -> dict:
             },
             "status_at_freeze": status,
             "continuity_check": (
-                "the same non-study smoke prompt used in Days 1 and 2; a material "
+                "the same non-study smoke prompt used in ss 1 and 2; a material "
                 "difference in raw scores sets MODEL_CONTINUITY = FAIL"
             ),
         },
         "prompt": {
             "reused_byte_identically": True,
             "template_sha256": prompts.prompt_template_sha256(),
-            "prior_template_sha256": day1_prereg["prompt"]["template_sha256"],
+            "prior_template_sha256": s1_prereg["prompt"]["template_sha256"],
             "template": PROMPT_TEMPLATE,
             "label_met": LABEL_MET,
             "label_not_met": LABEL_NOT_MET,
-            "prohibited": day1_prereg["prompt"]["prohibited"],
+            "prohibited": s1_prereg["prompt"]["prohibited"],
         },
         "scoring": {
-            "reused_from_prior_days": True,
-            "label_token_resolution": day1_prereg["scoring"]["label_token_resolution"],
-            "primary_rule": day1_prereg["scoring"]["primary_rule"],
-            "fallback_rule": day1_prereg["scoring"]["fallback_rule"],
+            "reused_from_prior_ss": True,
+            "label_token_resolution": s1_prereg["scoring"]["label_token_resolution"],
+            "primary_rule": s1_prereg["scoring"]["primary_rule"],
+            "fallback_rule": s1_prereg["scoring"]["fallback_rule"],
             "recorded_per_row": [
                 "raw_score_met",
                 "raw_score_not_met",
@@ -606,9 +606,9 @@ def build_document(root: Path) -> dict:
         },
         "prior_replication": {
             "policy": (
-                "Raw Day-3 metrics are reported alongside the recorded Day-1 and "
-                "Day-2 TEST values descriptively. There is no replication gate: "
-                "Day-3 data is not modified if it fails to reproduce prior "
+                "Raw s-3 metrics are reported alongside the recorded s-1 and "
+                "s-2 TEST values descriptively. There is no replication gate: "
+                "s-3 data is not modified if it fails to reproduce prior "
                 "values. A failed replication is a result."
             )
         },
@@ -616,11 +616,11 @@ def build_document(root: Path) -> dict:
         "failure_handling": {
             "prior_immutability_failure": (
                 "If any prior hash changed, PRIOR_EXPERIMENT_IMMUTABILITY = FAIL "
-                "and DAY3_ANALYSIS = BLOCKED. Files are not silently restored."
+                "and s3_ANALYSIS = BLOCKED. Files are not silently restored."
             ),
             "reachability_disagreement": (
                 "If Method A and Method B disagree on any artifact, "
-                "ORACLE_IMPLEMENTATION = FAIL and DAY3_ANALYSIS = BLOCKED."
+                "ORACLE_IMPLEMENTATION = FAIL and s3_ANALYSIS = BLOCKED."
             ),
             "nesting_violation": (
                 "A violation of TCE_G >= TCE_F >= TCE_A is an implementation "
@@ -689,7 +689,7 @@ def render_markdown(document: dict, digest: str) -> str:
         f"| {label} | "
         + " | ".join(
             str(disjoint[key][name])
-            for name in ("day1", "day2_calibration", "day2_test")
+            for name in ("s1", "s2_calibration", "s2_test")
         )
         + " |"
         for label, key in (
@@ -699,18 +699,18 @@ def render_markdown(document: dict, digest: str) -> str:
         )
     )
 
-    return f"""# FormalCRRC Day-3 preregistration
+    return f"""# FormalCRRC s-3 preregistration
 
 ## Translation limits of threshold-response curves
 ### Oracle shape-preserving localization bounds
 
 **Frozen:** {document['frozen_at']}
 **SHA-256:** `{digest}`
-**Machine-readable copy:** [`artifacts/day3/preregistration.json`](../artifacts/day3/preregistration.json)
-**Checksum:** [`artifacts/day3/preregistration.sha256`](../artifacts/day3/preregistration.sha256)
+**Machine-readable copy:** [`artifacts/s3/preregistration.json`](../artifacts/s3/preregistration.json)
+**Checksum:** [`artifacts/s3/preregistration.sha256`](../artifacts/s3/preregistration.sha256)
 **Amendments:** {len(document['amendments'])}
 
-Frozen **before any Day-3 study inference**. Generated from the same object as
+Frozen **before any s-3 study inference**. Generated from the same object as
 the JSON copy, so the two cannot disagree.
 
 > Once frozen, this document is never silently edited. A genuine implementation
@@ -719,7 +719,7 @@ the JSON copy, so the two cannot disagree.
 
 ---
 
-## 1. Relationship to Days 1 and 2
+## 1. Relationship to ss 1 and 2
 
 {rel['statement']}
 
@@ -727,12 +727,12 @@ Prior results are **{rel['prior_results_status']}**.
 
 | | |
 |---|---|
-| Day-1 preregistration SHA-256 | `{rel['day1_preregistration_sha256']}` |
-| Day-2 preregistration SHA-256 | `{rel['day2_preregistration_sha256']}` |
+| s-1 preregistration SHA-256 | `{rel['s1_preregistration_sha256']}` |
+| s-2 preregistration SHA-256 | `{rel['s2_preregistration_sha256']}` |
 | Prior-experiment fingerprint | `{rel['prior_manifest_sha256']}` over {rel['prior_manifest_n_files']} files |
-| Day-1 dataset content SHA-256 | `{rel['day1_dataset_content_sha256']}` |
+| s-1 dataset content SHA-256 | `{rel['s1_dataset_content_sha256']}` |
 
-See [`DAY3_RATIONALE.md`](DAY3_RATIONALE.md) for the progression.
+See [`s3_RATIONALE.md`](s3_RATIONALE.md) for the progression.
 
 ## 2. Research questions
 
@@ -860,7 +860,7 @@ Tie-break, in order: {', '.join(hierarchy['tie_break'])}.
 
 ### Disjointness from every prior evaluated set
 
-| Check | Day 1 | Day-2 CAL | Day-2 TEST |
+| Check | s 1 | s-2 CAL | s-2 TEST |
 |---|---|---|---|
 {overlap_rows}
 
@@ -882,7 +882,7 @@ dtype `{models['dtype']}`. Continuity: {models['continuity_check']}.
 ## 13. Prompt
 
 Reused **byte-identically**, SHA-256
-`{document['prompt']['template_sha256']}` (prior days:
+`{document['prompt']['template_sha256']}` (prior ss:
 `{document['prompt']['prior_template_sha256']}`).
 
 ```
@@ -953,7 +953,7 @@ Git at freeze: commit
 `{document['git_at_freeze'].get('commit') or 'unavailable'}`, clean =
 {document['git_at_freeze'].get('clean')}
 
-The Day-3 integrity manifest hashes **exactly this file list**, so the freeze
+The s-3 integrity manifest hashes **exactly this file list**, so the freeze
 digest and the final digest are directly comparable.
 
 ---
@@ -986,12 +986,12 @@ def main() -> int:
     provenance.write_json(target, document)
     digest = provenance.write_checksum_file(target, sha_path)
 
-    markdown = root / "docs/PREREGISTRATION_DAY3.md"
+    markdown = root / "docs/PREREGISTRATION_s3.md"
     markdown.write_text(render_markdown(document, digest), encoding="utf-8")
 
     print(f"wrote {d3c.PREREG_JSON_PATH}", flush=True)
     print(f"wrote {d3c.PREREG_SHA_PATH}", flush=True)
-    print("wrote docs/PREREGISTRATION_DAY3.md", flush=True)
+    print("wrote docs/PREREGISTRATION_s3.md", flush=True)
     print(f"preregistration sha256: {digest}", flush=True)
     return 0
 

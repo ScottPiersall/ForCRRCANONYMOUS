@@ -16,7 +16,7 @@
   "n_artifacts": 324,
   "n_nontrivial": 288,
   "raw_scores_sha256": "10420978b17f61d2d6717d4ba1f2f7ab16ee4a445996bea3c2bfb7fc1630dbb6",
-  "source": "artifacts/day3/raw_scores/qwen2_5_14b_instruct.parquet, read only and re-verified byte-identical after the ablation",
+  "source": "artifacts/s3/raw_scores/qwen2_5_14b_instruct.parquet, read only and re-verified byte-identical after the ablation",
   "status": "PASS",
   "trr": 0.4791666666666667,
   "unreachable_pct": 52.08333333333333

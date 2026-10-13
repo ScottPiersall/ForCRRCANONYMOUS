@@ -1123,10 +1123,10 @@
     "n_artifacts": 324,
     "n_rows": 2916,
     "n_strictness_levels": 9,
-    "partition": "DAY3_TEST",
+    "partition": "s3_TEST",
     "seed": 45
   },
-  "experiment": "FormalCRRC Day 3",
+  "experiment": "FormalCRRC s 3",
   "models": {
     "Qwen/Qwen2.5-14B-Instruct": {
       "by_family": {

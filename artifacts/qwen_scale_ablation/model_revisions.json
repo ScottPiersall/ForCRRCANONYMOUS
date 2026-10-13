@@ -24,7 +24,7 @@
       "model_id": "Qwen/Qwen2.5-14B-Instruct",
       "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
       "role": "existing frozen S3 result; not rerun",
-      "source": "artifacts/day3/raw_scores/qwen2_5_14b_instruct_run.json",
+      "source": "artifacts/s3/raw_scores/qwen2_5_14b_instruct_run.json",
       "tag": "14b",
       "tokenizer_revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8"
     },

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-"""Generate and freeze the FormalCRRC Day-1 formal dataset.
+"""Generate and freeze the FormalCRRC s-1 formal dataset.
 
-Writes, under ``artifacts/day1/``:
+Writes, under ``artifacts/s1/``:
 
 * ``formal_dataset.parquet``  -- 2916 rubric-response pairs with formal labels
 * ``prompt_manifest.parquet`` -- judge prompts plus the frozen inference order

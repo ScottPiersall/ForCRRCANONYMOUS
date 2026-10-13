@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Score every Day-1 rubric-response pair with one judge model (Phase E).
+"""Score every s-1 rubric-response pair with one judge model (Phase E).
 
 Reads the frozen prompt manifest, scores prompts in the frozen hash-derived
 order, and writes raw probabilities only. Nothing scientific is computed or
@@ -10,7 +10,7 @@ Fails closed if the dataset, prompt manifest or preregistration checksums do not
 match, or if the model's label tokenisation differs from what the availability
 gate recorded.
 
-Writes ``artifacts/day1/raw_scores/<slug>.parquet`` and a per-run JSON record.
+Writes ``artifacts/s1/raw_scores/<slug>.parquet`` and a per-run JSON record.
 """
 
 from __future__ import annotations
@@ -290,7 +290,7 @@ def main() -> int:
                 "src/formalcrrc/config.py",
                 "src/formalcrrc/prompts.py",
                 "src/formalcrrc/scoring.py",
-                "scripts/run_day1_inference.py",
+                "scripts/run_s1_inference.py",
             ],
             root=root,
         ),

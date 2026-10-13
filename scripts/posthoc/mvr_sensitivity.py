@@ -11,10 +11,10 @@ import minipq
 A = sys.argv[1]; g.A = A
 DELTAS = [0.0, 0.01, 0.02, 0.05, 0.10]
 SRC = collections.OrderedDict([
-    ('Qwen2.5-14B, immediate', 'day3/raw_scores/qwen2_5_14b_instruct.parquet'),
-    ('Llama-3.1-8B, immediate', 'day3/raw_scores/llama3_1_8b_instruct.parquet'),
-    ('Mistral-7B, immediate', 'day3/raw_scores/mistral_7b_instruct_v0_3.parquet'),
-    ('Gemma-2-9B, immediate', 'day3/raw_scores/gemma_2_9b_it.parquet'),
+    ('Qwen2.5-14B, immediate', 's3/raw_scores/qwen2_5_14b_instruct.parquet'),
+    ('Llama-3.1-8B, immediate', 's3/raw_scores/llama3_1_8b_instruct.parquet'),
+    ('Mistral-7B, immediate', 's3/raw_scores/mistral_7b_instruct_v0_3.parquet'),
+    ('Gemma-2-9B, immediate', 's3/raw_scores/gemma_2_9b_it.parquet'),
     ('Qwen2.5-14B, RTS', 'reason_then_score_ablation/raw_rows.parquet'),
     ('Qwen3-30B-A3B, native', 'reasoning_anchor/raw_rows.parquet')])
 SAVED = {'Qwen2.5-14B, RTS': ('reason_then_score_ablation/metrics_by_artifact.parquet', 'mvr_zero_r', 'mvr_practical_r'),

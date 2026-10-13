@@ -14,7 +14,7 @@
 
 The Qwen2.5-14B S3 results already existed, and had been inspected, before this study was designed. This document is therefore not a preregistration with respect to the 14B outcomes; it is prospective only with respect to the 7B and 32B outcomes and to every comparison involving them.
 
-This is not a rerun, extension or revision of the preregistered Day-1, Day-2 or Day-3 studies and must never be described as one.
+This is not a rerun, extension or revision of the preregistered s-1, s-2 or s-3 studies and must never be described as one.
 
 No outcome-dependent change to this plan is permitted once either new model has been run. If a genuine implementation defect is found after the freeze, the original freeze is preserved byte-identical and a numbered amendment records the defect, why the change is outcome-independent, exactly what changed, and a new checksum.
 
@@ -36,13 +36,13 @@ Run order is fixed: 7B, then 32B.
 
 ## 4. Frozen S3 panel (reused, not regenerated)
 
-Partition `DAY3_TEST`, seed 45: 324 artifacts x 9 thresholds = 2916 rubric conditions per model; 288 nontrivial artifacts. An artifact is nontrivial when its truth curve is nonconstant, i.e. j*_x <= 8. In S3 j* ranges over 1..9, so the 36 artifacts with j* = 9 (all nine thresholds met) are the constant-truth cases.
+Partition `s3_TEST`, seed 45: 324 artifacts x 9 thresholds = 2916 rubric conditions per model; 288 nontrivial artifacts. An artifact is nontrivial when its truth curve is nonconstant, i.e. j*_x <= 8. In S3 j* ranges over 1..9, so the 36 artifacts with j* = 9 (all nine thresholds met) are the constant-truth cases.
 
 | Asset | SHA-256 |
 |---|---|
-| `artifacts/day3/test_dataset.parquet` | `2160b662fa527498c6bd245e173f0ead9030a7d69633869233b76e5184647a34` |
+| `artifacts/s3/test_dataset.parquet` | `2160b662fa527498c6bd245e173f0ead9030a7d69633869233b76e5184647a34` |
 | dataset content | `9700960d6f3aa130fa259500aeadbdfa9f511bcc943dd5fdf3401330ee8009d6` |
-| `artifacts/day3/prompt_manifest.parquet` | `b348872573347fdd14ab2af7c080294052798a16977cf41c0ea8eb6243e35850` |
+| `artifacts/s3/prompt_manifest.parquet` | `b348872573347fdd14ab2af7c080294052798a16977cf41c0ea8eb6243e35850` |
 | prompt template | `e5f3c5ba3dfd1ccaca0655307d8ad254598a17184c7ae40dfde63c1f660cae14` |
 
 Panel assertions verified at freeze:
@@ -69,7 +69,7 @@ No artifact, threshold, rubric text, truth label or prompt is regenerated.
 
 | | |
 |---|---|
-| Raw margins | `artifacts/day3/raw_scores/qwen2_5_14b_instruct.parquet` |
+| Raw margins | `artifacts/s3/raw_scores/qwen2_5_14b_instruct.parquet` |
 | Raw margins SHA-256 | `10420978b17f61d2d6717d4ba1f2f7ab16ee4a445996bea3c2bfb7fc1630dbb6` |
 | Model and tokenizer revision | `cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8` |
 | Chat template SHA-256 | `cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f` |
@@ -92,7 +92,7 @@ Reference values recomputed from the saved margins at freeze. The analysis recom
 | mvr_05 | 151/2592 | 0.058256 |
 | mvr_0 | 798/2592 | 0.307870 |
 
-Accuracy, TCE and TRR for 14B reproduce the frozen Day-3 report. FSRR (136/288) and E* are confirmed by the author against the manuscript definitions. The S3 MVR values are newly recomputed S3 reference values: the manuscript reports Day-1 MVR, not S3 MVR.
+Accuracy, TCE and TRR for 14B reproduce the frozen s-3 report. FSRR (136/288) and E* are confirmed by the author against the manuscript definitions. The S3 MVR values are newly recomputed S3 reference values: the manuscript reports s-1 MVR, not S3 MVR.
 
 Reference assertions verified at freeze:
 
@@ -109,12 +109,12 @@ Reference assertions verified at freeze:
 - PASS `fsrr_is_136_over_288`
 - PASS `fsr_iff_zero_oracle_errors_on_nontrivial`
 - PASS `full_sequence_recovery_implies_reachability`
-- PASS `frozen_day3_artifact_ids_match`
-- PASS `frozen_day3_tce_raw_matches`
-- PASS `frozen_day3_j_hat_raw_matches`
-- PASS `frozen_day3_translation_reachable_matches`
-- PASS `frozen_day3_otce_matches`
-- PASS `frozen_day3_reachable_count_matches`
+- PASS `frozen_s3_artifact_ids_match`
+- PASS `frozen_s3_tce_raw_matches`
+- PASS `frozen_s3_j_hat_raw_matches`
+- PASS `frozen_s3_translation_reachable_matches`
+- PASS `frozen_s3_otce_matches`
+- PASS `frozen_s3_reachable_count_matches`
 - PASS `raw_scores_sha256_matches`
 - PASS `revision_matches`
 - PASS `chat_template_sha256_matches`
@@ -126,10 +126,10 @@ Reference assertions verified at freeze:
 
 The 7B and 32B conditions reproduce the 14B immediate-readout protocol. Held fixed:
 
-- frozen S3 (Day-3 TEST, seed 45) artifacts
+- frozen S3 (s-3 TEST, seed 45) artifacts
 - all nine rubric thresholds per artifact
 - rubric text
-- user prompt (frozen Day-1 template, single user message)
+- user prompt (frozen s-1 template, single user message)
 - answer labels A / B
 - A = criterion met, B = criterion not met
 - native chat template with generation prompt
@@ -144,7 +144,7 @@ The 7B and 32B conditions reproduce the 14B immediate-readout protocol. Held fix
 - no generated explanation
 - no sampled verdict
 - batch size 1, one forward pass per rubric condition
-- frozen inference order (artifacts/day3/prompt_manifest.parquet)
+- frozen inference order (artifacts/s3/prompt_manifest.parquet)
 - scoring rule and scoring implementation (formalcrrc.scoring)
 - truth computation
 - analysis code
@@ -168,7 +168,7 @@ Return B if the criterion is not met.
 
 Canonical margin: `M_x(s) = S_A - S_B`, where A = met and B = not met. `P_met = exp(S_A) / (exp(S_A) + exp(S_B))`. Label tokens are resolved by `prompt_continuation_difference`.
 
-The scoring path is the existing implementation, called unchanged: the Day-3 model loader, `formalcrrc.scoring.render_chat_prompt` and `formalcrrc.scoring.score_prompt`. No reason-then-score or other generation protocol is used.
+The scoring path is the existing implementation, called unchanged: the s-3 model loader, `formalcrrc.scoring.render_chat_prompt` and `formalcrrc.scoring.score_prompt`. No reason-then-score or other generation protocol is used.
 
 ## 7. Model provenance and continuity requirements
 
@@ -227,17 +227,17 @@ Conventions: j_hat = min{s : M(s) < 0}, else 9. M = 0 counts as 'criterion met'.
 
 - **accuracy** — Pointwise accuracy: share of the 2,916 rubric conditions with 1[P_met >= 0.5] = Y. Existing definition (formalcrrc.metrics.accuracy). All 324 artifacts.
 - **tce** — Mean threshold crossing error, TCE_x = |j_hat_x - j*_x|. Existing definition. All 324 artifacts.
-- **trr** — Translation reachability rate: share of the 288 nontrivial artifacts whose true boundary j* is a strict prefix record low of the margin curve, M(j*) < min_{t<j*} M(t). Existing Day-3 definition (formalcrrc.day3.translation_reachable).
+- **trr** — Translation reachability rate: share of the 288 nontrivial artifacts whose true boundary j* is a strict prefix record low of the margin curve, M(j*) < min_{t<j*} M(t). Existing s-3 definition (formalcrrc.s3.translation_reachable).
 - **fsrr** — Full-sequence recovery rate. With P_x = {s : Y_x(s) = 1} and N_x = {s : Y_x(s) = 0}, FSR_x = 1 iff min_{s in P_x} M_x(s) > max_{s in N_x} M_x(s); equivalently one scalar cut c reproduces all nine verdicts, 1[M_x(s) >= c] = Y_x(s). FSRR is the mean of this strict indicator over the 288 nontrivial artifacts only.
 - **oracle_errors** — Oracle minimum errors, E*_x = min_c sum_{s=0..8} 1[1[M_x(s) >= c] != Y_x(s)], minimised over every distinct scalar-cut state including all-pass and all-fail, with tied margins always falling on the same side of a cut. PRIMARY: mean over the 288 nontrivial artifacts. SECONDARY: mean over all 324.
-- **mvr_05** — MVR_x(delta) = (1/8) sum_{s=0..7} 1[P_met(s+1) > P_met(s) + delta] with delta = 0.05. Existing Day-1 definition (formalcrrc.metrics.monotonicity_violation_rate). All 324 artifacts.
+- **mvr_05** — MVR_x(delta) = (1/8) sum_{s=0..7} 1[P_met(s+1) > P_met(s) + delta] with delta = 0.05. Existing s-1 definition (formalcrrc.metrics.monotonicity_violation_rate). All 324 artifacts.
 - **mvr_0** — The same with delta = 0, the existing sensitivity diagnostic.
 
 ### Secondary (descriptive)
 
 - **oracle_errors_all** — Mean E*_x over all 324 artifacts.
-- **otce** — Mean oracle translation TCE (formalcrrc.day3). All 324.
-- **reachable_count** — Mean reachable-set size RC (formalcrrc.day3). All 324.
+- **otce** — Mean oracle translation TCE (formalcrrc.s3). All 324.
+- **reachable_count** — Mean reachable-set size RC (formalcrrc.s3). All 324.
 - **exact_boundary_rate** — Share of artifacts with TCE_x = 0. All 324.
 - **brier** — Mean Brier score (formalcrrc.metrics.brier_score). All 324.
 
@@ -340,15 +340,15 @@ Tree SHA-256 `9bb3d49f9b24e876a2c4c417bca7a596289e76e15f11454ee32b6c098c4b5da7`.
 |---|---|
 | `scripts/analyze_qwen_scale.py` | `302fa75c4732c44ee8d4482a95915ca74b07e1a16e26394dabb845ff36f9094f` |
 | `scripts/freeze_qwen_scale_preregistration.py` | `56e5a1d638aec15fb87fb7e1e7a32beaf7a8d9868737c3604eb1dc02eda9779a` |
-| `scripts/run_day3_inference.py` | `f5576be477db475fae7328b8bccbb0243f0588d57f78f95912072d2c7475bf79` |
+| `scripts/run_s3_inference.py` | `f5576be477db475fae7328b8bccbb0243f0588d57f78f95912072d2c7475bf79` |
 | `scripts/run_qwen_scale_inference.py` | `c0750d9a8189b61dc2cc6829ed26be12d7f9636a8d56b8f96e30ef5421fcf646` |
 | `scripts/verify_qwen_scale_integrity.py` | `233396b3cf84fa26ad94e8605376028fa800eb0a7f768348556ebf6f2c7f3227` |
 | `src/formalcrrc/config.py` | `4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52` |
 | `src/formalcrrc/dataset.py` | `8a6cb27c91c8d05ab3c9ca29ec7808ed067b0c7d215044c892bb3e059c240d2d` |
-| `src/formalcrrc/day2.py` | `5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32` |
-| `src/formalcrrc/day2_bootstrap.py` | `fd3062c196add2e7af00a227294d95de92c0642ce893f75a26961fa7dfb58993` |
-| `src/formalcrrc/day3.py` | `213fcd331a67d73b8ec5cdcd30dafa778da9b7d22107c8cd756b8a6ada713cc5` |
-| `src/formalcrrc/day3_config.py` | `1c9c2cb1aa4462ee29fcc0215078f99acc2de518d74994efe3169620494cbb5c` |
+| `src/formalcrrc/s2.py` | `5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32` |
+| `src/formalcrrc/s2_bootstrap.py` | `fd3062c196add2e7af00a227294d95de92c0642ce893f75a26961fa7dfb58993` |
+| `src/formalcrrc/s3.py` | `213fcd331a67d73b8ec5cdcd30dafa778da9b7d22107c8cd756b8a6ada713cc5` |
+| `src/formalcrrc/s3_config.py` | `1c9c2cb1aa4462ee29fcc0215078f99acc2de518d74994efe3169620494cbb5c` |
 | `src/formalcrrc/metrics.py` | `7f9e7909272c7bcbe6f0971d140027088ac8cc7a98a582563c08b8fce570ed39` |
 | `src/formalcrrc/predicates.py` | `5c119021ffa69d2dc875bb931a249e5f12811fda791227bc0716cb075fc56b68` |
 | `src/formalcrrc/prompts.py` | `a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4` |

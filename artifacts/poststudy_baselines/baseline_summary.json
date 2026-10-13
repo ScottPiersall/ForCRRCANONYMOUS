@@ -160,7 +160,7 @@
         "step_identity_gap": 0.1539780521262002,
         "tce": 3.54320987654321,
         "tce_minus_fixed_center": 1.3209876543209877,
-        "view": "day1_raw"
+        "view": "s1_raw"
       },
       {
         "accuracy": 0.6306584362139918,
@@ -174,7 +174,7 @@
         "step_identity_gap": 0.006172839506172867,
         "tce": 3.3796296296296298,
         "tce_minus_fixed_center": 1.1574074074074074,
-        "view": "day1_raw"
+        "view": "s1_raw"
       },
       {
         "accuracy": 0.5336076817558298,
@@ -188,7 +188,7 @@
         "step_identity_gap": 0.08299039780521256,
         "tce": 4.944444444444445,
         "tce_minus_fixed_center": 2.7222222222222223,
-        "view": "day1_raw"
+        "view": "s1_raw"
       },
       {
         "accuracy": 0.6697530864197531,
@@ -202,7 +202,7 @@
         "step_identity_gap": -0.012688614540466436,
         "tce": 2.8580246913580245,
         "tce_minus_fixed_center": 0.6358024691358022,
-        "view": "day1_raw"
+        "view": "s1_raw"
       },
       {
         "accuracy": 0.7568587105624142,
@@ -216,7 +216,7 @@
         "step_identity_gap": 0.15192043895747587,
         "tce": 3.5555555555555554,
         "tce_minus_fixed_center": 1.333333333333333,
-        "view": "day2_test_raw"
+        "view": "s2_test_raw"
       },
       {
         "accuracy": 0.6275720164609053,
@@ -230,7 +230,7 @@
         "step_identity_gap": 0.0024005486968450285,
         "tce": 3.373456790123457,
         "tce_minus_fixed_center": 1.1512345679012346,
-        "view": "day2_test_raw"
+        "view": "s2_test_raw"
       },
       {
         "accuracy": 0.5401234567901234,
@@ -244,7 +244,7 @@
         "step_identity_gap": 0.0867626886145404,
         "tce": 4.919753086419753,
         "tce_minus_fixed_center": 2.697530864197531,
-        "view": "day2_test_raw"
+        "view": "s2_test_raw"
       },
       {
         "accuracy": 0.6676954732510287,
@@ -258,7 +258,7 @@
         "step_identity_gap": -0.013717421124828544,
         "tce": 2.867283950617284,
         "tce_minus_fixed_center": 0.6450617283950617,
-        "view": "day2_test_raw"
+        "view": "s2_test_raw"
       },
       {
         "accuracy": 0.7969821673525378,
@@ -272,7 +272,7 @@
         "step_identity_gap": 0.15432098765432112,
         "tce": 3.2160493827160495,
         "tce_minus_fixed_center": 0.9938271604938271,
-        "view": "day2_test_global_calibrated"
+        "view": "s2_test_global_calibrated"
       },
       {
         "accuracy": 0.638545953360768,
@@ -286,7 +286,7 @@
         "step_identity_gap": -0.0003429355281208135,
         "tce": 3.25,
         "tce_minus_fixed_center": 1.0277777777777777,
-        "view": "day2_test_global_calibrated"
+        "view": "s2_test_global_calibrated"
       },
       {
         "accuracy": 0.657750342935528,
@@ -300,7 +300,7 @@
         "step_identity_gap": 0.01063100137174211,
         "tce": 3.175925925925926,
         "tce_minus_fixed_center": 0.9537037037037037,
-        "view": "day2_test_global_calibrated"
+        "view": "s2_test_global_calibrated"
       },
       {
         "accuracy": 0.6436899862825788,
@@ -314,7 +314,7 @@
         "step_identity_gap": -0.01440329218107006,
         "tce": 3.0771604938271606,
         "tce_minus_fixed_center": 0.8549382716049383,
-        "view": "day2_test_global_calibrated"
+        "view": "s2_test_global_calibrated"
       },
       {
         "accuracy": 0.8017832647462277,
@@ -328,7 +328,7 @@
         "step_identity_gap": 0.12997256515775035,
         "tce": 2.9537037037037037,
         "tce_minus_fixed_center": 0.7314814814814814,
-        "view": "day2_test_family_calibrated"
+        "view": "s2_test_family_calibrated"
       },
       {
         "accuracy": 0.7908093278463649,
@@ -342,7 +342,7 @@
         "step_identity_gap": 0.0092592592592593,
         "tce": 1.9660493827160495,
         "tce_minus_fixed_center": -0.25617283950617287,
-        "view": "day2_test_family_calibrated"
+        "view": "s2_test_family_calibrated"
       },
       {
         "accuracy": 0.713991769547325,
@@ -356,7 +356,7 @@
         "step_identity_gap": 0.028463648834019084,
         "tce": 2.830246913580247,
         "tce_minus_fixed_center": 0.6080246913580245,
-        "view": "day2_test_family_calibrated"
+        "view": "s2_test_family_calibrated"
       },
       {
         "accuracy": 0.7510288065843622,
@@ -370,7 +370,7 @@
         "step_identity_gap": 0.004801097393690057,
         "tce": 2.2839506172839505,
         "tce_minus_fixed_center": 0.061728395061728225,
-        "view": "day2_test_family_calibrated"
+        "view": "s2_test_family_calibrated"
       },
       {
         "beats_fixed_center": false,
@@ -378,7 +378,7 @@
         "model_id": "Qwen/Qwen2.5-14B-Instruct",
         "tce": 3.373456790123457,
         "tce_minus_fixed_center": 1.1512345679012346,
-        "view": "day3_test_raw"
+        "view": "s3_test_raw"
       },
       {
         "beats_fixed_center": false,
@@ -386,7 +386,7 @@
         "model_id": "google/gemma-2-9b-it",
         "tce": 3.361111111111111,
         "tce_minus_fixed_center": 1.1388888888888888,
-        "view": "day3_test_raw"
+        "view": "s3_test_raw"
       },
       {
         "beats_fixed_center": false,
@@ -394,7 +394,7 @@
         "model_id": "meta-llama/Llama-3.1-8B-Instruct",
         "tce": 4.904320987654321,
         "tce_minus_fixed_center": 2.682098765432099,
-        "view": "day3_test_raw"
+        "view": "s3_test_raw"
       },
       {
         "beats_fixed_center": false,
@@ -402,7 +402,7 @@
         "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
         "tce": 2.9382716049382718,
         "tce_minus_fixed_center": 0.7160493827160495,
-        "view": "day3_test_raw"
+        "view": "s3_test_raw"
       },
       {
         "beats_fixed_center": false,
@@ -410,7 +410,7 @@
         "model_id": "Qwen/Qwen2.5-14B-Instruct",
         "tce": 2.3703703703703702,
         "tce_minus_fixed_center": 0.14814814814814792,
-        "view": "day3_oracle_global"
+        "view": "s3_oracle_global"
       },
       {
         "beats_fixed_center": false,
@@ -418,7 +418,7 @@
         "model_id": "google/gemma-2-9b-it",
         "tce": 2.515432098765432,
         "tce_minus_fixed_center": 0.2932098765432096,
-        "view": "day3_oracle_global"
+        "view": "s3_oracle_global"
       },
       {
         "beats_fixed_center": false,
@@ -426,7 +426,7 @@
         "model_id": "meta-llama/Llama-3.1-8B-Instruct",
         "tce": 2.962962962962963,
         "tce_minus_fixed_center": 0.7407407407407405,
-        "view": "day3_oracle_global"
+        "view": "s3_oracle_global"
       },
       {
         "beats_fixed_center": false,
@@ -434,7 +434,7 @@
         "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
         "tce": 2.5339506172839505,
         "tce_minus_fixed_center": 0.3117283950617282,
-        "view": "day3_oracle_global"
+        "view": "s3_oracle_global"
       },
       {
         "beats_fixed_center": true,
@@ -442,7 +442,7 @@
         "model_id": "Qwen/Qwen2.5-14B-Instruct",
         "tce": 1.9074074074074074,
         "tce_minus_fixed_center": -0.3148148148148149,
-        "view": "day3_oracle_family"
+        "view": "s3_oracle_family"
       },
       {
         "beats_fixed_center": true,
@@ -450,7 +450,7 @@
         "model_id": "google/gemma-2-9b-it",
         "tce": 1.8796296296296295,
         "tce_minus_fixed_center": -0.3425925925925928,
-        "view": "day3_oracle_family"
+        "view": "s3_oracle_family"
       },
       {
         "beats_fixed_center": false,
@@ -458,7 +458,7 @@
         "model_id": "meta-llama/Llama-3.1-8B-Instruct",
         "tce": 2.6635802469135803,
         "tce_minus_fixed_center": 0.441358024691358,
-        "view": "day3_oracle_family"
+        "view": "s3_oracle_family"
       },
       {
         "beats_fixed_center": false,
@@ -466,7 +466,7 @@
         "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
         "tce": 2.240740740740741,
         "tce_minus_fixed_center": 0.0185185185185186,
-        "view": "day3_oracle_family"
+        "view": "s3_oracle_family"
       },
       {
         "beats_fixed_center": true,
@@ -474,7 +474,7 @@
         "model_id": "Qwen/Qwen2.5-14B-Instruct",
         "tce": 0.8858024691358025,
         "tce_minus_fixed_center": -1.3364197530864197,
-        "view": "day3_oracle_artifact"
+        "view": "s3_oracle_artifact"
       },
       {
         "beats_fixed_center": true,
@@ -482,7 +482,7 @@
         "model_id": "google/gemma-2-9b-it",
         "tce": 0.4567901234567901,
         "tce_minus_fixed_center": -1.7654320987654322,
-        "view": "day3_oracle_artifact"
+        "view": "s3_oracle_artifact"
       },
       {
         "beats_fixed_center": true,
@@ -490,7 +490,7 @@
         "model_id": "meta-llama/Llama-3.1-8B-Instruct",
         "tce": 1.1481481481481481,
         "tce_minus_fixed_center": -1.0740740740740742,
-        "view": "day3_oracle_artifact"
+        "view": "s3_oracle_artifact"
       },
       {
         "beats_fixed_center": true,
@@ -498,7 +498,7 @@
         "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
         "tce": 1.1358024691358024,
         "tce_minus_fixed_center": -1.08641975308642,
-        "view": "day3_oracle_artifact"
+        "view": "s3_oracle_artifact"
       }
     ]
   },
@@ -590,10 +590,10 @@
         "9": 36
       },
       "boundary_uniform": true,
-      "description": "Day-1 main partition (seed 42)",
+      "description": "s-1 main partition (seed 42)",
       "expected_per_boundary_value": 36,
       "formal_labels_are_steps": true,
-      "key": "day1",
+      "key": "s1",
       "label_recomputation": {
         "formal_truth_matches": true,
         "independent_recomputation_agrees": true,
@@ -604,7 +604,7 @@
       "met_rate_exact": "5/9",
       "n_artifacts": 324,
       "n_rows": 2916,
-      "path": "artifacts/day1/formal_dataset.parquet",
+      "path": "artifacts/s1/formal_dataset.parquet",
       "status": "PASS"
     },
     {
@@ -693,10 +693,10 @@
         "9": 36
       },
       "boundary_uniform": true,
-      "description": "Day-2 CALIBRATION partition (seed 43)",
+      "description": "s-2 CALIBRATION partition (seed 43)",
       "expected_per_boundary_value": 36,
       "formal_labels_are_steps": true,
-      "key": "day2_calibration",
+      "key": "s2_calibration",
       "label_recomputation": {
         "formal_truth_matches": true,
         "independent_recomputation_agrees": true,
@@ -707,7 +707,7 @@
       "met_rate_exact": "5/9",
       "n_artifacts": 324,
       "n_rows": 2916,
-      "path": "artifacts/day2/calibration_dataset.parquet",
+      "path": "artifacts/s2/calibration_dataset.parquet",
       "status": "PASS"
     },
     {
@@ -796,10 +796,10 @@
         "9": 36
       },
       "boundary_uniform": true,
-      "description": "Day-2 TEST partition (seed 44)",
+      "description": "s-2 TEST partition (seed 44)",
       "expected_per_boundary_value": 36,
       "formal_labels_are_steps": true,
-      "key": "day2_test",
+      "key": "s2_test",
       "label_recomputation": {
         "formal_truth_matches": true,
         "independent_recomputation_agrees": true,
@@ -810,7 +810,7 @@
       "met_rate_exact": "5/9",
       "n_artifacts": 324,
       "n_rows": 2916,
-      "path": "artifacts/day2/test_dataset.parquet",
+      "path": "artifacts/s2/test_dataset.parquet",
       "status": "PASS"
     },
     {
@@ -899,10 +899,10 @@
         "9": 36
       },
       "boundary_uniform": true,
-      "description": "Day-3 TEST partition (seed 45)",
+      "description": "s-3 TEST partition (seed 45)",
       "expected_per_boundary_value": 36,
       "formal_labels_are_steps": true,
-      "key": "day3_test",
+      "key": "s3_test",
       "label_recomputation": {
         "formal_truth_matches": true,
         "independent_recomputation_agrees": true,
@@ -913,7 +913,7 @@
       "met_rate_exact": "5/9",
       "n_artifacts": 324,
       "n_rows": 2916,
-      "path": "artifacts/day3/test_dataset.parquet",
+      "path": "artifacts/s3/test_dataset.parquet",
       "status": "PASS"
     }
   ],

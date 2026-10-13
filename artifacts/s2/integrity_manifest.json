@@ -1,7 +1,7 @@
 {
   "calibration_leakage": {
     "calibration_dataset_sha256": "7a0ad398c53adee98fdca8674f4dc967e1c2bbaf949b33f6afeeb4007ee8f191",
-    "day1_outcomes_read": false,
+    "s1_outcomes_read": false,
     "fitted_against": [
       "7a0ad398c53adee98fdca8674f4dc967e1c2bbaf949b33f6afeeb4007ee8f191"
     ],
@@ -12,15 +12,15 @@
     "test_partition_read": false
   },
   "created_at": "2026-09-07T18:46:10+00:00",
-  "day1_immutability": {
+  "s1_immutability": {
     "baseline_combined_sha256": "c21b0ce94afdd3c817a38d4f021ca81189750eb3b00b5cc704b920139202d614",
     "changed": [],
-    "day1_dataset_content_sha256": "4462bedbf5f086daa8bdfa077ad82e1ea7b79b4db59d906fafe6c814cfc85a2e",
-    "day1_dataset_reproduces": true,
+    "s1_dataset_content_sha256": "4462bedbf5f086daa8bdfa077ad82e1ea7b79b4db59d906fafe6c814cfc85a2e",
+    "s1_dataset_reproduces": true,
     "missing": [],
     "n_files_fingerprinted": 30,
     "permitted_additions": [
-      "artifacts/day1/integrity_addendum.json"
+      "artifacts/s1/integrity_addendum.json"
     ],
     "status": "PASS",
     "unexpected_additions": []
@@ -44,156 +44,156 @@
     "python_implementation": "CPython",
     "python_version": "3.12.3"
   },
-  "experiment": "FormalCRRC Day 2",
+  "experiment": "FormalCRRC s 2",
   "figures": {
     "combined_sha256": "1d76d32f405391c01627df37e09932443e3843f51520830d16bd708c348c02a6",
     "definition": "sha256 over newline-joined '<repo-relative path>:<sha256>' entries, sorted by path; an empty list is refused",
     "files": {
-      "figures/day2/figure1_bias_vs_shape.png": "598903e61616ac1d7a5daf3c7a658a5bf5ac42237c0093228a369bb82d0e6e4e",
-      "figures/day2/figure2_global_offsets.png": "57581aed1797f33ca48c8e169a5349a3af68c47ffd13aa9c7cbb375fb1f796e2",
-      "figures/day2/figure3_paired_tce.png": "d228cff5b5c65e90b53fb99c4df62396ff8838bd0ce90fe3315cd2ebf812cf21",
-      "figures/day2/figure4_boundary_aligned.png": "65841604a8e77ad13040d0a226b90bae36304a5e4b0de2cf781c89baa103eb9f",
-      "figures/day2/figure5_residual_tce.png": "5e1563f34200264307661dd0f00bd300534233d73cc9d5fadfde236e1b978647",
-      "figures/day2/figure6_model_family.png": "8182e63ec0499e3a38ed8a2aeb7bb09b20a5ff378c737a358116b7f9e6d3ab52"
+      "figures/s2/figure1_bias_vs_shape.png": "598903e61616ac1d7a5daf3c7a658a5bf5ac42237c0093228a369bb82d0e6e4e",
+      "figures/s2/figure2_global_offsets.png": "57581aed1797f33ca48c8e169a5349a3af68c47ffd13aa9c7cbb375fb1f796e2",
+      "figures/s2/figure3_paired_tce.png": "d228cff5b5c65e90b53fb99c4df62396ff8838bd0ce90fe3315cd2ebf812cf21",
+      "figures/s2/figure4_boundary_aligned.png": "65841604a8e77ad13040d0a226b90bae36304a5e4b0de2cf781c89baa103eb9f",
+      "figures/s2/figure5_residual_tce.png": "5e1563f34200264307661dd0f00bd300534233d73cc9d5fadfde236e1b978647",
+      "figures/s2/figure6_model_family.png": "8182e63ec0499e3a38ed8a2aeb7bb09b20a5ff378c737a358116b7f9e6d3ab52"
     },
     "n_files": 6,
     "status": "PASS"
   },
   "files": {
     "bootstrap_results": {
-      "path": "artifacts/day2/bootstrap_results.parquet",
+      "path": "artifacts/s2/bootstrap_results.parquet",
       "present": true,
       "sha256": "73ea0c7f2ea9985cef25c4f77b347d9dd88f5a491ed49f0682ef0bb10229dd66",
       "size_bytes": 10982
     },
     "calibration_dataset": {
-      "path": "artifacts/day2/calibration_dataset.parquet",
+      "path": "artifacts/s2/calibration_dataset.parquet",
       "present": true,
       "sha256": "2bc94e23349481b0bb48b20723778bc14dc11e60f549ec35d80597579b599842",
       "size_bytes": 363321
     },
     "calibration_manifest": {
-      "path": "artifacts/day2/calibration_manifest.json",
+      "path": "artifacts/s2/calibration_manifest.json",
       "present": true,
       "sha256": "cc7239994f96490061715e95e18e2d92ad8b2f73bc3e7e7e70c5f40056623db7",
       "size_bytes": 3904
     },
     "calibration_parameters": {
-      "path": "artifacts/day2/calibration_parameters.json",
+      "path": "artifacts/s2/calibration_parameters.json",
       "present": true,
       "sha256": "7cacca0993aaaaf2e48487f9421ce0ef6127242575e16576acda5971ec6f56a8",
       "size_bytes": 9640
     },
     "calibration_prompts": {
-      "path": "artifacts/day2/calibration_prompts.parquet",
+      "path": "artifacts/s2/calibration_prompts.parquet",
       "present": true,
       "sha256": "a5a5f9f288c2cb03c06daee76c19d45976e0a1a9e3d532ac0274e9b9fb6f2072",
       "size_bytes": 765953
     },
-    "day1_audit_findings": {
-      "path": "artifacts/day2/day1_audit_findings.json",
+    "s1_audit_findings": {
+      "path": "artifacts/s2/s1_audit_findings.json",
       "present": true,
       "sha256": "55ef3a3461a05d9a12deb7c3ab71227dedb968894fa9c28362d67e8431d7d08e",
       "size_bytes": 6878
     },
-    "day1_baseline_manifest": {
-      "path": "artifacts/day2/day1_baseline_manifest.json",
+    "s1_baseline_manifest": {
+      "path": "artifacts/s2/s1_baseline_manifest.json",
       "present": true,
       "sha256": "305a0bed6d7d6897d6d4c9c48f29a6e0dd2286086a63806fccc33a722eb3c65f",
       "size_bytes": 4117
     },
-    "day1_errata": {
-      "path": "docs/DAY1_ERRATA.md",
+    "s1_errata": {
+      "path": "docs/s1_ERRATA.md",
       "present": true,
       "sha256": "24ac06fb0ed3e3f48205e6f92a4f11de795fdb6b37fa616634af76f3a996a35c",
       "size_bytes": 4467
     },
-    "day1_integrity_addendum_doc": {
-      "path": "docs/DAY1_INTEGRITY_ADDENDUM.md",
+    "s1_integrity_addendum_doc": {
+      "path": "docs/s1_INTEGRITY_ADDENDUM.md",
       "present": true,
       "sha256": "8a919ad4e9d52748e8e7e3340519540be1c54f89a0e55f12bc1e99e9b2aa51c1",
       "size_bytes": 4486
     },
-    "day1_integrity_addendum_json": {
-      "path": "artifacts/day1/integrity_addendum.json",
+    "s1_integrity_addendum_json": {
+      "path": "artifacts/s1/integrity_addendum.json",
       "present": true,
       "sha256": "90fd4c9e68f6cf3ce3a3d4eb281352af0914876f6a3dcd61dcf510e01d4daee0",
       "size_bytes": 1812
     },
-    "day1_provenance_audit": {
-      "path": "docs/DAY1_PROVENANCE_AUDIT.md",
+    "s1_provenance_audit": {
+      "path": "docs/s1_PROVENANCE_AUDIT.md",
       "present": true,
       "sha256": "153c3f04ec84ff9092f210177b86ad98cd04b51d71dba84c5473ec0b08810cad",
       "size_bytes": 8469
     },
-    "day2_novelty_boundaries": {
-      "path": "docs/NOVELTY_BOUNDARIES_DAY2.md",
+    "s2_novelty_boundaries": {
+      "path": "docs/NOVELTY_BOUNDARIES_s2.md",
       "present": true,
       "sha256": "a2589a711d45df5a4be215006e2c32b5b839adf2c3fec2f0ab3371600e30ef49",
       "size_bytes": 3911
     },
-    "day2_preregistration_doc": {
-      "path": "docs/PREREGISTRATION_DAY2.md",
+    "s2_preregistration_doc": {
+      "path": "docs/PREREGISTRATION_s2.md",
       "present": true,
       "sha256": "8d396e86e26cfac51ee36598409a808d8035e4283db86c3ad1fc6c260f40ee99",
       "size_bytes": 18592
     },
-    "day2_rationale": {
-      "path": "docs/DAY2_RATIONALE.md",
+    "s2_rationale": {
+      "path": "docs/s2_RATIONALE.md",
       "present": true,
       "sha256": "599f44631efd227d627da893d38ec9b152b1472c135943d64d21aaf0472ecaa3",
       "size_bytes": 4689
     },
     "metrics_by_artifact": {
-      "path": "artifacts/day2/metrics_by_artifact.parquet",
+      "path": "artifacts/s2/metrics_by_artifact.parquet",
       "present": true,
       "sha256": "9df9f98105cf06739782125b9dc36a4c075f25b1ef5c33b7a98b3a8b7282435f",
       "size_bytes": 78282
     },
     "model_provenance": {
-      "path": "artifacts/day2/model_provenance.json",
+      "path": "artifacts/s2/model_provenance.json",
       "present": true,
       "sha256": "1b92711dc6b4fb3d8dad708a6a55f14d76a6658cb02cf9fc91d1f5c12d6cf133",
       "size_bytes": 11439
     },
     "preregistration": {
-      "path": "artifacts/day2/preregistration.json",
+      "path": "artifacts/s2/preregistration.json",
       "present": true,
       "sha256": "cf742630bf5365ed12ce4770a5218e7f5b34e0d6bff2cb44d75d2d556bd3fba0",
       "size_bytes": 27749
     },
     "preregistration_checksum": {
-      "path": "artifacts/day2/preregistration.sha256",
+      "path": "artifacts/s2/preregistration.sha256",
       "present": true,
       "sha256": "a7fc28eccc794d6eca0ac8cba7a74e7868992ed5a1b31aa49235d43370b83dad",
       "size_bytes": 87
     },
     "results_document": {
-      "path": "docs/RESULTS_DAY2.md",
+      "path": "docs/RESULTS_s2.md",
       "present": true,
       "sha256": "4eca3bffee50ff7f2ad07113a16f70d21e8b6bae14ad88066e68aece954523c3",
       "size_bytes": 34275
     },
     "summary": {
-      "path": "artifacts/day2/summary.json",
+      "path": "artifacts/s2/summary.json",
       "present": true,
       "sha256": "635d58866816e0cf6463e6bdb329bdc340c579059080d661717bed0afd06c6a6",
       "size_bytes": 115896
     },
     "test_dataset": {
-      "path": "artifacts/day2/test_dataset.parquet",
+      "path": "artifacts/s2/test_dataset.parquet",
       "present": true,
       "sha256": "d5e742ec2c90c761d985032d0eb0edd559f889d14da0a3eaebf5808edecf54c4",
       "size_bytes": 370230
     },
     "test_manifest": {
-      "path": "artifacts/day2/test_manifest.json",
+      "path": "artifacts/s2/test_manifest.json",
       "present": true,
       "sha256": "160c34b20ebb9b96b59db442f2ec40a93f149048da262248c61611490a53d1b3",
       "size_bytes": 2783
     },
     "test_prompts": {
-      "path": "artifacts/day2/test_prompts.parquet",
+      "path": "artifacts/s2/test_prompts.parquet",
       "present": true,
       "sha256": "e56e07e09d6d46efebb9fde9539f43410ce36e54820b12a8e2dfc0b1784aa5e3",
       "size_bytes": 763919
@@ -207,21 +207,21 @@
       ".gitignore",
       "LICENSE",
       "README.md",
-      "artifacts/day2/bootstrap_results.parquet",
-      "artifacts/day2/calibration_parameters.json",
-      "artifacts/day2/final_console_block.txt",
-      "artifacts/day2/integrity_manifest.json",
-      "artifacts/day2/metrics_by_artifact.parquet",
-      "artifacts/day2/raw_scores/",
-      "artifacts/day2/summary.json",
+      "artifacts/s2/bootstrap_results.parquet",
+      "artifacts/s2/calibration_parameters.json",
+      "artifacts/s2/final_console_block.txt",
+      "artifacts/s2/integrity_manifest.json",
+      "artifacts/s2/metrics_by_artifact.parquet",
+      "artifacts/s2/raw_scores/",
+      "artifacts/s2/summary.json",
       "cluster/newton/sync.sh",
-      "docs/RESULTS_DAY2.md",
-      "figures/day2/",
-      "scripts/analyze_day2.py",
-      "scripts/figures_day2.py",
-      "scripts/verify_day2_integrity.py",
-      "scripts/write_results_day2.py",
-      "slurm/run_day2_inference.sbatch"
+      "docs/RESULTS_s2.md",
+      "figures/s2/",
+      "scripts/analyze_s2.py",
+      "scripts/figures_s2.py",
+      "scripts/verify_s2_integrity.py",
+      "scripts/write_results_s2.py",
+      "slurm/run_s2_inference.sbatch"
     ]
   },
   "panel": {
@@ -258,24 +258,24 @@
     },
     "disjointness": {
       "artifact_id_overlap": {
-        "cal_vs_day1": 0,
+        "cal_vs_s1": 0,
         "cal_vs_test": 0,
-        "test_vs_day1": 0
+        "test_vs_s1": 0
       },
       "family_c_candidate_coincidences": {
-        "cal_vs_day1": 37,
+        "cal_vs_s1": 37,
         "cal_vs_test": 38,
-        "test_vs_day1": 34
+        "test_vs_s1": 34
       },
       "family_c_target_pair_overlap": {
-        "cal_vs_day1": 0,
+        "cal_vs_s1": 0,
         "cal_vs_test": 0,
-        "test_vs_day1": 0
+        "test_vs_s1": 0
       },
       "rendered_prompt_overlap": {
-        "cal_vs_day1": 0,
+        "cal_vs_s1": 0,
         "cal_vs_test": 0,
-        "test_vs_day1": 0
+        "test_vs_s1": 0
       },
       "status": "PASS"
     }
@@ -296,7 +296,7 @@
         "mistral_7b_instruct_v0_3.parquet": "2d8ce802d877a76bb867663282f20ed6527c5420e1ba5f6b6109f70d6acc0369",
         "qwen2_5_14b_instruct.parquet": "3257f1a8b5692512df88e05f33d44ad6b27b3930cd609f12e35669f6845fad0d"
       },
-      "path": "artifacts/day2/raw_scores/calibration"
+      "path": "artifacts/s2/raw_scores/calibration"
     },
     "TST": {
       "combined_sha256": "4e78a75551752fc2aaace697f6a10f49518108aac12f48d8b42ed4a902e5aa82",
@@ -306,7 +306,7 @@
         "mistral_7b_instruct_v0_3.parquet": "82bbb65d6f8f531a4c02954bc416c9c5c8809d72e4f9295f3dafd4e06e51790f",
         "qwen2_5_14b_instruct.parquet": "c67f1520a931eb516c22ffe8a23b30ee7efb4b468328bc7a9f0df3c0d560e799"
       },
-      "path": "artifacts/day2/raw_scores/test"
+      "path": "artifacts/s2/raw_scores/test"
     }
   },
   "runs": {
@@ -666,18 +666,18 @@
   },
   "source_manifest": {
     "files": {
-      "scripts/analyze_day2.py": "a2dbee2f219e327091d2910948acb45ebdf6189c065df05bc6500e16dfcaaae9",
-      "scripts/figures_day2.py": "b2c6b927d6cffb7bddee11818227954b4028959c292dadd5e239a6474e8201fa",
-      "scripts/fit_day2_bias.py": "8f8666aecd18a978b9c24ea219dcae49d5018e55c8a79ac17d62c659d9fc2b23",
-      "scripts/generate_day2_datasets.py": "76f2ea2d4e5327c22a48a4e44dc134ad584f5b8e1bd9e9e0b7f34ac949c22db7",
-      "scripts/run_day2_inference.py": "6f30f5da5c11d5e8144fb475d01491f79bb777328a556e0192089ddc11c94835",
-      "scripts/verify_day2_integrity.py": "896c55680f8624d83aa0f7c313664bc69b5eb3b4bf62077d0e07e278ee488773",
+      "scripts/analyze_s2.py": "a2dbee2f219e327091d2910948acb45ebdf6189c065df05bc6500e16dfcaaae9",
+      "scripts/figures_s2.py": "b2c6b927d6cffb7bddee11818227954b4028959c292dadd5e239a6474e8201fa",
+      "scripts/fit_s2_bias.py": "8f8666aecd18a978b9c24ea219dcae49d5018e55c8a79ac17d62c659d9fc2b23",
+      "scripts/generate_s2_datasets.py": "76f2ea2d4e5327c22a48a4e44dc134ad584f5b8e1bd9e9e0b7f34ac949c22db7",
+      "scripts/run_s2_inference.py": "6f30f5da5c11d5e8144fb475d01491f79bb777328a556e0192089ddc11c94835",
+      "scripts/verify_s2_integrity.py": "896c55680f8624d83aa0f7c313664bc69b5eb3b4bf62077d0e07e278ee488773",
       "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
       "src/formalcrrc/dataset.py": "8a6cb27c91c8d05ab3c9ca29ec7808ed067b0c7d215044c892bb3e059c240d2d",
-      "src/formalcrrc/day1_audit.py": "8631d4ae82b78c387288f0cd67fc94c6b2fdf53c11cc3f696645de5d405261f6",
-      "src/formalcrrc/day2.py": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
-      "src/formalcrrc/day2_bootstrap.py": "fd3062c196add2e7af00a227294d95de92c0642ce893f75a26961fa7dfb58993",
-      "src/formalcrrc/day2_config.py": "c2a34bf4ff5f3c2d741dd3ed43a2bd23daee3780d717d5b680c72e89c79c7c71",
+      "src/formalcrrc/s1_audit.py": "8631d4ae82b78c387288f0cd67fc94c6b2fdf53c11cc3f696645de5d405261f6",
+      "src/formalcrrc/s2.py": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
+      "src/formalcrrc/s2_bootstrap.py": "fd3062c196add2e7af00a227294d95de92c0642ce893f75a26961fa7dfb58993",
+      "src/formalcrrc/s2_config.py": "c2a34bf4ff5f3c2d741dd3ed43a2bd23daee3780d717d5b680c72e89c79c7c71",
       "src/formalcrrc/predicates.py": "5c119021ffa69d2dc875bb931a249e5f12811fda791227bc0716cb075fc56b68",
       "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4",
       "src/formalcrrc/provenance.py": "34e1c06f91514642b0bcc1beb946997ad275d2b69030f80d83b6e7df9920bd55",

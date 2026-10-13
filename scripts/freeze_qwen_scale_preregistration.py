@@ -27,7 +27,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from formalcrrc import dataset as ds  # noqa: E402
-from formalcrrc import day3_config as d3c  # noqa: E402
+from formalcrrc import s3_config as d3c  # noqa: E402
 from formalcrrc import prompts, provenance  # noqa: E402
 from formalcrrc import qwen_scale as qs  # noqa: E402
 from formalcrrc import qwen_scale_config as qc  # noqa: E402
@@ -392,7 +392,7 @@ def render(prereg: dict, digest: str) -> str:
         f"`{p['probability']}`. Label tokens are resolved by `{p['label_resolution']}`.")
     add("")
     add("The scoring path is the existing implementation, called unchanged: the "
-        "Day-3 model loader, `formalcrrc.scoring.render_chat_prompt` and "
+        "s-3 model loader, `formalcrrc.scoring.render_chat_prompt` and "
         "`formalcrrc.scoring.score_prompt`. No reason-then-score or other "
         "generation protocol is used.")
     add("")

@@ -1488,12 +1488,12 @@
   "reference_verification": {
     "checks": {
       "accuracy_count_matches": true,
-      "frozen_day3_artifact_ids_match": true,
-      "frozen_day3_j_hat_raw_matches": true,
-      "frozen_day3_otce_matches": true,
-      "frozen_day3_reachable_count_matches": true,
-      "frozen_day3_tce_raw_matches": true,
-      "frozen_day3_translation_reachable_matches": true,
+      "frozen_s3_artifact_ids_match": true,
+      "frozen_s3_j_hat_raw_matches": true,
+      "frozen_s3_otce_matches": true,
+      "frozen_s3_reachable_count_matches": true,
+      "frozen_s3_tce_raw_matches": true,
+      "frozen_s3_translation_reachable_matches": true,
       "fsr_iff_zero_oracle_errors_on_nontrivial": true,
       "fsrr_count_matches": true,
       "fsrr_is_136_over_288": true,

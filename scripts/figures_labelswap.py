@@ -5,7 +5,7 @@
 3. Distribution of per-curve original-vs-swapped Spearman rho.
 
 Generated from the saved machine-readable analysis outputs, never from numbers
-retyped by hand. Colour follows the same categorical palette as Days 1-3 so a
+retyped by hand. Colour follows the same categorical palette as ss 1-3 so a
 judge keeps its identity across every FormalCRRC figure.
 """
 

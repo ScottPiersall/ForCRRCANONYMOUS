@@ -7,7 +7,7 @@ tag=7b
 CUDA smoke test OK
 model=Qwen/Qwen2.5-7B-Instruct
 revision=a09a35458c702b33eeacc393d103063234e8bc28
-partition=DAY3_TEST
+partition=s3_TEST
 prompts=2916 already_scored=0
 loading model ...
 loaded in 35.2s; scoring ...

@@ -3,7 +3,7 @@
 
 **This is not an experiment.** It runs no model inference, reads every frozen
 artifact read-only, and writes only under ``artifacts/poststudy_baselines/``. It
-was added after Days 1-3 were complete and preregisters nothing.
+was added after ss 1-3 were complete and preregisters nothing.
 
 What it does:
 
@@ -40,60 +40,60 @@ OUT_DIR = ROOT / "artifacts" / "poststudy_baselines"
 
 #: The four frozen evaluation partitions, in study order. Read-only.
 PARTITIONS: tuple[tuple[str, str, str], ...] = (
-    ("day1", "artifacts/day1/formal_dataset.parquet", "Day-1 main partition (seed 42)"),
+    ("s1", "artifacts/s1/formal_dataset.parquet", "s-1 main partition (seed 42)"),
     (
-        "day2_calibration",
-        "artifacts/day2/calibration_dataset.parquet",
-        "Day-2 CALIBRATION partition (seed 43)",
+        "s2_calibration",
+        "artifacts/s2/calibration_dataset.parquet",
+        "s-2 CALIBRATION partition (seed 43)",
     ),
     (
-        "day2_test",
-        "artifacts/day2/test_dataset.parquet",
-        "Day-2 TEST partition (seed 44)",
+        "s2_test",
+        "artifacts/s2/test_dataset.parquet",
+        "s-2 TEST partition (seed 44)",
     ),
     (
-        "day3_test",
-        "artifacts/day3/test_dataset.parquet",
-        "Day-3 TEST partition (seed 45)",
+        "s3_test",
+        "artifacts/s3/test_dataset.parquet",
+        "s-3 TEST partition (seed 45)",
     ),
 )
 
 #: Frozen per-judge results to place against the baselines.
 #: ``(label, artifacts path, tce column, accuracy column or None)``.
 JUDGE_VIEWS: tuple[tuple[str, str, str, str | None], ...] = (
-    ("day1_raw", "artifacts/day1/metrics_by_artifact.parquet", "tce", "accuracy"),
+    ("s1_raw", "artifacts/s1/metrics_by_artifact.parquet", "tce", "accuracy"),
     (
-        "day2_test_raw",
-        "artifacts/day2/metrics_by_artifact.parquet",
+        "s2_test_raw",
+        "artifacts/s2/metrics_by_artifact.parquet",
         "tce_raw",
         "accuracy_raw",
     ),
     (
-        "day2_test_global_calibrated",
-        "artifacts/day2/metrics_by_artifact.parquet",
+        "s2_test_global_calibrated",
+        "artifacts/s2/metrics_by_artifact.parquet",
         "tce_global",
         "accuracy_global",
     ),
     (
-        "day2_test_family_calibrated",
-        "artifacts/day2/metrics_by_artifact.parquet",
+        "s2_test_family_calibrated",
+        "artifacts/s2/metrics_by_artifact.parquet",
         "tce_family",
         "accuracy_family",
     ),
-    ("day3_test_raw", "artifacts/day3/metrics_by_artifact.parquet", "tce_raw", None),
+    ("s3_test_raw", "artifacts/s3/metrics_by_artifact.parquet", "tce_raw", None),
     (
-        "day3_oracle_global",
-        "artifacts/day3/metrics_by_artifact.parquet",
+        "s3_oracle_global",
+        "artifacts/s3/metrics_by_artifact.parquet",
         "tce_oracle_global",
         None,
     ),
     (
-        "day3_oracle_family",
-        "artifacts/day3/metrics_by_artifact.parquet",
+        "s3_oracle_family",
+        "artifacts/s3/metrics_by_artifact.parquet",
         "tce_oracle_family",
         None,
     ),
-    ("day3_oracle_artifact", "artifacts/day3/metrics_by_artifact.parquet", "otce", None),
+    ("s3_oracle_artifact", "artifacts/s3/metrics_by_artifact.parquet", "otce", None),
 )
 
 
@@ -404,23 +404,23 @@ def write_csv(path: Path, partitions: list[dict[str, object]]) -> None:
 #: documentation (README, DEVLOG) is deliberately excluded -- it is not part of
 #: the scientific record and is not pinned by any integrity manifest.
 FROZEN_TREES = (
-    "artifacts/day1",
-    "artifacts/day2",
-    "artifacts/day3",
-    "figures/day1",
-    "figures/day2",
-    "figures/day3",
+    "artifacts/s1",
+    "artifacts/s2",
+    "artifacts/s3",
+    "figures/s1",
+    "figures/s2",
+    "figures/s3",
 )
 FROZEN_DOCS = (
-    "docs/PREREGISTRATION_DAY1.md",
-    "docs/PREREGISTRATION_DAY2.md",
-    "docs/PREREGISTRATION_DAY3.md",
-    "docs/RESULTS_DAY1.md",
-    "docs/RESULTS_DAY2.md",
-    "docs/RESULTS_DAY3.md",
-    "docs/DAY1_ERRATA.md",
-    "docs/DAY1_PROVENANCE_AUDIT.md",
-    "docs/DAY1_INTEGRITY_ADDENDUM.md",
+    "docs/PREREGISTRATION_s1.md",
+    "docs/PREREGISTRATION_s2.md",
+    "docs/PREREGISTRATION_s3.md",
+    "docs/RESULTS_s1.md",
+    "docs/RESULTS_s2.md",
+    "docs/RESULTS_s3.md",
+    "docs/s1_ERRATA.md",
+    "docs/s1_PROVENANCE_AUDIT.md",
+    "docs/s1_INTEGRITY_ADDENDUM.md",
 )
 
 
@@ -439,7 +439,7 @@ def frozen_record_fingerprint() -> dict[str, object]:
             files[relative] = provenance.sha256_file(ROOT / relative)
 
     prior = json.loads(
-        (ROOT / "artifacts/day3/prior_experiments_manifest.json").read_text("utf-8")
+        (ROOT / "artifacts/s3/prior_experiments_manifest.json").read_text("utf-8")
     )
     mismatched = [
         relative
@@ -462,10 +462,10 @@ def final_console_block(
 ) -> str:
     by_key = {row["key"]: row for row in analytic["baselines"]}
     labels = {
-        "day1": "Day 1:",
-        "day2_calibration": "Day-2 CAL:",
-        "day2_test": "Day-2 TEST:",
-        "day3_test": "Day-3 TEST:",
+        "s1": "s 1:",
+        "s2_calibration": "s-2 CAL:",
+        "s2_test": "s-2 TEST:",
+        "s3_test": "s-3 TEST:",
     }
     lines = [
         "FORMALCRRC POST-STUDY BASELINE AUDIT",

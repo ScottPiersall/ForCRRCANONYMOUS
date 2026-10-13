@@ -15,7 +15,7 @@ prompts in ``qwen_scale_config.DEVELOPMENT_PROMPTS``.
 
 It also reloads the frozen 14B checkpoint and re-scores its recorded smoke
 prompt. Reproducing those two numbers shows the numerical stack is the one
-Day 3 ran on. That is not a rerun of 14B on S3.
+s 3 ran on. That is not a rerun of 14B on S3.
 
 Writes ``preflight.json`` and ``model_revisions.json``. A checkpoint whose
 record is not PASS cannot be run: the inference script refuses it.
@@ -37,7 +37,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from formalcrrc import day3_config as d3c  # noqa: E402
+from formalcrrc import s3_config as d3c  # noqa: E402
 from formalcrrc import prompts, provenance, scoring  # noqa: E402
 from formalcrrc import qwen_scale_config as qc  # noqa: E402
 from formalcrrc.config import LABEL_MET, LABEL_NOT_MET  # noqa: E402
@@ -58,8 +58,8 @@ def _peak_gib() -> float:
 
 
 def _load(model_id: str, revision: str, token: str | None, cache_dir: str | None):
-    """The frozen Day-3 loader, reused so the load path cannot drift."""
-    from run_day3_inference import load_model
+    """The frozen s-3 loader, reused so the load path cannot drift."""
+    from run_s3_inference import load_model
 
     return load_model(model_id, revision, token, cache_dir)
 

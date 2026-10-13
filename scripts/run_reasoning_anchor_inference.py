@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Run the frozen reason-then-score protocol over the Day-3 TEST partition.
+"""Run the frozen reason-then-score protocol over the s-3 TEST partition.
 
 Two stages per row, exactly as frozen. Stage R generates a reasoning trace under
 the model author's sampling family with a deterministic per-row seed; Stage D
@@ -35,7 +35,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "src"))
 from formalcrrc import provenance  # noqa: E402
 from formalcrrc import reasoning_anchor as ra  # noqa: E402
 from formalcrrc import reasoning_anchor_config as rc  # noqa: E402
-from formalcrrc import day3_config as d3c  # noqa: E402
+from formalcrrc import s3_config as d3c  # noqa: E402
 
 SHARD_DIR_NAME = "_shards"
 
@@ -68,7 +68,7 @@ def require_frozen(root: pathlib.Path) -> dict:
 
 
 def load_prompts(root: pathlib.Path) -> pd.DataFrame:
-    """The frozen Day-3 user messages, in the frozen inference order."""
+    """The frozen s-3 user messages, in the frozen inference order."""
     manifest = pd.read_parquet(root / d3c.PROMPT_MANIFEST_PATH)
     dataset = pd.read_parquet(root / d3c.DATASET_PATH)
     keep = [

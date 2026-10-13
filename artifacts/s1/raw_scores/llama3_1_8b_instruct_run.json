@@ -71,7 +71,7 @@
   },
   "source_manifest": {
     "files": {
-      "scripts/run_day1_inference.py": "036e0e61b8ce43f7ba49dbf36fac2c8466f54076a782d5898bb7d28d951c96ba",
+      "scripts/run_s1_inference.py": "036e0e61b8ce43f7ba49dbf36fac2c8466f54076a782d5898bb7d28d951c96ba",
       "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
       "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4",
       "src/formalcrrc/scoring.py": "e9dea77babcb60820ad679226d2d826265fe0d844948163296c71be56510c8d4"

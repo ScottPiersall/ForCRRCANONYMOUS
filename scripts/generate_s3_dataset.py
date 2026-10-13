@@ -1,17 +1,17 @@
 #!/usr/bin/env python
-"""Generate and freeze the Day-3 evaluation set (Phase C).
+"""Generate and freeze the s-3 evaluation set (Phase C).
 
 One fresh partition of 324 artifacts x 9 thresholds, drawn from the same
-data-generating process as Days 1 and 2 with master seed 45. Day 3 needs no
+data-generating process as ss 1 and 2 with master seed 45. s 3 needs no
 calibration partition: the oracle uses formal truth directly.
 
 Family C draws an integer target from a bounded range, so generation carries a
-forbidden set of (target, reported) pairs -- Day 1's, Day-2 CAL's and Day-2
-TEST's -- and redraws on collision, exactly as Day 2 did. That guarantees no
+forbidden set of (target, reported) pairs -- s 1's, s-2 CAL's and s-2
+TEST's -- and redraws on collision, exactly as s 2 did. That guarantees no
 evaluated item is shared with any prior experiment.
 
 Writes the dataset, its prompt manifest with the frozen inference order, and a
-manifest. Runs before any Day-3 model is loaded.
+manifest. Runs before any s-3 model is loaded.
 """
 
 from __future__ import annotations
@@ -27,8 +27,8 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from formalcrrc import dataset as ds  # noqa: E402
-from formalcrrc import day2_config as d2c  # noqa: E402
-from formalcrrc import day3_config as d3c  # noqa: E402
+from formalcrrc import s2_config as d2c  # noqa: E402
+from formalcrrc import s3_config as d3c  # noqa: E402
 from formalcrrc import predicates, prompts, provenance  # noqa: E402
 from formalcrrc.config import (  # noqa: E402
     FAMILIES,
@@ -63,7 +63,7 @@ def rendered_prompts(frame: pd.DataFrame) -> set[str]:
 
 
 def assert_structure(frame: pd.DataFrame) -> None:
-    """Every structural invariant the Day-3 partition must satisfy alone."""
+    """Every structural invariant the s-3 partition must satisfy alone."""
     tag = d3c.PARTITION_TAG
     assert len(frame) == N_ROWS, f"expected {N_ROWS} rows, got {len(frame)}"
     assert frame["artifact_id"].nunique() == N_ARTIFACTS, "artifact count"
@@ -115,16 +115,16 @@ def assert_structure(frame: pd.DataFrame) -> None:
         assert payload.count("MK-") == LIST_SIZE, "item list size"
 
 
-def disjointness_report(day3: pd.DataFrame, priors: dict[str, pd.DataFrame]) -> dict:
-    """Overlap of the Day-3 partition with every prior evaluated set."""
+def disjointness_report(s3: pd.DataFrame, priors: dict[str, pd.DataFrame]) -> dict:
+    """Overlap of the s-3 partition with every prior evaluated set."""
 
     def candidates(frame: pd.DataFrame, family: str | None = None) -> set[str]:
         subset = frame if family is None else frame[frame["family"] == family]
         return set(subset.drop_duplicates("artifact_id")["candidate_sha256"])
 
-    day3_ids = set(day3["artifact_id"])
-    day3_prompts = rendered_prompts(day3)
-    day3_pairs = family_c_pairs(day3)
+    s3_ids = set(s3["artifact_id"])
+    s3_prompts = rendered_prompts(s3)
+    s3_pairs = family_c_pairs(s3)
 
     report: dict = {
         "artifact_id_overlap": {},
@@ -133,15 +133,15 @@ def disjointness_report(day3: pd.DataFrame, priors: dict[str, pd.DataFrame]) -> 
         "candidate_response_overlap_by_family": {},
     }
     for name, frame in priors.items():
-        report["artifact_id_overlap"][name] = len(day3_ids & set(frame["artifact_id"]))
+        report["artifact_id_overlap"][name] = len(s3_ids & set(frame["artifact_id"]))
         report["rendered_prompt_overlap"][name] = len(
-            day3_prompts & rendered_prompts(frame)
+            s3_prompts & rendered_prompts(frame)
         )
         report["family_c_target_pair_overlap"][name] = len(
-            day3_pairs & family_c_pairs(frame)
+            s3_pairs & family_c_pairs(frame)
         )
         report["candidate_response_overlap_by_family"][name] = {
-            family: len(candidates(day3, family) & candidates(frame, family))
+            family: len(candidates(s3, family) & candidates(frame, family))
             for family in FAMILIES
         }
 
@@ -200,22 +200,22 @@ def main() -> int:
     root = Path(args.root)
 
     print("rebuilding prior partitions for the forbidden-pair set ...", flush=True)
-    day1 = ds.build_dataset()
-    day1_hash = ds.dataset_content_hash(day1)
-    if day1_hash != d3c.DAY1_DATASET_CONTENT_SHA256:
+    s1 = ds.build_dataset()
+    s1_hash = ds.dataset_content_hash(s1)
+    if s1_hash != d3c.s1_DATASET_CONTENT_SHA256:
         print(
-            "ABORT: Day-1 dataset no longer reproduces its frozen content hash",
+            "ABORT: s-1 dataset no longer reproduces its frozen content hash",
             flush=True,
         )
         return 2
-    print(f"Day-1 content hash reproduced: {day1_hash[:16]}", flush=True)
+    print(f"s-1 content hash reproduced: {s1_hash[:16]}", flush=True)
 
-    day2_cal = pd.read_parquet(root / d2c.CALIBRATION_DATASET_PATH)
-    day2_test = pd.read_parquet(root / d2c.TEST_DATASET_PATH)
-    priors = {"day1": day1, "day2_calibration": day2_cal, "day2_test": day2_test}
+    s2_cal = pd.read_parquet(root / d2c.CALIBRATION_DATASET_PATH)
+    s2_test = pd.read_parquet(root / d2c.TEST_DATASET_PATH)
+    priors = {"s1": s1, "s2_calibration": s2_cal, "s2_test": s2_test}
 
     forbidden = (
-        family_c_pairs(day1) | family_c_pairs(day2_cal) | family_c_pairs(day2_test)
+        family_c_pairs(s1) | family_c_pairs(s2_cal) | family_c_pairs(s2_test)
     )
     print(f"forbidden family-C pairs: {len(forbidden)}", flush=True)
 
@@ -247,7 +247,7 @@ def main() -> int:
 
     manifest = {
         "created_at": provenance.utc_now(),
-        "experiment": "FormalCRRC Day 3",
+        "experiment": "FormalCRRC s 3",
         "partition": d3c.PARTITION_NAME,
         "partition_tag": d3c.PARTITION_TAG,
         "role": "single held-out evaluation partition; no calibration partition",
@@ -276,8 +276,8 @@ def main() -> int:
         "leakage_checks": leakage,
         "disjointness": cross,
         "family_c_uniqueness_rule": (
-            "Family-C (target, reported) pairs already used by Day 1, Day-2 CAL "
-            "or Day-2 TEST are excluded and redrawn, so no evaluated item is "
+            "Family-C (target, reported) pairs already used by s 1, s-2 CAL "
+            "or s-2 TEST are excluded and redrawn, so no evaluated item is "
             "shared with any prior experiment."
         ),
         "source": provenance.source_manifest(
@@ -286,8 +286,8 @@ def main() -> int:
                 "src/formalcrrc/predicates.py",
                 "src/formalcrrc/dataset.py",
                 "src/formalcrrc/prompts.py",
-                "src/formalcrrc/day3_config.py",
-                "scripts/generate_day3_dataset.py",
+                "src/formalcrrc/s3_config.py",
+                "scripts/generate_s3_dataset.py",
             ],
             root=root,
         ),

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Compute the Day-3 oracle bounds (Phase H, first stage).
+"""Compute the s-3 oracle bounds (Phase H, first stage).
 
 Runs only after every intended raw run is complete. For each judge it:
 
@@ -29,7 +29,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from formalcrrc import day3, day3_config as d3c, provenance  # noqa: E402
+from formalcrrc import s3, s3_config as d3c, provenance  # noqa: E402
 from formalcrrc.config import (  # noqa: E402
     FAMILIES,
     MODEL_IDS,
@@ -97,10 +97,10 @@ def main() -> int:
     prereg = root / d3c.PREREG_JSON_PATH
     sha_path = root / d3c.PREREG_SHA_PATH
     if not (prereg.is_file() and sha_path.is_file()):
-        print("ABORT: Day-3 preregistration is not frozen", flush=True)
+        print("ABORT: s-3 preregistration is not frozen", flush=True)
         return 2
     if not provenance.verify_checksum_file(prereg, sha_path):
-        print("ABORT: Day-3 preregistration checksum does not match", flush=True)
+        print("ABORT: s-3 preregistration checksum does not match", flush=True)
         return 2
 
     scores, status = load_scores(root)
@@ -117,7 +117,7 @@ def main() -> int:
     tables = []
     disagreements = 0
     for model_id, frame in scores.items():
-        table = day3.reachability_table(frame)
+        table = s3.reachability_table(frame)
         bad = int((~table["methods_agree"]).sum())
         bad += int((table["otce_theorem"] != table["otce_enumeration"]).sum())
         disagreements += bad
@@ -133,7 +133,7 @@ def main() -> int:
     if disagreements:
         print("", flush=True)
         print("ORACLE_IMPLEMENTATION = FAIL", flush=True)
-        print("DAY3_ANALYSIS          = BLOCKED", flush=True)
+        print("s3_ANALYSIS          = BLOCKED", flush=True)
         return 2
     print("ORACLE_IMPLEMENTATION = PASS", flush=True)
 
@@ -146,19 +146,19 @@ def main() -> int:
     print("", flush=True)
     print("enumerating exact oracle intercepts ...", flush=True)
     for model_id, frame in scores.items():
-        ids, block, boundaries, families = day3.stack_margins(frame)
+        ids, block, boundaries, families = s3.stack_margins(frame)
         families_arr = np.asarray(families)
 
         raw_mean = float(
-            np.mean(np.abs(day3.crossing_index(block) - boundaries))
+            np.mean(np.abs(s3.crossing_index(block) - boundaries))
         )
-        global_oracle = day3.oracle_group_intercept(block, boundaries)
+        global_oracle = s3.oracle_group_intercept(block, boundaries)
 
         family_oracles: dict[str, dict] = {}
         weighted, total = 0.0, 0
         for family in FAMILIES:
             rows = np.flatnonzero(families_arr == family)
-            oracle = day3.oracle_group_intercept(block[rows], boundaries[rows])
+            oracle = s3.oracle_group_intercept(block[rows], boundaries[rows])
             family_oracles[family] = oracle.to_dict()
             weighted += oracle.mean_tce * rows.size
             total += rows.size
@@ -166,13 +166,13 @@ def main() -> int:
 
         otce = np.array(
             [
-                day3.oracle_translation_tce(block[i], int(boundaries[i]))
+                s3.oracle_translation_tce(block[i], int(boundaries[i]))
                 for i in range(block.shape[0])
             ]
         )
         artifact_mean = float(otce.mean())
 
-        report = day3.assert_oracle_nesting(
+        report = s3.assert_oracle_nesting(
             raw_mean, global_oracle.mean_tce, family_mean, artifact_mean
         )
         nesting[model_id] = {
@@ -201,7 +201,7 @@ def main() -> int:
                     "family": families[position],
                     "true_first_fail_index": int(boundaries[position]),
                     "otce": int(otce[position]),
-                    "nearest_reachable": day3.nearest_reachable_crossing(
+                    "nearest_reachable": s3.nearest_reachable_crossing(
                         block[position], int(boundaries[position])
                     ),
                 }
@@ -220,7 +220,7 @@ def main() -> int:
 
     stamp = {
         "created_at": provenance.utc_now(),
-        "experiment": "FormalCRRC Day 3",
+        "experiment": "FormalCRRC s 3",
         "oracle_uses_formal_truth": True,
         "deployable": False,
         "note": (

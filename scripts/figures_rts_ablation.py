@@ -83,7 +83,7 @@ def figure_reachability(summary: dict) -> None:
 
     fig, ax = _figure()
     labels = [
-        f"{rc.MODEL_SHORT_NAME}\nimmediate\n(frozen Day 3)",
+        f"{rc.MODEL_SHORT_NAME}\nimmediate\n(frozen s 3)",
         f"{rc.MODEL_SHORT_NAME}\nreason-then-score\n(this study)",
         "Qwen3-30B-Thinking\nnative reasoning\n(context only)",
     ]
@@ -149,7 +149,7 @@ def figure_failure_mechanism(decomp: pd.DataFrame) -> None:
     labels, inversions, ties = [], [], []
     for row in decomp.itertuples(index=False):
         labels.append(
-            "immediate\n(frozen Day 3)"
+            "immediate\n(frozen s 3)"
             if row.condition == rc.CONDITION_ORIGINAL
             else "reason-then-score\n(this study)"
         )

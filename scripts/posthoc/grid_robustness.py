@@ -15,7 +15,7 @@ COARSE = [0, 2, 4, 6, 8]          # fixed before any L = 5 result was computed
 
 
 def truth_table():
-    c = minipq.read_columns(os.path.join(A, 'day3/test_dataset.parquet'),
+    c = minipq.read_columns(os.path.join(A, 's3/test_dataset.parquet'),
                             ['artifact_id', 'strictness_index', 'formal_truth', 'family', 'true_first_fail_index'])
     Y = {}; fam = {}; jstar = {}
     for a, s, y, f, j in zip(c['artifact_id'], c['strictness_index'], c['formal_truth'], c['family'], c['true_first_fail_index']):
@@ -86,10 +86,10 @@ def boot_diff(r9, r5, fam, key, B=5000, seed=20261010):
 def main():
     Y, fam, jstar = truth_table()
     sources = collections.OrderedDict([
-        ('Qwen2.5-14B, immediate', curves_from(os.path.join(A, 'day3/raw_scores/qwen2_5_14b_instruct.parquet'), Y)),
-        ('Llama-3.1-8B, immediate', curves_from(os.path.join(A, 'day3/raw_scores/llama3_1_8b_instruct.parquet'), Y)),
-        ('Mistral-7B, immediate', curves_from(os.path.join(A, 'day3/raw_scores/mistral_7b_instruct_v0_3.parquet'), Y)),
-        ('Gemma-2-9B, immediate', curves_from(os.path.join(A, 'day3/raw_scores/gemma_2_9b_it.parquet'), Y)),
+        ('Qwen2.5-14B, immediate', curves_from(os.path.join(A, 's3/raw_scores/qwen2_5_14b_instruct.parquet'), Y)),
+        ('Llama-3.1-8B, immediate', curves_from(os.path.join(A, 's3/raw_scores/llama3_1_8b_instruct.parquet'), Y)),
+        ('Mistral-7B, immediate', curves_from(os.path.join(A, 's3/raw_scores/mistral_7b_instruct_v0_3.parquet'), Y)),
+        ('Gemma-2-9B, immediate', curves_from(os.path.join(A, 's3/raw_scores/gemma_2_9b_it.parquet'), Y)),
         ('Qwen2.5-14B, RTS', curves_from(os.path.join(A, 'reason_then_score_ablation/raw_rows.parquet'), Y)),
         ('Qwen3-30B-A3B, native', curves_from(os.path.join(A, 'reasoning_anchor/raw_rows.parquet'), Y)),
     ])

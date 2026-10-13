@@ -1,6 +1,6 @@
 """Hashing, environment capture, and integrity manifests.
 
-Everything that could change a Day-1 number has a recorded SHA-256: the
+Everything that could change a s-1 number has a recorded SHA-256: the
 preregistration, the dataset, the prompt template, model provenance, raw score
 files, analysis outputs, figures and the results document.
 

@@ -1,12 +1,12 @@
-FORMALCRRC DAY 3
+FORMALCRRC s 3
 Translation Limits of Threshold-Response Curves
 
 PRIOR EXPERIMENT IMMUTABILITY:
-  Day 1:                    PASS
-  Day 2:                    PASS
+  s 1:                    PASS
+  s 2:                    PASS
   files fingerprinted:      77
 
-DAY-3 DATA:
+s-3 DATA:
   artifacts:                324
   thresholds/artifact:      9
   pairs/judge:              2916
@@ -40,7 +40,7 @@ REACHABILITY CROSS-CHECK:  PASS
 OTCE <= RAW TCE:           PASS
 FIGURES HASHED:            6 (PASS)
 
-DAY-3 ANALYSIS:            COMPLETE
+s-3 ANALYSIS:            COMPLETE
 
 No prior scientific outcome modified.
 No human labels used.
@@ -49,4 +49,4 @@ No semantic rubric generation performed.
 No model calibration proposed for deployment.
 No curve shape modified.
 No outcome-driven tuning performed.
-No Day-4 experiment started.
+No s-4 experiment started.

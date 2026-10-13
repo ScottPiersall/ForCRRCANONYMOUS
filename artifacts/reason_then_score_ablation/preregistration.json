@@ -9,8 +9,8 @@
       "scripts/run_rts_ablation_inference.py": "37fc5eb976256281bca6918e9fd42f947f06bb5b2745066471c445e6422fba96",
       "scripts/verify_rts_ablation_integrity.py": null,
       "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
-      "src/formalcrrc/day2.py": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
-      "src/formalcrrc/day3.py": "213fcd331a67d73b8ec5cdcd30dafa778da9b7d22107c8cd756b8a6ada713cc5",
+      "src/formalcrrc/s2.py": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
+      "src/formalcrrc/s3.py": "213fcd331a67d73b8ec5cdcd30dafa778da9b7d22107c8cd756b8a6ada713cc5",
       "src/formalcrrc/predicates.py": "5c119021ffa69d2dc875bb931a249e5f12811fda791227bc0716cb075fc56b68",
       "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4",
       "src/formalcrrc/provenance.py": "34e1c06f91514642b0bcc1beb946997ad275d2b69030f80d83b6e7df9920bd55",
@@ -55,7 +55,7 @@
     "n_artifacts": 324,
     "n_nontrivial": 288,
     "raw_scores_sha256": "10420978b17f61d2d6717d4ba1f2f7ab16ee4a445996bea3c2bfb7fc1630dbb6",
-    "source": "artifacts/day3/raw_scores/qwen2_5_14b_instruct.parquet, read only and re-verified byte-identical after the ablation",
+    "source": "artifacts/s3/raw_scores/qwen2_5_14b_instruct.parquet, read only and re-verified byte-identical after the ablation",
     "status": "PASS",
     "trr": 0.4791666666666667,
     "unreachable_pct": 52.08333333333333
@@ -78,7 +78,7 @@
     "n_artifacts": 324,
     "n_nontrivial_curves": 288,
     "n_rows": 2916,
-    "partition": "DAY3_TEST",
+    "partition": "s3_TEST",
     "seed": 45,
     "validation": {
       "checked_at": "2026-09-09T21:38:01+00:00",
@@ -96,7 +96,7 @@
       },
       "dataset_content_sha256": "9700960d6f3aa130fa259500aeadbdfa9f511bcc943dd5fdf3401330ee8009d6",
       "dataset_file_sha256": "2160b662fa527498c6bd245e173f0ead9030a7d69633869233b76e5184647a34",
-      "dataset_path": "artifacts/day3/test_dataset.parquet",
+      "dataset_path": "artifacts/s3/test_dataset.parquet",
       "n_artifacts": 324,
       "n_rows": 2916,
       "status": "PASS"
@@ -142,14 +142,14 @@
     ]
   },
   "model": {
-    "chat_template_matches_day3": true,
+    "chat_template_matches_s3": true,
     "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
     "config_sha256": "0f2085dbbe2ee251bd6a6a0797d84a6ce34436044d629aa3cba793b43d311a9e",
     "dtype": "bfloat16",
     "model_id": "Qwen/Qwen2.5-14B-Instruct",
     "quantization": "none",
     "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
-    "revision_source": "artifacts/day3/model_provenance.json (frozen)",
+    "revision_source": "artifacts/s3/model_provenance.json (frozen)",
     "short_name": "Qwen2.5-14B",
     "slug": "qwen2_5_14b_instruct",
     "tokenizer_revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8"
@@ -157,8 +157,8 @@
   "prompt": {
     "added_bytes": 229,
     "added_suffix_sha256": "fee2aa126e937aa6cd03a74e1243797455ad47e69550170ee2de6d5a2d7f91c4",
-    "construction": "RTS_PROMPT_TEMPLATE = formalcrrc.config.PROMPT_TEMPLATE + '\\n\\n' + REASONING_SCAFFOLD. Derived programmatically from the frozen Day-3 template; never retyped. The diff against Day 3 is therefore purely additive and the rubric and candidate-response bodies are untouched.",
-    "day3_template_sha256": "e5f3c5ba3dfd1ccaca0655307d8ad254598a17184c7ae40dfde63c1f660cae14",
+    "construction": "RTS_PROMPT_TEMPLATE = formalcrrc.config.PROMPT_TEMPLATE + '\\n\\n' + REASONING_SCAFFOLD. Derived programmatically from the frozen s-3 template; never retyped. The diff against s 3 is therefore purely additive and the rubric and candidate-response bodies are untouched.",
+    "s3_template_sha256": "e5f3c5ba3dfd1ccaca0655307d8ad254598a17184c7ae40dfde63c1f660cae14",
     "is_pure_suffix_extension": true,
     "removed_lines": [],
     "rts_template_sha256": "7d6ad3815c992b698050b9f2adf44aec81d77c09fc333b8e7374288e156ca957",

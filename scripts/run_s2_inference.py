@@ -1,16 +1,16 @@
 #!/usr/bin/env python
-"""Score one Day-2 partition with one judge (Phase F).
+"""Score one s-2 partition with one judge (Phase F).
 
 Raw scores only. No margin is calibrated, no intercept is fitted, no metric is
 computed and nothing scientific is printed: the calibration stage cannot begin
 until every intended raw run is complete, so the console shows only progress,
 failures, timing and memory.
 
-Fails closed unless the Day-2 preregistration is frozen and verified, the
-partition dataset matches its manifest, the prompt template matches Day 1, and
-the model's scoring conditions match the Day-1 record exactly.
+Fails closed unless the s-2 preregistration is frozen and verified, the
+partition dataset matches its manifest, the prompt template matches s 1, and
+the model's scoring conditions match the s-1 record exactly.
 
-Writes ``artifacts/day2/raw_scores/<partition>/<slug>.parquet`` plus a run record.
+Writes ``artifacts/s2/raw_scores/<partition>/<slug>.parquet`` plus a run record.
 """
 
 from __future__ import annotations
@@ -26,7 +26,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from formalcrrc import day2_config as d2c  # noqa: E402
+from formalcrrc import s2_config as d2c  # noqa: E402
 from formalcrrc import prompts, provenance, scoring  # noqa: E402
 from formalcrrc.config import MODEL_DTYPE, MODEL_IDS, MODEL_SLUGS, N_ROWS  # noqa: E402
 
@@ -59,9 +59,9 @@ def preflight(root: Path, model_id: str, partition: str) -> dict:
     prereg = root / d2c.PREREG_JSON_PATH
     sha_path = root / d2c.PREREG_SHA_PATH
     if not (prereg.is_file() and sha_path.is_file()):
-        problems.append("Day-2 preregistration is not frozen")
+        problems.append("s-2 preregistration is not frozen")
     elif not provenance.verify_checksum_file(prereg, sha_path):
-        problems.append("Day-2 preregistration checksum does not match")
+        problems.append("s-2 preregistration checksum does not match")
 
     manifest_path = root / d2c.MANIFEST_PATHS[partition]
     if not manifest_path.is_file():
@@ -86,18 +86,18 @@ def preflight(root: Path, model_id: str, partition: str) -> dict:
     provenance_path = root / d2c.MODEL_PROVENANCE_PATH
     record: dict = {}
     if not provenance_path.is_file():
-        problems.append("Day-2 model provenance missing; run audit_day2_models.py")
+        problems.append("s-2 model provenance missing; run audit_s2_models.py")
     else:
         document = json.loads(provenance_path.read_text(encoding="utf-8"))
         record = document.get("models", {}).get(model_id, {})
         if not record:
-            problems.append(f"no Day-2 provenance record for {model_id}")
+            problems.append(f"no s-2 provenance record for {model_id}")
         elif record.get("status") != "AVAILABLE":
             problems.append(
                 f"{model_id} is not AVAILABLE (status={record.get('status')})"
             )
         elif not all(record.get("continuity", {}).values()):
-            problems.append(f"{model_id} continuity with Day 1 is not established")
+            problems.append(f"{model_id} continuity with s 1 is not established")
 
     if problems:
         for problem in problems:
@@ -107,7 +107,7 @@ def preflight(root: Path, model_id: str, partition: str) -> dict:
 
 
 def load_model(model_id: str, revision: str, token: str | None, cache_dir: str | None):
-    """Load tokenizer and model at the pinned Day-1 revision, in bf16, on GPU."""
+    """Load tokenizer and model at the pinned s-1 revision, in bf16, on GPU."""
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
 
@@ -187,7 +187,7 @@ def main() -> int:
 
     if tokenization.to_dict() != expected_tokenization:
         print(
-            "PREFLIGHT FAIL: label tokenisation differs from the Day-2 audit\n"
+            "PREFLIGHT FAIL: label tokenisation differs from the s-2 audit\n"
             f"  recorded: {expected_tokenization}\n"
             f"  observed: {tokenization.to_dict()}",
             flush=True,
@@ -269,7 +269,7 @@ def main() -> int:
     provenance.write_json(
         out_dir / f"{slug}_run.json",
         {
-            "experiment": "FormalCRRC Day 2",
+            "experiment": "FormalCRRC s 2",
             "partition": partition,
             "model_id": model_id,
             "slug": slug,
@@ -304,8 +304,8 @@ def main() -> int:
                     "src/formalcrrc/config.py",
                     "src/formalcrrc/prompts.py",
                     "src/formalcrrc/scoring.py",
-                    "src/formalcrrc/day2_config.py",
-                    "scripts/run_day2_inference.py",
+                    "src/formalcrrc/s2_config.py",
+                    "scripts/run_s2_inference.py",
                 ],
                 root=root,
             ),

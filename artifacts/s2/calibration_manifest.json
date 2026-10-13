@@ -2,37 +2,37 @@
   "created_at": "2026-09-07T18:15:22+00:00",
   "cross_partition": {
     "artifact_id_overlap": {
-      "cal_vs_day1": 0,
+      "cal_vs_s1": 0,
       "cal_vs_test": 0,
-      "test_vs_day1": 0
+      "test_vs_s1": 0
     },
     "candidate_response_overlap_by_family": {
       "coverage": {
-        "cal_vs_day1": 0,
+        "cal_vs_s1": 0,
         "cal_vs_test": 0,
-        "test_vs_day1": 0
+        "test_vs_s1": 0
       },
       "max_violation": {
-        "cal_vs_day1": 0,
+        "cal_vs_s1": 0,
         "cal_vs_test": 0,
-        "test_vs_day1": 0
+        "test_vs_s1": 0
       },
       "numeric_tolerance": {
-        "cal_vs_day1": 37,
+        "cal_vs_s1": 37,
         "cal_vs_test": 38,
-        "test_vs_day1": 34
+        "test_vs_s1": 34
       }
     },
     "family_c_candidate_coincidence_note": "A family-C candidate response is determined by the reported value alone, an integer in a bounded range, so byte-identical candidate responses across partitions are an expected property of the shared data-generating process. They are not reused items: the (target, reported) pairs are disjoint by construction and no rendered prompt is shared.",
     "family_c_target_pair_overlap": {
-      "cal_vs_day1": 0,
+      "cal_vs_s1": 0,
       "cal_vs_test": 0,
-      "test_vs_day1": 0
+      "test_vs_s1": 0
     },
     "rendered_prompt_overlap": {
-      "cal_vs_day1": 0,
+      "cal_vs_s1": 0,
       "cal_vs_test": 0,
-      "test_vs_day1": 0
+      "test_vs_s1": 0
     }
   },
   "dimensions": {
@@ -47,7 +47,7 @@
     "n_rows": 2916,
     "n_strictness_levels": 9
   },
-  "experiment": "FormalCRRC Day 2",
+  "experiment": "FormalCRRC s 2",
   "git": {
     "available": true,
     "clean": false,
@@ -55,19 +55,19 @@
     "dirty_paths": [
       ".gitignore",
       "LICENSE",
-      "artifacts/day1/integrity_addendum.json",
-      "artifacts/day2/",
-      "docs/DAY1_ERRATA.md",
-      "docs/DAY1_INTEGRITY_ADDENDUM.md",
-      "docs/DAY1_PROVENANCE_AUDIT.md",
-      "scripts/audit_day1_for_day2.py",
-      "scripts/generate_day2_datasets.py",
+      "artifacts/s1/integrity_addendum.json",
+      "artifacts/s2/",
+      "docs/s1_ERRATA.md",
+      "docs/s1_INTEGRITY_ADDENDUM.md",
+      "docs/s1_PROVENANCE_AUDIT.md",
+      "scripts/audit_s1_for_s2.py",
+      "scripts/generate_s2_datasets.py",
       "src/formalcrrc/__init__.py",
       "src/formalcrrc/dataset.py",
-      "src/formalcrrc/day1_audit.py",
-      "src/formalcrrc/day2.py",
-      "src/formalcrrc/day2_bootstrap.py",
-      "src/formalcrrc/day2_config.py"
+      "src/formalcrrc/s1_audit.py",
+      "src/formalcrrc/s2.py",
+      "src/formalcrrc/s2_bootstrap.py",
+      "src/formalcrrc/s2_config.py"
     ]
   },
   "hashes": {
@@ -79,7 +79,7 @@
   },
   "inference_order": {
     "rule": "sort by sha256(salt|prompt_id), frozen before inference",
-    "salt": "formalcrrc-day2-calibration-order-v1"
+    "salt": "formalcrrc-s2-calibration-order-v1"
   },
   "leakage_checks": {
     "artifact_id_in_prompt": 0,
@@ -91,10 +91,10 @@
   "seed": 43,
   "source": {
     "files": {
-      "scripts/generate_day2_datasets.py": "76f2ea2d4e5327c22a48a4e44dc134ad584f5b8e1bd9e9e0b7f34ac949c22db7",
+      "scripts/generate_s2_datasets.py": "76f2ea2d4e5327c22a48a4e44dc134ad584f5b8e1bd9e9e0b7f34ac949c22db7",
       "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
       "src/formalcrrc/dataset.py": "8a6cb27c91c8d05ab3c9ca29ec7808ed067b0c7d215044c892bb3e059c240d2d",
-      "src/formalcrrc/day2_config.py": "c2a34bf4ff5f3c2d741dd3ed43a2bd23daee3780d717d5b680c72e89c79c7c71",
+      "src/formalcrrc/s2_config.py": "c2a34bf4ff5f3c2d741dd3ed43a2bd23daee3780d717d5b680c72e89c79c7c71",
       "src/formalcrrc/predicates.py": "5c119021ffa69d2dc875bb931a249e5f12811fda791227bc0716cb075fc56b68",
       "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4"
     },

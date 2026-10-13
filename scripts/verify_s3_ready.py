@@ -1,15 +1,15 @@
 #!/usr/bin/env python
-"""Fail-closed readiness gate for Day-3 GPU inference.
+"""Fail-closed readiness gate for s-3 GPU inference.
 
-Day 3 may proceed to study inference only when:
+s 3 may proceed to study inference only when:
 
 ```text
 PRIOR_EXPERIMENT_IMMUTABILITY = PASS
-DAY3_DATASET                  = FROZEN and DISJOINT
+s3_DATASET                  = FROZEN and DISJOINT
 ORACLE_IMPLEMENTATION         = PASS  (theorem == enumeration)
 MODEL_CONTINUITY              = PASS
 PROMPT_CONTINUITY             = PASS
-DAY3_PREREGISTRATION          = FROZEN
+s3_PREREGISTRATION          = FROZEN
 ```
 
 Exits non-zero if anything is missing. Nothing here scores a study prompt or
@@ -29,14 +29,14 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from formalcrrc import dataset as ds  # noqa: E402
-from formalcrrc import day3, day3_config as d3c  # noqa: E402
+from formalcrrc import s3, s3_config as d3c  # noqa: E402
 from formalcrrc import prompts, provenance  # noqa: E402
 from formalcrrc.config import MODEL_IDS, N_ARTIFACTS, N_ROWS, N_STRICTNESS  # noqa: E402
 
 PASS = "PASS"
 FAIL = "FAIL"
 
-DAY3_DOCS = ("docs/DAY3_RATIONALE.md", "docs/NOVELTY_BOUNDARIES_DAY3.md")
+s3_DOCS = ("docs/s3_RATIONALE.md", "docs/NOVELTY_BOUNDARIES_s3.md")
 
 
 class Gate:
@@ -60,34 +60,34 @@ class Gate:
 def check_priors(gate: Gate, root: Path) -> str:
     manifest_path = root / d3c.PRIOR_MANIFEST_PATH
     if not manifest_path.is_file():
-        gate.check("prior fingerprint", False, "run audit_day3_priors.py")
+        gate.check("prior fingerprint", False, "run audit_s3_priors.py")
         return FAIL
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     gate.check(
         "prior fingerprint",
         True,
         f"{manifest['n_files']} files "
-        f"({manifest['by_experiment']['day1']['n_files']} Day-1, "
-        f"{manifest['by_experiment']['day2']['n_files']} Day-2)",
+        f"({manifest['by_experiment']['s1']['n_files']} s-1, "
+        f"{manifest['by_experiment']['s2']['n_files']} s-2)",
     )
-    verification = day3.verify_prior_manifest(manifest, root)
+    verification = s3.verify_prior_manifest(manifest, root)
     gate.check(
-        "day1 files unchanged",
-        verification["day1"]["status"] == PASS,
-        f"changed={verification['day1']['changed']}",
+        "s1 files unchanged",
+        verification["s1"]["status"] == PASS,
+        f"changed={verification['s1']['changed']}",
     )
     gate.check(
-        "day2 files unchanged",
-        verification["day2"]["status"] == PASS,
-        f"changed={verification['day2']['changed']}",
+        "s2 files unchanged",
+        verification["s2"]["status"] == PASS,
+        f"changed={verification['s2']['changed']}",
     )
     gate.check("no prior files added", not verification["added"], str(verification["added"]))
     gate.check(
-        "day1 dataset still reproduces",
+        "s1 dataset still reproduces",
         ds.dataset_content_hash(ds.build_dataset())
-        == d3c.DAY1_DATASET_CONTENT_SHA256,
+        == d3c.s1_DATASET_CONTENT_SHA256,
     )
-    for relative in DAY3_DOCS:
+    for relative in s3_DOCS:
         gate.check(f"document {relative}", (root / relative).is_file())
     return verification["status"]
 
@@ -95,10 +95,10 @@ def check_priors(gate: Gate, root: Path) -> str:
 def check_dataset(gate: Gate, root: Path) -> None:
     manifest_path = root / d3c.DATASET_MANIFEST_PATH
     if not manifest_path.is_file():
-        gate.check("day3 dataset", False, "run generate_day3_dataset.py")
+        gate.check("s3 dataset", False, "run generate_s3_dataset.py")
         return
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    gate.check("day3 dataset", True, f"seed={manifest['seed']}")
+    gate.check("s3 dataset", True, f"seed={manifest['seed']}")
     gate.check("artifact count", manifest["dimensions"]["n_artifacts"] == N_ARTIFACTS)
     gate.check("row count", manifest["dimensions"]["n_rows"] == N_ROWS)
 
@@ -140,7 +140,7 @@ def check_oracle_implementation(gate: Gate) -> str:
     disagreements = 0
     for _ in range(2000):
         curve = rng.normal(0.0, 4.0, N_STRICTNESS)
-        if day3.reachable_crossings(curve) != day3.reachable_crossings_by_enumeration(
+        if s3.reachable_crossings(curve) != s3.reachable_crossings_by_enumeration(
             curve
         ):
             disagreements += 1
@@ -150,13 +150,13 @@ def check_oracle_implementation(gate: Gate) -> str:
         np.ones(N_STRICTNESS),
         np.array([8.0, 9, 6, 7, 5, 6, 7, 3, 4]),
     ):
-        if day3.reachable_crossings(curve) != day3.reachable_crossings_by_enumeration(
+        if s3.reachable_crossings(curve) != s3.reachable_crossings_by_enumeration(
             curve
         ):
             disagreements += 1
     for _ in range(1000):
         curve = rng.integers(-3, 4, N_STRICTNESS).astype(float)
-        if day3.reachable_crossings(curve) != day3.reachable_crossings_by_enumeration(
+        if s3.reachable_crossings(curve) != s3.reachable_crossings_by_enumeration(
             curve
         ):
             disagreements += 1
@@ -172,24 +172,24 @@ def check_preregistration(gate: Gate, root: Path) -> None:
     prereg = root / d3c.PREREG_JSON_PATH
     sha_path = root / d3c.PREREG_SHA_PATH
     if not (prereg.is_file() and sha_path.is_file()):
-        gate.check("day3 preregistration frozen", False, "missing json or sha256")
+        gate.check("s3 preregistration frozen", False, "missing json or sha256")
         return
     digest = sha_path.read_text(encoding="utf-8").split()[0]
-    gate.check("day3 preregistration frozen", True, f"sha256={digest[:16]}")
+    gate.check("s3 preregistration frozen", True, f"sha256={digest[:16]}")
     gate.check(
-        "day3 preregistration checksum",
+        "s3 preregistration checksum",
         provenance.verify_checksum_file(prereg, sha_path),
     )
     document = json.loads(prereg.read_text(encoding="utf-8"))
     gate.check(
-        "day3 panel intact",
+        "s3 panel intact",
         document["judge_models"]["model_ids"] == list(MODEL_IDS),
     )
     manifest = json.loads(
         (root / d3c.DATASET_MANIFEST_PATH).read_text(encoding="utf-8")
     )
     gate.check(
-        "day3 prereg pins the dataset",
+        "s3 prereg pins the dataset",
         document["dataset"]["content_sha256"]
         == manifest["hashes"]["dataset_content_sha256"],
     )
@@ -202,15 +202,15 @@ def check_preregistration(gate: Gate, root: Path) -> None:
 def check_models(gate: Gate, root: Path) -> tuple[list[str], str]:
     path = root / d3c.MODEL_PROVENANCE_PATH
     if not path.is_file():
-        gate.check("day3 model provenance", False, "run audit_day3_models.py")
+        gate.check("s3 model provenance", False, "run audit_s3_models.py")
         return [], FAIL
     document = json.loads(path.read_text(encoding="utf-8"))
-    gate.check("day3 model provenance", True)
+    gate.check("s3 model provenance", True)
     prompt_ok = bool(document.get("prompt_template_matches_prior"))
     gate.check("prompt continuity", prompt_ok, prompts.prompt_template_sha256()[:16])
 
-    day1_models = json.loads(
-        (root / "artifacts/day1/model_provenance.json").read_text(encoding="utf-8")
+    s1_models = json.loads(
+        (root / "artifacts/s1/model_provenance.json").read_text(encoding="utf-8")
     )["models"]
 
     available: list[str] = []
@@ -222,8 +222,8 @@ def check_models(gate: Gate, root: Path) -> tuple[list[str], str]:
             gate.check(f"model {model_id}", False, status)
             continue
         continuity = record.get("continuity", {})
-        same_revision = record.get("revision") == day1_models[model_id]["revision"]
-        reproduces = record.get("smoke_test", {}).get("reproduces_day1_scores")
+        same_revision = record.get("revision") == s1_models[model_id]["revision"]
+        reproduces = record.get("smoke_test", {}).get("reproduces_s1_scores")
         smoke_identical = smoke_identical and bool(reproduces)
         if gate.check(
             f"model {model_id}",
@@ -281,12 +281,12 @@ def main() -> int:
     print(f"models available              = {len(available)}/{len(MODEL_IDS)}", flush=True)
 
     if args.require_full_panel and len(available) != len(MODEL_IDS):
-        print("DAY3_READY: NO (full panel required)", flush=True)
+        print("s3_READY: NO (full panel required)", flush=True)
         return 1
     if not available:
-        print("DAY3_READY: NO (no available judge model)", flush=True)
+        print("s3_READY: NO (no available judge model)", flush=True)
         return 1
-    print(f"DAY3_READY: {'YES' if ready else 'NO'}", flush=True)
+    print(f"s3_READY: {'YES' if ready else 'NO'}", flush=True)
     return 0 if ready else 1
 
 

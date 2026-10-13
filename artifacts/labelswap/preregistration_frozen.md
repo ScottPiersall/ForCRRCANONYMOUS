@@ -1,22 +1,22 @@
 # FormalCRRC Label-Swap Counterbalance Robustness Study
 
 **Study type:** Post-study preregistered robustness experiment
-**Relationship to prior work:** Follow-up to FormalCRRC Days 1-3
+**Relationship to prior work:** Follow-up to FormalCRRC ss 1-3
 **Human subjects:** None
 **New model inference:** Yes
-**Dataset:** Frozen FormalCRRC Day-3 TEST dataset, seed 45
-**Models:** Same four models, exact revisions, inference configuration, tokenizer handling, and scoring procedure used in Day 3
+**Dataset:** Frozen FormalCRRC s-3 TEST dataset, seed 45
+**Models:** Same four models, exact revisions, inference configuration, tokenizer handling, and scoring procedure used in s 3
 **Preregistration freeze timestamp:** 2026-09-09T03:29:27+00:00
 **Preregistration SHA-256:** [FILL AUTOMATICALLY BEFORE FIRST INFERENCE]
 **Amendments at freeze:** 0
 
 ## 1. Motivation
 
-FormalCRRC evaluates LLM judges using the next-token margin between response labels A and B while programmatically varying rubric strictness. In Days 1-3, A denoted "criterion met" and B denoted "criterion not met." A possible alternative explanation for some observed response geometry is therefore label-token asymmetry: a model may intrinsically prefer one response token, or the mapping of semantic classes to A and B may interact with the prompt.
+FormalCRRC evaluates LLM judges using the next-token margin between response labels A and B while programmatically varying rubric strictness. In ss 1-3, A denoted "criterion met" and B denoted "criterion not met." A possible alternative explanation for some observed response geometry is therefore label-token asymmetry: a model may intrinsically prefer one response token, or the mapping of semantic classes to A and B may interact with the prompt.
 
 This study tests whether FormalCRRC's boundary-localization and boundary-reachability findings are robust to reversing the semantic meanings assigned to A and B while holding the evaluated artifacts, rubric thresholds, model revisions, scoring procedure, and all other prompt content fixed.
 
-The study is intentionally paired with the frozen Day-3 dataset. It is a robustness test, not an independent replication dataset.
+The study is intentionally paired with the frozen s-3 dataset. It is a robustness test, not an independent replication dataset.
 
 ## 2. Research question
 
@@ -33,9 +33,9 @@ The principal scientific question is:
 
 ## 3. Experimental intervention
 
-### 3.1 Original Day-3 response instruction
+### 3.1 Original s3 response instruction
 
-The frozen Day-3 prompt ends with:
+The frozen s3 prompt ends with:
 
 > Return A if the criterion is met.
 > Return B if the criterion is not met.
@@ -50,7 +50,7 @@ where \(S_A\) and \(S_B\) are the next-token logits for A and B.
 
 ### 3.2 Label-swapped response instruction
 
-The counterbalanced prompt will be byte-identical to the Day-3 prompt except for reversing the semantic label assignment in the final response instructions:
+The counterbalanced prompt will be byte-identical to the s-3 prompt except for reversing the semantic label assignment in the final response instructions:
 
 > Return B if the criterion is met.
 > Return A if the criterion is not met.
@@ -75,7 +75,7 @@ $$
 
 means greater evidence that the criterion is not met.
 
-The zero convention is unchanged from Day 3: \(M=0\) counts as "criterion met," and the predicted first-fail crossing is the first strictness level satisfying \(M<0\); if none exists, the predicted crossing is 9.
+The zero convention is unchanged from s 3: \(M=0\) counts as "criterion met," and the predicted first-fail crossing is the first strictness level satisfying \(M<0\); if none exists, the predicted crossing is 9.
 
 ### 3.3 Prompt-difference restriction
 
@@ -83,11 +83,11 @@ The experiment implementation must verify programmatically that the original and
 
 No other wording, whitespace, rubric text, candidate response, ordering, system prompt, chat template, or formatting may be intentionally changed.
 
-If the implementation cannot reproduce the exact Day-3 prompt construction, inference must not begin.
+If the implementation cannot reproduce the exact s-3 prompt construction, inference must not begin.
 
 ## 4. Dataset
 
-The complete frozen Day-3 TEST dataset will be reused.
+The complete frozen s-3 TEST dataset will be reused.
 
 * Seed: 45
 * Predicate families: 3
@@ -105,7 +105,7 @@ $$
 
 No artifact subsampling will be performed.
 
-The original Day-3 scores are frozen and will be read only. The same exact artifact IDs, candidate responses, rubric thresholds, family assignments, strictness indices, and formal labels must be used in the swapped condition.
+The original s-3 scores are frozen and will be read only. The same exact artifact IDs, candidate responses, rubric thresholds, family assignments, strictness indices, and formal labels must be used in the swapped condition.
 
 ## 5. Predicate canonicalization
 
@@ -135,14 +135,14 @@ These definitions must be recomputed from frozen artifact fields rather than tru
 
 ## 6. Models and inference
 
-The exact four Day-3 models will be used:
+The exact four s-3 models will be used:
 
 1. `Qwen/Qwen2.5-14B-Instruct` — revision `cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8`, tokenizer revision `cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8`
 2. `meta-llama/Llama-3.1-8B-Instruct` — revision `0e9e39f249a16976918f6564b8830bc894c89659`, tokenizer revision `0e9e39f249a16976918f6564b8830bc894c89659`
 3. `mistralai/Mistral-7B-Instruct-v0.3` — revision `c170c708c41dac9275d15a8fff4eca08d52bab71`, tokenizer revision `c170c708c41dac9275d15a8fff4eca08d52bab71`
 4. `google/gemma-2-9b-it` — revision `11c9b309abf73637e4b6f9a3fa1e92e615547819`, tokenizer revision `11c9b309abf73637e4b6f9a3fa1e92e615547819`
 
-The exact revision identifiers, tokenizer revisions, BF16 configuration, chat-template handling, token IDs, next-token scoring procedure, and all other inference settings must be read from and matched to the frozen Day-3 provenance.
+The exact revision identifiers, tokenizer revisions, BF16 configuration, chat-template handling, token IDs, next-token scoring procedure, and all other inference settings must be read from and matched to the frozen s-3 provenance.
 
 No model substitution is allowed.
 
@@ -150,7 +150,7 @@ No quantization, fine-tuning, LoRA, prompt optimization, temperature manipulatio
 
 The experiment scores next-token logits; no stochastic generation is required.
 
-Before inference, the implementation must verify that the A and B response tokens are handled identically to Day 3 for each tokenizer.
+Before inference, the implementation must verify that the A and B response tokens are handled identically to s 3 for each tokenizer.
 
 ## 7. Experimental unit and pairing
 
@@ -158,7 +158,7 @@ The basic response-level observation is an artifact-threshold-model tuple.
 
 The primary curve-level experimental unit is an artifact-model pair consisting of nine ordered strictness levels.
 
-Every swapped curve is paired with the corresponding frozen Day-3 original-label curve.
+Every swapped curve is paired with the corresponding frozen s-3 original-label curve.
 
 There are:
 
@@ -223,7 +223,7 @@ Positive values indicate worse localization after label swapping; negative value
 
 ### 8.3 Change in nontrivial Translation Reachability Rate
 
-Using the preregistered Day-3 strict-prefix-record criterion,
+Using the preregistered s-3 strict-prefix-record criterion,
 
 $$
 TR_x=
@@ -271,7 +271,7 @@ The following are prespecified secondary diagnostics:
 9. reachable-set agreement and Jaccard similarity;
 10. family-stratified versions of TCE, TRR, agreement, and margin-ordering statistics.
 
-The previously introduced \(RC_x=10\) diagnostic may be recomputed under label swapping but remains a post-study theoretical diagnostic, not a preregistered Day-3 endpoint.
+The previously introduced \(RC_x=10\) diagnostic may be recomputed under label swapping but remains a post-study theoretical diagnostic, not a preregistered s-3 endpoint.
 
 ## 10. Primary statistical analysis
 
@@ -361,7 +361,7 @@ This result must be reported even if it weakens the original robustness claim.
 
 ## 14. Tie handling
 
-All Day-3 conventions remain unchanged.
+All s-3 conventions remain unchanged.
 
 A nontrivial level \(j\) is reachable only if
 
@@ -407,7 +407,7 @@ Any exclusion must be documented before aggregate outcome inspection where possi
 
 There is no outcome-based stopping rule.
 
-The planned experiment consists of the entire frozen Day-3 dataset across all four exact Day-3 model revisions.
+The planned experiment consists of the entire frozen s-3 dataset across all four exact s-3 model revisions.
 
 Inference stops only after:
 
@@ -420,9 +420,9 @@ No additional artifacts, models, prompts, or label variants will be added based 
 
 Before the first swapped-label inference:
 
-1. fingerprint all frozen Day-1, Day-2, and Day-3 scientific artifacts;
+1. fingerprint all frozen s-1, s-2, and s-3 scientific artifacts;
 2. verify the existing integrity manifests;
-3. record the exact Day-3 dataset hash;
+3. record the exact s-3 dataset hash;
 4. record all four exact model revisions;
 5. record the original prompt-template hash;
 6. create and hash the swapped prompt template;
@@ -435,7 +435,7 @@ After inference and analysis:
 * all preexisting frozen scientific artifacts must remain byte-identical;
 * new experiment files must be additive;
 * raw swapped logits must be retained;
-* artifact IDs must permit exact pairing to Day 3;
+* artifact IDs must permit exact pairing to s 3;
 * all analysis must be reproducible from raw frozen scores.
 
 ## 19. Preregistration amendment policy
@@ -466,15 +466,15 @@ The experiment tests one narrow nuisance factor: semantic assignment to the A an
 
 ## 21. Relationship to prior FormalCRRC studies
 
-Days 1-3 remain frozen and unchanged.
+ss 1-3 remain frozen and unchanged.
 
 This experiment is a **post-study preregistered robustness analysis** motivated by the completed FormalCRRC results.
 
 It is not:
 
-* a Day-3 amendment,
+* a s-3 amendment,
 * a new independent replication dataset,
-* a replacement for Day-3 TRR,
+* a replacement for s-3 TRR,
 * or part of the original three preregistrations.
 
 Its role is to test whether the principal findings survive a controlled response-label counterbalance.
@@ -511,18 +511,18 @@ protocol text above was altered.
 
 **Freeze timestamp (UTC):** `2026-09-09T03:29:27+00:00`
 
-### A.1 Dataset (frozen Day-3 TEST, reused read-only)
+### A.1 Dataset (frozen s-3 TEST, reused read-only)
 
 | | |
 |---|---|
-| Path | `artifacts/day3/test_dataset.parquet` |
+| Path | `artifacts/s3/test_dataset.parquet` |
 | Seed | 45 |
 | Dataset file SHA-256 | `2160b662fa527498c6bd245e173f0ead9030a7d69633869233b76e5184647a34` |
 | Dataset content SHA-256 | `9700960d6f3aa130fa259500aeadbdfa9f511bcc943dd5fdf3401330ee8009d6` |
-| Day-3 prompt manifest SHA-256 | `b348872573347fdd14ab2af7c080294052798a16977cf41c0ea8eb6243e35850` |
-| Hashes match Day-3 manifest | True / True |
+| s-3 prompt manifest SHA-256 | `b348872573347fdd14ab2af7c080294052798a16977cf41c0ea8eb6243e35850` |
+| Hashes match s-3 manifest | True / True |
 
-### A.2 Model panel — exact Day-3 revisions
+### A.2 Model panel — exact s-3 revisions
 
 | Model | Revision | Tokenizer revision | dtype | Chat template SHA-256 |
 |---|---|---|---|---|
@@ -535,7 +535,7 @@ Inference configuration: `bfloat16`, transformers
 `5.16.1`, torch
 `2.13.0+cu130`, scoring rule
 `single_token_next_logit` via prompt-continuation label resolution — all
-inherited from Day 3 unchanged.
+inherited from s 3 unchanged.
 
 ### A.3 Prompt templates
 

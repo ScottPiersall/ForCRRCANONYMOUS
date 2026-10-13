@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 """Pair, measure and bootstrap the label-swap robustness study.
 
-Reads the frozen Day-3 raw scores **read-only** and the new swapped raw scores,
+Reads the frozen s-3 raw scores **read-only** and the new swapped raw scores,
 pairs them by prompt id, and computes every preregistered outcome. Writes only
 under ``artifacts/labelswap/``.
 
 Both conditions are analysed on their own canonical margin -- ``S_A - S_B`` for
 the original, ``S_B - S_A`` for the swapped -- so that a positive margin means
-"criterion met" in both and every Day-3 convention applies unchanged.
+"criterion met" in both and every s-3 convention applies unchanged.
 """
 
 from __future__ import annotations
@@ -44,9 +44,9 @@ SHORT = {
 
 
 def load_pair(model_id: str) -> tuple[pd.DataFrame, pd.DataFrame]:
-    """Frozen Day-3 scores (read-only) and the new swapped scores."""
+    """Frozen s-3 scores (read-only) and the new swapped scores."""
     slug = MODEL_SLUGS[model_id]
-    original = pd.read_parquet(ROOT / f"artifacts/day3/raw_scores/{slug}.parquet")
+    original = pd.read_parquet(ROOT / f"artifacts/s3/raw_scores/{slug}.parquet")
     swapped = pd.read_parquet(ROOT / lsc.RAW_SCORES_DIR / f"{slug}.parquet")
     return original, swapped
 
@@ -71,7 +71,7 @@ def curve_table(model_id: str) -> pd.DataFrame:
 
         m_o = o_group["margin"].to_numpy(dtype=float)
         m_s = s_group["margin"].to_numpy(dtype=float)
-        # Day-3 raw scores carry no label column; recompute truth from the
+        # s-3 raw scores carry no label column; recompute truth from the
         # predicate rather than joining a stored one.
         truth = np.array(
             [

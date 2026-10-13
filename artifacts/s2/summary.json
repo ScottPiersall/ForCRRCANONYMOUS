@@ -1970,7 +1970,7 @@
     "n_strictness_levels": 9,
     "test_seed": 44
   },
-  "experiment": "FormalCRRC Day 2",
+  "experiment": "FormalCRRC s 2",
   "models": {
     "Qwen/Qwen2.5-14B-Instruct": {
       "alpha_family": {

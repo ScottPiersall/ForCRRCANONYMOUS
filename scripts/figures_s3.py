@@ -1,9 +1,9 @@
-"""Day-3 figures, exactly as predeclared in the preregistration's figure plan.
+"""s-3 figures, exactly as predeclared in the preregistration's figure plan.
 
 Six static figures. Which judges and families appear is fixed by the design,
 never by how favourably they performed.
 
-Colour follows the same validated categorical palette as Days 1 and 2, so a
+Colour follows the same validated categorical palette as ss 1 and 2, so a
 judge keeps its identity across all three experiments.
 """
 
@@ -20,14 +20,14 @@ import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
 from matplotlib.colors import LinearSegmentedColormap  # noqa: E402
 
-from formalcrrc import day3  # noqa: E402
+from formalcrrc import s3  # noqa: E402
 from formalcrrc.config import (  # noqa: E402
     FAMILIES,
     MODEL_IDS,
     MODEL_SHORT_NAMES,
     N_STRICTNESS,
 )
-from formalcrrc.day3_config import FIGURE_DIR  # noqa: E402
+from formalcrrc.s3_config import FIGURE_DIR  # noqa: E402
 
 SURFACE = "#fcfcfb"
 INK = "#0b0b0b"
@@ -90,8 +90,8 @@ def _present(container) -> list[str]:
 def figure1_reachability_concept(root: Path) -> Path:
     strictness = np.arange(N_STRICTNESS)
     curve = np.array([3.0, 3.6, 1.4, 2.0, 0.6, 1.1, 1.5, -0.9, -0.4])
-    records = day3.prefix_record_lows(curve)
-    reachable = day3.reachable_crossings(curve)
+    records = s3.prefix_record_lows(curve)
+    reachable = s3.reachable_crossings(curve)
     target = 5  # deliberately unreachable
 
     fig = _new_figure(11.0, 4.6)
@@ -541,7 +541,7 @@ def render_all(
     oracle_global: dict,
     samples: dict,
 ) -> list[Path]:
-    """Render every predeclared Day-3 figure and return the paths written."""
+    """Render every predeclared s-3 figure and return the paths written."""
     paths = [
         figure1_reachability_concept(root),
         figure2_raw_vs_otce(root, metrics),

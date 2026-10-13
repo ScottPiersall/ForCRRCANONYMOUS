@@ -7,8 +7,8 @@ unrelated to the study, so running this cannot contaminate the preregistration.
 
 What must be settled, because the frozen protocol depends on all of it:
 
-* that the **exact frozen Day-3 revision** loads, not a floating one, and that
-  its chat template still hashes to the Day-3 value;
+* that the **exact frozen s-3 revision** loads, not a floating one, and that
+  its chat template still hashes to the s-3 value;
 * that ``FINAL:`` can be detected and stopped on as a complete sequence, and
   that generation halts *before* the model emits an A/B token -- otherwise the
   primary margin would be measuring a sampled label instead of a likelihood;
@@ -81,7 +81,7 @@ def main() -> int:
         "uses_formalcrrc_data": False,
         "started_at": provenance.utc_now(),
         "model_id": rc.MODEL_ID,
-        "requested_revision": rc.DAY3_REVISION,
+        "requested_revision": rc.s3_REVISION,
         "checks": {},
         "problems": [],
     }
@@ -95,26 +95,26 @@ def main() -> int:
         token = pathlib.Path(args.hf_token_file).read_text().strip()
 
     # ------------------------------------------------------------------
-    # 1. The exact frozen Day-3 revision
+    # 1. The exact frozen s-3 revision
     # ------------------------------------------------------------------
-    day3 = json.loads(
-        (root / "artifacts/day3/model_provenance.json").read_text(encoding="utf-8")
+    s3 = json.loads(
+        (root / "artifacts/s3/model_provenance.json").read_text(encoding="utf-8")
     )["models"][rc.MODEL_ID]
-    report["day3_revision_recorded"] = day3["revision"]
-    report["checks"]["pinned_revision_matches_day3"] = (
-        rc.DAY3_REVISION == day3["revision"]
-        and rc.DAY3_TOKENIZER_REVISION == day3["tokenizer_revision"]
+    report["s3_revision_recorded"] = s3["revision"]
+    report["checks"]["pinned_revision_matches_s3"] = (
+        rc.s3_REVISION == s3["revision"]
+        and rc.s3_TOKENIZER_REVISION == s3["tokenizer_revision"]
     )
-    if not report["checks"]["pinned_revision_matches_day3"]:
-        fail("pinned revision does not match frozen Day-3 provenance")
+    if not report["checks"]["pinned_revision_matches_s3"]:
+        fail("pinned revision does not match frozen s-3 provenance")
 
     from huggingface_hub import snapshot_download
 
-    print("resolving the frozen Day-3 snapshot ...", flush=True)
+    print("resolving the frozen s-3 snapshot ...", flush=True)
     t0 = time.time()
     local_path = snapshot_download(
         rc.MODEL_ID,
-        revision=rc.DAY3_REVISION,
+        revision=rc.s3_REVISION,
         token=token,
         cache_dir=args.cache_dir,
         max_workers=4,
@@ -151,13 +151,13 @@ def main() -> int:
     report["chat_template_sha256"] = (
         _sha(chat_template) if isinstance(chat_template, str) else None
     )
-    report["checks"]["chat_template_matches_day3"] = (
-        report["chat_template_sha256"] == rc.DAY3_CHAT_TEMPLATE_SHA256
+    report["checks"]["chat_template_matches_s3"] = (
+        report["chat_template_sha256"] == rc.s3_CHAT_TEMPLATE_SHA256
     )
-    if not report["checks"]["chat_template_matches_day3"]:
+    if not report["checks"]["chat_template_matches_s3"]:
         fail(
-            "chat template does not match the frozen Day-3 hash "
-            f"({report['chat_template_sha256']} != {rc.DAY3_CHAT_TEMPLATE_SHA256})"
+            "chat template does not match the frozen s-3 hash "
+            f"({report['chat_template_sha256']} != {rc.s3_CHAT_TEMPLATE_SHA256})"
         )
 
     rendered = tok.apply_chat_template(

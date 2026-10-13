@@ -36,7 +36,7 @@
     "python_implementation": "CPython",
     "python_version": "3.11.16"
   },
-  "experiment": "FormalCRRC Day 3",
+  "experiment": "FormalCRRC s 3",
   "failures": [],
   "finished_at": "2026-09-07T19:21:30+00:00",
   "label_tokenization": {
@@ -60,7 +60,7 @@
   },
   "load_seconds": 46.39,
   "model_id": "meta-llama/Llama-3.1-8B-Instruct",
-  "partition": "DAY3_TEST",
+  "partition": "s3_TEST",
   "preregistration_sha256": "ab2f028e3dcd1ef462fcefab17365e18fbc680349f24b8e35f90c9fb6d33448e",
   "prompt_template_sha256": "e5f3c5ba3dfd1ccaca0655307d8ad254598a17184c7ae40dfde63c1f660cae14",
   "prompts_requested": 2916,
@@ -76,9 +76,9 @@
   },
   "source_manifest": {
     "files": {
-      "scripts/run_day3_inference.py": "f5576be477db475fae7328b8bccbb0243f0588d57f78f95912072d2c7475bf79",
+      "scripts/run_s3_inference.py": "f5576be477db475fae7328b8bccbb0243f0588d57f78f95912072d2c7475bf79",
       "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
-      "src/formalcrrc/day3_config.py": "1c9c2cb1aa4462ee29fcc0215078f99acc2de518d74994efe3169620494cbb5c",
+      "src/formalcrrc/s3_config.py": "1c9c2cb1aa4462ee29fcc0215078f99acc2de518d74994efe3169620494cbb5c",
       "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4",
       "src/formalcrrc/scoring.py": "e9dea77babcb60820ad679226d2d826265fe0d844948163296c71be56510c8d4"
     },

@@ -1,10 +1,10 @@
 #!/usr/bin/env python
-"""Freeze the FormalCRRC Day-2 preregistration (Phase E).
+"""Freeze the FormalCRRC s-2 preregistration (Phase E).
 
-Builds ``artifacts/day2/preregistration.json`` from the Day-2 configuration
+Builds ``artifacts/s2/preregistration.json`` from the s-2 configuration
 object and the already-frozen partition manifests, writes
-``artifacts/day2/preregistration.sha256``, and renders the human-readable
-``docs/PREREGISTRATION_DAY2.md`` from the same object so the two cannot drift.
+``artifacts/s2/preregistration.sha256``, and renders the human-readable
+``docs/PREREGISTRATION_s2.md`` from the same object so the two cannot drift.
 
 Refuses to overwrite an existing preregistration.
 """
@@ -18,7 +18,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from formalcrrc import day2_config as d2c  # noqa: E402
+from formalcrrc import s2_config as d2c  # noqa: E402
 from formalcrrc import prompts, provenance  # noqa: E402
 from formalcrrc.config import (  # noqa: E402
     BOOTSTRAP_CI,
@@ -139,7 +139,7 @@ NOVELTY_BOUNDARIES = {
         "first use of counterfactual curves",
         "first threshold robustness test",
     ],
-    "day2_does_not_establish": [
+    "s2_does_not_establish": [
         "human alignment",
         "clinical reliability",
         "natural-language rubric reliability",
@@ -162,8 +162,8 @@ EXCLUSION_RULES = {
         "blocks the affected model."
     ),
     "model_exclusions": (
-        "A model is excluded only if its exact Day-1 revision is inaccessible or "
-        "its scoring conditions no longer match the Day-1 record, and is then "
+        "A model is excluded only if its exact s-1 revision is inaccessible or "
+        "its scoring conditions no longer match the s-1 record, and is then "
         "recorded as BLOCKED_BY_MODEL_ACCESS. No substitution."
     ),
     "family_c_candidate_coincidence": (
@@ -180,7 +180,7 @@ EXCLUSION_RULES = {
 
 CALIBRATION_PROHIBITIONS = [
     "fitting alpha using TEST",
-    "fitting alpha using any Day-1 outcome",
+    "fitting alpha using any s-1 outcome",
     "choosing among multiple alpha estimators based on TEST",
     "fitting separate offsets after inspecting which family performs poorly",
     "changing the decision threshold from 0.5",
@@ -219,7 +219,7 @@ FIGURE_PLAN = [
             "identical shape; shows that a vertical shift cannot remove a local "
             "reversal."
         ),
-        "path": "figures/day2/figure1_bias_vs_shape.png",
+        "path": "figures/s2/figure1_bias_vs_shape.png",
     },
     {
         "id": "figure2",
@@ -228,13 +228,13 @@ FIGURE_PLAN = [
             "One alpha per judge with bootstrap uncertainty, family offsets "
             "shown as secondary markers."
         ),
-        "path": "figures/day2/figure2_global_offsets.png",
+        "path": "figures/s2/figure2_global_offsets.png",
     },
     {
         "id": "figure3",
         "title": "Raw versus globally corrected TCE",
         "content": "Paired artifact-level TCE for each judge.",
-        "path": "figures/day2/figure3_paired_tce.png",
+        "path": "figures/s2/figure3_paired_tce.png",
     },
     {
         "id": "figure4",
@@ -243,19 +243,19 @@ FIGURE_PLAN = [
             "Per judge on TEST: raw probability curve, globally adjusted curve, "
             "and the formal boundary."
         ),
-        "path": "figures/day2/figure4_boundary_aligned.png",
+        "path": "figures/s2/figure4_boundary_aligned.png",
     },
     {
         "id": "figure5",
         "title": "Residual localization error",
         "content": "TCE distributions after global correction.",
-        "path": "figures/day2/figure5_residual_tce.png",
+        "path": "figures/s2/figure5_residual_tce.png",
     },
     {
         "id": "figure6",
         "title": "Model x family decomposition",
         "content": "Heatmap of raw TCE, global TCE, family TCE and MMVR.",
-        "path": "figures/day2/figure6_model_family.png",
+        "path": "figures/s2/figure6_model_family.png",
     },
 ]
 
@@ -272,10 +272,10 @@ STOPPING_RULE = {
     ),
     "no_data_dependent_extension": (
         "The design is not extended, repeated or enlarged on the basis of "
-        "observed results. No Day-3 experiment follows automatically."
+        "observed results. No s-3 experiment follows automatically."
     ),
     "success_criterion": (
-        "Day 2 succeeds when Day-1 immutability passes, partitions are disjoint "
+        "s 2 succeeds when s-1 immutability passes, partitions are disjoint "
         "and integral, the preregistration was frozen before outcomes, intended "
         "runs completed or were transparently blocked, calibration used "
         "CALIBRATION only, shape invariance holds, and all results are reported "
@@ -302,39 +302,39 @@ NO_OUTCOME_DRIVEN_TUNING = [
 
 
 def build_document(root: Path) -> dict:
-    """Assemble the Day-2 preregistration from frozen inputs."""
+    """Assemble the s-2 preregistration from frozen inputs."""
     manifests = {}
     for partition, path in d2c.MANIFEST_PATHS.items():
         candidate = root / path
         if not candidate.is_file():
             raise SystemExit(
-                f"{path} not found; run scripts/generate_day2_datasets.py first"
+                f"{path} not found; run scripts/generate_s2_datasets.py first"
             )
         manifests[partition] = json.loads(candidate.read_text(encoding="utf-8"))
 
-    day1_prereg = json.loads(
-        (root / "artifacts/day1/preregistration.json").read_text(encoding="utf-8")
+    s1_prereg = json.loads(
+        (root / "artifacts/s1/preregistration.json").read_text(encoding="utf-8")
     )
-    day1_models = json.loads(
-        (root / "artifacts/day1/model_provenance.json").read_text(encoding="utf-8")
+    s1_models = json.loads(
+        (root / "artifacts/s1/model_provenance.json").read_text(encoding="utf-8")
     )["models"]
 
-    day2_provenance_path = root / d2c.MODEL_PROVENANCE_PATH
-    day2_status = {m: "NOT_CHECKED" for m in MODEL_IDS}
-    if day2_provenance_path.is_file():
-        document = json.loads(day2_provenance_path.read_text(encoding="utf-8"))
+    s2_provenance_path = root / d2c.MODEL_PROVENANCE_PATH
+    s2_status = {m: "NOT_CHECKED" for m in MODEL_IDS}
+    if s2_provenance_path.is_file():
+        document = json.loads(s2_provenance_path.read_text(encoding="utf-8"))
         for model_id in MODEL_IDS:
-            day2_status[model_id] = document.get("models", {}).get(model_id, {}).get(
+            s2_status[model_id] = document.get("models", {}).get(model_id, {}).get(
                 "status", "NOT_CHECKED"
             )
 
-    baseline_path = root / d2c.DAY1_BASELINE_PATH
+    baseline_path = root / d2c.s1_BASELINE_PATH
     baseline = (
         json.loads(baseline_path.read_text(encoding="utf-8"))
         if baseline_path.is_file()
         else {}
     )
-    findings_path = root / d2c.DAY1_AUDIT_FINDINGS_PATH
+    findings_path = root / d2c.s1_AUDIT_FINDINGS_PATH
     findings = (
         json.loads(findings_path.read_text(encoding="utf-8"))
         if findings_path.is_file()
@@ -342,26 +342,26 @@ def build_document(root: Path) -> dict:
     )
 
     return {
-        "document": "FormalCRRC Day-2 preregistration",
+        "document": "FormalCRRC s-2 preregistration",
         "experiment": "Separating global judge bias from threshold-response shape",
         "version": 1,
         "frozen_at": provenance.utc_now(),
         "amendments": [],
-        "relationship_to_day1": {
+        "relationship_to_s1": {
             "statement": (
-                "Day 1 motivates Day 2. Day 2 is a new, separately preregistered "
+                "s 1 motivates s 2. s 2 is a new, separately preregistered "
                 "experiment on new data, not a modification, rerun or repair of "
-                "Day 1."
+                "s 1."
             ),
-            "day1_results_status": "unchanged and final",
-            "day1_preregistration_sha256": (
-                (root / "artifacts/day1/preregistration.sha256")
+            "s1_results_status": "unchanged and final",
+            "s1_preregistration_sha256": (
+                (root / "artifacts/s1/preregistration.sha256")
                 .read_text(encoding="utf-8")
                 .split()[0]
             ),
-            "day1_baseline_manifest_sha256": baseline.get("combined_sha256"),
-            "day1_baseline_n_files": baseline.get("n_files"),
-            "day1_audit": {
+            "s1_baseline_manifest_sha256": baseline.get("combined_sha256"),
+            "s1_baseline_n_files": baseline.get("n_files"),
+            "s1_audit": {
                 "errata_required": findings.get(
                     "issue_a_boundary_curve_claim", {}
                 ).get("errata_required"),
@@ -375,13 +375,13 @@ def build_document(root: Path) -> dict:
                     "issue_c_figure_integrity", {}
                 ).get("defect_present"),
                 "documents": [
-                    "docs/DAY1_ERRATA.md",
-                    "docs/DAY1_PROVENANCE_AUDIT.md",
-                    "docs/DAY1_INTEGRITY_ADDENDUM.md",
+                    "docs/s1_ERRATA.md",
+                    "docs/s1_PROVENANCE_AUDIT.md",
+                    "docs/s1_INTEGRITY_ADDENDUM.md",
                 ],
             },
-            "day1_source_extensions": d2c.DAY1_SOURCE_EXTENSIONS,
-            "day1_dataset_content_sha256": d2c.DAY1_DATASET_CONTENT_SHA256,
+            "s1_source_extensions": d2c.s1_SOURCE_EXTENSIONS,
+            "s1_dataset_content_sha256": d2c.s1_DATASET_CONTENT_SHA256,
         },
         "research_questions": RESEARCH_QUESTIONS,
         "hypotheses": HYPOTHESES,
@@ -425,7 +425,7 @@ def build_document(root: Path) -> dict:
         ],
         "data_generating_process": {
             "families": list(FAMILIES),
-            "identical_to_day1": (
+            "identical_to_s1": (
                 "same three predicate families, same nine strictness levels, "
                 "same latent-level distribution, same candidate formatting, same "
                 "formal truth equations, same threshold interpretation, same "
@@ -434,9 +434,9 @@ def build_document(root: Path) -> dict:
             "family_c_uniqueness_rule": (
                 "Family C draws an integer target from a bounded range, so "
                 "independent draws can coincide. Generation carries a forbidden "
-                "set of (target, reported) pairs -- Day 1's, then Day 1's plus "
+                "set of (target, reported) pairs -- s 1's, then s 1's plus "
                 "CAL's -- and redraws on collision. This guarantees that no "
-                "rendered prompt is shared between Day 1, CAL and TEST. It is a "
+                "rendered prompt is shared between s 1, CAL and TEST. It is a "
                 "documented, seed-deterministic, outcome-independent deviation "
                 "from independent sampling with replacement, affecting family-C "
                 "targets only."
@@ -448,48 +448,48 @@ def build_document(root: Path) -> dict:
         },
         "judge_models": {
             "policy": (
-                "Exactly the Day-1 panel at exactly the Day-1 revisions, read "
-                "from the immutable Day-1 provenance. No upgrade, no branch "
+                "Exactly the s-1 panel at exactly the s-1 revisions, read "
+                "from the immutable s-1 provenance. No upgrade, no branch "
                 "re-resolution, no substitution, no quantisation, no "
                 "fine-tuning, no adapters."
             ),
             "model_ids": list(MODEL_IDS),
             "dtype": MODEL_DTYPE,
             "revisions": {
-                model_id: day1_models[model_id]["revision"] for model_id in MODEL_IDS
+                model_id: s1_models[model_id]["revision"] for model_id in MODEL_IDS
             },
             "scoring_methods": {
-                model_id: day1_models[model_id]["label_tokenization"]["scoring_method"]
+                model_id: s1_models[model_id]["label_tokenization"]["scoring_method"]
                 for model_id in MODEL_IDS
             },
             "label_token_ids": {
                 model_id: {
-                    "met": day1_models[model_id]["label_tokenization"]["met_token_ids"],
-                    "not_met": day1_models[model_id]["label_tokenization"][
+                    "met": s1_models[model_id]["label_tokenization"]["met_token_ids"],
+                    "not_met": s1_models[model_id]["label_tokenization"][
                         "not_met_token_ids"
                     ],
                 }
                 for model_id in MODEL_IDS
             },
-            "status_at_freeze": day2_status,
+            "status_at_freeze": s2_status,
             "run_order": prompts.model_run_order(),
         },
         "prompt": {
-            "reused_from_day1_byte_identical": True,
+            "reused_from_s1_byte_identical": True,
             "template_sha256": prompts.prompt_template_sha256(),
-            "day1_template_sha256": day1_prereg["prompt"]["template_sha256"],
+            "s1_template_sha256": s1_prereg["prompt"]["template_sha256"],
             "template": PROMPT_TEMPLATE,
             "label_met": LABEL_MET,
             "label_not_met": LABEL_NOT_MET,
-            "prohibited": day1_prereg["prompt"]["prohibited"],
+            "prohibited": s1_prereg["prompt"]["prohibited"],
         },
         "scoring": {
-            "reused_from_day1": True,
-            "label_token_resolution": day1_prereg["scoring"]["label_token_resolution"],
-            "primary_rule": day1_prereg["scoring"]["primary_rule"],
-            "fallback_rule": day1_prereg["scoring"]["fallback_rule"],
+            "reused_from_s1": True,
+            "label_token_resolution": s1_prereg["scoring"]["label_token_resolution"],
+            "primary_rule": s1_prereg["scoring"]["primary_rule"],
+            "fallback_rule": s1_prereg["scoring"]["fallback_rule"],
             "margin_definition": "M = S_A - S_B",
-            "probability": "P_raw = sigmoid(M), identical to the Day-1 normalisation",
+            "probability": "P_raw = sigmoid(M), identical to the s-1 normalisation",
             "margins_from_raw_scores": (
                 "Margins are computed from the recorded raw label scores, never "
                 "reconstructed from rounded probabilities."
@@ -533,7 +533,7 @@ def build_document(root: Path) -> dict:
             "objective": d2c.CALIBRATION_OBJECTIVE,
             "solver": d2c.CALIBRATION_SOLVER,
             "fitted_on": "CALIBRATION partition only",
-            "never_fitted_on": ["TEST partition", "Day-1 data", "any outcome"],
+            "never_fitted_on": ["TEST partition", "s-1 data", "any outcome"],
             "interpretation": (
                 "alpha > 0: the raw judge is globally too pessimistic about "
                 "'criterion met'; alpha < 0: globally too permissive; alpha near "
@@ -579,9 +579,9 @@ def build_document(root: Path) -> dict:
                 "or family-specific intercept. Verified empirically; a material "
                 "deviation is an implementation defect."
             ),
-            "day1_continuity": (
-                "The Day-1 probability-based MVR may be reproduced descriptively "
-                "on Day-2 raw scores, but is not the primary Day-2 shape metric."
+            "s1_continuity": (
+                "The s-1 probability-based MVR may be reproduced descriptively "
+                "on s-2 raw scores, but is not the primary s-2 shape metric."
             ),
         },
         "secondary_metrics": {
@@ -642,9 +642,9 @@ def build_document(root: Path) -> dict:
                 "Recorded as BLOCKED_BY_MODEL_ACCESS. No substitution. A partial "
                 "panel is never described as the four-model panel."
             ),
-            "day1_immutability_failure": (
-                "If any Day-1 fingerprint changes, DAY1_IMMUTABILITY = FAIL and "
-                "DAY2_ANALYSIS = BLOCKED. Files are not silently restored."
+            "s1_immutability_failure": (
+                "If any s-1 fingerprint changes, s1_IMMUTABILITY = FAIL and "
+                "s2_ANALYSIS = BLOCKED. Files are not silently restored."
             ),
             "implementation_defect": (
                 "Stop the affected stage, preserve the defective output, "
@@ -675,7 +675,7 @@ def render_markdown(document: dict, digest: str) -> str:
     boot = document["bootstrap"]
     datasets = document["datasets"]
     novelty = document["novelty_boundaries"]
-    rel = document["relationship_to_day1"]
+    rel = document["relationship_to_s1"]
 
     hypothesis_rows = "\n".join(
         f"| **{h['id']}** | {h['label']} | {h['statement']} | `{h['quantity']}` | {h['status']} |"
@@ -698,17 +698,17 @@ def render_markdown(document: dict, digest: str) -> str:
     )
     disjoint = document["partition_disjointness"]
 
-    return f"""# FormalCRRC Day-2 preregistration
+    return f"""# FormalCRRC s-2 preregistration
 
 ## Separating global judge bias from threshold-response shape
 
 **Frozen:** {document['frozen_at']}
 **SHA-256:** `{digest}`
-**Machine-readable copy:** [`artifacts/day2/preregistration.json`](../artifacts/day2/preregistration.json)
-**Checksum:** [`artifacts/day2/preregistration.sha256`](../artifacts/day2/preregistration.sha256)
+**Machine-readable copy:** [`artifacts/s2/preregistration.json`](../artifacts/s2/preregistration.json)
+**Checksum:** [`artifacts/s2/preregistration.sha256`](../artifacts/s2/preregistration.sha256)
 **Amendments:** {len(document['amendments'])}
 
-Frozen **before any Day-2 study inference**. Generated from the same object as
+Frozen **before any s-2 study inference**. Generated from the same object as
 the JSON copy, so the two cannot disagree.
 
 > Once frozen, this document is never silently edited. A genuine implementation
@@ -719,31 +719,31 @@ the JSON copy, so the two cannot disagree.
 
 ---
 
-## 1. Relationship to Day 1
+## 1. Relationship to s 1
 
 {rel['statement']}
 
-Day-1 results are **{rel['day1_results_status']}**. Day 2 is not a repair of
-Day 1 and does not reinterpret any Day-1 outcome.
+s-1 results are **{rel['s1_results_status']}**. s 2 is not a repair of
+s 1 and does not reinterpret any s-1 outcome.
 
 | | |
 |---|---|
-| Day-1 preregistration SHA-256 | `{rel['day1_preregistration_sha256']}` |
-| Day-1 baseline fingerprint | `{rel['day1_baseline_manifest_sha256']}` over {rel['day1_baseline_n_files']} files |
-| Day-1 dataset content SHA-256 | `{rel['day1_dataset_content_sha256']}` |
-| Day-1 errata required | {rel['day1_audit']['errata_required']} |
-| Preregistered Day-1 analysis files changed post-freeze | {rel['day1_audit']['preregistered_files_changed'] or 'none'} |
-| All Day-1 inference runs pinned to the freeze | {rel['day1_audit']['all_runs_pinned_to_freeze']} |
-| Day-1 figure-hash defect present | {rel['day1_audit']['figure_hash_defect_present']} |
+| s-1 preregistration SHA-256 | `{rel['s1_preregistration_sha256']}` |
+| s-1 baseline fingerprint | `{rel['s1_baseline_manifest_sha256']}` over {rel['s1_baseline_n_files']} files |
+| s-1 dataset content SHA-256 | `{rel['s1_dataset_content_sha256']}` |
+| s-1 errata required | {rel['s1_audit']['errata_required']} |
+| Preregistered s-1 analysis files changed post-freeze | {rel['s1_audit']['preregistered_files_changed'] or 'none'} |
+| All s-1 inference runs pinned to the freeze | {rel['s1_audit']['all_runs_pinned_to_freeze']} |
+| s-1 figure-hash defect present | {rel['s1_audit']['figure_hash_defect_present']} |
 
-Supporting audits: {', '.join(f'`{d}`' for d in rel['day1_audit']['documents'])}.
+Supporting audits: {', '.join(f'`{d}`' for d in rel['s1_audit']['documents'])}.
 
-**Day-1 source extensions.** Day 2 extends shared modules in a
-backward-compatible way; Day-1 outputs are unaffected and the Day-1 dataset
-still reproduces content hash `{rel['day1_dataset_content_sha256']}`, which the
+**s-1 source extensions.** s 2 extends shared modules in a
+backward-compatible way; s-1 outputs are unaffected and the s-1 dataset
+still reproduces content hash `{rel['s1_dataset_content_sha256']}`, which the
 test suite asserts permanently.
 
-{chr(10).join(f'- `{path}` — {note}' for path, note in rel['day1_source_extensions'].items())}
+{chr(10).join(f'- `{path}` — {note}' for path, note in rel['s1_source_extensions'].items())}
 
 ## 2. Research questions
 
@@ -770,9 +770,9 @@ The object of interest is **{novelty['object_of_interest']}**.
 
 {_bullets(novelty['explicitly_not_claimed'])}
 
-**Day 2 does not establish:**
+**s 2 does not establish:**
 
-{_bullets(novelty['day2_does_not_establish'])}
+{_bullets(novelty['s2_does_not_establish'])}
 
 ## 5. The formal object
 
@@ -833,12 +833,12 @@ Totals: {document['dataset_totals']['n_prompts_per_judge']} prompts per judge,
 
 ### Disjointness, verified before freezing
 
-| Check | CAL vs TEST | CAL vs Day 1 | TEST vs Day 1 |
+| Check | CAL vs TEST | CAL vs s 1 | TEST vs s 1 |
 |---|---|---|---|
-| artifact_id overlap | {disjoint['artifact_id_overlap']['cal_vs_test']} | {disjoint['artifact_id_overlap']['cal_vs_day1']} | {disjoint['artifact_id_overlap']['test_vs_day1']} |
-| rendered prompt overlap | {disjoint['rendered_prompt_overlap']['cal_vs_test']} | {disjoint['rendered_prompt_overlap']['cal_vs_day1']} | {disjoint['rendered_prompt_overlap']['test_vs_day1']} |
-| family-C (target, reported) pair overlap | {disjoint['family_c_target_pair_overlap']['cal_vs_test']} | {disjoint['family_c_target_pair_overlap']['cal_vs_day1']} | {disjoint['family_c_target_pair_overlap']['test_vs_day1']} |
-| family-C candidate coincidences | {disjoint['candidate_response_overlap_by_family']['numeric_tolerance']['cal_vs_test']} | {disjoint['candidate_response_overlap_by_family']['numeric_tolerance']['cal_vs_day1']} | {disjoint['candidate_response_overlap_by_family']['numeric_tolerance']['test_vs_day1']} |
+| artifact_id overlap | {disjoint['artifact_id_overlap']['cal_vs_test']} | {disjoint['artifact_id_overlap']['cal_vs_s1']} | {disjoint['artifact_id_overlap']['test_vs_s1']} |
+| rendered prompt overlap | {disjoint['rendered_prompt_overlap']['cal_vs_test']} | {disjoint['rendered_prompt_overlap']['cal_vs_s1']} | {disjoint['rendered_prompt_overlap']['test_vs_s1']} |
+| family-C (target, reported) pair overlap | {disjoint['family_c_target_pair_overlap']['cal_vs_test']} | {disjoint['family_c_target_pair_overlap']['cal_vs_s1']} | {disjoint['family_c_target_pair_overlap']['test_vs_s1']} |
+| family-C candidate coincidences | {disjoint['candidate_response_overlap_by_family']['numeric_tolerance']['cal_vs_test']} | {disjoint['candidate_response_overlap_by_family']['numeric_tolerance']['cal_vs_s1']} | {disjoint['candidate_response_overlap_by_family']['numeric_tolerance']['test_vs_s1']} |
 
 {disjoint['family_c_candidate_coincidence_note']}
 
@@ -858,9 +858,9 @@ dtype `{models['dtype']}`. Run order: {', '.join(f'`{m}`' for m in models['run_o
 
 ## 9. Prompt
 
-Reused from Day 1 **byte-identically**, SHA-256
-`{document['prompt']['template_sha256']}` (Day 1:
-`{document['prompt']['day1_template_sha256']}`).
+Reused from s 1 **byte-identically**, SHA-256
+`{document['prompt']['template_sha256']}` (s 1:
+`{document['prompt']['s1_template_sha256']}`).
 
 ```
 {document['prompt']['template']}
@@ -967,8 +967,8 @@ Git at freeze: commit
 `{document['git_at_freeze'].get('commit') or 'unavailable'}`, clean =
 {document['git_at_freeze'].get('clean')}
 
-The Day-2 integrity manifest hashes **exactly this file list**, so the freeze
-digest and the final digest are directly comparable — the list mismatch Day 1
+The s-2 integrity manifest hashes **exactly this file list**, so the freeze
+digest and the final digest are directly comparable — the list mismatch s 1
 exhibited cannot recur.
 
 ---
@@ -1001,12 +1001,12 @@ def main() -> int:
     provenance.write_json(target, document)
     digest = provenance.write_checksum_file(target, sha_path)
 
-    markdown = root / "docs/PREREGISTRATION_DAY2.md"
+    markdown = root / "docs/PREREGISTRATION_s2.md"
     markdown.write_text(render_markdown(document, digest), encoding="utf-8")
 
     print(f"wrote {d2c.PREREG_JSON_PATH}", flush=True)
     print(f"wrote {d2c.PREREG_SHA_PATH}", flush=True)
-    print("wrote docs/PREREGISTRATION_DAY2.md", flush=True)
+    print("wrote docs/PREREGISTRATION_s2.md", flush=True)
     print(f"preregistration sha256: {digest}", flush=True)
     return 0
 

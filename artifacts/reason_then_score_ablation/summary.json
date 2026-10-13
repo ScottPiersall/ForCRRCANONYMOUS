@@ -9,8 +9,8 @@
       "scripts/run_rts_ablation_inference.py": "37fc5eb976256281bca6918e9fd42f947f06bb5b2745066471c445e6422fba96",
       "scripts/verify_rts_ablation_integrity.py": null,
       "src/formalcrrc/config.py": "4558ccfdcdd55e2ffd7cd30dbd0b06d07fbbcf659dd1bbf5d8dbef7e209efa52",
-      "src/formalcrrc/day2.py": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
-      "src/formalcrrc/day3.py": "213fcd331a67d73b8ec5cdcd30dafa778da9b7d22107c8cd756b8a6ada713cc5",
+      "src/formalcrrc/s2.py": "5b61a03e18610a3cd646fad4028f89e0c3b95056297c33caf1c89782d087de32",
+      "src/formalcrrc/s3.py": "213fcd331a67d73b8ec5cdcd30dafa778da9b7d22107c8cd756b8a6ada713cc5",
       "src/formalcrrc/predicates.py": "5c119021ffa69d2dc875bb931a249e5f12811fda791227bc0716cb075fc56b68",
       "src/formalcrrc/prompts.py": "a5350ba6687fecb2d7526677bb31ad12373df58064e1096d1a15603a03308dd4",
       "src/formalcrrc/provenance.py": "34e1c06f91514642b0bcc1beb946997ad275d2b69030f80d83b6e7df9920bd55",
@@ -454,14 +454,14 @@
     "unit_of_intervention": "The protocol intervention jointly changes the evaluation instruction, the generation of an intermediate trace, the position at which A/B is scored, and the immediate-next-token versus conditional sequence-likelihood readout. The supported causal statement is the effect of the reason-then-score protocol, not the effect of reasoning itself."
   },
   "model": {
-    "chat_template_matches_day3": true,
+    "chat_template_matches_s3": true,
     "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
     "config_sha256": "0f2085dbbe2ee251bd6a6a0797d84a6ce34436044d629aa3cba793b43d311a9e",
     "dtype": "bfloat16",
     "model_id": "Qwen/Qwen2.5-14B-Instruct",
     "quantization": "none",
     "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
-    "revision_source": "artifacts/day3/model_provenance.json (frozen)",
+    "revision_source": "artifacts/s3/model_provenance.json (frozen)",
     "short_name": "Qwen2.5-14B",
     "slug": "qwen2_5_14b_instruct",
     "tokenizer_revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8"

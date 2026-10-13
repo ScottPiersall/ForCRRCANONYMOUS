@@ -1,4 +1,4 @@
-"""Day-1 figures, exactly as predeclared in the preregistration's figure plan.
+"""s-1 figures, exactly as predeclared in the preregistration's figure plan.
 
 Five static figures. Which models and families appear is fixed by the design,
 never by how favourably they performed: every judge with a complete run and all
