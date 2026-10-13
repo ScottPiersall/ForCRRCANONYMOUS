@@ -11,7 +11,7 @@
 | | |
 |---|---|
 | Classification | post-study theoretical analysis |
-| Preregistered | **no** — no Day-1/2/3 preregistration contains this proposition |
+| Preregistered | **no** — no S1/S2/S3 preregistration contains this proposition |
 | Model inference | **none run** |
 | Frozen outcomes modified | **none** |
 | New empirical quantity | **none** — TRR is the preregistered Day-3 quantity, recomputed read-only |
