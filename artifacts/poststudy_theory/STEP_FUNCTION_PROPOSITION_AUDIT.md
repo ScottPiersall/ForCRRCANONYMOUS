@@ -11,7 +11,7 @@
 | | |
 |---|---|
 | Classification | post-study theoretical analysis |
-| Preregistered | **no** — no s-1/2/3 preregistration contains this proposition |
+| Preregistered | **no** — no S1/2/3 preregistration contains this proposition |
 | Model inference | **none run** |
 | Frozen outcomes modified | **none** |
 | New empirical quantity | **none** — TRR is the preregistered s-3 quantity, recomputed read-only |
