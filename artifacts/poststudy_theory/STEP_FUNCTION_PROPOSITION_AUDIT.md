@@ -22,7 +22,7 @@
 | Overall status | **PASS** |
 
 This document adds an *interpretation* of an existing frozen result. It
-introduces no new measurement. Day 3 already reported nontrivial TRR; what is new
+introduces no new measurement. S3 already reported nontrivial TRR; what is new
 is a proof of what TRR = 0 rules out.
 
 ## 2. Proposition
@@ -207,7 +207,7 @@ Llama shows an adjacent equality on 264 of 324 curves. Those curves are
 incompatible with a strictly order-preserving scalar readout regardless of where
 their boundary happens to fall.
 
-**Result: PASS.** The proposition and the Day-3 theorem use compatible
+**Result: PASS.** The proposition and the S3 theorem use compatible
 definitions, and the tie convention is the one the proposition requires.
 
 ## 7. Synthetic verification
